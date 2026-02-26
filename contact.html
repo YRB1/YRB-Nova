@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Contact YRB Nova to get professional, high-converting landing pages and websites. Fill out the form or find us on the map to start your project today.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YRB Nova - Contact</title>
+    <style>
+        /* =========================
+           1. Variables & Base Styles (Dark Theme)
+           ========================= */
+        :root {
+            /* Professional Monochromatic Palette */
+            --primary-accent: #ffffff; 
+            --secondary-accent: #b0b0b0; /* Light Gray for CTAs/Highlights */
+            --bg-dark: #121212; 
+            --bg-card: #1c1c1c; 
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --cta-blue: #007bff; /* Kept for the button/form highlight */
+        }
+
+        /* Subtle background pulse animation (for depth) */
+        @keyframes subtlePulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            /* Animated Dark Gradient Background */
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a);
+            background-size: 400% 400%;
+            animation: subtlePulse 20s ease infinite;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* =========================
+           2. Navigation (Sticky, Dark, & Responsive)
+           ========================= */
+        header nav {
+            background-color: #000;
+            padding: 15px 40px;
+            display: flex;
+            /* Ensures logo is left and menu/icon is right */
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 500;
+            font-size: 15px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+        .site-logo {
+            color: var(--primary-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+            z-index: 1002;
+            margin-right: auto; /* Pushes the main menu to the right on desktop */
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Horizontal on desktop */
+            transition: transform 0.3s ease-out, opacity 0.3s ease;
+        }
+
+        header nav ul li {
+            margin-left: 30px;
+        }
+
+        header nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        header nav ul li a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* Hide the toggle checkbox and the menu icon on desktop */
+        #menu-toggle { display: none; } 
+        .menu-icon { display: none; }
+
+        @media (max-width: 768px) {
+            header nav { padding: 15px 20px; }
+            
+            .site-logo { margin-right: 0; }
+            
+            /* Hamburger Icon (visible on mobile, aligned right) */
+            .menu-icon {
+                display: block;
+                font-size: 28px;
+                color: var(--primary-accent);
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            /* The actual dropdown menu */
+            header nav ul {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                position: absolute;
+                top: 55px; 
+                left: 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            header nav ul li {
+                margin: 15px 0; 
+                margin-left: 0;
+            }
+
+            /* Show the menu when the hidden checkbox is checked (Dropdown behavior) */
+            #menu-toggle:checked ~ ul.menu { 
+                display: flex;
+            }
+        }
+        
+        /* =========================
+           3. Hero Section (Contact)
+           ========================= */
+        .hero {
+            padding: 100px 20px 80px;
+            text-align: center;
+            background-color: var(--bg-dark);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: var(--text-muted);
+        }
+
+        /* =========================
+           4. Contact Section (Form & Map)
+           ========================= */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 20px;
+            background-color: rgb(212, 210, 206);
+        }
+
+        .contact-form, .contact-map {
+            /* Dark Card Style applied */
+            background: rgb(222, 219, 214);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            flex: 1 1 400px;
+            max-width: 600px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            /* Input styling for dark background */
+            background: #e7e5e5; 
+            color: black;
+            padding: 14px 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #444; 
+            font-size: 1rem;
+            resize: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--cta-blue);
+            outline: none;
+        }
+
+        .contact-form button {
+            background: var(--cta-blue);
+            color: var(--primary-accent);
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Map */
+        .contact-map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Mobile Responsive Adjustments for Content */
+        @media (max-width: 768px) {
+            /* Force the form and map to stack vertically */
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .contact-form, .contact-map {
+                flex: 1 1 100%;
+                max-width: 100%; 
+            }
+        }
+        
+        /* =========================
+           5. Footer
+           ========================= */
+        footer {
+            background: #000;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="site-logo">YRB NOVA</a>
+
+        <input type="checkbox" id="menu-toggle">
+
+        <label for="menu-toggle" class="menu-icon">☰</label> 
+        
+        <ul class="menu"> 
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Let's Build Something Great</h1>
+    <p>Have a project in mind? Fill out the form below and we'll be in touch within one business day. Your next high-converting website starts here.</p>
+</section>
+
+<section class="contact-container">
+    <div class="contact-form">
+        <form id="contactForm" action="https://formspree.io/f/mldaypqv" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Project Budget (Optional)">
+            <textarea name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+            <button type="submit">Start My Project</button>
+        </form>
+        <p id="formMessage" style="margin-top:15px; color:#007bff; display:none; text-align:center;">Your message has been sent!</p>
+    </div>
+
+    <div class="contact-map">
+        <iframe 
+            title="Office Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.06343317886!2d-0.381783!3d51.528558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761cb1f3b4d4e3%3A0x6a125d6fefb0f8f4!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 YRB Nova. All rights reserved.</p>
+</footer>
+
+<script>
+// Basic JS form feedback
+const form = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            formMessage.style.display = 'block';
+            form.reset();
+        } else {
+            response.json().then(data => {
+                alert(data.error || 'Oops! There was a problem submitting your form.');
+            });
+        }
+    })
+    .catch(error => {
+        alert('Oops! There was a problem submitting your form.');
+    });
+});
+</script>
+
+</body>
+</html>
