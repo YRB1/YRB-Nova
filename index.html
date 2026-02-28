@@ -15,6 +15,26 @@
     --light-bg: #f9f9f9;
     --text-dark: #222;
     --text-light: #f0f0f0;
+    --primary-accent: #ffffff; 
+    --secondary-accent: #b0b0b0;
+    --bg-dark: #121212; 
+    --bg-card: #1c1c1c; 
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --cta-blue: #007bff;
+}
+
+@keyframes subtlePulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes kenBurns {
+    0%   { transform: scale(1) translate(0, 0); }
+    50%  { transform: scale(1.08) translate(-1%, -1%); }
+    100% { transform: scale(1) translate(0, 0); }
 }
 
 body {
@@ -32,7 +52,7 @@ header nav {
     background-color: #000;
     padding: 15px 40px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; 
     align-items: center;
     font-weight: 500;
     font-size: 15px;
@@ -44,6 +64,16 @@ header nav {
     transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
+.site-logo {
+    color: var(--primary-accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    z-index: 1002;
+    margin-right: auto;
+}
+
 header nav ul {
     list-style: none;
     margin: 0;
@@ -52,54 +82,175 @@ header nav ul {
     transition: transform 0.3s ease-out, opacity 0.3s ease;
 }
 
-header nav ul li {
-    margin-left: 30px;
-}
+header nav ul li { margin-left: 30px; }
 
 header nav ul li a {
-    color: #fff;
+    color: var(--text-main);
     text-decoration: none;
     transition: 0.3s;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-header nav ul li a:hover {
-    color: var(--primary-color);
-}
+header nav ul li a:hover { color: var(--secondary-accent); }
 
-.hamburger {
-    display: none; 
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1010;
+#menu-toggle { display: none; } 
+.menu-icon { display: none; }
+
+@media (max-width: 768px) {
+    header nav { padding: 15px 20px; }
+    .site-logo { margin-right: 0; }
+    .menu-icon {
+        display: block;
+        font-size: 28px;
+        color: var(--primary-accent);
+        cursor: pointer;
+        z-index: 1001;
+    }
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 55px; 
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        padding: 10px 0;
+        text-align: center;
+    }
+    header nav ul li { margin: 15px 0; margin-left: 0; }
+    #menu-toggle:checked ~ ul.menu { display: flex; }
 }
 
 /* =========================
-   Hero Section
+   Cookie Popup & Modal
+========================= */
+#cookie-consent-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 340px;
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+#cookie-consent-popup p { margin: 0; }
+
+.cookie-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.cookie-buttons button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cookie-buttons button:hover { background-color: #2563eb; }
+.cookie-buttons a { color: #f9fafb; text-decoration: underline; font-size: 14px; }
+
+#cookie-preferences-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+#cookie-preferences-modal .modal-content {
+  background: #fff;
+  color: #111827;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+}
+
+#cookie-preferences-modal label { display: block; margin: 10px 0; text-align: left; }
+
+.modal-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 12px; }
+.modal-buttons button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; }
+#save-preferences { background-color: #3b82f6; color: #fff; }
+#save-preferences:hover { background-color: #2563eb; }
+#close-modal { background-color: #ccc; color: #111827; }
+#close-modal:hover { background-color: #999; }
+
+@media (max-width: 500px) {
+  #cookie-consent-popup { width: 90%; bottom: 10px; right: 5%; padding: 20px; font-size: 13px; }
+  .cookie-buttons { flex-direction: column; gap: 8px; }
+  .cookie-buttons button, .cookie-buttons a { width: 100%; }
+  #cookie-preferences-modal .modal-content { width: 95%; padding: 20px; }
+  .modal-buttons { flex-direction: column; gap: 10px; }
+  .modal-buttons button { width: 100%; }
+}
+
+/* =========================
+   Hero Section with Slideshow Background
 ========================= */
 .hero {
     position: relative;
-    background: url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
+    overflow: hidden;
 }
 
-.hero-overlay {
+/* Slideshow sits as background */
+.hero-slideshow {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slideshow .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slideshow .slide.active { opacity: 1; }
+
+.hero-slideshow .slide img {
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    object-fit: cover;
+    object-position: top center;
+    animation: kenBurns 10s ease-in-out infinite;
+}
+
+/* Dark overlay on top of slideshow */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
     z-index: 1;
 }
 
@@ -122,6 +273,8 @@ header nav ul li a:hover {
     margin-bottom: 35px;
     opacity: 0.9;
 }
+
+
 
 .cta-btn {
     display: inline-block;
@@ -151,18 +304,9 @@ section.services {
     text-align: center;
 }
 
-section.services h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #111;
-}
+section.services h2 { font-size: 2.5rem; margin-bottom: 50px; color: #111; }
 
-.service-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+.service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
 
 .service-card {
     background: #fff;
@@ -174,30 +318,13 @@ section.services h2 {
     transition: transform 0.3s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.service-card .icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.service-card h4 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    color: #222;
-}
-
-.service-card p {
-    color: #666;
-    font-size: 1rem;
-}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.service-card .icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; }
+.service-card h4 { margin-top: 0; font-size: 1.4rem; color: #222; }
+.service-card p { color: #666; font-size: 1rem; }
 
 /* =========================
-   Reviews Carousel (Dark)
+   Reviews Carousel
 ========================= */
 section.reviews {
     padding: 100px 20px;
@@ -206,11 +333,7 @@ section.reviews {
     text-align: center;
 }
 
-section.reviews h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #fff;
-}
+section.reviews h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff; }
 
 .carousel-container {
     position: relative;
@@ -222,10 +345,7 @@ section.reviews h2 {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.carousel {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
+.carousel { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
 
 .review-card {
     min-width: 100%;
@@ -237,72 +357,29 @@ section.reviews h2 {
     align-items: center;
 }
 
-.review-card p {
-    font-size: 1.2rem;
-    color: #ddd;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.review-card h4 {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--primary-color);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.review-card .stars {
-    color: gold;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
+.review-card p { font-size: 1.2rem; color: #ddd; font-style: italic; margin-bottom: 20px; }
+.review-card h4 { margin: 0; font-size: 1rem; color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.review-card .stars { color: gold; margin-bottom: 10px; font-size: 1.2rem; }
 
 /* =========================
-   About & CTA (Light)
+   About & CTA
 ========================= */
-section.about,
-section.cta {
+section.about, section.cta {
     background: var(--light-bg);
     color: var(--text-dark);
     text-align: center;
     padding: 100px 20px;
 }
 
-section.about h2,
-section.cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #111;
-}
-
-section.about p,
-section.cta p {
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-    font-size: 1.15rem;
-    color: #555;
-}
-
-section.cta {
-    padding-bottom: 120px;
-}
+section.about h2, section.cta h2 { font-size: 2.5rem; margin-bottom: 20px; color: #111; }
+section.about p, section.cta p { max-width: 700px; margin: 0 auto 30px auto; font-size: 1.15rem; color: #555; }
+section.cta { padding-bottom: 120px; }
 
 /* =========================
    Portfolio Section
 ========================= */
-section.portfolio {
-    padding: 100px 20px;
-    background: var(--dark-bg);
-    text-align: center;
-}
-
-section.portfolio h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #fff9f9;
-}
+section.portfolio { padding: 100px 20px; background: var(--dark-bg); text-align: center; }
+section.portfolio h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff9f9; }
 
 .portfolio-container {
     position: relative;
@@ -314,45 +391,17 @@ section.portfolio h2 {
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
-.portfolio-carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+.portfolio-carousel { display: flex; transition: transform 0.5s ease-in-out; }
 
-.portfolio-card {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-    background: #fff;
-    text-align: center;
-}
+.portfolio-card { min-width: 100%; box-sizing: border-box; padding: 0; background: #fff; text-align: center; }
 
-.portfolio-card img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-}
+.portfolio-card img { width: 100%; height: 450px; object-fit: cover; object-position: top center; display: block; }
 
-.portfolio-info {
-    padding: 30px;
-}
+.portfolio-info { padding: 30px; }
+.portfolio-card h4 { color: #111; margin: 0 0 10px 0; font-size: 1.5rem; }
+.portfolio-card p { color: #666; margin: 0; }
 
-.portfolio-card h4 {
-    color: #111;
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-}
-
-.portfolio-card p {
-    color: #666;
-    margin: 0;
-}
-
-/* Arrows */
-.portfolio-prev,
-.portfolio-next {
+.portfolio-prev, .portfolio-next {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
@@ -371,15 +420,9 @@ section.portfolio h2 {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.portfolio-prev:hover,
-.portfolio-next:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
+.portfolio-prev:hover, .portfolio-next:hover { background: var(--primary-color); color: white; }
 .portfolio-prev { left: 20px; }
 .portfolio-next { right: 20px; }
-
 
 /* =========================
    Footer
@@ -394,24 +437,12 @@ footer {
 
 footer p { margin-bottom: 30px; }
 
-.footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer-social a {
-    transition: transform 0.3s ease, opacity 0.3s;
-    opacity: 0.7;
-}
-
-.footer-social a:hover {
-    transform: translateY(-3px);
-    opacity: 1;
-}
+.footer-social { display: flex; justify-content: center; gap: 20px; }
+.footer-social a { transition: transform 0.3s ease, opacity 0.3s; opacity: 0.7; }
+.footer-social a:hover { transform: translateY(-3px); opacity: 1; }
 
 /* =========================
-   Back to Top Button
+   Back to Top
 ========================= */
 #back-to-top {
     display: none; 
@@ -432,95 +463,23 @@ footer p { margin-bottom: 30px; }
     transition: background-color 0.3s, opacity 0.3s;
 }
 
-#back-to-top:hover {
-    background-color: var(--secondary-color);
-}
+#back-to-top:hover { background-color: var(--secondary-color); }
 
 /* =========================
-   Responsive Media Queries (Mobile View)
+   Mobile
 ========================= */
 @media (max-width: 768px) {
-    
-    /* 1. Show Hamburger */
-    .hamburger {
-        display: block;
-        margin-left: auto;
-    }
-
-    /* 2. Hide Horizontal Menu and Prepare for Vertical Stacking */
-    header nav ul { 
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #000;
-        padding: 10px 0;
-        box-shadow: 0 8px 10px rgba(0,0,0,0.3);
-        z-index: 999;
-        /* Mobile Slide-in effect start position */
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    
-    /* 4. Show Menu when Active Class is Toggled by JS (Slide-in end position) */
-    header nav ul.active {
-        display: flex; 
-        transform: translateY(0);
-        opacity: 1;
-    }
-    
-    /* 3. Style Menu Items */
-    header nav ul li {
-        margin: 0;
-        text-align: center;
-    }
-    
-    header nav ul li a {
-        display: block;
-        padding: 15px 20px;
-        border-bottom: 1px solid #1a1a1a;
-    }
-
-    header nav {
-        justify-content: space-between;
-        padding: 15px 20px;
-    }
-
-    /* Service Grid Mobile Adjustments */
-    .service-grid {
-        gap: 20px;
-    }
-    .service-card {
-        max-width: 100%;
-    }
-
-    /* Other mobile adjustments */
-    .hero {
-        height: 75vh;
-    }
-    
+    .hero { height: 75vh; }
     .hero-content h1 { font-size: 2.2rem; margin-top: 20px; }
     .hero-content p { font-size: 1rem; }
     .cta-btn { padding: 12px 30px; font-size: 0.9rem; }
-
-    section.reviews, section.portfolio, section.about, section.cta, section.services { 
-        padding: 60px 15px;
-    }
-    
-    .carousel-container, .portfolio-container { 
-        max-width: 100%;
-        border-radius: 0;
-    }
-    
+    .service-grid { gap: 20px; }
+    .service-card { max-width: 100%; }
+    section.reviews, section.portfolio, section.about, section.cta, section.services { padding: 60px 15px; }
+    .carousel-container, .portfolio-container { max-width: 100%; border-radius: 0; }
     .review-card { padding: 40px 15px; }
     .portfolio-card img { height: 250px; }
-
-    .portfolio-prev,
-    .portfolio-next {
-        width: 30px; height: 30px; font-size: 1rem; top: 35%;
-    }
+    .portfolio-prev, .portfolio-next { width: 30px; height: 30px; font-size: 1rem; top: 35%; }
     .portfolio-prev { left: 10px; }
     .portfolio-next { right: 10px; }
 }
@@ -528,10 +487,38 @@ footer p { margin-bottom: 30px; }
 </head>
 <body>
 
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent-popup">
+  <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
+  <div class="cookie-buttons">
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies" type="button">Deny</button>   
+    <button id="view-preferences">View Preferences</button>
+    <a href="/cookie-policy.html">Cookie Policy</a>
+  </div>
+</div>
+
+<!-- Preferences Modal -->
+<div id="cookie-preferences-modal">
+  <div class="modal-content">
+    <h3>Cookie Preferences</h3>
+    <p>Toggle the types of cookies you allow:</p>
+    <label><input type="checkbox" disabled checked> Essential (always active)</label><br>
+    <label><input type="checkbox" id="analytics-cookies"> Analytical</label><br>
+    <label><input type="checkbox" id="marketing-cookies"> Marketing</label><br>
+    <div class="modal-buttons">
+      <button id="save-preferences">Save Preferences</button>
+      <button id="close-modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <header>
     <nav>
-        <button class="hamburger" aria-label="Toggle Navigation Menu">&#9776;</button>
-        <ul>
+        <a href="index.html" class="site-logo">YRB NOVA</a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label> 
+        <ul class="menu"> 
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -540,12 +527,31 @@ footer p { margin-bottom: 30px; }
 </header>
 
 <section class="hero">
+    <!-- Slideshow as background -->
+    <div class="hero-slideshow">
+        <div class="slide active">
+            <img src="https://www.themuse.com/_next/image?url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F01212022-1047259374-coding-classes_scanrail.jpg&w=3840&q=75" alt="Coding">
+        </div>
+        <div class="slide">
+            <img src="https://www.devx.com/wp-content/uploads/vibe-coding-1.jpg.webp" alt="Vibe Coding">
+        </div>
+        <div class="slide">
+            <img src="https://media.istockphoto.com/id/1147195672/photo/focused-developer-coding-on-computer-monitors-working-late-in-office.jpg?s=612x612&w=0&k=20&c=R6oPQ_vkXAxCzpi4UFsN28pdU0C0LJL8JLAX-HwO90Q=" alt="Developer Coding">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?auto=format&fit=crop&w=1950&q=80" alt="Web Design">
+        </div>
+    </div>
+
     <div class="hero-overlay"></div>
+
     <div class="hero-content">
         <h1>YRB Nova</h1>
         <p>Landing pages that convert visitors into paying clients. Fast, professional, and fully responsive websites for your business.</p>
         <a href="services.html" class="cta-btn">Get Started</a>
     </div>
+
+
 </section>
 
 <section class="services">
@@ -573,42 +579,36 @@ footer p { margin-bottom: 30px; }
     <h2>What Clients Say</h2>
     <div class="carousel-container">
         <div class="carousel">
-           <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p>"Honestly didn’t expect it to come out this clean. The layout feels premium and my site loads way faster now."</p>
-    <h4>- Daniel R.</h4>
-</div>
-
-<div class="review-card">
-    <div class="stars">★★★★☆</div>
-    <p>"Great communication throughout the whole project. A couple details needed tweaking, but they fixed them straight away."</p>
-    <h4>- Priya M.</h4>
-</div>
-
-<div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p>"My old landing page wasn’t converting at all. After the redesign, I started seeing sales literally the next week."</p>
-    <h4>- Jordan F.</h4>
-</div>
-
-<div class="review-card">
-    <div class="stars">★★★★⯪</div>
-    <p>"Really happy with the final look. Mobile responsiveness was a big issue for me, and they nailed it."</p>
-    <h4>- Chloe W.</h4>
-</div>
-
-<div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p>"Turnaround was much faster than I expected. The new design actually matches my brand vibe perfectly."</p>
-    <h4>- Mateo S.</h4>
-</div>
-
-<div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p>"Wasn’t sure what style I wanted, but they guided me through everything. End result is clean, modern, and converts well."</p>
-    <h4>- Hannah L.</h4>
-</div>
-
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Honestly didn't expect it to come out this clean. The layout feels premium and my site loads way faster now."</p>
+                <h4>- Daniel R.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p>"Great communication throughout the whole project. A couple details needed tweaking, but they fixed them straight away."</p>
+                <h4>- Priya M.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"My old landing page wasn't converting at all. After the redesign, I started seeing sales literally the next week."</p>
+                <h4>- Jordan F.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★⯪</div>
+                <p>"Really happy with the final look. Mobile responsiveness was a big issue for me, and they nailed it."</p>
+                <h4>- Chloe W.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Turnaround was much faster than I expected. The new design actually matches my brand vibe perfectly."</p>
+                <h4>- Mateo S.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Wasn't sure what style I wanted, but they guided me through everything. End result is clean, modern, and converts well."</p>
+                <h4>- Hannah L.</h4>
+            </div>
         </div>
     </div>
 </section>
@@ -622,35 +622,42 @@ footer p { margin-bottom: 30px; }
     <h2>My Recent Work</h2>
     <div class="portfolio-container">
         <div class="portfolio-carousel">
-            
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Screenshot of an optimized music portfolio website">
+                <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="New Plumber website design">
+                <div class="portfolio-info">
+                    <h4>New Plumber Website</h4>
+                    <p>Professional plumbing website showcasing services, booking, and contact features.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Optimized music portfolio website">
                 <div class="portfolio-info">
                     <h4>Optimized Music Portfolio</h4>
                     <p>Landing page with HTML, CSS, JS, and UX optimizations.</p>
                 </div>
             </div>
-
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Screenshot of a sleek charity donation page">
+                <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Sleek charity donation page">
                 <div class="portfolio-info">
                     <h4>Sleek Donation Form</h4>
                     <p>Custom form for charities with responsive design and UX enhancements.</p>
                 </div>
             </div>
-
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Screenshot of the Kentros enterprise landing page project">
+                <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Kentros enterprise landing page">
                 <div class="portfolio-info">
                     <h4>Enterprise Landing Page</h4>
                     <p>Professional landing page with modern UX, HTML, CSS, and JS features.</p>
                 </div>
             </div>
-
-            
-
+            <div class="portfolio-card">
+                <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric website homepage">
+                <div class="portfolio-info">
+                    <h4>Elite Electric Website</h4>
+                    <p>Modern electrical services website with strong CTA and responsive layout.</p>
+                </div>
+            </div>
         </div>
-        
         <button class="portfolio-prev" aria-label="Previous Slide">&#10094;</button>
         <button class="portfolio-next" aria-label="Next Slide">&#10095;</button>
     </div>
@@ -669,55 +676,53 @@ footer p { margin-bottom: 30px; }
         <a href="#" aria-label="Twitter Profile"><svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24"><path d="M24 4.56c-.89.39-1.85.66-2.85.78 1.03-.62 1.82-1.6 2.19-2.77-.96.57-2.03.98-3.17 1.2a4.48 4.48 0 0 0-7.64 4.09A12.71 12.71 0 0 1 1.64 3.16a4.48 4.48 0 0 0 1.39 5.97c-.82-.03-1.59-.25-2.26-.62v.06c0 2.17 1.54 3.98 3.58 4.39-.37.1-.76.15-1.16.15-.28 0-.55-.03-.81-.08.55 1.73 2.15 2.99 4.05 3.02a9.01 9.01 0 0 1-5.57 1.92c-.36 0-.71-.02-1.06-.06a12.72 12.72 0 0 0 6.88 2.01c8.26 0 12.77-6.85 12.77-12.78 0-.2 0-.41-.01-.61A9.22 9.22 0 0 0 24 4.56z"/></svg></a>
         <a href="#" aria-label="Instagram Profile"><svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.055 1.97.24 2.43.403a4.92 4.92 0 0 1 1.77 1.03 4.92 4.92 0 0 1 1.03 1.77c.163.46.348 1.26.403 2.43.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.97-.403 2.43a4.92 4.92 0 0 1-1.03 1.77 4.92 4.92 0 0 1-1.77 1.03c-.46.163-1.26.348-2.43.403-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.97-.24-2.43-.403a4.92 4.92 0 0 1-1.77-1.03 4.92 4.92 0 0 1-1.03-1.77c-.163-.46-.348-1.26-.403-2.43C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.055-1.17.24-1.97.403-2.43a4.92 4.92 0 0 1 1.03-1.77 4.92 4.92 0 0 1 1.77-1.03c.46-.163 1.26-.348 2.43-.403C8.416 2.172 8.8 2.16 12 2.16zm0-2.16C8.736 0 8.332.013 7.052.072 5.77.131 4.832.312 4.05.635a6.92 6.92 0 0 0-2.5 1.64A6.92 6.92 0 0 0 .635 4.05C.312 4.832.131 5.77.072 7.052.013 8.332 0 8.736 0 12c0 3.264.013 3.668.072 4.948.059 1.282.24 2.22.563 3.002a6.92 6.92 0 0 0 1.64 2.5 6.92 6.92 0 0 0 2.5 1.64c.782.323 1.72.504 3.002.563 1.28.059 1.684.072 4.948.072s3.668-.013 4.948-.072c1.282-.059 2.22-.24 3.002-.563a6.92 6.92 0 0 0 2.5-1.64 6.92 6.92 0 0 0 1.64-2.5c.323-.782.504-1.72.563-3.002.059-1.28.072-1.684.072-4.948s-.013-3.668-.072-4.948c-.059-1.282-.24-2.22-.563-3.002a6.92 6.92 0 0 0-1.64-2.5 6.92 6.92 0 0 0-2.5-1.64c-.782-.323-1.72-.504-3.002-.563C15.668.013 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.879 0 1.44 1.44 0 0 1 2.879 0z"/></svg></a>
     </div>
+    <a href="/cookie-policy.html">Cookie Policy</a>
 </footer>
 
 <button onclick="topFunction()" id="back-to-top" title="Go to top">&#9650;</button>
 
 <script>
-// =====================
-// Navigation Toggle JS
-// =====================
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('header nav ul'); 
+// Navigation Toggle
+const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('header nav ul');
 
-// Function to handle the menu toggle
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+if (menuIcon) {
+    menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
+}
 
-// Functionality to close the menu after clicking a link (optional, but good UX)
 navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-             navLinks.classList.remove('active');
-        }
-    });
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
 });
 
-// =====================
-// Back to Top JS
-// =====================
+// Back to Top
 const backToTopBtn = document.getElementById("back-to-top");
 
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
+window.onscroll = function () {
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         backToTopBtn.style.display = "block";
     } else {
         backToTopBtn.style.display = "none";
     }
-}
+};
 
 function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
+// Hero Slideshow
+const heroSlides = document.querySelectorAll('.hero-slideshow .slide');
+let heroIndex = 0;
 
-// =====================
-// Reviews Carousel JS
-// =====================
+function goToHeroSlide(index) {
+    heroSlides[heroIndex].classList.remove('active');
+    heroIndex = index % heroSlides.length;
+    heroSlides[heroIndex].classList.add('active');
+}
+
+setInterval(() => goToHeroSlide(heroIndex + 1), 4000);
+
+// Reviews Carousel
 const carousel = document.querySelector('.carousel');
 let index = 0;
 const total = carousel.children.length;
@@ -729,33 +734,60 @@ function showSlide(i) {
     carousel.style.transform = `translateX(-${index * 100}%)`;
 }
 
-// Auto-slide every 4 seconds
-setInterval(() => {
-    showSlide(index + 1);
-}, 4000);
+setInterval(() => showSlide(index + 1), 4000);
 
-// =====================
-// Portfolio Carousel JS
-// =====================
+// Portfolio Carousel
 const portfolioCarousel = document.querySelector('.portfolio-carousel');
 const portfolioPrev = document.querySelector('.portfolio-prev');
 const portfolioNext = document.querySelector('.portfolio-next');
 let pIndex = 0;
 const pTotal = portfolioCarousel.children.length;
 
-function showPortfolioSlide(i){
-    if(i >= pTotal) pIndex = 0;
-    else if(i < 0) pIndex = pTotal - 1;
+function showPortfolioSlide(i) {
+    if (i >= pTotal) pIndex = 0;
+    else if (i < 0) pIndex = pTotal - 1;
     else pIndex = i;
     portfolioCarousel.style.transform = `translateX(-${pIndex * 100}%)`;
 }
 
 portfolioPrev.addEventListener('click', () => showPortfolioSlide(pIndex - 1));
 portfolioNext.addEventListener('click', () => showPortfolioSlide(pIndex + 1));
-
-// Auto-slide portfolio every 6s
 setInterval(() => showPortfolioSlide(pIndex + 1), 6000);
 
+// Cookie Consent
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('cookie-consent-popup');
+    const modal = document.getElementById('cookie-preferences-modal');
+
+    popup.style.display = 'flex';
+
+    document.getElementById('accept-cookies').onclick = () => {
+        localStorage.setItem('cookieChoice', 'accepted');
+        popup.style.display = 'none';
+    };
+
+    document.getElementById('deny-cookies').onclick = () => {
+        localStorage.setItem('cookieChoice', 'denied');
+        popup.style.display = 'none';
+    };
+
+    document.getElementById('view-preferences').onclick = (e) => {
+        e.preventDefault();
+        modal.style.display = 'flex';
+    };
+
+    document.getElementById('close-modal').onclick = () => {
+        modal.style.display = 'none';
+    };
+
+    document.getElementById('save-preferences').onclick = () => {
+        const analytics = document.getElementById('analytics-cookies').checked;
+        const marketing = document.getElementById('marketing-cookies').checked;
+        localStorage.setItem('cookiesPreferences', JSON.stringify({ analytics, marketing }));
+        popup.style.display = 'none';
+        modal.style.display = 'none';
+    };
+});
 </script>
 
 </body>
