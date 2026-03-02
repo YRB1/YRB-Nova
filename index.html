@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YRB Nova - Home</title>
 <link rel="icon" type="image/png" href="favicon.png"> 
+
 <style>
 :root {
     --primary-color: #007bff;
@@ -222,7 +223,6 @@ header nav ul li a:hover { color: var(--secondary-accent); }
     overflow: hidden;
 }
 
-/* Slideshow sits as background */
 .hero-slideshow {
     position: absolute;
     inset: 0;
@@ -246,7 +246,6 @@ header nav ul li a:hover { color: var(--secondary-accent); }
     animation: kenBurns 10s ease-in-out infinite;
 }
 
-/* Dark overlay on top of slideshow */
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -273,8 +272,6 @@ header nav ul li a:hover { color: var(--secondary-accent); }
     margin-bottom: 35px;
     opacity: 0.9;
 }
-
-
 
 .cta-btn {
     display: inline-block;
@@ -424,22 +421,173 @@ section.portfolio h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff9f9; }
 .portfolio-prev { left: 20px; }
 .portfolio-next { right: 20px; }
 
-/* =========================
-   Footer
-========================= */
-footer {
-    background-color: #000;
-    color: #888;
-    text-align: center;
-    padding: 80px 20px;
-    font-size: 0.9rem;
+.hero-slideshow .prev,
+.hero-slideshow .next,
+.portfolio-prev,
+.portfolio-next {
+    display: none !important;
 }
 
-footer p { margin-bottom: 30px; }
+/* =========================
+   Footer — Improved
+========================= */
+footer {
+    --fg: #f0f0f0;
+    --fg-muted: #888;
+    --accent: #007bff;
+    --accent-hover: #0056b3;
+    --border: rgba(255, 255, 255, 0.08);
+    background: #000;
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
 
-.footer-social { display: flex; justify-content: center; gap: 20px; }
-.footer-social a { transition: transform 0.3s ease, opacity 0.3s; opacity: 0.7; }
-.footer-social a:hover { transform: translateY(-3px); opacity: 1; }
+footer::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,123,255,0.5) 40%, rgba(0,123,255,0.5) 60%, transparent 100%);
+}
+
+.footer-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 40px 36px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.footer-logo span { color: var(--accent); }
+
+.footer-tagline {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.footer-nav a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+    border-color: var(--border);
+    background: rgba(255,255,255,0.04);
+}
+
+.footer-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 36px;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-copy a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-copy a:hover { color: var(--accent-hover); }
+
+.footer-social {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.2s;
+}
+
+.footer-social a:hover {
+    color: #fff;
+    border-color: var(--accent);
+    background: rgba(0,123,255,0.12);
+    transform: translateY(-2px);
+}
+
+.footer-social svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+@media (max-width: 600px) {
+    .footer-inner { padding: 40px 24px 28px; }
+    .footer-top { flex-direction: column; gap: 28px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
 
 /* =========================
    Back to Top
@@ -527,7 +675,6 @@ footer p { margin-bottom: 30px; }
 </header>
 
 <section class="hero">
-    <!-- Slideshow as background -->
     <div class="hero-slideshow">
         <div class="slide active">
             <img src="https://www.themuse.com/_next/image?url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F01212022-1047259374-coding-classes_scanrail.jpg&w=3840&q=75" alt="Coding">
@@ -550,8 +697,6 @@ footer p { margin-bottom: 30px; }
         <p>Landing pages that convert visitors into paying clients. Fast, professional, and fully responsive websites for your business.</p>
         <a href="services.html" class="cta-btn">Get Started</a>
     </div>
-
-
 </section>
 
 <section class="services">
@@ -562,10 +707,10 @@ footer p { margin-bottom: 30px; }
             <h4>Web Design & Development</h4>
             <p>From custom HTML/CSS/JS to modern frameworks, I build fast, professional websites tailored to your brand.</p>
         </div>
-        <div class="service-card">
+       <div class="service-card">
             <div class="icon">📈</div>
-            <h4>Conversion Optimization</h4>
-            <p>Focusing on clear calls-to-action (CTAs) and compelling copy to maximize visitor-to-client conversion rates.</p>
+            <h4>Lead Generation</h4>
+            <p>Your website is built with one goal in mind, turning visitors into real enquiries for your business.</p>
         </div>
         <div class="service-card">
             <div class="icon">📱</div>
@@ -581,32 +726,32 @@ footer p { margin-bottom: 30px; }
         <div class="carousel">
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Honestly didn't expect it to come out this clean. The layout feels premium and my site loads way faster now."</p>
+                <p>"I needed a website that actually explains what we do clearly. They took time to understand my business and delivered something that feels accurate and professional."</p>
                 <h4>- Daniel R.</h4>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★☆</div>
-                <p>"Great communication throughout the whole project. A couple details needed tweaking, but they fixed them straight away."</p>
+                <p>"Communication was consistent throughout the project. I had a few changes along the way and everything was handled quickly and properly."</p>
                 <h4>- Priya M.</h4>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"My old landing page wasn't converting at all. After the redesign, I started seeing sales literally the next week."</p>
+                <p>"Our old site didn't reflect the quality of our work. The redesign feels modern, clean, and much more aligned with our brand."</p>
                 <h4>- Jordan F.</h4>
             </div>
             <div class="review-card">
-                <div class="stars">★★★★⯪</div>
-                <p>"Really happy with the final look. Mobile responsiveness was a big issue for me, and they nailed it."</p>
+                <div class="stars">★★★★★</div>
+                <p>"Most of our customers come through mobile, so responsiveness was important. The site runs smoothly and looks great on every device."</p>
                 <h4>- Chloe W.</h4>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Turnaround was much faster than I expected. The new design actually matches my brand vibe perfectly."</p>
+                <p>"It wasn't a generic template. Everything was built around my services and target customers, which made it feel properly tailored."</p>
                 <h4>- Mateo S.</h4>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Wasn't sure what style I wanted, but they guided me through everything. End result is clean, modern, and converts well."</p>
+                <p>"I wasn't sure what layout would suit my business, but they guided me through the process and made it simple. The final result just feels right."</p>
                 <h4>- Hannah L.</h4>
             </div>
         </div>
@@ -615,7 +760,7 @@ footer p { margin-bottom: 30px; }
 
 <section class="about">
     <h2>Why Choose YRB Nova?</h2>
-    <p>We specialize in high-converting landing pages that look professional, load fast, and are optimized for SEO. From custom design to branding and animations, we deliver websites that impress and perform.</p>
+    <p>At YRB Nova, every website starts with understanding your business. We focus on what makes your services unique and build a clean, professional site that reflects your brand properly. No generic templates, just a tailored solution designed to fit your goals, work smoothly on every device, and support your long-term growth.</p>
 </section>
 
 <section class="portfolio">
@@ -630,31 +775,31 @@ footer p { margin-bottom: 30px; }
                 </div>
             </div>
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Optimized music portfolio website">
+                <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music portfolio website design">
                 <div class="portfolio-info">
-                    <h4>Optimized Music Portfolio</h4>
-                    <p>Landing page with HTML, CSS, JS, and UX optimizations.</p>
+                    <h4>Music Portfolio Website</h4>
+                    <p>A clean, focused portfolio built to showcase work clearly and reflect the artist's style and brand.</p>
                 </div>
             </div>
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Sleek charity donation page">
+                <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity donation website page">
                 <div class="portfolio-info">
-                    <h4>Sleek Donation Form</h4>
-                    <p>Custom form for charities with responsive design and UX enhancements.</p>
+                    <h4>Charity Donation Page</h4>
+                    <p>A straightforward, user-friendly donation page designed to make supporting the cause simple and accessible on any device.</p>
                 </div>
             </div>
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Kentros enterprise landing page">
+                <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Enterprise business landing page">
                 <div class="portfolio-info">
-                    <h4>Enterprise Landing Page</h4>
-                    <p>Professional landing page with modern UX, HTML, CSS, and JS features.</p>
+                    <h4>Enterprise Business Website</h4>
+                    <p>A professional business website structured to present services clearly and build trust with potential clients.</p>
                 </div>
             </div>
             <div class="portfolio-card">
-                <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric website homepage">
+                <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric services website">
                 <div class="portfolio-info">
                     <h4>Elite Electric Website</h4>
-                    <p>Modern electrical services website with strong CTA and responsive layout.</p>
+                    <p>A tailored website for a local electrical business, designed to highlight services, build credibility, and make enquiries easy.</p>
                 </div>
             </div>
         </div>
@@ -663,20 +808,49 @@ footer p { margin-bottom: 30px; }
     </div>
 </section>
 
-<section class="cta" id="contact">
-    <h2>Ready to Launch Your Website?</h2>
-    <p>Contact me today and let's build a website that actually converts visitors into paying clients.</p>
-    <a href="contact.html" class="cta-btn">Get Started</a>
-</section>
-
 <footer>
-    <p>&copy; 2025 YRB Nova. All rights reserved.</p>
-    <div class="footer-social">
-        <a href="#" aria-label="LinkedIn Profile"><svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.22 8h4.56v16H.22V8zm7.44 0h4.38v2.2h.06c.61-1.16 2.1-2.38 4.32-2.38 4.63 0 5.48 3.04 5.48 6.99V24h-4.56v-7.64c0-1.82-.03-4.17-2.55-4.17-2.55 0-2.94 2-2.94 4.05V24H7.66V8z"/></svg></a>
-        <a href="#" aria-label="Twitter Profile"><svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24"><path d="M24 4.56c-.89.39-1.85.66-2.85.78 1.03-.62 1.82-1.6 2.19-2.77-.96.57-2.03.98-3.17 1.2a4.48 4.48 0 0 0-7.64 4.09A12.71 12.71 0 0 1 1.64 3.16a4.48 4.48 0 0 0 1.39 5.97c-.82-.03-1.59-.25-2.26-.62v.06c0 2.17 1.54 3.98 3.58 4.39-.37.1-.76.15-1.16.15-.28 0-.55-.03-.81-.08.55 1.73 2.15 2.99 4.05 3.02a9.01 9.01 0 0 1-5.57 1.92c-.36 0-.71-.02-1.06-.06a12.72 12.72 0 0 0 6.88 2.01c8.26 0 12.77-6.85 12.77-12.78 0-.2 0-.41-.01-.61A9.22 9.22 0 0 0 24 4.56z"/></svg></a>
-        <a href="#" aria-label="Instagram Profile"><svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.055 1.97.24 2.43.403a4.92 4.92 0 0 1 1.77 1.03 4.92 4.92 0 0 1 1.03 1.77c.163.46.348 1.26.403 2.43.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.97-.403 2.43a4.92 4.92 0 0 1-1.03 1.77 4.92 4.92 0 0 1-1.77 1.03c-.46.163-1.26.348-2.43.403-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.97-.24-2.43-.403a4.92 4.92 0 0 1-1.77-1.03 4.92 4.92 0 0 1-1.03-1.77c-.163-.46-.348-1.26-.403-2.43C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.055-1.17.24-1.97.403-2.43a4.92 4.92 0 0 1 1.03-1.77 4.92 4.92 0 0 1 1.77-1.03c.46-.163 1.26-.348 2.43-.403C8.416 2.172 8.8 2.16 12 2.16zm0-2.16C8.736 0 8.332.013 7.052.072 5.77.131 4.832.312 4.05.635a6.92 6.92 0 0 0-2.5 1.64A6.92 6.92 0 0 0 .635 4.05C.312 4.832.131 5.77.072 7.052.013 8.332 0 8.736 0 12c0 3.264.013 3.668.072 4.948.059 1.282.24 2.22.563 3.002a6.92 6.92 0 0 0 1.64 2.5 6.92 6.92 0 0 0 2.5 1.64c.782.323 1.72.504 3.002.563 1.28.059 1.684.072 4.948.072s3.668-.013 4.948-.072c1.282-.059 2.22-.24 3.002-.563a6.92 6.92 0 0 0 2.5-1.64 6.92 6.92 0 0 0 1.64-2.5c.323-.782.504-1.72.563-3.002.059-1.28.072-1.684.072-4.948s-.013-3.668-.072-4.948c-.059-1.282-.24-2.22-.563-3.002a6.92 6.92 0 0 0-1.64-2.5 6.92 6.92 0 0 0-2.5-1.64c-.782-.323-1.72-.504-3.002-.563C15.668.013 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.879 0 1.44 1.44 0 0 1 2.879 0z"/></svg></a>
+    <div class="footer-inner">
+
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">YRB <span>Nova</span></div>
+                <div class="footer-tagline">Built with purpose</div>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">
+                &copy; 2025 YRB Nova. All rights reserved.
+                &nbsp;&middot;&nbsp;
+                <a href="/cookie-policy.html">Cookie Policy</a>
+            </p>
+            <div class="footer-social">
+                <a href="mailto:yrbnova@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="tel:07555985320" aria-label="Phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
     </div>
-    <a href="/cookie-policy.html">Cookie Policy</a>
 </footer>
 
 <button onclick="topFunction()" id="back-to-top" title="Go to top">&#9650;</button>

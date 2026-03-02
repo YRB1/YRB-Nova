@@ -6,22 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YRB Nova - Contact</title>
     <style>
-        /* =========================
-           1. Variables & Base Styles (Dark Theme)
-           ========================= */
         :root {
-            /* Professional Monochromatic Palette */
             --primary-accent: #ffffff; 
-            --secondary-accent: #b0b0b0; /* Light Gray for CTAs/Highlights */
+            --secondary-accent: #b0b0b0;
             --bg-dark: #121212; 
             --bg-card: #1c1c1c; 
             --text-main: #f0f0f0;
             --text-muted: #a0a0a0;
             --border-color: rgba(255, 255, 255, 0.1);
-            --cta-blue: #007bff; /* Kept for the button/form highlight */
+            --cta-blue: #007bff;
         }
 
-        /* Subtle background pulse animation (for depth) */
         @keyframes subtlePulse {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -31,7 +26,6 @@
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            /* Animated Dark Gradient Background */
             background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a);
             background-size: 400% 400%;
             animation: subtlePulse 20s ease infinite;
@@ -42,13 +36,12 @@
         }
 
         /* =========================
-           2. Navigation (Sticky, Dark, & Responsive)
+           Navigation
            ========================= */
         header nav {
             background-color: #000;
             padding: 15px 40px;
             display: flex;
-            /* Ensures logo is left and menu/icon is right */
             justify-content: space-between; 
             align-items: center;
             font-weight: 500;
@@ -68,20 +61,18 @@
             text-decoration: none;
             letter-spacing: 1px;
             z-index: 1002;
-            margin-right: auto; /* Pushes the main menu to the right on desktop */
+            margin-right: auto;
         }
 
         header nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex; /* Horizontal on desktop */
+            display: flex;
             transition: transform 0.3s ease-out, opacity 0.3s ease;
         }
 
-        header nav ul li {
-            margin-left: 30px;
-        }
+        header nav ul li { margin-left: 30px; }
 
         header nav ul li a {
             color: var(--text-main);
@@ -91,20 +82,14 @@
             letter-spacing: 1px;
         }
 
-        header nav ul li a:hover {
-            color: var(--secondary-accent);
-        }
+        header nav ul li a:hover { color: var(--secondary-accent); }
 
-        /* Hide the toggle checkbox and the menu icon on desktop */
         #menu-toggle { display: none; } 
         .menu-icon { display: none; }
 
         @media (max-width: 768px) {
             header nav { padding: 15px 20px; }
-            
             .site-logo { margin-right: 0; }
-            
-            /* Hamburger Icon (visible on mobile, aligned right) */
             .menu-icon {
                 display: block;
                 font-size: 28px;
@@ -112,10 +97,8 @@
                 cursor: pointer;
                 z-index: 1001;
             }
-
-            /* The actual dropdown menu */
             header nav ul {
-                display: none; /* Hidden by default */
+                display: none;
                 flex-direction: column;
                 width: 100%;
                 background: rgba(0, 0, 0, 0.95);
@@ -126,20 +109,12 @@
                 padding: 10px 0;
                 text-align: center;
             }
-
-            header nav ul li {
-                margin: 15px 0; 
-                margin-left: 0;
-            }
-
-            /* Show the menu when the hidden checkbox is checked (Dropdown behavior) */
-            #menu-toggle:checked ~ ul.menu { 
-                display: flex;
-            }
+            header nav ul li { margin: 15px 0; margin-left: 0; }
+            #menu-toggle:checked ~ ul.menu { display: flex; }
         }
         
         /* =========================
-           3. Hero Section (Contact)
+           Hero
            ========================= */
         .hero {
             padding: 100px 20px 80px;
@@ -162,7 +137,7 @@
         }
 
         /* =========================
-           4. Contact Section (Form & Map)
+           Contact Section
            ========================= */
         .contact-container {
             display: flex;
@@ -174,7 +149,6 @@
         }
 
         .contact-form, .contact-map {
-            /* Dark Card Style applied */
             background: rgb(222, 219, 214);
             padding: 30px;
             border-radius: 10px;
@@ -191,7 +165,6 @@
 
         .contact-form input,
         .contact-form textarea {
-            /* Input styling for dark background */
             background: #e7e5e5; 
             color: black;
             padding: 14px 15px;
@@ -228,7 +201,6 @@
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
         }
 
-        /* Map */
         .contact-map iframe {
             width: 100%;
             height: 400px;
@@ -236,9 +208,7 @@
             border-radius: 8px;
         }
 
-        /* Mobile Responsive Adjustments for Content */
         @media (max-width: 768px) {
-            /* Force the form and map to stack vertically */
             .contact-container {
                 flex-direction: column;
                 align-items: center;
@@ -251,14 +221,160 @@
         }
         
         /* =========================
-           5. Footer
+           Footer
            ========================= */
         footer {
+            --fg: #f0f0f0;
+            --fg-muted: #888;
+            --accent: #007bff;
+            --accent-hover: #0056b3;
+            --border: rgba(255, 255, 255, 0.08);
             background: #000;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.95rem;
+            color: var(--fg);
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            display: block;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0,123,255,0.5) 40%, rgba(0,123,255,0.5) 60%, transparent 100%);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 56px 40px 36px;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .footer-logo span { color: var(--accent); }
+
+        .footer-tagline {
+            font-size: 0.75rem;
+            color: var(--fg-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding-top: 4px;
+        }
+
+        .footer-nav a {
+            color: var(--fg-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 6px 14px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: color 0.25s, border-color 0.25s, background 0.25s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+            border-color: var(--border);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 36px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: var(--fg-muted);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-copy a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-copy a:hover { color: var(--accent-hover); }
+
+        .footer-social {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--fg-muted);
+            text-decoration: none;
+            transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+            border-color: var(--accent);
+            background: rgba(0,123,255,0.12);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 600px) {
+            .footer-inner { padding: 40px 24px 28px; }
+            .footer-top { flex-direction: column; gap: 28px; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -268,11 +384,8 @@
 <header>
     <nav>
         <a href="index.html" class="site-logo">YRB NOVA</a>
-
         <input type="checkbox" id="menu-toggle">
-
         <label for="menu-toggle" class="menu-icon">☰</label> 
-        
         <ul class="menu"> 
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -309,11 +422,51 @@
 </section>
 
 <footer>
-    <p>© 2025 YRB Nova. All rights reserved.</p>
+    <div class="footer-inner">
+
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">YRB <span>Nova</span></div>
+                <div class="footer-tagline">Built with purpose</div>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">
+                &copy; 2025 YRB Nova. All rights reserved.
+                &nbsp;&middot;&nbsp;
+                <a href="/cookie-policy.html">Cookie Policy</a>
+            </p>
+            <div class="footer-social">
+                <a href="mailto:yrbnova@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="tel:07555985320" aria-label="Phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
 </footer>
 
 <script>
-// Basic JS form feedback
 const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
