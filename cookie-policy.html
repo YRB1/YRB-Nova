@@ -6,205 +6,103 @@
   <title>Cookie Policy - YRB Nova</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #646363;
+      font-family: Inter, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background-color: #f9fafb;
-      color: #111827;
     }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 7px 6px;
+      background-color: #1e90ff;
+      color: #fff4f4;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      float: right;
+    }
+
+    .back-button:hover {
+      background-color: #3aa0ff;
+    }
+
     header {
-      background-color: #1f2937;
-      color: #f9fafb;
-      padding: 20px;
       text-align: center;
+      padding: 40px 20px 20px;
+      position: relative;
     }
+
+    header h1,
+    header h2 {
+      margin: 0;
+      color: #949393;
+    }
+
+    header h2 {
+      margin-top: 10px;
+      color: #959494;
+    }
+
     main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    h1, h2, h3 {
-      color: #1f2937;
+
+    main h2 {
+      color: #646363;
+      margin-top: 30px;
     }
-    a {
-      color: #3b82f6;
+
+    main h3 {
+      margin-top: 30px;
+      color: #646363;
+    }
+
+    main a {
+      color: #1e90ff;
       text-decoration: underline;
     }
-    footer {
-      background-color: #1f2937;
-      color: #f9fafb;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+
     ul {
       margin-left: 20px;
     }
 
+    footer {
+      background-color: #fffbfb;
+      color: #888;
+      text-align: center;
+      padding: 80px 20px 40px;
+      font-size: 0.9rem;
+      border-top: 2px solid rgb(235, 232, 232);
+    }
 
-/* =========================
-   Footer — Improved
-========================= */
-footer {
-    --fg: #f0f0f0;
-    --fg-muted: #888;
-    --accent: #007bff;
-    --accent-hover: #0056b3;
-    --border: rgba(255, 255, 255, 0.08);
-    background: #000;
-    color: var(--fg);
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-}
+    footer p {
+      margin-bottom: 30px;
+    }
 
-footer::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0,123,255,0.5) 40%, rgba(0,123,255,0.5) 60%, transparent 100%);
-}
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 20px;
+    }
 
-.footer-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 40px 36px;
-}
+    .footer-social a svg {
+      width: 24px;
+      height: 24px;
+      fill: #888;
+      transition: transform 0.3s ease, fill 0.3s;
+    }
 
-.footer-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-}
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.footer-logo span { color: var(--accent); }
-
-.footer-tagline {
-    font-size: 0.75rem;
-    color: var(--fg-muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-top: 4px;
-}
-
-.footer-nav a {
-    color: var(--fg-muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 6px 14px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: color 0.25s, border-color 0.25s, background 0.25s;
-}
-
-.footer-nav a:hover {
-    color: #fff;
-    border-color: var(--border);
-    background: rgba(255,255,255,0.04);
-}
-
-.footer-divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 36px;
-}
-
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-copy {
-    font-size: 0.78rem;
-    color: var(--fg-muted);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.footer-copy a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-copy a:hover { color: var(--accent-hover); }
-
-.footer-social {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--fg-muted);
-    text-decoration: none;
-    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.2s;
-}
-
-.footer-social a:hover {
-    color: #fff;
-    border-color: var(--accent);
-    background: rgba(0,123,255,0.12);
-    transform: translateY(-2px);
-}
-
-.footer-social svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-}
-
-@media (max-width: 600px) {
-    .footer-inner { padding: 40px 24px 28px; }
-    .footer-top { flex-direction: column; gap: 28px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-}
-
-
+    .footer-social a:hover svg {
+      transform: translateY(-3px);
+      fill: #1e90ff;
+    }
   </style>
 </head>
 <body>
@@ -281,50 +179,28 @@ footer::before {
   </p>
 
 </main>
+
 <footer>
-    <div class="footer-inner">
+    <p>&copy; 2026 YRB Nova. All rights reserved.</p>
 
-        <div class="footer-top">
-            <div class="footer-brand">
-                <div class="footer-logo">YRB <span>Nova</span></div>
-                <div class="footer-tagline">Built with purpose</div>
-            </div>
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="#about">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        <div class="footer-bottom">
-            <p class="footer-copy">
-                &copy; 2025 YRB Nova. All rights reserved.
-                &nbsp;&middot;&nbsp;
-                <a href="/cookie-policy.html">Cookie Policy</a>
-            </p>
-            <div class="footer-social">
-                <a href="mailto:yrbnova@gmail.com" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                </a>
-                <a href="tel:07555985320" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/>
-                    </svg>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
+    <div class="footer-social">
+        <a href="mailto:yrbnova@gmail.com" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href="tel:+447555598532" aria-label="Phone">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.2.48 2.5.74 3.84.74a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C10.07 22.5 1.5 13.93 1.5 3a1 1 0 0 1 1-1H6a1 1 0 0 1 1 1c0 1.34.26 2.64.74 3.84a1 1 0 0 1-.21 1.11l-2.2 2.2z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/yrbnova" target="_blank" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.055 1.97.24 2.43.403a4.92 4.92 0 0 1 1.77 1.03 4.92 4.92 0 0 1 1.03 1.77c.163.46.348 1.26.403 2.43.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.97-.403 2.43a4.92 4.92 0 0 1-1.03 1.77 4.92 4.92 0 0 1-1.77 1.03c-.46.163-1.26.348-2.43.403-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.97-.24-2.43-.403a4.92 4.92 0 0 1-1.77-1.03 4.92 4.92 0 0 1-1.03-1.77c-.163-.46-.348-1.26-.403-2.43C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.055-1.17.24-1.97.403-2.43a4.92 4.92 0 0 1 1.03-1.77 4.92 4.92 0 0 1 1.77-1.03c.46-.163 1.26-.348 2.43-.403C8.416 2.172 8.8 2.16 12 2.16zm0-2.16C8.736 0 8.332.013 7.052.072 5.77.131 4.832.312 4.05.635a6.92 6.92 0 0 0-2.5 1.64A6.92 6.92 0 0 0 .635 4.05C.312 4.832.131 5.77.072 7.052.013 8.332 0 8.736 0 12c0 3.264.013 3.668.072 4.948.059 1.282.24 2.22.563 3.002a6.92 6.92 0 0 0 1.64 2.5 6.92 6.92 0 0 0 2.5 1.64c.782.323 1.72.504 3.002.563 1.28.059 1.684.072 4.948.072s3.668-.013 4.948-.072c1.282-.059 2.22-.24 3.002-.563a6.92 6.92 0 0 0 2.5-1.64 6.92 6.92 0 0 0 1.64-2.5c.323-.782.504-1.72.563-3.002.059-1.28.072-1.684.072-4.948s-.013-3.668-.072-4.948c-.059-1.282-.24-2.22-.563-3.002a6.92 6.92 0 0 0-1.64-2.5 6.92 6.92 0 0 0-2.5-1.64c-.782-.323-1.72-.504-3.002-.563C15.668.013 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.879 0 1.44 1.44 0 0 1 2.879 0z"/>
+            </svg>
+        </a>
     </div>
 </footer>
+
 </body>
 </html>

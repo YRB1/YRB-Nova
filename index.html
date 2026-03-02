@@ -830,6 +830,8 @@ footer::before {
                 &copy; 2025 YRB Nova. All rights reserved.
                 &nbsp;&middot;&nbsp;
                 <a href="/cookie-policy.html">Cookie Policy</a>
+                &nbsp;&middot;&nbsp;
+                <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
             </p>
             <div class="footer-social">
                 <a href="mailto:yrbnova@gmail.com" aria-label="Email">
@@ -854,6 +856,7 @@ footer::before {
 </footer>
 
 <button onclick="topFunction()" id="back-to-top" title="Go to top">&#9650;</button>
+
 
 <script>
 // Navigation Toggle
@@ -933,7 +936,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const popup = document.getElementById('cookie-consent-popup');
     const modal = document.getElementById('cookie-preferences-modal');
 
-    popup.style.display = 'flex';
+    if (!localStorage.getItem('cookieChoice') && !localStorage.getItem('cookiesPreferences')) {
+        popup.style.display = 'flex';
+    }
 
     document.getElementById('accept-cookies').onclick = () => {
         localStorage.setItem('cookieChoice', 'accepted');
