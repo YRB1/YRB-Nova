@@ -25,6 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Stripe checkout
+    document.querySelectorAll('.js-checkout').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const pkg = btn.dataset.package;
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Redirecting...';
+
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ pkg })
+                });
+                const data = await response.json();
+
+                if (!response.ok || !data.url) {
+                    throw new Error(data.error || 'Unable to start checkout.');
+                }
+
+                window.location.href = data.url;
+            } catch (err) {
+                alert(err.message || 'Unable to start checkout. Please try again or contact us directly.');
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
+        });
+    });
+
     // Hero background slideshow
     const heroSlides = document.querySelectorAll('.hero-slideshow .slide');
     if (heroSlides.length) {
