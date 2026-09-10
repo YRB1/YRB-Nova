@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Flow Plumbing | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%230f6fd6' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+
+<style>
+:root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --line: #e3e9f2;
+    --text: #172236;
+    --text-dim: #5c6b82;
+    --blue: #0f6fd6;
+    --blue-dark: #0c58ab;
+    --blue-soft: #e8f1fc;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+h1, h2, h3 { font-weight: 800; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--blue); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 700; padding: 10px 16px; }
+.demo-banner a { color: #fff; text-decoration: underline; }
+
+nav.top { background: #fff; padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 800; font-size: 1.4rem; color: var(--text); }
+.brand span { color: var(--blue); }
+.book-btn { background: var(--blue); color: #fff; font-weight: 700; padding: 12px 26px; border-radius: 100px; text-decoration: none; font-size: 0.9rem; }
+
+.hero { padding: 90px 0; }
+.hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+.hero h1 span { color: var(--blue); }
+.hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 30px; }
+.hero-img { border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(15,111,214,0.18); }
+.hero-img img { width: 100%; }
+
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 15px 30px; font-weight: 700; text-decoration: none; border-radius: 100px; font-size: 0.95rem; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-outline { border: 2px solid var(--blue); color: var(--blue); }
+
+.trust-row { display: flex; gap: 36px; margin-top: 34px; flex-wrap: wrap; }
+.trust-item { font-size: 0.85rem; color: var(--text-dim); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.trust-item::before { content: '\2713'; color: var(--blue); }
+
+section { padding: 80px 0; }
+.section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--blue); font-weight: 800; letter-spacing: 0.06em; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.svc-card { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 30px 24px; text-align: center; }
+.svc-card .ic { width: 52px; height: 52px; background: var(--blue-soft); color: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 16px; }
+.svc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.svc-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
+.review .stars { color: #f5b501; margin-bottom: 12px; letter-spacing: 2px; }
+.review p { color: var(--text-dim); font-style: italic; margin-bottom: 14px; }
+.review h4 { font-size: 0.9rem; margin: 0; }
+
+.cta-band { background: linear-gradient(120deg, var(--blue), var(--blue-dark)); border-radius: 24px; padding: 60px; text-align: center; color: #fff; }
+.cta-band h2 { color: #fff; }
+.cta-band p { color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 28px; }
+.cta-band .btn-primary { background: #fff; color: var(--blue-dark); }
+
+footer { background: #fff; padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--blue); text-decoration: none; }
+
+@media (max-width: 900px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .reviews { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">Bright<span>Flow</span> Plumbing</div>
+        <a href="#contact" class="book-btn">Book Online</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div>
+            <h1>Fast, friendly plumbers you can actually <span>trust</span></h1>
+            <p>From leaky taps to full bathroom installs, BrightFlow gets it fixed properly the first time. Same-day callouts available across the area.</p>
+            <div class="btn-row">
+                <a href="#contact" class="btn btn-primary">Book a Callout</a>
+                <a href="#services" class="btn btn-outline">See Services</a>
+            </div>
+            <div class="trust-row">
+                <span class="trust-item">Gas Safe Registered</span>
+                <span class="trust-item">Fixed-Price Quotes</span>
+                <span class="trust-item">Same-Day Availability</span>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=75" alt="">
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Do</p>
+            <h2>Plumbing Services</h2>
+        </div>
+        <div class="grid-4">
+            <div class="svc-card"><div class="ic">01</div><h3>Leak Repairs</h3><p>Fast fixes for leaking pipes, taps, and fittings.</p></div>
+            <div class="svc-card"><div class="ic">02</div><h3>Boiler Servicing</h3><p>Annual servicing and repairs to keep you covered.</p></div>
+            <div class="svc-card"><div class="ic">03</div><h3>Bathroom Installs</h3><p>Full bathroom fit-outs, from plan to finish.</p></div>
+            <div class="svc-card"><div class="ic">04</div><h3>Drain Unblocking</h3><p>Fast, mess-free unblocking for sinks and drains.</p></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Reviews</p>
+            <h2>What Customers Say</h2>
+        </div>
+        <div class="reviews">
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Booked online in the morning, fixed by lunch. Brilliant service."</p><h4>Emma R.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Redid our whole bathroom, tidy work and finished on time."</p><h4>James O.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Quoted fairly and stuck to the price. Will use again."</p><h4>Priya D.</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-alt">
+    <div class="container">
+        <div class="cta-band">
+            <h2>Need a plumber today?</h2>
+            <p>Book online in under a minute, or give us a call for same-day availability.</p>
+            <div class="btn-row" style="justify-content:center;">
+                <a href="tel:0000000000" class="btn btn-primary">Call 0800 000 0000</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 BrightFlow Plumbing &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

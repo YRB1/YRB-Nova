@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hopewell Trust | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23103b34'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23ffb648' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+    --bg: #f7f5ef;
+    --surface: #ffffff;
+    --deep: #103b34;
+    --gold: #ffb648;
+    --text: #1b2a26;
+    --text-dim: #5a6b65;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+h1, h2, h3 { font-family: 'Fraunces', serif; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--deep); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: var(--gold); text-decoration: underline; }
+
+nav.top { background: var(--deep); padding: 20px 0; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: #fff; }
+.donate-btn { background: var(--gold); color: var(--deep); font-weight: 700; padding: 12px 26px; border-radius: 100px; text-decoration: none; font-size: 0.9rem; }
+
+.hero { position: relative; padding: 100px 0; overflow: hidden; background: var(--deep); color: #fff; }
+.hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.hero h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 3.6rem); }
+.hero h1 span { color: var(--gold); }
+.hero p { color: rgba(255,255,255,0.78); font-size: 1.1rem; margin-bottom: 30px; max-width: 460px; }
+.hero-img { border-radius: 20px; overflow: hidden; }
+.hero-img img { width: 100%; }
+
+.btn { display: inline-block; padding: 15px 32px; font-weight: 700; text-decoration: none; border-radius: 100px; font-size: 0.95rem; }
+.btn-gold { background: var(--gold); color: var(--deep); }
+.btn-outline-light { border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #e5e0d3; border: 1px solid #e5e0d3; margin-top: -50px; position: relative; z-index: 2; }
+.stat-block { background: var(--surface); text-align: center; padding: 36px 20px; }
+.stat-value { display: block; font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--deep); font-weight: 700; margin-bottom: 6px; }
+.stat-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+section { padding: 90px 0; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--deep); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+
+.programs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.program-card { background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid #e5e0d3; }
+.program-card img { width: 100%; height: 200px; object-fit: cover; }
+.program-card .body { padding: 26px; }
+.program-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.program-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+
+.donate-tiers { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.tier { background: var(--surface); border: 2px solid #e5e0d3; border-radius: 14px; padding: 30px 36px; text-align: center; min-width: 160px; cursor: pointer; transition: border-color 0.2s; }
+.tier:hover { border-color: var(--gold); }
+.tier .amount { font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--deep); font-weight: 700; }
+.tier .desc { font-size: 0.82rem; color: var(--text-dim); margin-top: 6px; }
+
+footer { background: var(--deep); color: rgba(255,255,255,0.7); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 900px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); margin-top: 30px; }
+    .programs { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real charity</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">Hopewell Trust</div>
+        <a href="#donate" class="donate-btn">Donate Now</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div>
+            <h1>Small gifts, <span>real change</span></h1>
+            <p>Hopewell Trust supports families facing hardship with food, shelter, and long-term community programs, funded entirely by people like you.</p>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <a href="#donate" class="btn btn-gold">Donate Today</a>
+                <a href="#programs" class="btn btn-outline-light">Our Programs</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=75" alt="">
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="stats-row">
+        <div class="stat-block"><span class="stat-value" data-count="12400" data-prefix="&pound;">&pound;0</span><span class="stat-label">Raised This Year</span></div>
+        <div class="stat-block"><span class="stat-value" data-count="850" data-suffix="+">0</span><span class="stat-label">Families Helped</span></div>
+        <div class="stat-block"><span class="stat-value" data-count="46">0</span><span class="stat-label">Active Volunteers</span></div>
+        <div class="stat-block"><span class="stat-value" data-count="9">0</span><span class="stat-label">Years Running</span></div>
+    </div>
+</div>
+
+<section id="programs">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Do</p>
+            <h2>Our Programs</h2>
+        </div>
+        <div class="programs">
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=500&q=70" alt="">
+                <div class="body"><h3>Food Support</h3><p>Weekly food parcels for families facing hardship across the region.</p></div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=500&q=70" alt="">
+                <div class="body"><h3>Volunteer Network</h3><p>Local volunteers delivering support, transport, and company to those who need it.</p></div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=70" alt="">
+                <div class="body"><h3>Community Programs</h3><p>Long-term projects that help families build stability, not just get by.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="donate" style="background:var(--surface); border-top:1px solid #e5e0d3; border-bottom:1px solid #e5e0d3;">
+    <div class="container">
+        <div class="section-title">
+            <p>Give Today</p>
+            <h2>Every Donation Helps</h2>
+        </div>
+        <div class="donate-tiers">
+            <div class="tier"><div class="amount">&pound;10</div><div class="desc">Feeds a family for a day</div></div>
+            <div class="tier"><div class="amount">&pound;25</div><div class="desc">A week of essentials</div></div>
+            <div class="tier"><div class="amount">&pound;50</div><div class="desc">Supports a volunteer visit</div></div>
+            <div class="tier"><div class="amount">&pound;100</div><div class="desc">A month of support</div></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Hopewell Trust &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.stat-value[data-count]');
+    const animate = (el) => {
+        const target = parseFloat(el.dataset.count);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            el.textContent = prefix + value.toLocaleString() + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    };
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animate(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    els.forEach(el => obs.observe(el));
+});
+</script>
+
+</body>
+</html>

@@ -14,6 +14,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // Animated stat counters
+    const statEls = document.querySelectorAll('.stat-value[data-count]');
+    if (statEls.length) {
+        const animateCount = (el) => {
+            const target = parseFloat(el.dataset.count);
+            const decimals = el.dataset.count.includes('.') ? el.dataset.count.split('.')[1].length : 0;
+            const prefix = el.dataset.prefix || '';
+            const suffix = el.dataset.suffix || '';
+            const duration = 1400;
+            const start = performance.now();
+
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = target * eased;
+                el.textContent = prefix + value.toFixed(decimals) + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        };
+
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    animateCount(entry.target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        statEls.forEach(el => statObserver.observe(el));
+    }
+
     // Back to top
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {

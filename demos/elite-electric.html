@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Electric | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d0d0d'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%23f5c518' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+<style>
+:root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --line: rgba(255,255,255,0.1);
+    --text: #f2f2f0;
+    --text-dim: #a8a8a4;
+    --yellow: #f5c518;
+    --yellow-dark: #d9a800;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Arial Narrow', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+h1, h2, h3 { font-family: Impact, 'Arial Black', sans-serif; font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.05; margin: 0 0 18px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner {
+    background: var(--yellow); color: #111; text-align: center;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
+    padding: 10px 16px;
+}
+.demo-banner a { color: #111; text-decoration: underline; }
+
+nav.top { background: #000; padding: 18px 0; border-bottom: 3px solid var(--yellow); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: Impact, 'Arial Black', sans-serif; font-size: 1.6rem; text-transform: uppercase; color: #fff; letter-spacing: 0.02em; }
+.brand span { color: var(--yellow); }
+.call-btn { background: var(--yellow); color: #111; font-weight: 700; padding: 12px 26px; border-radius: 4px; text-decoration: none; font-size: 0.95rem; }
+
+.hero { position: relative; padding: 110px 0 90px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,13,13,0.96) 30%, rgba(13,13,13,0.55) 100%); }
+.hero .container { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); max-width: 680px; }
+.hero h1 span { color: var(--yellow); }
+.hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 520px; margin-bottom: 34px; }
+.btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 15px 32px; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: 0.95rem; }
+.btn-primary { background: var(--yellow); color: #111; }
+.btn-outline { border: 2px solid var(--yellow); color: var(--yellow); }
+
+.badges { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+.badge { font-size: 0.85rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+.badge::before { content: '\2713'; color: var(--yellow); font-weight: 900; }
+
+section { padding: 80px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--yellow); font-weight: 700; letter-spacing: 0.1em; font-size: 0.8rem; margin-bottom: 10px; }
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.svc-card { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 30px 24px; }
+.svc-card .num { font-family: Impact, sans-serif; font-size: 1.8rem; color: var(--yellow); margin-bottom: 12px; }
+.svc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.svc-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.emergency { background: linear-gradient(120deg, #1a1500, #0d0d0d); border: 1px solid var(--yellow); border-radius: 8px; padding: 50px; text-align: center; }
+.emergency h2 { color: var(--yellow); }
+.emergency p { color: var(--text-dim); max-width: 540px; margin: 0 auto 30px; }
+
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 28px; }
+.review .stars { color: var(--yellow); margin-bottom: 12px; letter-spacing: 2px; }
+.review p { color: var(--text-dim); font-style: italic; margin-bottom: 14px; }
+.review h4 { font-family: Arial, sans-serif; text-transform: none; font-size: 0.9rem; margin: 0; color: #fff; }
+
+footer { background: #000; padding: 50px 0 30px; text-align: center; border-top: 3px solid var(--yellow); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--yellow); text-decoration: none; }
+
+@media (max-width: 860px) {
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .reviews { grid-template-columns: 1fr; }
+    nav.top .call-btn { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">ELITE <span>ELECTRIC</span></div>
+        <a href="tel:0000000000" class="call-btn">Call Now: 0800 000 0000</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=70" alt="">
+    </div>
+    <div class="container">
+        <h1>Electrical work done <span>right</span>, the first time</h1>
+        <p>Fully insured, NICEIC-certified electricians covering domestic and commercial work across the area. Fast response, fixed pricing, no callbacks.</p>
+        <div class="btn-row">
+            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+        <div class="badges">
+            <span class="badge">Fully Insured</span>
+            <span class="badge">NICEIC Certified</span>
+            <span class="badge">24/7 Emergency Callout</span>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Do</p>
+            <h2>Services We Cover</h2>
+        </div>
+        <div class="grid-4">
+            <div class="svc-card"><div class="num">01</div><h3>Rewiring</h3><p>Full and partial house rewires, done clean and on schedule.</p></div>
+            <div class="svc-card"><div class="num">02</div><h3>Fuse Boxes</h3><p>Consumer unit upgrades and fault finding for older properties.</p></div>
+            <div class="svc-card"><div class="num">03</div><h3>EV Chargers</h3><p>Home EV charger installation, fully certified and warrantied.</p></div>
+            <div class="svc-card"><div class="num">04</div><h3>Inspections</h3><p>EICR reports and safety certificates for landlords and homeowners.</p></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="emergency">
+            <h2>Electrical Emergency?</h2>
+            <p>We offer 24/7 emergency callouts for power outages, sparking outlets, and anything that can't wait until morning.</p>
+            <a href="tel:0000000000" class="btn btn-primary">Call 0800 000 0000</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Reviews</p>
+            <h2>What The Area Says</h2>
+        </div>
+        <div class="reviews">
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Turned up on time, fixed the fuse box same day. Properly professional."</p><h4>Dave H.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fitted our EV charger in an afternoon. Tidy work, fair price."</p><h4>Sarah M.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Called out at 11pm for a power cut, sorted within the hour."</p><h4>Chris T.</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <p>Get In Touch</p>
+            <h2>Book Your Free Quote</h2>
+        </div>
+        <div style="max-width:560px; margin:0 auto; text-align:center;">
+            <p style="color:var(--text-dim); margin-bottom:30px;">Tell us what you need and we'll get back to you the same day.</p>
+            <div class="btn-row" style="justify-content:center;">
+                <a href="tel:0000000000" class="btn btn-primary">Call 0800 000 0000</a>
+                <a href="mailto:hello@example.com" class="btn btn-outline">Email Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Elite Electric &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anaya | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f6f1ea'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%232b2420' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Jost:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #f6f1ea;
+    --surface: #ffffff;
+    --line: #e5dccf;
+    --text: #2b2420;
+    --text-dim: #6f655a;
+    --accent: #a8412f;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--text); color: #fff; text-align: center; font-size: 0.78rem; letter-spacing: 0.04em; padding: 10px 16px; }
+.demo-banner a { color: #fff; text-decoration: underline; }
+
+nav.top { background: var(--bg); padding: 26px 0; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Playfair Display', serif; font-size: 1.7rem; letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-links a { color: var(--text); text-decoration: none; }
+.shop-btn { border: 1px solid var(--text); padding: 10px 24px; text-decoration: none; color: var(--text); font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.hero { position: relative; height: 78vh; min-height: 480px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0) 55%); }
+.hero-content { position: relative; z-index: 1; color: #fff; padding-bottom: 70px; }
+.hero-content p.eyebrow { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 14px; }
+.hero-content h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); color: #fff; max-width: 700px; }
+.btn { display: inline-block; padding: 15px 36px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.btn-light { background: #fff; color: var(--text); }
+
+section { padding: 90px 0; }
+.section-title { text-align: center; margin-bottom: 54px; }
+.section-title p { color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.product-card { text-align: center; }
+.product-card .img-wrap { border-radius: 4px; overflow: hidden; margin-bottom: 18px; aspect-ratio: 4/5; }
+.product-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.product-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.product-card .price { color: var(--accent); font-weight: 500; font-family: 'Jost', sans-serif; }
+
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: var(--surface); }
+.story img { border-radius: 4px; }
+.story p { color: var(--text-dim); }
+
+.newsletter { background: var(--text); color: #f6f1ea; text-align: center; }
+.newsletter h2 { color: #fff; }
+.newsletter p { color: rgba(246,241,234,0.75); max-width: 460px; margin: 0 auto 30px; }
+.nl-form { display: flex; max-width: 420px; margin: 0 auto; gap: 10px; }
+.nl-form input { flex: 1; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff; font-family: inherit; }
+.nl-form input::placeholder { color: rgba(255,255,255,0.5); }
+.nl-form button { background: #fff; color: var(--text); border: none; padding: 14px 28px; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+
+footer { background: var(--bg); padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .product-grid { grid-template-columns: 1fr; }
+    .story { grid-template-columns: 1fr; }
+    .nl-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">ANAYA</div>
+        <ul class="nav-links">
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#">Journal</a></li>
+        </ul>
+        <a href="#shop" class="shop-btn">Shop Now</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=75" alt="">
+    <div class="container hero-content">
+        <p class="eyebrow">New Season</p>
+        <h1>Considered clothing for every day</h1>
+        <a href="#shop" class="btn btn-light">Shop The Collection</a>
+    </div>
+</section>
+
+<section id="shop">
+    <div class="container">
+        <div class="section-title">
+            <p>Shop</p>
+            <h2>New Arrivals</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <h3>The Everyday Jacket</h3>
+                <p class="price">&pound;128.00</p>
+            </div>
+            <div class="product-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <h3>Linen Wrap Set</h3>
+                <p class="price">&pound;96.00</p>
+            </div>
+            <div class="product-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <h3>The Capsule Edit</h3>
+                <p class="price">&pound;210.00</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="story" class="story">
+    <div>
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=75" alt="">
+    </div>
+    <div class="container" style="padding:0;">
+        <p style="color:var(--accent); letter-spacing:0.15em; text-transform:uppercase; font-size:0.78rem; margin-bottom:14px;">Our Story</p>
+        <h2>Made to be worn, not just bought</h2>
+        <p>Anaya started with a simple idea: clothing that fits into a real life, not just a lookbook. Every piece is designed to be worn often, styled easily, and kept for years, not seasons.</p>
+        <p>We work with small production runs and considered fabrics, so every collection feels intentional rather than disposable.</p>
+    </div>
+</section>
+
+<section class="newsletter">
+    <div class="container">
+        <h2>Join The List</h2>
+        <p>New arrivals, restocks, and the occasional discount. No spam, just clothes.</p>
+        <form class="nl-form" onsubmit="return false;">
+            <input type="email" placeholder="Your email address">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Anaya &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>
