@@ -51,16 +51,34 @@
     }
     .remember-label input { width: auto; margin: 0; accent-color: var(--accent); cursor: pointer; }
 
-    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 44px; }
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 44px; }
     .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
     .stat-card .label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 10px; }
     .stat-card .value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; }
 
     .admin-section { margin-bottom: 56px; }
-    .admin-section h2 { font-size: 1.4rem; margin-bottom: 20px; }
+    .admin-section-head {
+        display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+        gap: 14px; margin-bottom: 20px;
+    }
+    .admin-section-head h2 { font-size: 1.4rem; margin: 0; }
+    .admin-controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .admin-controls input[type="search"], .admin-controls select {
+        background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+        color: var(--text); font-family: var(--font-body); font-size: 0.88rem; padding: 9px 12px;
+    }
+    .admin-controls input[type="search"] { min-width: 200px; }
+
+    .btn-sm { padding: 9px 16px; font-size: 0.82rem; border-radius: 8px; }
+    .btn-danger-outline {
+        background: transparent; border: 1px solid rgba(255,107,107,0.4); color: #ff8a8a;
+        padding: 9px 16px; font-size: 0.82rem; border-radius: 8px; cursor: pointer; font-weight: 600;
+        font-family: var(--font-body);
+    }
+    .btn-danger-outline:hover { background: rgba(255,107,107,0.1); border-color: #ff6b6b; }
 
     .admin-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
-    table.admin-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 720px; }
+    table.admin-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 760px; }
     table.admin-table th {
         text-align: left; padding: 14px 16px; background: var(--surface-2);
         font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dimmer);
@@ -73,6 +91,11 @@
         background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: 6px;
         color: var(--text); font-family: var(--font-body); font-size: 0.85rem; padding: 6px 8px;
     }
+    .row-delete {
+        background: none; border: none; color: var(--text-dimmer); cursor: pointer;
+        font-size: 1rem; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s;
+    }
+    .row-delete:hover { color: #ff6b6b; background: rgba(255,107,107,0.1); }
     .empty-state { padding: 40px; text-align: center; color: var(--text-dimmer); }
 
     .status-pill {
@@ -84,8 +107,30 @@
     .status-pill.closed { background: rgba(255,255,255,0.08); color: var(--text-dimmer); }
     .status-pill.paid { background: rgba(76,201,133,0.18); color: #4dd08a; }
 
+    .manual-form {
+        display: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 26px; margin-bottom: 20px;
+    }
+    .manual-form.open { display: block; }
+    .manual-form h3 { font-size: 1.05rem; margin: 0 0 18px; }
+    .manual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 18px; }
+    .manual-grid .full { grid-column: 1 / -1; }
+    .manual-form label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dimmer); margin-bottom: 6px; }
+    .manual-form input, .manual-form textarea {
+        width: 100%; background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+        color: var(--text); font-family: var(--font-body); font-size: 0.92rem; padding: 11px 12px; box-sizing: border-box;
+    }
+    .manual-form textarea { resize: vertical; min-height: 70px; }
+    .manual-form-actions { display: flex; gap: 10px; }
+    .manual-error { color: #ff8a8a; font-size: 0.85rem; margin-top: 12px; display: none; }
+
     #dashboard { display: none; }
-    .loading-note { color: var(--text-dimmer); padding: 30px 0; }
+
+    @media (max-width: 700px) {
+        .stat-row { grid-template-columns: repeat(2, 1fr); }
+        .manual-grid { grid-template-columns: 1fr; }
+        .admin-section-head { align-items: flex-start; flex-direction: column; }
+    }
 </style>
 </head>
 
@@ -135,10 +180,55 @@
                 <div class="label">New Enquiries</div>
                 <div class="value" id="stat-enquiries">0</div>
             </div>
+            <div class="stat-card">
+                <div class="label">This Month</div>
+                <div class="value" id="stat-month-revenue">&pound;0</div>
+            </div>
         </div>
 
         <div class="admin-section">
-            <h2>Bookings</h2>
+            <div class="admin-section-head">
+                <h2>Bookings</h2>
+                <div class="admin-controls">
+                    <input type="search" id="bookings-search" placeholder="Search bookings...">
+                    <button type="button" class="btn btn-outline btn-sm" id="toggle-manual-form">+ Add Manual Booking</button>
+                    <button type="button" class="btn btn-outline btn-sm" id="export-bookings">Export CSV</button>
+                </div>
+            </div>
+
+            <div class="manual-form" id="manual-form">
+                <h3>Add a manual booking</h3>
+                <form id="manual-booking-form">
+                    <div class="manual-grid">
+                        <div>
+                            <label for="mb-package">Package / Description</label>
+                            <input type="text" id="mb-package" placeholder="e.g. Standard Website Package" required>
+                        </div>
+                        <div>
+                            <label for="mb-amount">Amount (&pound;)</label>
+                            <input type="number" id="mb-amount" step="0.01" min="0" placeholder="600.00" required>
+                        </div>
+                        <div>
+                            <label for="mb-name">Customer Name</label>
+                            <input type="text" id="mb-name" placeholder="Optional">
+                        </div>
+                        <div>
+                            <label for="mb-email">Customer Email</label>
+                            <input type="email" id="mb-email" placeholder="Optional">
+                        </div>
+                        <div class="full">
+                            <label for="mb-details">Project Details</label>
+                            <textarea id="mb-details" placeholder="Optional notes about the project"></textarea>
+                        </div>
+                    </div>
+                    <div class="manual-form-actions">
+                        <button type="submit" class="btn btn-primary btn-sm">Save Booking</button>
+                        <button type="button" class="btn btn-outline btn-sm" id="cancel-manual-form">Cancel</button>
+                    </div>
+                    <p class="manual-error" id="manual-error"></p>
+                </form>
+            </div>
+
             <div class="admin-table-wrap">
                 <table class="admin-table" id="bookings-table">
                     <thead>
@@ -150,6 +240,7 @@
                             <th>Email</th>
                             <th>Project Details</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="bookings-body"></tbody>
@@ -159,7 +250,19 @@
         </div>
 
         <div class="admin-section">
-            <h2>Enquiries</h2>
+            <div class="admin-section-head">
+                <h2>Enquiries</h2>
+                <div class="admin-controls">
+                    <input type="search" id="enquiries-search" placeholder="Search enquiries...">
+                    <select id="enquiries-filter">
+                        <option value="">All Statuses</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <button type="button" class="btn btn-outline btn-sm" id="export-enquiries">Export CSV</button>
+                </div>
+            </div>
             <div class="admin-table-wrap">
                 <table class="admin-table" id="enquiries-table">
                     <thead>
@@ -171,6 +274,7 @@
                             <th>Message</th>
                             <th>Status</th>
                             <th>Notes</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="enquiries-body"></tbody>
@@ -187,6 +291,9 @@
     const dashboard = document.getElementById('dashboard');
     const loginForm = document.getElementById('login-form');
     const loginError = document.getElementById('login-error');
+
+    let allBookings = [];
+    let allEnquiries = [];
 
     function money(n) {
         return '£' + Number(n || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -214,21 +321,52 @@
         loginScreen.style.display = 'block';
     }
 
+    function downloadCsv(filename, rows) {
+        const csv = rows.map(row =>
+            row.map(cell => {
+                const val = cell == null ? '' : String(cell);
+                return /[",\n]/.test(val) ? '"' + val.replace(/"/g, '""') + '"' : val;
+            }).join(',')
+        ).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
     async function loadBookings() {
         const res = await fetch('/api/admin/bookings');
         if (res.status === 401) return showLogin();
         const data = await res.json();
+        allBookings = data.bookings || [];
+        renderBookings();
+        updateStats();
+    }
+
+    function renderBookings() {
         const body = document.getElementById('bookings-body');
         const empty = document.getElementById('bookings-empty');
+        const query = document.getElementById('bookings-search').value.trim().toLowerCase();
+
+        const filtered = allBookings.filter(b => {
+            if (!query) return true;
+            return [b.package, b.customer_name, b.customer_email, b.project_details]
+                .some(v => (v || '').toLowerCase().includes(query));
+        });
+
         body.innerHTML = '';
 
-        if (!data.bookings || data.bookings.length === 0) {
+        if (filtered.length === 0) {
             empty.style.display = 'block';
+            empty.textContent = allBookings.length === 0 ? 'No bookings yet.' : 'No bookings match your search.';
         } else {
             empty.style.display = 'none';
-            let revenue = 0;
-            data.bookings.forEach(b => {
-                revenue += Number(b.amount_gbp || 0);
+            filtered.forEach(b => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${dateStr(b.created_at)}</td>
@@ -238,37 +376,80 @@
                     <td>${escapeHtml(b.customer_email) || '&mdash;'}</td>
                     <td>${escapeHtml(b.project_details) || '&mdash;'}</td>
                     <td><span class="status-pill paid">${escapeHtml(b.status)}</span></td>
+                    <td><button type="button" class="row-delete" data-id="${b.id}" title="Delete booking">&#10005;</button></td>
                 `;
                 body.appendChild(tr);
             });
-            document.getElementById('stat-revenue').textContent = money(revenue);
-            document.getElementById('stat-bookings').textContent = data.bookings.length;
+            body.querySelectorAll('.row-delete').forEach(btn => {
+                btn.addEventListener('click', () => deleteBooking(btn.dataset.id));
+            });
         }
+    }
+
+    function updateStats() {
+        const revenue = allBookings.reduce((sum, b) => sum + Number(b.amount_gbp || 0), 0);
+        document.getElementById('stat-revenue').textContent = money(revenue);
+        document.getElementById('stat-bookings').textContent = allBookings.length;
+
+        const now = new Date();
+        const monthRevenue = allBookings.reduce((sum, b) => {
+            const d = new Date(b.created_at);
+            if (d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()) {
+                return sum + Number(b.amount_gbp || 0);
+            }
+            return sum;
+        }, 0);
+        document.getElementById('stat-month-revenue').textContent = money(monthRevenue);
+    }
+
+    async function deleteBooking(id) {
+        if (!confirm('Delete this booking? This cannot be undone.')) return;
+        await fetch('/api/admin/bookings', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        await loadBookings();
     }
 
     async function loadEnquiries() {
         const res = await fetch('/api/admin/enquiries');
         if (res.status === 401) return showLogin();
         const data = await res.json();
+        allEnquiries = data.enquiries || [];
+        renderEnquiries();
+
+        const newCount = allEnquiries.filter(e => e.status === 'new').length;
+        document.getElementById('stat-enquiries').textContent = newCount;
+    }
+
+    function renderEnquiries() {
         const body = document.getElementById('enquiries-body');
         const empty = document.getElementById('enquiries-empty');
+        const query = document.getElementById('enquiries-search').value.trim().toLowerCase();
+        const statusFilter = document.getElementById('enquiries-filter').value;
+
+        const filtered = allEnquiries.filter(e => {
+            if (statusFilter && e.status !== statusFilter) return false;
+            if (!query) return true;
+            return [e.name, e.email, e.message, e.budget].some(v => (v || '').toLowerCase().includes(query));
+        });
+
         body.innerHTML = '';
 
-        if (!data.enquiries || data.enquiries.length === 0) {
+        if (filtered.length === 0) {
             empty.style.display = 'block';
-            document.getElementById('stat-enquiries').textContent = '0';
+            empty.textContent = allEnquiries.length === 0 ? 'No enquiries yet.' : 'No enquiries match your search.';
         } else {
             empty.style.display = 'none';
-            let newCount = 0;
-            data.enquiries.forEach(e => {
-                if (e.status === 'new') newCount++;
+            filtered.forEach(e => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${dateStr(e.created_at)}</td>
                     <td class="strong">${escapeHtml(e.name)}</td>
                     <td>${escapeHtml(e.email)}</td>
                     <td>${escapeHtml(e.budget) || '&mdash;'}</td>
-                    <td style="max-width:280px;">${escapeHtml(e.message)}</td>
+                    <td style="max-width:260px;">${escapeHtml(e.message)}</td>
                     <td>
                         <select data-id="${e.id}" class="status-select">
                             <option value="new" ${e.status === 'new' ? 'selected' : ''}>New</option>
@@ -277,16 +458,24 @@
                         </select>
                     </td>
                     <td><input type="text" data-id="${e.id}" class="notes-input" value="${escapeHtml(e.notes) || ''}" placeholder="Add a note..."></td>
+                    <td><button type="button" class="row-delete" data-id="${e.id}" title="Delete enquiry">&#10005;</button></td>
                 `;
                 body.appendChild(tr);
             });
-            document.getElementById('stat-enquiries').textContent = newCount;
 
             body.querySelectorAll('.status-select').forEach(sel => {
-                sel.addEventListener('change', () => updateEnquiry(sel.dataset.id, { status: sel.value }));
+                sel.addEventListener('change', () => {
+                    const enquiry = allEnquiries.find(e => e.id === sel.dataset.id);
+                    if (enquiry) enquiry.status = sel.value;
+                    updateEnquiry(sel.dataset.id, { status: sel.value });
+                    document.getElementById('stat-enquiries').textContent = allEnquiries.filter(e => e.status === 'new').length;
+                });
             });
             body.querySelectorAll('.notes-input').forEach(inp => {
                 inp.addEventListener('blur', () => updateEnquiry(inp.dataset.id, { notes: inp.value }));
+            });
+            body.querySelectorAll('.row-delete').forEach(btn => {
+                btn.addEventListener('click', () => deleteEnquiry(btn.dataset.id));
             });
         }
     }
@@ -298,6 +487,77 @@
             body: JSON.stringify({ id, ...patch })
         });
     }
+
+    async function deleteEnquiry(id) {
+        if (!confirm('Delete this enquiry? This cannot be undone.')) return;
+        await fetch('/api/admin/enquiries', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        await loadEnquiries();
+    }
+
+    document.getElementById('bookings-search').addEventListener('input', renderBookings);
+    document.getElementById('enquiries-search').addEventListener('input', renderEnquiries);
+    document.getElementById('enquiries-filter').addEventListener('change', renderEnquiries);
+
+    document.getElementById('export-bookings').addEventListener('click', () => {
+        const rows = [['Date', 'Package', 'Amount (GBP)', 'Customer Name', 'Customer Email', 'Project Details', 'Status']];
+        allBookings.forEach(b => rows.push([dateStr(b.created_at), b.package, b.amount_gbp, b.customer_name, b.customer_email, b.project_details, b.status]));
+        downloadCsv('yrb-nova-bookings.csv', rows);
+    });
+
+    document.getElementById('export-enquiries').addEventListener('click', () => {
+        const rows = [['Date', 'Name', 'Email', 'Budget', 'Message', 'Status', 'Notes']];
+        allEnquiries.forEach(e => rows.push([dateStr(e.created_at), e.name, e.email, e.budget, e.message, e.status, e.notes]));
+        downloadCsv('yrb-nova-enquiries.csv', rows);
+    });
+
+    const manualForm = document.getElementById('manual-form');
+    document.getElementById('toggle-manual-form').addEventListener('click', () => {
+        manualForm.classList.toggle('open');
+    });
+    document.getElementById('cancel-manual-form').addEventListener('click', () => {
+        manualForm.classList.remove('open');
+        document.getElementById('manual-booking-form').reset();
+    });
+
+    document.getElementById('manual-booking-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const manualError = document.getElementById('manual-error');
+        manualError.style.display = 'none';
+
+        const payload = {
+            package: document.getElementById('mb-package').value,
+            amount_gbp: document.getElementById('mb-amount').value,
+            customer_name: document.getElementById('mb-name').value,
+            customer_email: document.getElementById('mb-email').value,
+            project_details: document.getElementById('mb-details').value
+        };
+
+        try {
+            const res = await fetch('/api/admin/bookings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (!res.ok) {
+                manualError.textContent = data.error || 'Unable to add booking';
+                manualError.style.display = 'block';
+                return;
+            }
+
+            document.getElementById('manual-booking-form').reset();
+            manualForm.classList.remove('open');
+            await loadBookings();
+        } catch (err) {
+            manualError.textContent = 'Something went wrong. Please try again.';
+            manualError.style.display = 'block';
+        }
+    });
 
     document.getElementById('toggle-password').addEventListener('click', () => {
         const input = document.getElementById('password');

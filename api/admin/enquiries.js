@@ -66,6 +66,27 @@ module.exports = async (req, res) => {
         }
     }
 
-    res.setHeader('Allow', 'GET, PATCH');
+    if (req.method === 'DELETE') {
+        try {
+            const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+            if (!body.id) {
+                return res.status(400).json({ error: 'Missing enquiry id' });
+            }
+
+            const { error } = await supabase.from('enquiries').delete().eq('id', body.id);
+
+            if (error) {
+                console.error('Enquiry delete error:', error);
+                return res.status(500).json({ error: 'Unable to delete enquiry' });
+            }
+
+            return res.status(200).json({ ok: true });
+        } catch (err) {
+            console.error('Enquiry delete error:', err);
+            return res.status(500).json({ error: 'Something went wrong' });
+        }
+    }
+
+    res.setHeader('Allow', 'GET, PATCH, DELETE');
     return res.status(405).json({ error: 'Method not allowed' });
 };
