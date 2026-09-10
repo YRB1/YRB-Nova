@@ -3,635 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YRB Nova - Home</title>
-<link rel="icon" type="image/png" href="favicon.png"> 
+<title>YRB Nova | Website Design Studio &amp; Reinvention Partner (UK)</title>
+<meta name="description" content="YRB Nova is a UK website design studio that helps small businesses reinvent how they look online, with fast, high-converting websites built with intention, not templates.">
+<link rel="canonical" href="https://yrbnova.com/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='69' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='56' fill='%234d74ff' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
 
-<style>
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #0056b3;
-    --dark-bg: #111111;
-    --dark-section: #1a1a1a;
-    --dark-card: #252525;
-    --light-bg: #f9f9f9;
-    --text-dark: #222;
-    --text-light: #f0f0f0;
-    --primary-accent: #ffffff; 
-    --secondary-accent: #b0b0b0;
-    --bg-dark: #121212; 
-    --bg-card: #1c1c1c; 
-    --text-main: #f0f0f0;
-    --text-muted: #a0a0a0;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --cta-blue: #007bff;
+<meta property="og:type" content="website">
+<meta property="og:title" content="YRB Nova | Website Design Studio & Reinvention Partner">
+<meta property="og:description" content="We help small businesses reinvent how they show up online, with fast, high-converting websites built with intention, not templates.">
+<meta property="og:url" content="https://yrbnova.com/">
+<meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yrbnova.com/og-image.png">
+<meta name="twitter:title" content="YRB Nova | Website Design Studio & Reinvention Partner">
+<meta name="twitter:description" content="We help small businesses reinvent how they show up online, with fast, high-converting websites built with intention, not templates.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "YRB Nova",
+  "url": "https://yrbnova.com/",
+  "email": "yrbnova@gmail.com",
+  "telephone": "+44 7555 985320",
+  "areaServed": "United Kingdom",
+  "description": "YRB Nova is a UK website design studio helping small businesses reinvent their online presence with fast, high-converting websites.",
+  "priceRange": "£350-£800",
+  "sameAs": []
 }
-
-@keyframes subtlePulse {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes kenBurns {
-    0%   { transform: scale(1) translate(0, 0); }
-    50%  { transform: scale(1.08) translate(-1%, -1%); }
-    100% { transform: scale(1) translate(0, 0); }
-}
-
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-/* =========================
-   Navigation
-========================= */
-header nav {
-    background-color: #000;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    font-weight: 500;
-    font-size: 15px;
-    text-transform: uppercase;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
-}
-
-.site-logo {
-    color: var(--primary-accent);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 1px;
-    z-index: 1002;
-    margin-right: auto;
-}
-
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    transition: transform 0.3s ease-out, opacity 0.3s ease;
-}
-
-header nav ul li { margin-left: 30px; }
-
-header nav ul li a {
-    color: var(--text-main);
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-header nav ul li a:hover { color: var(--secondary-accent); }
-
-#menu-toggle { display: none; } 
-.menu-icon { display: none; }
-
-@media (max-width: 768px) {
-    header nav { padding: 15px 20px; }
-    .site-logo { margin-right: 0; }
-    .menu-icon {
-        display: block;
-        font-size: 28px;
-        color: var(--primary-accent);
-        cursor: pointer;
-        z-index: 1001;
-    }
-    header nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 55px; 
-        left: 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-        padding: 10px 0;
-        text-align: center;
-    }
-    header nav ul li { margin: 15px 0; margin-left: 0; }
-    #menu-toggle:checked ~ ul.menu { display: flex; }
-}
-
-/* =========================
-   Cookie Popup & Modal
-========================= */
-#cookie-consent-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 340px;
-  background-color: #1f2937;
-  color: #f9fafb;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  z-index: 9999;
-  display: none;
-  flex-direction: column;
-  gap: 15px;
-  text-align: center;
-}
-
-#cookie-consent-popup p { margin: 0; }
-
-.cookie-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-}
-
-.cookie-buttons button {
-  background-color: #3b82f6;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.cookie-buttons button:hover { background-color: #2563eb; }
-.cookie-buttons a { color: #f9fafb; text-decoration: underline; font-size: 14px; }
-
-#cookie-preferences-modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-#cookie-preferences-modal .modal-content {
-  background: #fff;
-  color: #111827;
-  padding: 25px 30px;
-  border-radius: 12px;
-  max-width: 450px;
-  width: 90%;
-  text-align: center;
-}
-
-#cookie-preferences-modal label { display: block; margin: 10px 0; text-align: left; }
-
-.modal-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 12px; }
-.modal-buttons button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; }
-#save-preferences { background-color: #3b82f6; color: #fff; }
-#save-preferences:hover { background-color: #2563eb; }
-#close-modal { background-color: #ccc; color: #111827; }
-#close-modal:hover { background-color: #999; }
-
-@media (max-width: 500px) {
-  #cookie-consent-popup { width: 90%; bottom: 10px; right: 5%; padding: 20px; font-size: 13px; }
-  .cookie-buttons { flex-direction: column; gap: 8px; }
-  .cookie-buttons button, .cookie-buttons a { width: 100%; }
-  #cookie-preferences-modal .modal-content { width: 95%; padding: 20px; }
-  .modal-buttons { flex-direction: column; gap: 10px; }
-  .modal-buttons button { width: 100%; }
-}
-
-/* =========================
-   Hero Section with Slideshow Background
-========================= */
-.hero {
-    position: relative;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-}
-
-.hero-slideshow {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero-slideshow .slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-}
-
-.hero-slideshow .slide.active { opacity: 1; }
-
-.hero-slideshow .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    animation: kenBurns 10s ease-in-out infinite;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 35px;
-    opacity: 0.9;
-}
-
-.cta-btn {
-    display: inline-block;
-    background: var(--primary-color);
-    color: #fff;
-    padding: 16px 40px;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-}
-
-.cta-btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
-}
-
-/* =========================
-   Services Section
-========================= */
-section.services {
-    padding: 80px 20px;
-    background: var(--light-bg);
-    color: var(--text-dark);
-    text-align: center;
-}
-
-section.services h2 { font-size: 2.5rem; margin-bottom: 50px; color: #111; }
-
-.service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-
-.service-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-.service-card .icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; }
-.service-card h4 { margin-top: 0; font-size: 1.4rem; color: #222; }
-.service-card p { color: #666; font-size: 1rem; }
-
-/* =========================
-   Reviews Carousel
-========================= */
-section.reviews {
-    padding: 100px 20px;
-    background: var(--dark-bg);
-    color: var(--text-light);
-    text-align: center;
-}
-
-section.reviews h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff; }
-
-.carousel-container {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 16px;
-    background: var(--dark-card);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.carousel { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
-
-.review-card {
-    min-width: 100%;
-    padding: 60px 40px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.review-card p { font-size: 1.2rem; color: #ddd; font-style: italic; margin-bottom: 20px; }
-.review-card h4 { margin: 0; font-size: 1rem; color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-.review-card .stars { color: gold; margin-bottom: 10px; font-size: 1.2rem; }
-
-/* =========================
-   About & CTA
-========================= */
-section.about, section.cta {
-    background: var(--light-bg);
-    color: var(--text-dark);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-section.about h2, section.cta h2 { font-size: 2.5rem; margin-bottom: 20px; color: #111; }
-section.about p, section.cta p { max-width: 700px; margin: 0 auto 30px auto; font-size: 1.15rem; color: #555; }
-section.cta { padding-bottom: 120px; }
-
-/* =========================
-   Portfolio Section
-========================= */
-section.portfolio { padding: 100px 20px; background: var(--dark-bg); text-align: center; }
-section.portfolio h2 { font-size: 2.5rem; margin-bottom: 50px; color: #fff9f9; }
-
-.portfolio-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #564f4f;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-}
-
-.portfolio-carousel { display: flex; transition: transform 0.5s ease-in-out; }
-
-.portfolio-card { min-width: 100%; box-sizing: border-box; padding: 0; background: #fff; text-align: center; }
-
-.portfolio-card img { width: 100%; height: 450px; object-fit: cover; object-position: top center; display: block; }
-
-.portfolio-info { padding: 30px; }
-.portfolio-card h4 { color: #111; margin: 0 0 10px 0; font-size: 1.5rem; }
-.portfolio-card p { color: #666; margin: 0; }
-
-.portfolio-prev, .portfolio-next {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: #111;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.portfolio-prev:hover, .portfolio-next:hover { background: var(--primary-color); color: white; }
-.portfolio-prev { left: 20px; }
-.portfolio-next { right: 20px; }
-
-.hero-slideshow .prev,
-.hero-slideshow .next,
-.portfolio-prev,
-.portfolio-next {
-    display: none !important;
-}
-
-/* =========================
-   Footer — Improved
-========================= */
-footer {
-    --fg: #f0f0f0;
-    --fg-muted: #888;
-    --accent: #007bff;
-    --accent-hover: #0056b3;
-    --border: rgba(255, 255, 255, 0.08);
-    background: #000;
-    color: var(--fg);
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-}
-
-footer::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0,123,255,0.5) 40%, rgba(0,123,255,0.5) 60%, transparent 100%);
-}
-
-.footer-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 40px 36px;
-}
-
-.footer-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-}
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.footer-logo span { color: var(--accent); }
-
-.footer-tagline {
-    font-size: 0.75rem;
-    color: var(--fg-muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-top: 4px;
-}
-
-.footer-nav a {
-    color: var(--fg-muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 6px 14px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: color 0.25s, border-color 0.25s, background 0.25s;
-}
-
-.footer-nav a:hover {
-    color: #fff;
-    border-color: var(--border);
-    background: rgba(255,255,255,0.04);
-}
-
-.footer-divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 36px;
-}
-
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-copy {
-    font-size: 0.78rem;
-    color: var(--fg-muted);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.footer-copy a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-copy a:hover { color: var(--accent-hover); }
-
-.footer-social {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--fg-muted);
-    text-decoration: none;
-    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.2s;
-}
-
-.footer-social a:hover {
-    color: #fff;
-    border-color: var(--accent);
-    background: rgba(0,123,255,0.12);
-    transform: translateY(-2px);
-}
-
-.footer-social svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-}
-
-@media (max-width: 600px) {
-    .footer-inner { padding: 40px 24px 28px; }
-    .footer-top { flex-direction: column; gap: 28px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-}
-
-/* =========================
-   Back to Top
-========================= */
-#back-to-top {
-    display: none; 
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: var(--primary-color);
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 18px;
-    line-height: 1;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-#back-to-top:hover { background-color: var(--secondary-color); }
-
-/* =========================
-   Mobile
-========================= */
-@media (max-width: 768px) {
-    .hero { height: 75vh; }
-    .hero-content h1 { font-size: 2.2rem; margin-top: 20px; }
-    .hero-content p { font-size: 1rem; }
-    .cta-btn { padding: 12px 30px; font-size: 0.9rem; }
-    .service-grid { gap: 20px; }
-    .service-card { max-width: 100%; }
-    section.reviews, section.portfolio, section.about, section.cta, section.services { padding: 60px 15px; }
-    .carousel-container, .portfolio-container { max-width: 100%; border-radius: 0; }
-    .review-card { padding: 40px 15px; }
-    .portfolio-card img { height: 250px; }
-    .portfolio-prev, .portfolio-next { width: 30px; height: 30px; font-size: 1rem; top: 35%; }
-    .portfolio-prev { left: 10px; }
-    .portfolio-next { right: 10px; }
-}
-</style>
+</script>
 </head>
 <body>
 
@@ -640,20 +41,19 @@ footer::before {
   <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
   <div class="cookie-buttons">
     <button id="accept-cookies">Accept</button>
-    <button id="deny-cookies" type="button">Deny</button>   
-    <button id="view-preferences">View Preferences</button>
-    <a href="/cookie-policy.html">Cookie Policy</a>
+    <button id="deny-cookies" type="button">Deny</button>
+    <button id="view-preferences">Preferences</button>
+    <a href="cookie-policy.html">Cookie Policy</a>
   </div>
 </div>
 
-<!-- Preferences Modal -->
 <div id="cookie-preferences-modal">
   <div class="modal-content">
     <h3>Cookie Preferences</h3>
     <p>Toggle the types of cookies you allow:</p>
-    <label><input type="checkbox" disabled checked> Essential (always active)</label><br>
-    <label><input type="checkbox" id="analytics-cookies"> Analytical</label><br>
-    <label><input type="checkbox" id="marketing-cookies"> Marketing</label><br>
+    <label><input type="checkbox" disabled checked> Essential (always active)</label>
+    <label><input type="checkbox" id="analytics-cookies"> Analytical</label>
+    <label><input type="checkbox" id="marketing-cookies"> Marketing</label>
     <div class="modal-buttons">
       <button id="save-preferences">Save Preferences</button>
       <button id="close-modal">Cancel</button>
@@ -661,313 +61,325 @@ footer::before {
   </div>
 </div>
 
-<header>
+<header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo">YRB NOVA</a>
+        <a href="index.html" class="site-logo">YRB <span>NOVA</span></a>
         <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-icon">☰</label> 
-        <ul class="menu"> 
-            <li><a href="index.html">Home</a></li>
+        <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html" class="nav-cta">Start a Project</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-slideshow">
-        <div class="slide active">
-            <img src="https://www.themuse.com/_next/image?url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F01212022-1047259374-coding-classes_scanrail.jpg&w=3840&q=75" alt="Coding">
-        </div>
-        <div class="slide">
-            <img src="https://www.devx.com/wp-content/uploads/vibe-coding-1.jpg.webp" alt="Vibe Coding">
-        </div>
-        <div class="slide">
-            <img src="https://media.istockphoto.com/id/1147195672/photo/focused-developer-coding-on-computer-monitors-working-late-in-office.jpg?s=612x612&w=0&k=20&c=R6oPQ_vkXAxCzpi4UFsN28pdU0C0LJL8JLAX-HwO90Q=" alt="Developer Coding">
-        </div>
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?auto=format&fit=crop&w=1950&q=80" alt="Web Design">
-        </div>
+        <div class="slide active"><img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric website designed by YRB Nova"></div>
+        <div class="slide"><img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="Plumbing business website designed by YRB Nova"></div>
+        <div class="slide"><img src="https://i.postimg.cc/LsfJGrs7/Anaya.png" alt="Anaya Clothing website designed by YRB Nova"></div>
+        <div class="slide"><img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity donation website designed by YRB Nova"></div>
+        <div class="slide"><img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music portfolio website designed by YRB Nova"></div>
     </div>
-
     <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <p class="eyebrow">Your Reinvention Partner</p>
+        <h1>We reinvent how small businesses <em>show up online.</em></h1>
+        <p class="lede">YRB Nova is a UK website design studio for businesses ready to be seen properly, through sites that look sharp, load fast, and turn visitors into real enquiries.</p>
+        <div class="btn-row">
+            <a href="contact.html" class="btn btn-primary">Start a Project</a>
+            <a href="work.html" class="btn btn-outline">See Our Work</a>
+        </div>
+    </div>
+    <div class="hero-wedge"></div>
+</section>
 
-    <div class="hero-content">
-        <h1>YRB Nova</h1>
-        <p>Landing pages that convert visitors into paying clients. Fast, professional, and fully responsive websites for your business.</p>
-        <a href="services.html" class="cta-btn">Get Started</a>
+<div class="ticker-band">
+    <div class="ticker-track">
+        <span>Websites That Convert <i>&#9733;</i> Your Reinvention Partner <i>&#9733;</i> Built In The UK <i>&#9733;</i> Fast Turnaround <i>&#9733;</i> No Generic Templates <i>&#9733;</i> </span>
+        <span aria-hidden="true">Websites That Convert <i>&#9733;</i> Your Reinvention Partner <i>&#9733;</i> Built In The UK <i>&#9733;</i> Fast Turnaround <i>&#9733;</i> No Generic Templates <i>&#9733;</i> </span>
+    </div>
+</div>
+
+<div class="marquee-wrap">
+    <p class="marquee-label">Real Projects, Real Businesses</p>
+    <div class="marquee-track">
+        <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="Plumbing business website built by YRB Nova" loading="lazy">
+        <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music portfolio website built by YRB Nova" loading="lazy">
+        <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity donation website built by YRB Nova" loading="lazy">
+        <img src="https://i.postimg.cc/LsfJGrs7/Anaya.png" alt="Clothing brand website built by YRB Nova" loading="lazy">
+        <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Electrician business website built by YRB Nova" loading="lazy">
+        <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="" loading="lazy" aria-hidden="true">
+        <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="" loading="lazy" aria-hidden="true">
+        <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="" loading="lazy" aria-hidden="true">
+        <img src="https://i.postimg.cc/LsfJGrs7/Anaya.png" alt="" loading="lazy" aria-hidden="true">
+        <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="" loading="lazy" aria-hidden="true">
+    </div>
+</div>
+
+<section class="section">
+    <div class="container text-center">
+        <p class="eyebrow">What We Do</p>
+        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">Three ways we help you show up better</h2>
+    </div>
+    <div class="container">
+        <div class="grid-3" style="margin-top:50px;">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Website Design &amp; Development</h3>
+                <p>From custom HTML/CSS/JS to modern frameworks, we build fast, professional websites tailored to your brand, not a recycled template.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>Conversion-Focused Strategy</h3>
+                <p>Every layout, headline, and button is built with one goal: turning visitors into real enquiries for your business.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Built for Every Device</h3>
+                <p>Guaranteed perfect display and functionality across all devices, from desktop monitors to small smartphones.</p>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top:46px;">
+            <a href="services.html" class="btn btn-outline">Explore Our Services</a>
+        </div>
     </div>
 </section>
 
-<section class="services">
-    <h2>My Core Services</h2>
-    <div class="service-grid">
-        <div class="service-card">
-            <div class="icon">💻</div>
-            <h4>Web Design & Development</h4>
-            <p>From custom HTML/CSS/JS to modern frameworks, I build fast, professional websites tailored to your brand.</p>
-        </div>
-       <div class="service-card">
-            <div class="icon">📈</div>
-            <h4>Lead Generation</h4>
-            <p>Your website is built with one goal in mind, turning visitors into real enquiries for your business.</p>
-        </div>
-        <div class="service-card">
-            <div class="icon">📱</div>
-            <h4>Full Responsiveness</h4>
-            <p>Guaranteed perfect display and functionality across all devices, from desktop monitors to small smartphones.</p>
-        </div>
+<section class="section section-alt">
+    <div class="container text-center">
+        <p class="eyebrow">Selected Work</p>
+        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">Recent reinventions</h2>
     </div>
-</section>
-
-<section class="reviews">
-    <h2>What Clients Say</h2>
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"I needed a website that actually explains what we do clearly. They took time to understand my business and delivered something that feels accurate and professional."</p>
-                <h4>- Daniel R.</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★☆</div>
-                <p>"Communication was consistent throughout the project. I had a few changes along the way and everything was handled quickly and properly."</p>
-                <h4>- Priya M.</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Our old site didn't reflect the quality of our work. The redesign feels modern, clean, and much more aligned with our brand."</p>
-                <h4>- Jordan F.</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Most of our customers come through mobile, so responsiveness was important. The site runs smoothly and looks great on every device."</p>
-                <h4>- Chloe W.</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"It wasn't a generic template. Everything was built around my services and target customers, which made it feel properly tailored."</p>
-                <h4>- Mateo S.</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"I wasn't sure what layout would suit my business, but they guided me through the process and made it simple. The final result just feels right."</p>
-                <h4>- Hannah L.</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about">
-    <h2>Why Choose YRB Nova?</h2>
-    <p>At YRB Nova, every website starts with understanding your business. We focus on what makes your services unique and build a clean, professional site that reflects your brand properly. No generic templates, just a tailored solution designed to fit your goals, work smoothly on every device, and support your long-term growth.</p>
-</section>
-
-<section class="portfolio">
-    <h2>My Recent Work</h2>
-    <div class="portfolio-container">
-        <div class="portfolio-carousel">
-            <div class="portfolio-card">
-                <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="New Plumber website design">
-                <div class="portfolio-info">
-                    <h4>New Plumber Website</h4>
-                    <p>Professional plumbing website showcasing services, booking, and contact features.</p>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music portfolio website design">
-                <div class="portfolio-info">
-                    <h4>Music Portfolio Website</h4>
-                    <p>A clean, focused portfolio built to showcase work clearly and reflect the artist's style and brand.</p>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity donation website page">
-                <div class="portfolio-info">
-                    <h4>Charity Donation Page</h4>
-                    <p>A straightforward, user-friendly donation page designed to make supporting the cause simple and accessible on any device.</p>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Enterprise business landing page">
-                <div class="portfolio-info">
-                    <h4>Enterprise Business Website</h4>
-                    <p>A professional business website structured to present services clearly and build trust with potential clients.</p>
-                </div>
-            </div>
-            <div class="portfolio-card">
-                <img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric services website">
-                <div class="portfolio-info">
-                    <h4>Elite Electric Website</h4>
+    <div class="container">
+        <div class="work-grid" style="margin-top:50px;">
+            <a href="work.html#elite-electric" class="work-card featured">
+                <div class="thumb"><img src="https://i.postimg.cc/SRmXZgfn/Electrician-1.png" alt="Elite Electric website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="work-info">
+                    <span class="tag">Local Trade</span>
+                    <h3>Elite Electric</h3>
                     <p>A tailored website for a local electrical business, designed to highlight services, build credibility, and make enquiries easy.</p>
                 </div>
-            </div>
+            </a>
+            <a href="work.html#new-plumber" class="work-card">
+                <div class="thumb"><img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="Plumber website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="work-info">
+                    <span class="tag">Local Trade</span>
+                    <h3>New Plumber Website</h3>
+                    <p>Professional plumbing website showcasing services, booking, and contact features.</p>
+                </div>
+            </a>
+            <a href="work.html#anaya" class="work-card">
+                <div class="thumb"><img src="https://i.postimg.cc/LsfJGrs7/Anaya.png" alt="Anaya Clothing website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="work-info">
+                    <span class="tag">E-Commerce</span>
+                    <h3>Anaya Clothing</h3>
+                    <p>A professional clothing website designed to showcase products effectively and provide a seamless shopping experience.</p>
+                </div>
+            </a>
         </div>
-        <button class="portfolio-prev" aria-label="Previous Slide">&#10094;</button>
-        <button class="portfolio-next" aria-label="Next Slide">&#10095;</button>
+        <div class="text-center" style="margin-top:46px;">
+            <a href="work.html" class="btn btn-outline">View All Work</a>
+        </div>
     </div>
 </section>
 
-<footer>
-    <div class="footer-inner">
+<section class="section">
+    <div class="container text-center">
+        <p class="eyebrow">How We Work</p>
+        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">From idea to launch, without the runaround</h2>
+    </div>
+    <div class="container">
+        <div class="process-list" style="margin-top:50px;">
+            <div class="process-step">
+                <div class="process-num">01</div>
+                <h3>Discover</h3>
+                <p>A short call to understand your business, your customers, and what your website actually needs to do for you.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">02</div>
+                <h3>Design</h3>
+                <p>We design a layout built around your brand and your goals. No generic templates, no guesswork.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">03</div>
+                <h3>Build</h3>
+                <p>We build a fast, responsive site with clean code, then test it across every device before it goes anywhere near live.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">04</div>
+                <h3>Launch &amp; Grow</h3>
+                <p>Your site goes live with on-page SEO in place, and we're on hand to support you as your business grows.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="section section-alt">
+    <div class="container text-center">
+        <p class="eyebrow">What Clients Say</p>
+        <h2>Trusted by businesses across the UK</h2>
+    </div>
+    <div class="container">
+        <div class="carousel-container" style="margin-top:50px;">
+            <div class="carousel">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I needed a website that actually explains what we do clearly. They took time to understand my business and delivered something that feels accurate and professional."</p>
+                    <h4>Daniel R.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Communication was consistent throughout the project. I had a few changes along the way and everything was handled quickly and properly."</p>
+                    <h4>Priya M.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Our old site didn't reflect the quality of our work. The redesign feels modern, clean, and much more aligned with our brand."</p>
+                    <h4>Jordan F.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Most of our customers come through mobile, so responsiveness was important. The site runs smoothly and looks great on every device."</p>
+                    <h4>Chloe W.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"It wasn't a generic template. Everything was built around my services and target customers, which made it feel properly tailored."</p>
+                    <h4>Mateo S.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I wasn't sure what layout would suit my business, but they guided me through the process and made it simple. The final result just feels right."</p>
+                    <h4>Hannah L.</h4>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots"></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="grid-2" style="align-items:center; gap:60px;">
+            <div>
+                <p class="eyebrow">Why YRB Nova</p>
+                <h2>Every project starts with your business, not a template</h2>
+                <p class="lede">We focus on what makes your services unique and build a clean, professional site that reflects your brand properly. It's designed to fit your goals, work smoothly on every device, and support your long-term growth.</p>
+                <a href="about.html" class="btn btn-outline">Learn About Us</a>
+            </div>
+            <div class="card" style="padding:44px;">
+                <h3 style="margin-bottom:22px;">What you get, every time</h3>
+                <p style="margin-bottom:14px;">✓ A site built around your actual customers, not a stock layout</p>
+                <p style="margin-bottom:14px;">✓ Fast, mobile-first builds that load properly everywhere</p>
+                <p style="margin-bottom:14px;">✓ On-page SEO from day one, not bolted on afterwards</p>
+                <p style="margin-bottom:0;">✓ Direct communication with the people actually building your site</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container text-center">
+        <p class="eyebrow">From The Blog</p>
+        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">Ideas on websites, branding &amp; getting found online</h2>
+    </div>
+    <div class="container">
+        <div class="post-grid" style="margin-top:50px;">
+            <a href="blog/website-cost-uk-2026.html" class="post-card">
+                <img class="post-cover" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70" alt="Laptop showing a business analytics dashboard" loading="lazy">
+                <div class="post-card-body">
+                    <span class="post-meta">Pricing</span>
+                    <h3>How Much Should a Small Business Website Cost in the UK?</h3>
+                    <p>A straight-talking 2026 guide to what you should actually expect to pay, and what to watch out for.</p>
+                    <span class="read-more">Read the guide →</span>
+                </div>
+            </a>
+            <a href="blog/signs-website-losing-customers.html" class="post-card">
+                <img class="post-cover" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=70" alt="Close-up of a website analytics dashboard showing load time and bounce rate" loading="lazy">
+                <div class="post-card-body">
+                    <span class="post-meta">Conversion</span>
+                    <h3>7 Signs Your Website Is Costing You Customers</h3>
+                    <p>If your site is quietly turning people away, these are the warning signs to look for first.</p>
+                    <span class="read-more">Read the guide →</span>
+                </div>
+            </a>
+            <a href="blog/why-tradespeople-need-a-website.html" class="post-card">
+                <img class="post-cover" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=70" alt="Cordless drill on a tradesperson's work site" loading="lazy">
+                <div class="post-card-body">
+                    <span class="post-meta">Local Business</span>
+                    <h3>Why Every Tradesperson Needs a Website in 2026</h3>
+                    <p>Social media isn't enough on its own anymore. Here's why a proper website still matters more than ever.</p>
+                    <span class="read-more">Read the guide →</span>
+                </div>
+            </a>
+        </div>
+        <div class="text-center" style="margin-top:46px;">
+            <a href="blog/index.html" class="btn btn-outline">Read All Articles</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="cta-band">
+        <h2>Ready to reinvent how you show up online?</h2>
+        <p>Tell us about your business and we'll get back to you within one business day.</p>
+        <a href="contact.html" class="btn btn-primary">Start a Project</a>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
         <div class="footer-top">
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
-                <div class="footer-tagline">Built with purpose</div>
+                <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
             </div>
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="about.html">About</a>
+                    <a href="work.html">Work</a>
+                    <a href="blog/index.html">Blog</a>
+                    <a href="services.html">Services</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>
+                    <a href="tel:07555985320">07555 985320</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
         </div>
-
         <div class="footer-divider"></div>
-
         <div class="footer-bottom">
-            <p class="footer-copy">
-                &copy; 2025 YRB Nova. All rights reserved.
-                &nbsp;&middot;&nbsp;
-                <a href="cookie-policy.html">Cookie Policy</a>
-                &nbsp;&middot;&nbsp;
-                <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-            </p>
+            <p class="footer-copy">&copy; <span id="year">2026</span> YRB Nova. All rights reserved.</p>
             <div class="footer-social">
                 <a href="mailto:yrbnova@gmail.com" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
                 <a href="tel:07555985320" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/></svg>
                 </a>
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                    </svg>
+                <a href="https://www.instagram.com/yrbnova" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                 </a>
             </div>
         </div>
-
     </div>
 </footer>
 
-<button onclick="topFunction()" id="back-to-top" title="Go to top">&#9650;</button>
+<button id="back-to-top" title="Go to top">&#9650;</button>
 
-
-<script>
-// Navigation Toggle
-const menuIcon = document.querySelector('.menu-icon');
-const navLinks = document.querySelector('header nav ul');
-
-if (menuIcon) {
-    menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
-}
-
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('active'));
-});
-
-// Back to Top
-const backToTopBtn = document.getElementById("back-to-top");
-
-window.onscroll = function () {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-};
-
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-// Hero Slideshow
-const heroSlides = document.querySelectorAll('.hero-slideshow .slide');
-let heroIndex = 0;
-
-function goToHeroSlide(index) {
-    heroSlides[heroIndex].classList.remove('active');
-    heroIndex = index % heroSlides.length;
-    heroSlides[heroIndex].classList.add('active');
-}
-
-setInterval(() => goToHeroSlide(heroIndex + 1), 4000);
-
-// Reviews Carousel
-const carousel = document.querySelector('.carousel');
-let index = 0;
-const total = carousel.children.length;
-
-function showSlide(i) {
-    index = i;
-    if (index >= total) index = 0;
-    if (index < 0) index = total - 1;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-}
-
-setInterval(() => showSlide(index + 1), 4000);
-
-// Portfolio Carousel
-const portfolioCarousel = document.querySelector('.portfolio-carousel');
-const portfolioPrev = document.querySelector('.portfolio-prev');
-const portfolioNext = document.querySelector('.portfolio-next');
-let pIndex = 0;
-const pTotal = portfolioCarousel.children.length;
-
-function showPortfolioSlide(i) {
-    if (i >= pTotal) pIndex = 0;
-    else if (i < 0) pIndex = pTotal - 1;
-    else pIndex = i;
-    portfolioCarousel.style.transform = `translateX(-${pIndex * 100}%)`;
-}
-
-portfolioPrev.addEventListener('click', () => showPortfolioSlide(pIndex - 1));
-portfolioNext.addEventListener('click', () => showPortfolioSlide(pIndex + 1));
-setInterval(() => showPortfolioSlide(pIndex + 1), 6000);
-
-// Cookie Consent
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('cookie-consent-popup');
-    const modal = document.getElementById('cookie-preferences-modal');
-
-    if (!localStorage.getItem('cookieChoice') && !localStorage.getItem('cookiesPreferences')) {
-        popup.style.display = 'flex';
-    }
-
-    document.getElementById('accept-cookies').onclick = () => {
-        localStorage.setItem('cookieChoice', 'accepted');
-        popup.style.display = 'none';
-    };
-
-    document.getElementById('deny-cookies').onclick = () => {
-        localStorage.setItem('cookieChoice', 'denied');
-        popup.style.display = 'none';
-    };
-
-    document.getElementById('view-preferences').onclick = (e) => {
-        e.preventDefault();
-        modal.style.display = 'flex';
-    };
-
-    document.getElementById('close-modal').onclick = () => {
-        modal.style.display = 'none';
-    };
-
-    document.getElementById('save-preferences').onclick = () => {
-        const analytics = document.getElementById('analytics-cookies').checked;
-        const marketing = document.getElementById('marketing-cookies').checked;
-        localStorage.setItem('cookiesPreferences', JSON.stringify({ analytics, marketing }));
-        popup.style.display = 'none';
-        modal.style.display = 'none';
-    };
-});
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>

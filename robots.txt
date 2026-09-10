@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yrbnova.com/sitemap.xml

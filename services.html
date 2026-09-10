@@ -1,640 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="High-converting landing pages built fast. Professional custom landing pages that boost sales and conversions.">
-    <title>YRB Nova Services</title>
-    <style>
-        :root {
-            --primary-accent: #ffffff; 
-            --secondary-accent: #b0b0b0;
-            --bg-dark: #121212; 
-            --bg-card: #1c1c1c; 
-            --text-main: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.6);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Design Services &amp; Pricing | YRB Nova</title>
+<meta name="description" content="Website design services from YRB Nova: custom landing pages, full business sites, and lead-generation-focused builds from £350. See pricing, process, and FAQs.">
+<link rel="canonical" href="https://yrbnova.com/services.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='69' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='56' fill='%234d74ff' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
 
-        @keyframes kenBurns {
-            0%   { transform: scale(1) translate(0, 0); }
-            50%  { transform: scale(1.08) translate(-1%, -1%); }
-            100% { transform: scale(1) translate(0, 0); }
-        }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Website Design Services & Pricing | YRB Nova">
+<meta property="og:description" content="Custom landing pages, full business sites, and lead-generation-focused builds from £350. See pricing, process, and FAQs.">
+<meta property="og:url" content="https://yrbnova.com/services.html">
+<meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: white;
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: none; letter-spacing: normal; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .text-center { text-align: center; }
-
-        /* Navigation */
-        header nav {
-            background-color: #000;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            font-weight: 500;
-            font-size: 15px;
-            text-transform: uppercase;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
-        }
-
-        .site-logo { color: var(--primary-accent); font-size: 1.5rem; font-weight: 700; text-decoration: none; letter-spacing: 1px; z-index: 1002; margin-right: auto; }
-        header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
-        header nav ul li { margin-left: 30px; }
-        header nav ul li a { color: var(--text-main); text-decoration: none; transition: 0.3s; font-size: 0.9rem; letter-spacing: 1px; }
-        header nav ul li a:hover { color: var(--secondary-accent); }
-
-        #menu-toggle { display: none; } 
-        .menu-icon { display: none; }
-
-        @media (max-width: 768px) {
-            header nav { padding: 15px 20px; }
-            .site-logo { margin-right: 0; }
-            .menu-icon { display: block; font-size: 28px; color: var(--primary-accent); cursor: pointer; z-index: 1001; }
-            header nav ul { display: none; flex-direction: column; width: 100%; background: rgba(0,0,0,0.95); position: absolute; top: 55px; left: 0; box-shadow: 0 5px 10px rgba(0,0,0,0.5); padding: 10px 0; text-align: center; }
-            header nav ul li { margin: 15px 0; margin-left: 0; }
-            #menu-toggle:checked ~ ul.menu { display: flex; }
-        }
-
-        /* Hero */
-        .hero-section {
-            position: relative;
-            padding: 120px 0;
-            background-color: #0d0d0d; 
-            color: var(--text-main);
-        }
-
-        .hero-section > .container { position: relative; z-index: 1; }
-
-        .hero-section h1 { font-size: 4rem; font-weight: 900; color: var(--primary-accent); margin-top: 0; }
-        .hero-section p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; }
-
-        .hero-split { display: flex; align-items: center; gap: 50px; padding: 0 40px; }
-        .hero-text { flex: 1; text-align: left; }
-
-        /* Slideshow */
-        .hero-slideshow {
-            flex: 1;
-            max-width: 500px;
-            height: 320px;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 50px rgba(255,255,255,0.08);
-            border: 1px solid var(--secondary-accent);
-        }
-
-        .hero-slideshow .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-
-        .hero-slideshow .slide.active { opacity: 1; }
-
-        .hero-slideshow .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            animation: kenBurns 8s ease-in-out infinite;
-        }
-
-        .hero-slideshow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 60%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero-slideshow.desktop-only { display: none !important; }
-            .hero-slideshow.mobile-only {
-                display: block !important;
-                max-width: 100%;
-                width: 100%;
-                height: 220px;
-                margin-bottom: 25px;
-                border-radius: 10px;
-                position: relative;
-                flex: none;
-            }
-            .hero-section { padding: 70px 0; }
-            .hero-split { padding: 0 20px; flex-direction: column; text-align: center; }
-            .hero-text { text-align: center; }
-            .hero-section h1 { font-size: 2.4rem; }
-            .hero-section p { font-size: 1rem; }
-        }
-
-        @media (min-width: 769px) {
-            .hero-slideshow.mobile-only { display: none !important; }
-        }
-
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .hero-split { flex-direction: column; text-align: center; }
-            .hero-text { text-align: center; }
-            .hero-section h1 { font-size: 3rem; }
-            .hero-slideshow { max-width: 100%; width: 100%; }
-        }
-
-        /* CTA Button */
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--primary-accent); 
-            color: var(--bg-dark) !important; 
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-btn:hover { background: var(--secondary-accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,255,255,0.3); }
-
-        /* Pricing */
-        #pricing { padding: 100px 20px; background: white; }
-        #pricing h2 { font-size: 3rem; color: var(--primary-accent); font-weight: 800; margin-bottom: 60px; }
-
-        .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-
-        .card {
-            background: var(--bg-card);
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .card:hover { transform: translateY(-5px); border-color: var(--secondary-accent); }
-        .card h3 { font-size: 2.2rem; color: var(--primary-accent); margin-bottom: 5px; }
-        .card > p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px; font-weight: 300; }
-        .card ul { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; flex-grow: 1; }
-        .card ul li { padding: 10px 0; border-bottom: 1px dashed var(--border-color); position: relative; padding-left: 30px; color: var(--text-main); }
-        .card ul li::before { content: "✓"; position: absolute; left: 0; font-weight: 900; color: var(--secondary-accent); font-size: 1.2rem; }
-        .card.popular { background: linear-gradient(145deg, #222, #1c1c1c); border: 3px solid var(--secondary-accent); }
-
-        @media (max-width: 1024px) { .pricing-cards { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; } }
-
-        /* FAQ */
-        #faq { padding: 100px 20px; background: #1a1a1a; }
-        #faq h2 { color: var(--primary-accent); font-size: 3rem; margin-bottom: 40px; }
-        .accordion-container { max-width: 900px; margin: 0 auto; text-align: left; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
-        .accordion-item { border-bottom: 1px solid var(--border-color); }
-        .accordion-item:last-child { border-bottom: none; }
-        .accordion-header { background: var(--bg-card); padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
-        .accordion-header:hover { background: #282828; }
-        .accordion-header h3 { margin: 0; font-size: 1.2rem; color: var(--primary-accent); }
-        .accordion-icon { font-size: 1.5rem; font-weight: 700; color: var(--secondary-accent); transition: transform 0.3s; }
-        .accordion-toggle { display: none; }
-        .accordion-content { background: #1f1f1f; padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; }
-        .accordion-toggle:checked + .accordion-header + .accordion-content { max-height: 300px; padding: 15px 25px 25px 25px; }
-        .accordion-toggle:checked + .accordion-header .accordion-icon { transform: rotate(45deg); }
-        .accordion-content p { margin: 0; color: var(--text-muted); }
-
-        /* CTA Section */
-        #cta { padding: 80px 20px; background: linear-gradient(135deg, #000000, #635858); color: #fff; text-align: center; border-radius: 10px; margin: 50px auto; max-width: 90%; }
-        #cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
-
-
-
-/* =========================
-   Footer — Improved
-========================= */
-footer {
-    --fg: #f0f0f0;
-    --fg-muted: #888;
-    --accent: #007bff;
-    --accent-hover: #0056b3;
-    --border: rgba(255, 255, 255, 0.08);
-    background: #000;
-    color: var(--fg);
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Website Design and Development",
+  "provider": { "@type": "ProfessionalService", "name": "YRB Nova", "url": "https://yrbnova.com/" },
+  "areaServed": "United Kingdom",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Website Packages",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Basic Website Package", "price": "350", "priceCurrency": "GBP" },
+      { "@type": "Offer", "name": "Standard Website Package", "price": "600", "priceCurrency": "GBP" },
+      { "@type": "Offer", "name": "Premium Website Package", "price": "800", "priceCurrency": "GBP" }
+    ]
+  }
 }
-
-footer::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0,123,255,0.5) 40%, rgba(0,123,255,0.5) 60%, transparent 100%);
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It takes 2-5 days depending on the package you choose. Bigger projects are estimated individually, but speed and quality are always the top priority." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide revisions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, standard revisions are included until you're happy with the site." }
+    },
+    {
+      "@type": "Question",
+      "name": "What pages do you build?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We build landing pages, pricing pages, service pages, portfolio pages, and more. We can build any page your business needs." }
+    },
+    {
+      "@type": "Question",
+      "name": "What technology do you use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We focus on lean, performance-optimised code, primarily using HTML5, CSS3, and modern JavaScript. This keeps your site fast, easy to host, and search-engine friendly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with SEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every site we build includes on-page SEO fundamentals: proper headings, meta tags, fast load times, and mobile optimisation. The Premium package includes deeper SEO and content support." }
+    }
+  ]
 }
-
-.footer-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 40px 36px;
-}
-
-.footer-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-}
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.footer-logo span { color: var(--accent); }
-
-.footer-tagline {
-    font-size: 0.75rem;
-    color: var(--fg-muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-top: 4px;
-}
-
-.footer-nav a {
-    color: var(--fg-muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 6px 14px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: color 0.25s, border-color 0.25s, background 0.25s;
-}
-
-.footer-nav a:hover {
-    color: #fff;
-    border-color: var(--border);
-    background: rgba(255,255,255,0.04);
-}
-
-.footer-divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 36px;
-}
-
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-copy {
-    font-size: 0.78rem;
-    color: var(--fg-muted);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.footer-copy a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-copy a:hover { color: var(--accent-hover); }
-
-.footer-social {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--fg-muted);
-    text-decoration: none;
-    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.2s;
-}
-
-.footer-social a:hover {
-    color: #fff;
-    border-color: var(--accent);
-    background: rgba(0,123,255,0.12);
-    transform: translateY(-2px);
-}
-
-.footer-social svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-}
-
-@media (max-width: 600px) {
-    .footer-inner { padding: 40px 24px 28px; }
-    .footer-top { flex-direction: column; gap: 28px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-}
-
-
-    </style>
+</script>
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="site-logo">YRB NOVA</a>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">☰</label> 
-            <ul class="menu"> 
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="site-header">
+    <nav>
+        <a href="index.html" class="site-logo">YRB <span>NOVA</span></a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html" class="nav-cta">Start a Project</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="hero-section">
-        <div class="container hero-split">
-            <div class="hero-text">
-                <h1>My Services</h1>
-                <p>
-                    I build websites that are guaranteed to convert. I create beautiful custom landing page, pricing page, portfolio page, and service page websites that are built fast. I offer everything from branding to custom layouts and responsive design.
-                </p>
-                <!-- Slideshow shows here on mobile (above button) -->
-                <div class="hero-slideshow mobile-only">
-                    <div class="slide active">
-                        <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="Plumber Website">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music Portfolio">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity Donation Page">
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Enterprise Landing Page">
-                    </div>
-                </div>
-                <a href="#pricing" class="cta-btn">View Pricing</a>
-            </div>
-
-            <!-- Slideshow on desktop only -->
-            <div class="hero-slideshow desktop-only">
-                <div class="slide active">
-                    <img src="https://i.postimg.cc/3RzZq5bB/Screenshot-2026-02-26-212142.png" alt="Plumber Website">
-                </div>
-                <div class="slide">
-                    <img src="https://i.postimg.cc/rwNLHtyt/portfolio-music-ss.png" alt="Music Portfolio">
-                </div>
-                <div class="slide">
-                    <img src="https://i.postimg.cc/PqBWgN51/charity.png" alt="Charity Donation Page">
-                </div>
-                <div class="slide">
-                    <img src="https://i.postimg.cc/jjFPH9rC/kentros.png" alt="Enterprise Landing Page">
-                </div>
-            </div>
+<section class="page-hero has-media">
+    <div class="page-hero-media">
+        <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=1600&q=70" alt="" role="presentation">
+    </div>
+    <div class="container">
+        <p class="eyebrow">Services</p>
+        <h1>Websites built to do a job, not just look nice</h1>
+        <p class="lede">We design and build fast, professional websites that give small businesses a proper online presence and turn visitors into enquiries.</p>
+        <div class="btn-row">
+            <a href="#pricing" class="btn btn-primary">View Pricing</a>
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="pricing">
-        <div class="container text-center">
-            <h2>Pricing</h2>
-            <div class="pricing-cards">
-                
-                <div class="card">
-                    <h3>Basic</h3>
-                    <p>Perfect for quick launches and proof of concept.</p>
-                    <div class="price-details">
-                        <p class="price">£350</p>
-                    </div>
-                    <ul>
-                        <li>Custom layout (1 Page)</li>
-                        <li>Mobile-friendly design</li>
-                        <li>Fast delivery (2 Days)</li>
-                        <li>Basic on-page SEO</li>
-                    </ul>
-                    <a href="contact.html" class="cta-btn">Get Started</a>
-                </div>
-
-                <div class="card popular">
-                    <h3>Standard</h3>
-                    <p>Our most popular option for serious business growth.</p>
-                    <div class="price-details">
-                        <p class="price">£600</p>
-                    </div>
-                    <ul>
-                        <li>All Basic features</li>
-                        <li>2-3 Pages (e.g., Home, Services, Contact)</li>
-                        <li>Portfolio/Case Study section</li>
-                        <li>Advanced SEO optimization</li>
-                        <li>Standard revisions included</li>
-                    </ul>
-                    <a href="contact.html" class="cta-btn">Get Started</a>
-                </div>
-
-                <div class="card">
-                    <h3>Premium</h3>
-                    <p>Full-service solution including advanced functionality.</p>
-                    <div class="price-details">
-                        <p class="price">£800</p>
-                    </div>
-                    <ul>
-                        <li>All Standard features</li>
-                        <li>Unlimited pages (Within scope)</li>
-                        <li>Custom Animations & integrations</li>
-                        <li>Full branding support</li>
-                        <li>Priority delivery & support</li>
-                    </ul>
-                    <a href="contact.html" class="cta-btn">Get Started</a>
-                </div>
-
+<section class="section section-alt">
+    <div class="container text-center">
+        <p class="eyebrow">What's Included</p>
+        <h2 style="max-width:600px; margin-left:auto; margin-right:auto;">Everything a small business site actually needs</h2>
+    </div>
+    <div class="container">
+        <div class="grid-3" style="margin-top:50px;">
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Design &amp; Branding</h3>
+                <p>A layout built around your brand, your services, and the customers you actually want to reach, not a recycled template.</p>
+            </div>
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Development &amp; Performance</h3>
+                <p>Clean, lightweight code that loads fast and works properly on every device, from desktop to mobile.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>SEO Foundations</h3>
+                <p>Proper titles, meta tags, headings, and structure from day one, so search engines can find and understand your site.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🤝</div>
+                <h3>Ongoing Support</h3>
+                <p>We're on hand after launch for updates, questions, and changes as your business grows.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📩</div>
+                <h3>Lead Generation Built-In</h3>
+                <p>Contact forms, calls-to-action, and page structure designed to turn visitors into real enquiries.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Fast Turnaround</h3>
+                <p>Most projects go from kickoff to launch in a matter of days, not months.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="faq">
-        <div class="container text-center">
-            <h2>FAQ</h2>
-            <div class="accordion-container">
+<section class="section" id="pricing">
+    <div class="container text-center">
+        <p class="eyebrow">Pricing</p>
+        <h2>Straightforward packages, no hidden fees</h2>
+    </div>
+    <div class="container">
+        <div class="pricing-cards" style="margin-top:50px;">
 
-                <div class="accordion-item">
-                    <input type="checkbox" id="faq1" class="accordion-toggle">
-                    <label for="faq1" class="accordion-header">
-                        <h3>How long does it take?</h3>
-                        <span class="accordion-icon">+</span>
-                    </label>
-                    <div class="accordion-content">
-                        <p>It takes 2-5 days depending on the package you choose. Bigger projects are estimated individually, but speed and quality are always top priority.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <input type="checkbox" id="faq2" class="accordion-toggle">
-                    <label for="faq2" class="accordion-header">
-                        <h3>Do you provide revisions?</h3>
-                        <span class="accordion-icon">+</span>
-                    </label>
-                    <div class="accordion-content">
-                        <p>Yes, all revisions are included until you are happy with the site.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <input type="checkbox" id="faq3" class="accordion-toggle">
-                    <label for="faq3" class="accordion-header">
-                        <h3>What pages do you build?</h3>
-                        <span class="accordion-icon">+</span>
-                    </label>
-                    <div class="accordion-content">
-                        <p>I build landing pages, pricing pages, service pages, portfolio pages, and more. I can build any page you need.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <input type="checkbox" id="faq4" class="accordion-toggle">
-                    <label for="faq4" class="accordion-header">
-                        <h3>What technology do you use?</h3>
-                        <span class="accordion-icon">+</span>
-                    </label>
-                    <div class="accordion-content">
-                        <p>I focus on lean, performance-optimized code, primarily using HTML5, CSS3, and modern JavaScript. This ensures your site is fast, easy to host, and ranks well on search engines.</p>
-                    </div>
-                </div>
-
+            <div class="price-card">
+                <h3>Basic</h3>
+                <p class="price-note">Perfect for quick launches and proof of concept.</p>
+                <div class="price">£350</div>
+                <ul>
+                    <li>Custom layout (1 page)</li>
+                    <li>Mobile-friendly design</li>
+                    <li>Fast delivery (2 days)</li>
+                    <li>Basic on-page SEO</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">Get Started</a>
             </div>
-        </div>
-    </section>
 
-    <section id="cta">
-        <div class="container text-center">
-            <h2>Ready to Launch?</h2>
-            <p>It takes less than 30 seconds to start the conversation.</p>
-            <a href="contact.html" class="cta-btn">Let's Discuss Your Project</a>
-        </div>
-    </section>
+            <div class="price-card popular">
+                <h3>Standard</h3>
+                <p class="price-note">Our most popular option for serious business growth.</p>
+                <div class="price">£600</div>
+                <ul>
+                    <li>All Basic features</li>
+                    <li>2-3 pages (Home, Services, Contact)</li>
+                    <li>Portfolio / case study section</li>
+                    <li>Advanced SEO optimisation</li>
+                    <li>Standard revisions included</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+            </div>
 
-   <footer>
+            <div class="price-card">
+                <h3>Premium</h3>
+                <p class="price-note">Full-service solution including advanced functionality.</p>
+                <div class="price">£800</div>
+                <ul>
+                    <li>All Standard features</li>
+                    <li>Unlimited pages (within scope)</li>
+                    <li>Custom animations &amp; integrations</li>
+                    <li>Full branding support</li>
+                    <li>Priority delivery &amp; support</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">Get Started</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="faq">
+    <div class="container text-center">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions we get asked a lot</h2>
+    </div>
+    <div class="container">
+        <div class="accordion-container" style="margin-top:50px;">
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq1" class="accordion-toggle">
+                <label for="faq1" class="accordion-header">
+                    <h3>How long does it take to build a website?</h3>
+                    <span class="accordion-icon">+</span>
+                </label>
+                <div class="accordion-content">
+                    <p>It takes 2-5 days depending on the package you choose. Bigger projects are estimated individually, but speed and quality are always the top priority.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq2" class="accordion-toggle">
+                <label for="faq2" class="accordion-header">
+                    <h3>Do you provide revisions?</h3>
+                    <span class="accordion-icon">+</span>
+                </label>
+                <div class="accordion-content">
+                    <p>Yes, standard revisions are included until you're happy with the site.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq3" class="accordion-toggle">
+                <label for="faq3" class="accordion-header">
+                    <h3>What pages do you build?</h3>
+                    <span class="accordion-icon">+</span>
+                </label>
+                <div class="accordion-content">
+                    <p>We build landing pages, pricing pages, service pages, portfolio pages, and more. We can build any page your business needs.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq4" class="accordion-toggle">
+                <label for="faq4" class="accordion-header">
+                    <h3>What technology do you use?</h3>
+                    <span class="accordion-icon">+</span>
+                </label>
+                <div class="accordion-content">
+                    <p>We focus on lean, performance-optimised code, primarily using HTML5, CSS3, and modern JavaScript. This keeps your site fast, easy to host, and search-engine friendly.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq5" class="accordion-toggle">
+                <label for="faq5" class="accordion-header">
+                    <h3>Do you help with SEO?</h3>
+                    <span class="accordion-icon">+</span>
+                </label>
+                <div class="accordion-content">
+                    <p>Every site we build includes on-page SEO fundamentals: proper headings, meta tags, fast load times, and mobile optimisation. The Premium package includes deeper SEO and content support.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="cta-band">
+        <h2>Ready to launch?</h2>
+        <p>It takes less than 30 seconds to start the conversation.</p>
+        <a href="contact.html" class="btn btn-primary">Let's Discuss Your Project</a>
+    </div>
+</section>
+
+<footer class="site-footer">
     <div class="footer-inner">
-
         <div class="footer-top">
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
-                <div class="footer-tagline">Built with purpose</div>
+                <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
             </div>
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="about.html">About</a>
+                    <a href="work.html">Work</a>
+                    <a href="blog/index.html">Blog</a>
+                    <a href="services.html">Services</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>
+                    <a href="tel:07555985320">07555 985320</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
         </div>
-
         <div class="footer-divider"></div>
-
         <div class="footer-bottom">
-            <p class="footer-copy">
-                &copy; 2025 YRB Nova. All rights reserved.
-                &nbsp;&middot;&nbsp;
-                <a href="cookie-policy.html">Cookie Policy</a>
-                &nbsp;&middot;&nbsp;
-                <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-            </p>
+            <p class="footer-copy">&copy; <span id="year">2026</span> YRB Nova. All rights reserved.</p>
             <div class="footer-social">
                 <a href="mailto:yrbnova@gmail.com" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
                 <a href="tel:07555985320" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.466 15.466 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.43 2.8z"/></svg>
                 </a>
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                    </svg>
+                <a href="https://www.instagram.com/yrbnova" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                 </a>
             </div>
         </div>
-
     </div>
 </footer>
 
-    <script>
-        // Mobile menu close on link click
-        document.querySelectorAll('.menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                const toggle = document.getElementById('menu-toggle');
-                if (toggle.checked) toggle.checked = false;
-            });
-        });
+<button id="back-to-top" title="Go to top">&#9650;</button>
 
-        // Hero Slideshow - syncs both desktop and mobile
-        const allSlideshows = document.querySelectorAll('.hero-slideshow');
-        let current = 0;
-
-        function goToSlide(index) {
-            allSlideshows.forEach(show => {
-                const slides = show.querySelectorAll('.slide');
-                if (slides.length) {
-                    slides[current].classList.remove('active');
-                    slides[index % slides.length].classList.add('active');
-                }
-            });
-            current = index % allSlideshows[0].querySelectorAll('.slide').length;
-        }
-
-        setInterval(() => goToSlide(current + 1), 4000);
-    </script>
-
+<script src="main.js"></script>
 </body>
 </html>
