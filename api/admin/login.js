@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             return res.status(401).json({ error: 'Incorrect password' });
         }
 
-        setSessionCookie(res);
+        setSessionCookie(res, Boolean(body.remember));
         return res.status(200).json({ ok: true });
     } catch (err) {
         console.error('Admin login error:', err);

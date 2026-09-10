@@ -184,6 +184,9 @@ header.site-header nav {
 }
 
 .site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--font-display);
     color: var(--text);
     font-size: 1.3rem;
@@ -194,7 +197,17 @@ header.site-header nav {
     white-space: nowrap;
 }
 
-.site-logo span { color: var(--accent); }
+.site-logo .nav-logo-text span { color: var(--accent); }
+
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .nav-logo-text { display: none; }
+}
 
 .nav-links {
     list-style: none;
