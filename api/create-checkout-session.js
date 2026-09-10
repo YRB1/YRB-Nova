@@ -31,6 +31,7 @@ module.exports = async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             mode: 'payment',
             payment_method_types: ['card'],
+            metadata: { package: body.pkg },
             line_items: [
                 {
                     price_data: {
@@ -43,10 +44,18 @@ module.exports = async (req, res) => {
             ],
             custom_fields: [
                 {
+                    key: 'full_name',
+                    label: { type: 'custom', custom: 'Your name' },
+                    type: 'text',
+                    optional: false,
+                    text: { minimum_length: 1, maximum_length: 120 }
+                },
+                {
                     key: 'project_details',
                     label: { type: 'custom', custom: 'Tell us about your project' },
                     type: 'text',
-                    optional: true
+                    optional: true,
+                    text: { minimum_length: 1, maximum_length: 500 }
                 }
             ],
             success_url: `${origin}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,
