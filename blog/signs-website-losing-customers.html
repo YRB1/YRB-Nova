@@ -7,6 +7,9 @@
 <meta name="description" content="If your site is quietly turning visitors away before they enquire, these are the warning signs to look for first, and how to fix them.">
 <link rel="canonical" href="https://yrbnova.com/blog/signs-website-losing-customers.html">
 <link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../styles.css">
 
 <meta property="og:type" content="article">
@@ -32,6 +35,32 @@
 </head>
 
 <body>
+
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent-popup">
+  <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
+  <div class="cookie-buttons">
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies" type="button">Deny</button>
+    <button id="view-preferences">Preferences</button>
+    <a href="../cookie-policy.html">Cookie Policy</a>
+  </div>
+</div>
+
+<div id="cookie-preferences-modal">
+  <div class="modal-content">
+    <h3>Cookie Preferences</h3>
+    <p>Toggle the types of cookies you allow:</p>
+    <label><input type="checkbox" disabled checked> Essential (always active)</label>
+    <label><input type="checkbox" id="analytics-cookies"> Analytical</label>
+    <label><input type="checkbox" id="marketing-cookies"> Marketing</label>
+    <div class="modal-buttons">
+      <button id="save-preferences">Save Preferences</button>
+      <button id="close-modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
 
 <header class="site-header">
     <nav>

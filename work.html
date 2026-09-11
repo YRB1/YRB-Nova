@@ -7,6 +7,9 @@
 <meta name="description" content="Explore recent website design projects by YRB Nova, from tradespeople and local services to portfolios and e-commerce, built to convert visitors into customers.">
 <link rel="canonical" href="https://yrbnova.com/work.html">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
@@ -23,7 +26,7 @@
     .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
     .case-grid.reverse .case-media { order: 2; }
     .case-media { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
-    .case-media img { width: 100%; display: block; }
+    .case-media img { width: 100%; display: block; aspect-ratio: 1280 / 655; object-fit: cover; }
     .case-tag { display:inline-block; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#06060a; background:var(--accent-gradient); font-weight:700; padding:5px 12px; border-radius:100px; transform:rotate(-2deg); margin-bottom:16px; }
     .case-stats { display: flex; gap: 30px; margin-top: 26px; flex-wrap: wrap; }
     .case-stats div strong { display:block; font-family: var(--font-display); font-size: 1.5rem; }
@@ -37,6 +40,32 @@
 </head>
 
 <body>
+
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent-popup">
+  <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
+  <div class="cookie-buttons">
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies" type="button">Deny</button>
+    <button id="view-preferences">Preferences</button>
+    <a href="cookie-policy.html">Cookie Policy</a>
+  </div>
+</div>
+
+<div id="cookie-preferences-modal">
+  <div class="modal-content">
+    <h3>Cookie Preferences</h3>
+    <p>Toggle the types of cookies you allow:</p>
+    <label><input type="checkbox" disabled checked> Essential (always active)</label>
+    <label><input type="checkbox" id="analytics-cookies"> Analytical</label>
+    <label><input type="checkbox" id="marketing-cookies"> Marketing</label>
+    <div class="modal-buttons">
+      <button id="save-preferences">Save Preferences</button>
+      <button id="close-modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
 
 <header class="site-header">
     <nav>

@@ -68,7 +68,7 @@ section { padding: 90px 0; }
 .product-card .price { color: var(--gold-light); font-family: 'Jost', sans-serif; font-size: 0.9rem; }
 
 .story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: var(--surface); }
-.story img { border-radius: 2px; filter: saturate(0.85); }
+.story img { width: 100%; aspect-ratio: 7 / 8; object-fit: cover; border-radius: 2px; filter: saturate(0.85); }
 .story p { color: var(--text-dim); }
 
 footer { background: #0f0d0b; padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
@@ -129,17 +129,17 @@ footer a { color: var(--gold-light); text-decoration: none; }
         </div>
         <div class="product-grid">
             <div class="product-card">
-                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
                 <h3>The Everyday Jacket</h3>
                 <p class="price">&pound;128.00</p>
             </div>
             <div class="product-card">
-                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
                 <h3>Linen Wrap Set</h3>
                 <p class="price">&pound;96.00</p>
             </div>
             <div class="product-card">
-                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75" alt=""></div>
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
                 <h3>The Capsule Edit</h3>
                 <p class="price">&pound;210.00</p>
             </div>
@@ -149,7 +149,7 @@ footer a { color: var(--gold-light); text-decoration: none; }
 
 <section id="story" class="story">
     <div>
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy">
     </div>
     <div class="container" style="padding:0;">
         <p style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Our Story</p>
