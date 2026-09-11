@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
             currency: 'gbp',
             receipt_email: email,
             description: `YRB Nova - ${selected.name}`,
-            automatic_payment_methods: { enabled: true },
+            payment_method_types: ['card'],
             metadata: {
                 package: body.pkg,
                 package_name: selected.name,
