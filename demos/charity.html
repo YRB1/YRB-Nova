@@ -38,8 +38,11 @@ nav.top .container { display: flex; align-items: center; justify-content: space-
 
 .hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: 90px; }
 .hero-bg { position: absolute; inset: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; animation: heroPan 14s ease-in-out infinite; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,20,20,0.65), rgba(20,20,20,0.1) 55%); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
 .hero .container { position: relative; z-index: 1; width: 100%; }
 .hero-tag { text-align: center; color: var(--orange); font-weight: 700; letter-spacing: 0.04em; font-size: 1.05rem; margin-bottom: 28px; text-transform: uppercase; }
 
@@ -106,7 +109,9 @@ footer a { color: #ff9a80; text-decoration: none; }
 
 <section class="hero">
     <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=1600&q=75" alt="">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=1600&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1600&q=75" alt=""></div>
     </div>
     <div class="container">
         <p class="hero-tag">Help Us Reach More Families In Our Community</p>
@@ -214,6 +219,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.4 });
     els.forEach(el => obs.observe(el));
+
+    const slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length > 1) {
+        let i = 0;
+        setInterval(() => {
+            slides[i].classList.remove('active');
+            i = (i + 1) % slides.length;
+            slides[i].classList.add('active');
+        }, 4200);
+    }
 });
 </script>
 

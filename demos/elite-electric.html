@@ -37,8 +37,11 @@ nav.top .container { display: flex; align-items: center; justify-content: space-
 
 .hero { position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; animation: heroPan 14s ease-in-out infinite; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(10,12,16,0.5); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
 .hero .container { position: relative; z-index: 1; }
 .hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); max-width: 760px; color: #fff; }
 .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.88); max-width: 560px; margin-bottom: 36px; }
@@ -103,7 +106,9 @@ footer a { color: #6fb2ff; text-decoration: none; }
 
 <section class="hero">
     <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1800&q=75" alt="">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=75" alt=""></div>
     </div>
     <div class="container">
         <h1>Reliable Electrical Solutions For Your Property</h1>
@@ -178,5 +183,18 @@ footer a { color: #6fb2ff; text-decoration: none; }
     <p>&copy; 2026 Elite Electric &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
 </footer>
 
+
+<script>
+(function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 4200);
+})();
+</script>
 </body>
 </html>
