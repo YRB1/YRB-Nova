@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Property | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f1b2d'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23cbb26a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+    --navy: #0f1b2d;
+    --navy-alt: #16233a;
+    --line: #26364f;
+    --ink: #16181d;
+    --bg-light: #f7f6f2;
+    --text-dim: #5c6470;
+    --gold: #cbb26a;
+    --gold-dark: #ad9450;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--ink); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 700; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--gold); color: var(--navy); text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: var(--navy); text-decoration: underline; }
+
+nav.top { background: rgba(15,27,45,0.92); backdrop-filter: blur(10px); padding: 22px 0; position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.7rem; color: #fff; letter-spacing: 0.02em; }
+.brand span { color: var(--gold); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
+.nav-links a { color: #dfe4ec; text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { border: 1px solid var(--gold); padding: 10px 20px; border-radius: 2px; color: var(--gold) !important; }
+
+.hero { position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; animation: heroPan 15s ease-in-out infinite; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(15,27,45,0.96) 5%, rgba(15,27,45,0.4) 55%, rgba(15,27,45,0.78) 100%); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
+.hero .container { position: relative; z-index: 1; color: #fff; }
+.hero .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.76rem; font-weight: 600; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.6rem); max-width: 800px; }
+.hero p { font-size: 1.12rem; color: #cfd6e2; max-width: 540px; margin-bottom: 36px; }
+
+.btn { display: inline-block; padding: 16px 34px; font-weight: 600; text-decoration: none; border-radius: 2px; font-size: 0.9rem; letter-spacing: 0.03em; }
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-primary:hover { background: var(--gold-dark); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.45); color: #fff; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+section { padding: 96px 0; }
+.section-alt { background: #fff; }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title p { color: var(--gold-dark); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.76rem; margin-bottom: 12px; }
+.section-title h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); color: var(--navy); }
+
+.listings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.listing { background: #fff; border: 1px solid #e6e4dc; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,27,45,0.06); }
+.listing img { height: 220px; width: 100%; object-fit: cover; }
+.listing-body { padding: 24px; }
+.listing-tag { color: var(--gold-dark); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.listing h3 { font-size: 1.3rem; margin: 8px 0 6px; color: var(--navy); }
+.listing .loc { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 14px; }
+.listing .meta { display: flex; gap: 18px; font-size: 0.82rem; color: var(--text-dim); border-top: 1px solid #eee; padding-top: 14px; }
+.listing .price { color: var(--navy); font-weight: 700; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-top: 10px; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.why-card { text-align: center; padding: 10px; }
+.why-card .num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold-dark); font-weight: 700; margin-bottom: 10px; }
+.why-card h3 { color: var(--navy); font-size: 1.15rem; }
+.why-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+
+.cta-band { background: var(--navy); border-radius: 6px; padding: 60px; text-align: center; color: #fff; }
+.cta-band h2 { color: #fff; }
+.cta-band p { color: #cfd6e2; max-width: 520px; margin: 0 auto 30px; }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { font-size: 0.85rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 900px) {
+    nav.top .nav-links { display: none; }
+    .listings { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">Meridian <span>Property</span></div>
+        <ul class="nav-links">
+            <li><a href="#listings">Listings</a></li>
+            <li><a href="#why">Why Meridian</a></li>
+            <li><a href="#agent">Our Team</a></li>
+            <li><a href="#contact" class="nav-cta">Book A Viewing</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    </div>
+    <div class="container">
+        <p class="eyebrow">Luxury Residential &middot; Est. Concept</p>
+        <h1>Exceptional Properties, Exceptional Living</h1>
+        <p>A curated portfolio of the area's finest homes, handled by a team that treats every sale like it's the only one that matters.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="#listings" class="btn btn-primary">View Listings</a>
+            <a href="#contact" class="btn btn-outline">Book A Viewing</a>
+        </div>
+    </div>
+</section>
+
+<section id="listings" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Featured Homes</p>
+            <h2>Current Listings</h2>
+        </div>
+        <div class="listings">
+            <div class="listing">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=75" alt="Modern family home" loading="lazy">
+                <div class="listing-body">
+                    <span class="listing-tag">Detached &middot; New Listing</span>
+                    <h3>The Ashcombe Residence</h3>
+                    <p class="loc">Weybridge, Surrey</p>
+                    <div class="meta"><span>5 Bed</span><span>4 Bath</span><span>3,400 sqft</span></div>
+                    <div class="price">&pound;2,450,000</div>
+                </div>
+            </div>
+            <div class="listing">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=75" alt="Contemporary open-plan home" loading="lazy">
+                <div class="listing-body">
+                    <span class="listing-tag">Contemporary &middot; Open Plan</span>
+                    <h3>Birchwood Court</h3>
+                    <p class="loc">Esher, Surrey</p>
+                    <div class="meta"><span>4 Bed</span><span>3 Bath</span><span>2,850 sqft</span></div>
+                    <div class="price">&pound;1,895,000</div>
+                </div>
+            </div>
+            <div class="listing">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=75" alt="Architectural home with staircase" loading="lazy">
+                <div class="listing-body">
+                    <span class="listing-tag">Architectural &middot; Split Level</span>
+                    <h3>The Hollow House</h3>
+                    <p class="loc">Cobham, Surrey</p>
+                    <div class="meta"><span>4 Bed</span><span>3 Bath</span><span>3,100 sqft</span></div>
+                    <div class="price">&pound;2,150,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="why">
+    <div class="container">
+        <div class="section-title">
+            <p>Our Approach</p>
+            <h2>Why Sellers Choose Meridian</h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-card"><div class="num">01</div><h3>Local Expertise</h3><p>Two decades of exclusively selling in the same postcodes, not spread thin across a region.</p></div>
+            <div class="why-card"><div class="num">02</div><h3>Concierge Service</h3><p>Professional staging, photography, and viewings management handled end to end.</p></div>
+            <div class="why-card"><div class="num">03</div><h3>Verified Buyers Only</h3><p>Every viewing is pre-qualified, so your home is never opened up to time-wasters.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="agent" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Meet The Team</p>
+            <h2>People Who Know The Market</h2>
+        </div>
+        <div style="max-width:640px; margin:0 auto; text-align:center;">
+            <p style="color:var(--text-dim);">Our agents live in the areas they sell. That means real answers about schools, commutes, and neighbours, not just a listing sheet. When you work with Meridian, you get a direct line to someone who actually knows the street your home is on.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="cta-band">
+            <h2>Ready To Book A Viewing?</h2>
+            <p>Tell us what you're looking for and we'll match you with homes before they're publicly listed.</p>
+            <a href="tel:02000000000" class="btn btn-primary">Call 0200 000 0000</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Meridian Property &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+(function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 4200);
+})();
+</script>
+</body>
+</html>

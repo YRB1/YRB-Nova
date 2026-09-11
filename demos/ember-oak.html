@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember &amp; Oak | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314100d'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23c9a227' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #14100d;
+    --surface: #1c1712;
+    --line: #2c241c;
+    --text: #f3ece1;
+    --text-dim: #b9ab97;
+    --gold: #c9a227;
+    --gold-dark: #a9841c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.18; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--gold); color: #1c1712; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #1c1712; text-decoration: underline; }
+
+nav.top { background: rgba(20,16,13,0.9); backdrop-filter: blur(10px); padding: 22px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; color: var(--gold); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.9rem; }
+.nav-links a { color: var(--text); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { border: 1px solid var(--gold); padding: 10px 20px; border-radius: 2px; color: var(--gold) !important; }
+
+.hero { position: relative; min-height: 660px; display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; animation: heroPan 15s ease-in-out infinite; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,16,13,0.96) 5%, rgba(20,16,13,0.55) 55%, rgba(20,16,13,0.8) 100%); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
+.hero .container { position: relative; z-index: 1; }
+.hero .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 600; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.4rem); max-width: 760px; }
+.hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 540px; margin-bottom: 36px; }
+
+.btn { display: inline-block; padding: 16px 36px; font-weight: 600; text-decoration: none; border-radius: 2px; font-size: 0.92rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.btn-primary { background: var(--gold); color: #1c1712; }
+.btn-primary:hover { background: var(--gold-dark); }
+.btn-outline { border: 1px solid rgba(243,236,225,0.4); color: var(--text); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+section { padding: 96px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title p { color: var(--gold); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.76rem; margin-bottom: 12px; }
+.section-title h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 60px; max-width: 920px; margin: 0 auto; }
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 18px 0; border-bottom: 1px dashed var(--line); }
+.menu-item .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; }
+.menu-item .desc { color: var(--text-dim); font-size: 0.85rem; display: block; margin-top: 4px; }
+.menu-item .price { color: var(--gold); font-weight: 700; white-space: nowrap; }
+
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story img { border-radius: 4px; aspect-ratio: 4/5; object-fit: cover; }
+.story .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; font-weight: 600; margin-bottom: 14px; }
+.story p { color: var(--text-dim); }
+
+.reserve-band { background: linear-gradient(120deg, #201810, #14100d); border: 1px solid var(--line); border-radius: 6px; padding: 60px; text-align: center; }
+.reserve-band p { color: var(--text-dim); max-width: 520px; margin: 0 auto 30px; }
+
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 30px; }
+.review .stars { color: var(--gold); margin-bottom: 14px; letter-spacing: 3px; }
+.review p { color: var(--text-dim); font-style: italic; margin-bottom: 16px; font-size: 0.94rem; }
+.review h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin: 0; font-weight: 700; }
+
+.hours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 700px; margin: 0 auto; text-align: center; }
+.hours-grid div { color: var(--text-dim); }
+.hours-grid strong { color: var(--text); display: block; font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 8px; }
+
+footer { background: #0e0b09; color: rgba(243,236,225,0.55); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .story { grid-template-columns: 1fr; }
+    .reviews { grid-template-columns: 1fr; }
+    .hours-grid { grid-template-columns: 1fr; }
+    .reserve-band { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">Ember &amp; Oak</div>
+        <ul class="nav-links">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#reserve" class="nav-cta">Reserve</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    </div>
+    <div class="container">
+        <p class="eyebrow">Fine Dining &middot; Est. Concept</p>
+        <h1>Modern Fine Dining, Rooted In Fire</h1>
+        <p>Seasonal, fire-led cooking in an intimate dining room. Every plate built around live-flame technique and ingredients sourced within the day.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="#reserve" class="btn btn-primary">Reserve A Table</a>
+            <a href="#menu" class="btn btn-outline">View Menu</a>
+        </div>
+    </div>
+</section>
+
+<section id="menu">
+    <div class="container">
+        <div class="section-title">
+            <p>Tasting Menu</p>
+            <h2>A Few Signature Plates</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item"><div><span class="name">Charred Octopus</span><span class="desc">smoked paprika, fingerling potato, salsa verde</span></div><span class="price">&pound;18</span></div>
+            <div class="menu-item"><div><span class="name">Oak-Fired Ribeye</span><span class="desc">bone marrow butter, roasted shallot jus</span></div><span class="price">&pound;36</span></div>
+            <div class="menu-item"><div><span class="name">Heritage Beetroot</span><span class="desc">whipped goat's curd, hazelnut, honey</span></div><span class="price">&pound;14</span></div>
+            <div class="menu-item"><div><span class="name">Embered Cauliflower</span><span class="desc">brown butter, capers, golden raisin</span></div><span class="price">&pound;15</span></div>
+            <div class="menu-item"><div><span class="name">Slow Roast Duck</span><span class="desc">cherry gastrique, charred fennel</span></div><span class="price">&pound;29</span></div>
+            <div class="menu-item"><div><span class="name">Burnt Basque Cheesecake</span><span class="desc">macerated berries, oat crumb</span></div><span class="price">&pound;11</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="story" class="section-alt">
+    <div class="container">
+        <div class="story">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=75" alt="Ember and Oak dining room" loading="lazy">
+            <div>
+                <p class="eyebrow">Our Story</p>
+                <h2>Built Around The Fire</h2>
+                <p>Ember &amp; Oak started with one idea: strip cooking back to its oldest form and do it properly. Every dish that leaves the kitchen passes over live coals or through the wood oven before it reaches the table.</p>
+                <p>The dining room seats forty, the kitchen is open, and the menu changes with what's in season &mdash; not what's easy to prep in advance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reserve">
+    <div class="container">
+        <div class="reserve-band">
+            <h2>Book Your Table</h2>
+            <p>Walk-ins welcome, but tables go fast on weekends. Reserve ahead to guarantee your spot.</p>
+            <a href="tel:02000000000" class="btn btn-primary">Call 0200 000 0000</a>
+        </div>
+    </div>
+</section>
+
+<section id="reviews" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Guest Reviews</p>
+            <h2>What Diners Are Saying</h2>
+        </div>
+        <div class="reviews">
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Best steak I've had in this city, full stop. The whole room smells like woodsmoke in the best way."</p><h4>Olivia R.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Intimate, unpretentious, and the beetroot dish alone is worth the booking."</p><h4>James K.</h4></div>
+            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Service was flawless and the tasting menu kept surprising us. Already rebooked."</p><h4>Priya S.</h4></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Visit Us</p>
+            <h2>Opening Hours</h2>
+        </div>
+        <div class="hours-grid">
+            <div><strong>Tuesday &ndash; Friday</strong>5:30pm &ndash; 10:30pm</div>
+            <div><strong>Saturday &ndash; Sunday</strong>1:00pm &ndash; 11:00pm</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Ember &amp; Oak &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+(function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 4200);
+})();
+</script>
+</body>
+</html>

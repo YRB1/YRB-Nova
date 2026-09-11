@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forge Fitness | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0b0c'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-weight='900' font-size='50' fill='%23ff4d2e' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+    --bg: #0b0b0c;
+    --surface: #161616;
+    --line: #262626;
+    --text: #f5f5f2;
+    --text-dim: #9c9c9c;
+    --orange: #ff4d2e;
+    --orange-dark: #db3a1c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--orange); color: #0b0b0c; text-align: center; font-size: 0.8rem; font-weight: 700; padding: 10px 16px; }
+.demo-banner a { color: #0b0b0c; text-decoration: underline; }
+
+nav.top { background: rgba(11,11,12,0.92); backdrop-filter: blur(10px); padding: 20px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.brand span { color: var(--orange); }
+.nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-size: 0.86rem; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; }
+.nav-links a { color: var(--text); text-decoration: none; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange); padding: 10px 20px; color: #0b0b0c !important; }
+
+.hero { position: relative; min-height: 660px; display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.1); animation: heroPan 14s ease-in-out infinite; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,11,12,0.95) 30%, rgba(11,11,12,0.5) 75%); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
+.hero .container { position: relative; z-index: 1; }
+.hero .eyebrow { color: var(--orange); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 700; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(2.8rem, 6.4vw, 5rem); max-width: 760px; }
+.hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 520px; margin-bottom: 36px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+.btn { display: inline-block; padding: 17px 36px; font-weight: 700; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; text-transform: uppercase; font-family: 'Oswald', sans-serif; }
+.btn-primary { background: var(--orange); color: #0b0b0c; }
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-outline { border: 2px solid rgba(245,245,242,0.4); color: var(--text); }
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+.badges { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+.badge { font-size: 0.82rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.badge::before { content: '\2713'; color: var(--orange); font-weight: 900; }
+
+section { padding: 92px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 54px; }
+.section-title p { color: var(--orange); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.76rem; margin-bottom: 12px; font-family: 'Inter', sans-serif; }
+.section-title h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+
+.classes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.class-card { background: var(--bg); border: 1px solid var(--line); padding: 30px 24px; text-align: center; }
+.class-card .ic { width: 52px; height: 52px; background: rgba(255,77,46,0.12); color: var(--orange); border: 1px solid var(--orange); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Oswald', sans-serif; }
+.class-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.class-card p { color: var(--text-dim); font-size: 0.86rem; margin: 0; }
+
+.pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.price-card { background: var(--bg); border: 1px solid var(--line); padding: 40px 30px; text-align: center; }
+.price-card.popular { border-color: var(--orange); position: relative; }
+.price-card .tag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #0b0b0c; font-size: 0.65rem; font-weight: 700; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+.price-card h3 { font-size: 1.2rem; }
+.price-card .amount { font-family: 'Oswald', sans-serif; font-size: 2.6rem; font-weight: 700; color: var(--orange); margin: 14px 0; }
+.price-card .amount span { font-size: 0.9rem; color: var(--text-dim); text-transform: none; font-family: 'Inter', sans-serif; }
+.price-card ul { list-style: none; padding: 0; margin: 22px 0; text-align: left; }
+.price-card li { color: var(--text-dim); font-size: 0.88rem; padding: 8px 0; border-bottom: 1px solid var(--line); }
+
+.transform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.transform-card { background: var(--surface); border: 1px solid var(--line); padding: 28px; }
+.transform-card .stars { color: var(--orange); margin-bottom: 14px; letter-spacing: 3px; }
+.transform-card p { color: var(--text-dim); font-style: italic; margin-bottom: 16px; font-size: 0.92rem; }
+.transform-card h4 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; margin: 0; }
+
+.join-band { background: linear-gradient(120deg, #1a1210, #0b0b0c); border: 1px solid var(--orange); padding: 60px; text-align: center; }
+.join-band p { color: var(--text-dim); max-width: 520px; margin: 0 auto 30px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+footer { background: #000; color: rgba(245,245,242,0.5); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: var(--orange); text-decoration: none; }
+
+@media (max-width: 900px) {
+    nav.top .nav-links { display: none; }
+    .classes-grid { grid-template-columns: 1fr 1fr; }
+    .pricing { grid-template-columns: 1fr; }
+    .transform-grid { grid-template-columns: 1fr; }
+    .join-band { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">FORGE<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#pricing">Membership</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#join" class="nav-cta">Join Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    </div>
+    <div class="container">
+        <p class="eyebrow">Strength &middot; Conditioning &middot; Community</p>
+        <h1>Train Harder. Become Forge.</h1>
+        <p>No fluff, no fads. Just serious equipment, expert coaching, and a community that pushes you further than training alone ever could.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="#join" class="btn btn-primary">Start Free Trial</a>
+            <a href="#classes" class="btn btn-outline">View Classes</a>
+        </div>
+        <div class="badges">
+            <span class="badge">24/7 Access</span>
+            <span class="badge">Certified Coaches</span>
+            <span class="badge">No Contract Lock-In</span>
+        </div>
+    </div>
+</section>
+
+<section id="classes" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Run</p>
+            <h2>Classes For Every Goal</h2>
+        </div>
+        <div class="classes-grid">
+            <div class="class-card"><div class="ic">01</div><h3>Strength</h3><p>Barbell-focused programming built around progressive overload.</p></div>
+            <div class="class-card"><div class="ic">02</div><h3>HIIT</h3><p>High-output interval sessions for conditioning and fat loss.</p></div>
+            <div class="class-card"><div class="ic">03</div><h3>Boxing</h3><p>Pad work and technique drills led by ex-competitive coaches.</p></div>
+            <div class="class-card"><div class="ic">04</div><h3>Mobility</h3><p>Recovery-focused sessions to keep you training injury-free.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <div class="container">
+        <div class="section-title">
+            <p>Membership</p>
+            <h2>Pick Your Plan</h2>
+        </div>
+        <div class="pricing">
+            <div class="price-card">
+                <h3>Basic</h3>
+                <div class="amount">&pound;29<span>/mo</span></div>
+                <ul>
+                    <li>Gym floor access</li>
+                    <li>Standard hours</li>
+                    <li>Locker room access</li>
+                </ul>
+                <a href="#join" class="btn btn-outline" style="width:100%;">Choose Plan</a>
+            </div>
+            <div class="price-card popular">
+                <span class="tag">Most Popular</span>
+                <h3>Performance</h3>
+                <div class="amount">&pound;49<span>/mo</span></div>
+                <ul>
+                    <li>24/7 gym floor access</li>
+                    <li>Unlimited group classes</li>
+                    <li>Monthly progress check-in</li>
+                </ul>
+                <a href="#join" class="btn btn-primary" style="width:100%;">Choose Plan</a>
+            </div>
+            <div class="price-card">
+                <h3>Elite</h3>
+                <div class="amount">&pound;89<span>/mo</span></div>
+                <ul>
+                    <li>Everything in Performance</li>
+                    <li>2x personal training sessions</li>
+                    <li>Custom nutrition plan</li>
+                </ul>
+                <a href="#join" class="btn btn-outline" style="width:100%;">Choose Plan</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="results" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Member Results</p>
+            <h2>Real People, Real Progress</h2>
+        </div>
+        <div class="transform-grid">
+            <div class="transform-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Down two stone in four months and actually enjoy training now. The coaches don't let you coast."</p><h4>Marcus T.</h4></div>
+            <div class="transform-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Best gym I've trained at. 24-hour access means it fits around shift work, not the other way round."</p><h4>Leah P.</h4></div>
+            <div class="transform-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Hit a bodyweight deadlift PR within my first eight weeks. The programming actually works."</p><h4>Connor B.</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="join">
+    <div class="container">
+        <div class="join-band">
+            <h2>Your First Session Is Free</h2>
+            <p>No card required. Come try a class, meet the coaches, and see the floor before you commit to anything.</p>
+            <a href="tel:02000000000" class="btn btn-primary">Claim Free Trial</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Forge Fitness &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+(function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 4200);
+})();
+</script>
+</body>
+</html>
