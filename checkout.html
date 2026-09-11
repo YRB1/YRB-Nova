@@ -53,7 +53,18 @@
     .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--line); margin-top: 4px; }
     .order-total .label { color: var(--text-dim); font-size: 0.9rem; }
     .order-total .amount { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; }
-    .trust-note { display: flex; align-items: center; gap: 8px; color: var(--text-dimmer); font-size: 0.8rem; margin-top: 20px; }
+
+    .next-steps { padding-top: 22px; margin-top: 22px; border-top: 1px solid var(--line); }
+    .next-steps h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); margin-bottom: 14px; }
+    .next-steps ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .next-steps li { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-dim); }
+    .step-num {
+        flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+        background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.7rem;
+        display: flex; align-items: center; justify-content: center;
+    }
+
+    .trust-note { display: flex; align-items: center; gap: 8px; color: var(--text-dimmer); font-size: 0.8rem; margin-top: auto; padding-top: 20px; }
 
     .checkout-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; }
     .checkout-form h2 { font-size: 1.2rem; margin-bottom: 22px; }
@@ -148,6 +159,16 @@
                 <span class="label">Total due today</span>
                 <span class="amount" id="order-total-amount">&pound;350</span>
             </div>
+
+            <div class="next-steps">
+                <h3>What Happens Next</h3>
+                <ul>
+                    <li><span class="step-num">1</span> Instant booking confirmation by email</li>
+                    <li><span class="step-num">2</span> We contact you within 24 hours to kick things off</li>
+                    <li><span class="step-num">3</span> Your site is delivered on the timeline above</li>
+                </ul>
+            </div>
+
             <div class="trust-note">&#128274; Payments are processed securely by Stripe. We never see or store your card details.</div>
         </div>
 
