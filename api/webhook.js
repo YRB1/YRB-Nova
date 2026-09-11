@@ -48,6 +48,7 @@ async function handler(req, res) {
                     package: (session.metadata && session.metadata.package) || 'unknown',
                     amount_gbp: (session.amount_total || 0) / 100,
                     customer_email: session.customer_details ? session.customer_details.email : null,
+                    customer_phone: session.customer_details ? session.customer_details.phone : null,
                     customer_name: findCustomField(session.custom_fields, 'full_name'),
                     project_details: findCustomField(session.custom_fields, 'project_details'),
                     status: 'paid'

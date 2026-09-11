@@ -42,6 +42,7 @@ module.exports = async (req, res) => {
                     amount_gbp: amount,
                     customer_name: (body.customer_name || '').trim() || null,
                     customer_email: (body.customer_email || '').trim() || null,
+                    customer_phone: (body.customer_phone || '').trim() || null,
                     project_details: (body.project_details || '').trim() || null,
                     status: body.status || 'paid',
                     stripe_session_id: null

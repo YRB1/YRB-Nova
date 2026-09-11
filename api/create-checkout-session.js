@@ -32,6 +32,7 @@ module.exports = async (req, res) => {
             mode: 'payment',
             payment_method_types: ['card'],
             metadata: { package: body.pkg },
+            phone_number_collection: { enabled: true },
             line_items: [
                 {
                     price_data: {

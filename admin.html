@@ -220,6 +220,10 @@
                             <label for="mb-email">Customer Email</label>
                             <input type="email" id="mb-email" placeholder="Optional">
                         </div>
+                        <div>
+                            <label for="mb-phone">Customer Phone</label>
+                            <input type="tel" id="mb-phone" placeholder="Optional">
+                        </div>
                         <div class="full">
                             <label for="mb-details">Project Details</label>
                             <textarea id="mb-details" placeholder="Optional notes about the project"></textarea>
@@ -242,6 +246,7 @@
                             <th>Amount</th>
                             <th>Customer</th>
                             <th>Email</th>
+                            <th>Phone</th>
                             <th>Project Details</th>
                             <th>Status</th>
                             <th></th>
@@ -359,7 +364,7 @@
 
         const filtered = allBookings.filter(b => {
             if (!query) return true;
-            return [b.package, b.customer_name, b.customer_email, b.project_details]
+            return [b.package, b.customer_name, b.customer_email, b.customer_phone, b.project_details]
                 .some(v => (v || '').toLowerCase().includes(query));
         });
 
@@ -378,6 +383,7 @@
                     <td>${money(b.amount_gbp)}</td>
                     <td>${escapeHtml(b.customer_name) || '&mdash;'}</td>
                     <td>${escapeHtml(b.customer_email) || '&mdash;'}</td>
+                    <td>${escapeHtml(b.customer_phone) || '&mdash;'}</td>
                     <td>${escapeHtml(b.project_details) || '&mdash;'}</td>
                     <td><span class="status-pill paid">${escapeHtml(b.status)}</span></td>
                     <td><button type="button" class="row-delete" data-id="${b.id}" title="Delete booking">&#10005;</button></td>
@@ -507,8 +513,8 @@
     document.getElementById('enquiries-filter').addEventListener('change', renderEnquiries);
 
     document.getElementById('export-bookings').addEventListener('click', () => {
-        const rows = [['Date', 'Package', 'Amount (GBP)', 'Customer Name', 'Customer Email', 'Project Details', 'Status']];
-        allBookings.forEach(b => rows.push([dateStr(b.created_at), b.package, b.amount_gbp, b.customer_name, b.customer_email, b.project_details, b.status]));
+        const rows = [['Date', 'Package', 'Amount (GBP)', 'Customer Name', 'Customer Email', 'Customer Phone', 'Project Details', 'Status']];
+        allBookings.forEach(b => rows.push([dateStr(b.created_at), b.package, b.amount_gbp, b.customer_name, b.customer_email, b.customer_phone, b.project_details, b.status]));
         downloadCsv('yrb-nova-bookings.csv', rows);
     });
 
@@ -537,6 +543,7 @@
             amount_gbp: document.getElementById('mb-amount').value,
             customer_name: document.getElementById('mb-name').value,
             customer_email: document.getElementById('mb-email').value,
+            customer_phone: document.getElementById('mb-phone').value,
             project_details: document.getElementById('mb-details').value
         };
 
