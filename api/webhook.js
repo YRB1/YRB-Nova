@@ -64,6 +64,34 @@ async function handler(req, res) {
         }
     }
 
+    if (event.type === 'payment_intent.succeeded') {
+        const intent = event.data.object;
+        const supabase = getSupabase();
+        const meta = intent.metadata || {};
+
+        if (supabase) {
+            const { error } = await supabase.from('bookings').upsert(
+                {
+                    stripe_session_id: intent.id,
+                    package: meta.package_name || meta.package || 'unknown',
+                    amount_gbp: (intent.amount || 0) / 100,
+                    customer_email: intent.receipt_email || null,
+                    customer_phone: meta.customer_phone || null,
+                    customer_name: meta.customer_name || null,
+                    project_details: meta.project_details || null,
+                    status: 'paid'
+                },
+                { onConflict: 'stripe_session_id' }
+            );
+
+            if (error) {
+                console.error('Booking insert error (payment_intent.succeeded):', error);
+            }
+        } else {
+            console.error('Received payment_intent.succeeded but Supabase is not configured.');
+        }
+    }
+
     return res.status(200).json({ received: true });
 }
 

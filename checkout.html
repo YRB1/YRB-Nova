@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | YRB Nova</title>
+<meta name="description" content="Complete your booking with YRB Nova. Secure card payment, powered by Stripe.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="https://js.stripe.com/v3/"></script>
+
+<style>
+    .checkout-wrap { max-width: 1080px; margin: 0 auto; padding: 150px 24px 100px; }
+    .checkout-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: flex-start; }
+    @media (max-width: 860px) { .checkout-grid { grid-template-columns: 1fr; } }
+
+    .order-summary {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 32px; position: sticky; top: 100px;
+    }
+    .order-summary h2 { font-size: 1.2rem; margin-bottom: 20px; }
+    .pkg-select { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .pkg-option {
+        display: flex; align-items: center; justify-content: space-between;
+        border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+        padding: 14px 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    }
+    .pkg-option:hover { border-color: var(--accent); }
+    .pkg-option.selected { border-color: var(--accent); background: var(--accent-soft); }
+    .pkg-option .name { font-weight: 600; font-size: 0.95rem; }
+    .pkg-option .price { font-family: var(--font-display); font-weight: 700; color: var(--accent); }
+    .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--line); margin-top: 4px; }
+    .order-total .label { color: var(--text-dim); font-size: 0.9rem; }
+    .order-total .amount { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; }
+    .trust-note { display: flex; align-items: center; gap: 8px; color: var(--text-dimmer); font-size: 0.8rem; margin-top: 20px; }
+
+    .checkout-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; }
+    .checkout-form h2 { font-size: 1.2rem; margin-bottom: 22px; }
+    .form-row { margin-bottom: 18px; }
+    .form-row label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; }
+    .form-row input, .form-row textarea {
+        width: 100%; box-sizing: border-box; padding: 13px 14px;
+        background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+        color: var(--text); font-family: var(--font-body); font-size: 0.96rem;
+    }
+    .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--accent); }
+    .form-row textarea { resize: vertical; min-height: 80px; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 500px) { .form-grid-2 { grid-template-columns: 1fr; } }
+
+    #payment-element { margin: 8px 0 22px; }
+    .pay-btn { width: 100%; justify-content: center; font-size: 1.02rem; padding: 16px; }
+    .pay-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .checkout-error { color: #ff6b6b; font-size: 0.88rem; margin-top: 14px; display: none; }
+    .checkout-loading { text-align: center; padding: 40px 0; color: var(--text-dim); }
+    .secure-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; color: var(--text-dimmer); font-size: 0.78rem; }
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav>
+        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="contact.html" class="nav-cta">Questions First?</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="checkout-wrap">
+    <p class="eyebrow">Checkout</p>
+    <h1 style="margin-bottom:36px;">Book your project</h1>
+
+    <div class="checkout-grid">
+        <div class="order-summary">
+            <h2>Choose Your Package</h2>
+            <div class="pkg-select" id="pkg-select">
+                <div class="pkg-option" data-pkg="basic" data-amount="35000" data-name="Basic Website Package">
+                    <span class="name">Basic</span>
+                    <span class="price">&pound;350</span>
+                </div>
+                <div class="pkg-option" data-pkg="standard" data-amount="60000" data-name="Standard Website Package">
+                    <span class="name">Standard</span>
+                    <span class="price">&pound;600</span>
+                </div>
+                <div class="pkg-option" data-pkg="premium" data-amount="80000" data-name="Premium Website Package">
+                    <span class="name">Premium</span>
+                    <span class="price">&pound;800</span>
+                </div>
+            </div>
+            <div class="order-total">
+                <span class="label">Total due today</span>
+                <span class="amount" id="order-total-amount">&pound;350</span>
+            </div>
+            <div class="trust-note">&#128274; Payments are processed securely by Stripe. We never see or store your card details.</div>
+        </div>
+
+        <div class="checkout-form">
+            <h2>Your Details</h2>
+            <form id="checkout-form">
+                <div class="form-grid-2">
+                    <div class="form-row">
+                        <label for="cf-name">Full Name</label>
+                        <input type="text" id="cf-name" required autocomplete="name">
+                    </div>
+                    <div class="form-row">
+                        <label for="cf-email">Email</label>
+                        <input type="email" id="cf-email" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label for="cf-phone">Phone (optional)</label>
+                    <input type="tel" id="cf-phone" autocomplete="tel">
+                </div>
+                <div class="form-row">
+                    <label for="cf-details">What do you need done?</label>
+                    <textarea id="cf-details" placeholder="Tell us about your business and what you need..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label>Card Details</label>
+                    <div id="payment-element"></div>
+                </div>
+
+                <button type="submit" id="pay-btn" class="btn btn-primary pay-btn">Pay &amp; Book My Project</button>
+                <div class="secure-row">&#128274; Secured by Stripe &middot; 256-bit encryption</div>
+                <p class="checkout-error" id="checkout-error"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">YRB <span>Nova</span></div>
+                <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="about.html">About</a>
+                    <a href="work.html">Work</a>
+                    <a href="blog/index.html">Blog</a>
+                    <a href="services.html">Services</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>
+                    <a href="tel:07555985320">07555 985320</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <span id="year">2026</span> YRB Nova. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+(function () {
+    const STRIPE_PUBLISHABLE_KEY = 'pk_live_51UEX3ZAw5Obc1sMAjbctXCCe6ObTsjrBkrhKms9n3zn6vEhBYwYuLN7UJOezixhHKc2Qdr1HqH87Fw51EJR5Qrgz00F1KzHmgo';
+
+    const packages = {
+        basic: { amount: 35000, name: 'Basic Website Package', price: '£350' },
+        standard: { amount: 60000, name: 'Standard Website Package', price: '£600' },
+        premium: { amount: 80000, name: 'Premium Website Package', price: '£800' }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    let selectedPkg = params.get('pkg') && packages[params.get('pkg')] ? params.get('pkg') : 'basic';
+
+    const pkgSelect = document.getElementById('pkg-select');
+    const totalAmountEl = document.getElementById('order-total-amount');
+    const form = document.getElementById('checkout-form');
+    const payBtn = document.getElementById('pay-btn');
+    const errorEl = document.getElementById('checkout-error');
+
+    function renderSelection() {
+        Array.from(pkgSelect.children).forEach(el => {
+            el.classList.toggle('selected', el.dataset.pkg === selectedPkg);
+        });
+        totalAmountEl.textContent = packages[selectedPkg].price;
+    }
+
+    Array.from(pkgSelect.children).forEach(el => {
+        el.addEventListener('click', () => {
+            selectedPkg = el.dataset.pkg;
+            renderSelection();
+            if (typeof elements !== 'undefined' && elements) {
+                elements.update({ amount: packages[selectedPkg].amount });
+            }
+        });
+    });
+
+    renderSelection();
+
+    if (!STRIPE_PUBLISHABLE_KEY || STRIPE_PUBLISHABLE_KEY.indexOf('__STRIPE') === 0) {
+        errorEl.textContent = 'Payments are not configured yet. Please contact us directly to book your project.';
+        errorEl.style.display = 'block';
+        payBtn.disabled = true;
+        return;
+    }
+
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const elements = stripe.elements({
+        mode: 'payment',
+        amount: packages[selectedPkg].amount,
+        currency: 'gbp',
+        appearance: {
+            theme: 'night',
+            variables: {
+                colorPrimary: '#4fc9ab',
+                colorBackground: '#0e0e11',
+                colorText: '#f5f5f2',
+                colorDanger: '#ff6b6b',
+                fontFamily: 'Inter, sans-serif',
+                borderRadius: '8px'
+            }
+        }
+    });
+    const paymentElement = elements.create('payment');
+    paymentElement.mount('#payment-element');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorEl.style.display = 'none';
+        payBtn.disabled = true;
+        payBtn.textContent = 'Processing...';
+
+        const name = document.getElementById('cf-name').value.trim();
+        const email = document.getElementById('cf-email').value.trim();
+        const phone = document.getElementById('cf-phone').value.trim();
+        const details = document.getElementById('cf-details').value.trim();
+
+        try {
+            const res = await fetch('/api/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pkg: selectedPkg, name, email, phone, details })
+            });
+            const data = await res.json();
+
+            if (!res.ok || !data.clientSecret) {
+                throw new Error(data.error || 'Unable to start checkout.');
+            }
+
+            const { error } = await stripe.confirmPayment({
+                elements,
+                clientSecret: data.clientSecret,
+                confirmParams: {
+                    return_url: window.location.origin + '/payment-success.html',
+                    receipt_email: email
+                }
+            });
+
+            if (error) {
+                throw new Error(error.message || 'Payment failed. Please check your card details and try again.');
+            }
+        } catch (err) {
+            errorEl.textContent = err.message || 'Something went wrong. Please try again or contact us directly.';
+            errorEl.style.display = 'block';
+            payBtn.disabled = false;
+            payBtn.textContent = 'Pay & Book My Project';
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
