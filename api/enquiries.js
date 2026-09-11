@@ -13,13 +13,16 @@ module.exports = async (req, res) => {
 
     try {
         const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-        const name = (body.name || '').trim();
-        const email = (body.email || '').trim();
-        const message = (body.message || '').trim();
-        const budget = (body.budget || '').trim();
+        const name = (body.name || '').trim().slice(0, 250);
+        const email = (body.email || '').trim().slice(0, 250);
+        const message = (body.message || '').trim().slice(0, 4000);
+        const budget = (body.budget || '').trim().slice(0, 120);
 
         if (!name || !email || !message) {
             return res.status(400).json({ error: 'Name, email, and message are required.' });
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return res.status(400).json({ error: 'Please enter a valid email address.' });
         }
 
         const { error } = await supabase

@@ -12,8 +12,9 @@ create table if not exists public.bookings (
     amount_gbp numeric(10,2) not null,
     customer_name text,
     customer_email text,
+    customer_phone text,
     project_details text,
-    stripe_session_id text unique not null,
+    stripe_session_id text unique,
     status text not null default 'paid'
 );
 

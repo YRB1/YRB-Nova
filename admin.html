@@ -333,7 +333,8 @@
     function downloadCsv(filename, rows) {
         const csv = rows.map(row =>
             row.map(cell => {
-                const val = cell == null ? '' : String(cell);
+                let val = cell == null ? '' : String(cell);
+                if (/^[=+\-@\t\r]/.test(val)) val = "'" + val;
                 return /[",\n]/.test(val) ? '"' + val.replace(/"/g, '""') + '"' : val;
             }).join(',')
         ).join('\n');
