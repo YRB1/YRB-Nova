@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
                     label: { type: 'custom', custom: 'Tell us about your project' },
                     type: 'text',
                     optional: true,
-                    text: { minimum_length: 1, maximum_length: 500 }
+                    text: { minimum_length: 1, maximum_length: 255 }
                 }
             ],
             success_url: `${origin}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,
