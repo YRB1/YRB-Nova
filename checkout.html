@@ -14,25 +14,34 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <style>
-    .checkout-wrap { max-width: 1080px; margin: 0 auto; padding: 150px 24px 100px; }
+    .checkout-wrap { max-width: 1080px; margin: 0 auto; padding: 110px 24px 100px; }
     .checkout-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: flex-start; }
-    @media (max-width: 860px) { .checkout-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 860px) { .checkout-grid { grid-template-columns: 1fr; } .checkout-wrap { padding-top: 96px; } }
 
     .order-summary {
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-        padding: 32px; position: sticky; top: 100px;
+        padding: 32px; position: sticky; top: 88px;
     }
     .order-summary h2 { font-size: 1.2rem; margin-bottom: 20px; }
     .pkg-select { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .pkg-option {
+        position: relative;
         display: flex; align-items: center; justify-content: space-between;
         border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
         padding: 14px 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
     }
     .pkg-option:hover { border-color: var(--accent); }
     .pkg-option.selected { border-color: var(--accent); background: var(--accent-soft); }
+    .pkg-option .name-wrap { display: flex; flex-direction: column; gap: 3px; }
     .pkg-option .name { font-weight: 600; font-size: 0.95rem; }
-    .pkg-option .price { font-family: var(--font-display); font-weight: 700; color: var(--accent); }
+    .pkg-option .desc { font-size: 0.76rem; color: var(--text-dimmer); }
+    .pkg-option .price { font-family: var(--font-display); font-weight: 700; color: var(--accent); white-space: nowrap; margin-left: 12px; }
+    .pkg-badge {
+        position: absolute; top: -9px; right: 14px;
+        background: var(--accent-gradient); color: #08080a;
+        font-size: 0.62rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+        padding: 3px 9px; border-radius: 20px;
+    }
     .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--line); margin-top: 4px; }
     .order-total .label { color: var(--text-dim); font-size: 0.9rem; }
     .order-total .amount { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; }
@@ -88,15 +97,25 @@
             <h2>Choose Your Package</h2>
             <div class="pkg-select" id="pkg-select">
                 <div class="pkg-option" data-pkg="basic" data-amount="35000" data-name="Basic Website Package">
-                    <span class="name">Basic</span>
+                    <span class="name-wrap">
+                        <span class="name">Basic</span>
+                        <span class="desc">1 page, mobile-friendly, 2-day delivery</span>
+                    </span>
                     <span class="price">&pound;350</span>
                 </div>
                 <div class="pkg-option" data-pkg="standard" data-amount="60000" data-name="Standard Website Package">
-                    <span class="name">Standard</span>
+                    <span class="pkg-badge">Most Popular</span>
+                    <span class="name-wrap">
+                        <span class="name">Standard</span>
+                        <span class="desc">2-3 pages, portfolio section, advanced SEO</span>
+                    </span>
                     <span class="price">&pound;600</span>
                 </div>
                 <div class="pkg-option" data-pkg="premium" data-amount="80000" data-name="Premium Website Package">
-                    <span class="name">Premium</span>
+                    <span class="name-wrap">
+                        <span class="name">Premium</span>
+                        <span class="desc">Unlimited pages, animations, full branding</span>
+                    </span>
                     <span class="price">&pound;800</span>
                 </div>
             </div>
