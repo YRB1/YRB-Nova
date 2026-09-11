@@ -20,22 +20,28 @@
 
     .order-summary {
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-        padding: 32px;
+        padding: 32px; position: sticky; top: 88px;
     }
     .order-summary h2 { font-size: 1.2rem; margin-bottom: 20px; }
-    .pkg-select { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .pkg-select { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
     .pkg-option {
         position: relative;
-        display: flex; align-items: center; justify-content: space-between;
+        display: flex; flex-direction: column; gap: 10px;
         border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
-        padding: 14px 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+        padding: 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
     }
     .pkg-option:hover { border-color: var(--accent); }
     .pkg-option.selected { border-color: var(--accent); background: var(--accent-soft); }
-    .pkg-option .name-wrap { display: flex; flex-direction: column; gap: 3px; }
-    .pkg-option .name { font-weight: 600; font-size: 0.95rem; }
-    .pkg-option .desc { font-size: 0.76rem; color: var(--text-dimmer); }
+    .pkg-top { display: flex; align-items: center; justify-content: space-between; }
+    .pkg-option .name { font-weight: 600; font-size: 0.98rem; }
     .pkg-option .price { font-family: var(--font-display); font-weight: 700; color: var(--accent); white-space: nowrap; margin-left: 12px; }
+    .pkg-features { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+    .pkg-features li {
+        font-size: 0.78rem; color: var(--text-dim); padding-left: 18px; position: relative;
+    }
+    .pkg-features li::before {
+        content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 0.72rem;
+    }
     .pkg-badge {
         position: absolute; top: -9px; right: 14px;
         background: var(--accent-gradient); color: #08080a;
@@ -97,26 +103,43 @@
             <h2>Choose Your Package</h2>
             <div class="pkg-select" id="pkg-select">
                 <div class="pkg-option" data-pkg="basic" data-amount="35000" data-name="Basic Website Package">
-                    <span class="name-wrap">
+                    <div class="pkg-top">
                         <span class="name">Basic</span>
-                        <span class="desc">1 page, mobile-friendly, 2-day delivery</span>
-                    </span>
-                    <span class="price">&pound;350</span>
+                        <span class="price">&pound;350</span>
+                    </div>
+                    <ul class="pkg-features">
+                        <li>Custom layout (1 page)</li>
+                        <li>Mobile-friendly design</li>
+                        <li>Fast delivery (2 days)</li>
+                        <li>Basic on-page SEO</li>
+                    </ul>
                 </div>
                 <div class="pkg-option" data-pkg="standard" data-amount="60000" data-name="Standard Website Package">
                     <span class="pkg-badge">Most Popular</span>
-                    <span class="name-wrap">
+                    <div class="pkg-top">
                         <span class="name">Standard</span>
-                        <span class="desc">2-3 pages, portfolio section, advanced SEO</span>
-                    </span>
-                    <span class="price">&pound;600</span>
+                        <span class="price">&pound;600</span>
+                    </div>
+                    <ul class="pkg-features">
+                        <li>All Basic features</li>
+                        <li>2-3 pages (Home, Services, Contact)</li>
+                        <li>Portfolio / case study section</li>
+                        <li>Advanced SEO optimisation</li>
+                        <li>Standard revisions included</li>
+                    </ul>
                 </div>
                 <div class="pkg-option" data-pkg="premium" data-amount="80000" data-name="Premium Website Package">
-                    <span class="name-wrap">
+                    <div class="pkg-top">
                         <span class="name">Premium</span>
-                        <span class="desc">Unlimited pages, animations, full branding</span>
-                    </span>
-                    <span class="price">&pound;800</span>
+                        <span class="price">&pound;800</span>
+                    </div>
+                    <ul class="pkg-features">
+                        <li>All Standard features</li>
+                        <li>Unlimited pages (within scope)</li>
+                        <li>Custom animations &amp; integrations</li>
+                        <li>Full branding support</li>
+                        <li>Priority delivery &amp; support</li>
+                    </ul>
                 </div>
             </div>
             <div class="order-total">
