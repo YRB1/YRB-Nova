@@ -5,73 +5,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hopewell Trust | Concept Demo by YRB Nova</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23103b34'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23ffb648' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23ff5a36' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
 
 <style>
 :root {
-    --bg: #f7f5ef;
-    --surface: #ffffff;
-    --deep: #103b34;
-    --gold: #ffb648;
-    --text: #1b2a26;
-    --text-dim: #5a6b65;
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --line: #e7e5e0;
+    --text: #1b1d1f;
+    --text-dim: #5c6266;
+    --orange: #ff5a36;
+    --blue: #3d5a80;
+    --green: #1f7a3d;
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
 h1, h2, h3 { font-family: 'Fraunces', serif; line-height: 1.15; margin: 0 0 16px; }
-.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 img { max-width: 100%; display: block; }
 
-.demo-banner { background: var(--deep); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
-.demo-banner a { color: var(--gold); text-decoration: underline; }
+.demo-banner { background: var(--text); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #ffb199; text-decoration: underline; }
 
-nav.top { background: var(--deep); padding: 20px 0; }
+nav.top { background: #fff; padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
 nav.top .container { display: flex; align-items: center; justify-content: space-between; }
-.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: #fff; }
-.donate-btn { background: var(--gold); color: var(--deep); font-weight: 700; padding: 12px 26px; border-radius: 100px; text-decoration: none; font-size: 0.9rem; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; }
+.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: var(--text); }
+.donate-btn { background: var(--blue); color: #fff; font-weight: 700; padding: 11px 24px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; }
 
-.hero { position: relative; padding: 100px 0; overflow: hidden; background: var(--deep); color: #fff; }
-.hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-.hero h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 3.6rem); }
-.hero h1 span { color: var(--gold); }
-.hero p { color: rgba(255,255,255,0.78); font-size: 1.1rem; margin-bottom: 30px; max-width: 460px; }
-.hero-img { border-radius: 20px; overflow: hidden; }
-.hero-img img { width: 100%; }
+.hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: 90px; }
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,20,20,0.65), rgba(20,20,20,0.1) 55%); }
+.hero .container { position: relative; z-index: 1; width: 100%; }
+.hero-tag { text-align: center; color: var(--orange); font-weight: 700; letter-spacing: 0.04em; font-size: 1.05rem; margin-bottom: 28px; text-transform: uppercase; }
 
-.btn { display: inline-block; padding: 15px 32px; font-weight: 700; text-decoration: none; border-radius: 100px; font-size: 0.95rem; }
-.btn-gold { background: var(--gold); color: var(--deep); }
-.btn-outline-light { border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+.pill-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.btn-pill { display: inline-block; padding: 13px 30px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.88rem; }
+.btn-pill.orange { background: var(--orange); color: #fff; }
 
-.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #e5e0d3; border: 1px solid #e5e0d3; margin-top: -50px; position: relative; z-index: 2; }
-.stat-block { background: var(--surface); text-align: center; padding: 36px 20px; }
-.stat-value { display: block; font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--deep); font-weight: 700; margin-bottom: 6px; }
-.stat-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+.info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+.info-card { background: var(--green); color: #fff; border-radius: 12px; padding: 34px; }
+.info-card p { color: rgba(255,255,255,0.92); margin-bottom: 20px; }
+.video-card { background: #000; border-radius: 12px; overflow: hidden; position: relative; min-height: 220px; }
+.video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; position: absolute; inset: 0; }
+.video-card .play {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 3rem;
+}
+.video-card .caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px; background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent); color: #fff; font-size: 0.85rem; }
 
-section { padding: 90px 0; }
+section { padding: 84px 0; }
+.section-alt { background: var(--surface); }
 .section-title { text-align: center; margin-bottom: 50px; }
-.section-title p { color: var(--deep); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+.section-title p { color: var(--orange); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.stat-block { background: #fff; text-align: center; padding: 36px 20px; }
+.stat-value { display: block; font-family: 'Fraunces', serif; font-size: 2.3rem; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+.stat-label { font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
 
 .programs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-.program-card { background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid #e5e0d3; }
-.program-card img { width: 100%; height: 200px; object-fit: cover; }
-.program-card .body { padding: 26px; }
-.program-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-.program-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+.program-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.program-card img { width: 100%; height: 190px; object-fit: cover; }
+.program-card .body { padding: 24px; }
+.program-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.program-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
 
-.donate-tiers { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
-.tier { background: var(--surface); border: 2px solid #e5e0d3; border-radius: 14px; padding: 30px 36px; text-align: center; min-width: 160px; cursor: pointer; transition: border-color 0.2s; }
-.tier:hover { border-color: var(--gold); }
-.tier .amount { font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--deep); font-weight: 700; }
-.tier .desc { font-size: 0.82rem; color: var(--text-dim); margin-top: 6px; }
-
-footer { background: var(--deep); color: rgba(255,255,255,0.7); padding: 50px 0 30px; text-align: center; }
+footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
 footer p { font-size: 0.85rem; }
-footer a { color: var(--gold); text-decoration: none; }
+footer a { color: #ff9a80; text-decoration: none; }
 
 @media (max-width: 900px) {
-    .hero .container { grid-template-columns: 1fr; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); margin-top: 30px; }
+    nav.top .nav-links { display: none; }
+    .info-row { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
     .programs { grid-template-columns: 1fr; }
 }
 </style>
@@ -83,34 +94,56 @@ footer a { color: var(--gold); text-decoration: none; }
 <nav class="top">
     <div class="container">
         <div class="brand">Hopewell Trust</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#">Get Involved</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
         <a href="#donate" class="donate-btn">Donate Now</a>
     </div>
 </nav>
 
 <section class="hero">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=1600&q=75" alt="">
+    </div>
     <div class="container">
-        <div>
-            <h1>Small gifts, <span>real change</span></h1>
-            <p>Hopewell Trust supports families facing hardship with food, shelter, and long-term community programs, funded entirely by people like you.</p>
-            <div style="display:flex; gap:14px; flex-wrap:wrap;">
-                <a href="#donate" class="btn btn-gold">Donate Today</a>
-                <a href="#programs" class="btn btn-outline-light">Our Programs</a>
-            </div>
-        </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=75" alt="">
+        <p class="hero-tag">Help Us Reach More Families In Our Community</p>
+        <div class="pill-row">
+            <a href="#contact" class="btn-pill" style="background:#fff; color:var(--text);">Contact Us</a>
+            <a href="#donate" class="btn-pill orange">Donate</a>
         </div>
     </div>
 </section>
 
-<div class="container">
-    <div class="stats-row">
-        <div class="stat-block"><span class="stat-value" data-count="12400" data-prefix="&pound;">&pound;0</span><span class="stat-label">Raised This Year</span></div>
-        <div class="stat-block"><span class="stat-value" data-count="850" data-suffix="+">0</span><span class="stat-label">Families Helped</span></div>
-        <div class="stat-block"><span class="stat-value" data-count="46">0</span><span class="stat-label">Active Volunteers</span></div>
-        <div class="stat-block"><span class="stat-value" data-count="9">0</span><span class="stat-label">Years Running</span></div>
+<section id="about">
+    <div class="container">
+        <div class="info-row">
+            <div class="info-card">
+                <h3 style="color:#fff;">Who We Are</h3>
+                <p>Hopewell Trust supports local families facing hardship with food, essentials, and long-term community programs, funded entirely by people like you.</p>
+                <a href="#programs" class="btn-pill orange">Read More</a>
+            </div>
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=75" alt="">
+                <div class="play">&#9658;</div>
+                <div class="caption">Watch: A Day With Hopewell Trust</div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-block"><span class="stat-value" data-count="12400" data-prefix="&pound;">&pound;0</span><span class="stat-label">Raised This Year</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="850" data-suffix="+">0</span><span class="stat-label">Families Helped</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="46">0</span><span class="stat-label">Active Volunteers</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="9">0</span><span class="stat-label">Years Running</span></div>
+        </div>
+    </div>
+</section>
 
 <section id="programs">
     <div class="container">
@@ -128,29 +161,28 @@ footer a { color: var(--gold); text-decoration: none; }
                 <div class="body"><h3>Volunteer Network</h3><p>Local volunteers delivering support, transport, and company to those who need it.</p></div>
             </div>
             <div class="program-card">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=70" alt="">
+                <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=500&q=70" alt="">
                 <div class="body"><h3>Community Programs</h3><p>Long-term projects that help families build stability, not just get by.</p></div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="donate" style="background:var(--surface); border-top:1px solid #e5e0d3; border-bottom:1px solid #e5e0d3;">
+<section id="donate" class="section-alt">
     <div class="container">
         <div class="section-title">
             <p>Give Today</p>
             <h2>Every Donation Helps</h2>
         </div>
-        <div class="donate-tiers">
-            <div class="tier"><div class="amount">&pound;10</div><div class="desc">Feeds a family for a day</div></div>
-            <div class="tier"><div class="amount">&pound;25</div><div class="desc">A week of essentials</div></div>
-            <div class="tier"><div class="amount">&pound;50</div><div class="desc">Supports a volunteer visit</div></div>
-            <div class="tier"><div class="amount">&pound;100</div><div class="desc">A month of support</div></div>
+        <div style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
+            <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;10</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">Feeds a family for a day</div></div>
+            <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;25</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">A week of essentials</div></div>
+            <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;50</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">Supports a volunteer visit</div></div>
         </div>
     </div>
 </section>
 
-<footer>
+<footer id="contact">
     <p>&copy; 2026 Hopewell Trust &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
 </footer>
 

@@ -143,6 +143,7 @@
             <h1>Admin</h1>
             <p>Sign in to view bookings and enquiries.</p>
             <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required autocomplete="username">
                 <div class="password-field">
                     <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
                     <button type="button" id="toggle-password" class="toggle-password" aria-label="Show password">
@@ -571,6 +572,7 @@
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         loginError.style.display = 'none';
+        const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const remember = document.getElementById('remember-me').checked;
 
@@ -578,12 +580,12 @@
             const res = await fetch('/api/admin/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password, remember })
+                body: JSON.stringify({ username, password, remember })
             });
             const data = await res.json();
 
             if (!res.ok) {
-                loginError.textContent = data.error || 'Incorrect password';
+                loginError.textContent = data.error || 'Incorrect username or password';
                 loginError.style.display = 'block';
                 return;
             }
