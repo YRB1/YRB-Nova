@@ -82,6 +82,21 @@ section { padding: 92px 0; }
 .price-card ul { list-style: none; padding: 0; margin: 22px 0; text-align: left; }
 .price-card li { color: var(--text-dim); font-size: 0.88rem; padding: 8px 0; border-bottom: 1px solid var(--line); }
 
+.trainers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.trainer-card { background: var(--bg); border: 1px solid var(--line); padding: 30px 22px; text-align: center; }
+.trainer-avatar { width: 68px; height: 68px; border-radius: 50%; background: rgba(255,77,46,0.12); border: 1px solid var(--orange); color: var(--orange); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.trainer-card h3 { font-size: 1rem; margin-bottom: 4px; }
+.trainer-card .role { color: var(--orange); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; display: block; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+.trainer-card p { color: var(--text-dim); font-size: 0.85rem; margin: 0; text-transform: none; font-family: 'Inter', sans-serif; }
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 0.98rem; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; }
+.faq-q .plus { font-size: 1.4rem; color: var(--orange); transition: transform 0.25s ease; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.92rem; text-transform: none; font-family: 'Inter', sans-serif; }
+
 .transform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .transform-card { background: var(--surface); border: 1px solid var(--line); padding: 28px; }
 .transform-card .stars { color: var(--orange); margin-bottom: 14px; letter-spacing: 3px; }
@@ -100,6 +115,7 @@ footer a { color: var(--orange); text-decoration: none; }
     .classes-grid { grid-template-columns: 1fr 1fr; }
     .pricing { grid-template-columns: 1fr; }
     .transform-grid { grid-template-columns: 1fr; }
+    .trainers-grid { grid-template-columns: 1fr 1fr; }
     .join-band { padding: 40px 24px; }
 }
 </style>
@@ -113,8 +129,9 @@ footer a { color: var(--orange); text-decoration: none; }
         <div class="brand">FORGE<span>.</span></div>
         <ul class="nav-links">
             <li><a href="#classes">Classes</a></li>
+            <li><a href="#trainers">Trainers</a></li>
             <li><a href="#pricing">Membership</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#join" class="nav-cta">Join Now</a></li>
         </ul>
     </div>
@@ -153,6 +170,21 @@ footer a { color: var(--orange); text-decoration: none; }
             <div class="class-card"><div class="ic">02</div><h3>HIIT</h3><p>High-output interval sessions for conditioning and fat loss.</p></div>
             <div class="class-card"><div class="ic">03</div><h3>Boxing</h3><p>Pad work and technique drills led by ex-competitive coaches.</p></div>
             <div class="class-card"><div class="ic">04</div><h3>Mobility</h3><p>Recovery-focused sessions to keep you training injury-free.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="trainers">
+    <div class="container">
+        <div class="section-title">
+            <p>Meet The Team</p>
+            <h2>Coaches Who Push You</h2>
+        </div>
+        <div class="trainers-grid">
+            <div class="trainer-card"><div class="trainer-avatar">MK</div><h3>Marcus K.</h3><span class="role">Strength &amp; Conditioning</span><p>Ex-competitive powerlifter, 9 years coaching experience.</p></div>
+            <div class="trainer-card"><div class="trainer-avatar">SR</div><h3>Sasha R.</h3><span class="role">HIIT &amp; Conditioning</span><p>Specialises in fat-loss programming and metabolic training.</p></div>
+            <div class="trainer-card"><div class="trainer-avatar">DO</div><h3>Dele O.</h3><span class="role">Boxing Coach</span><p>Former amateur boxer turned technique-focused pad coach.</p></div>
+            <div class="trainer-card"><div class="trainer-avatar">EW</div><h3>Ellie W.</h3><span class="role">Mobility &amp; Recovery</span><p>Physio-trained, keeps members training injury-free long term.</p></div>
         </div>
     </div>
 </section>
@@ -213,6 +245,33 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
 </section>
 
+<section id="faq" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Questions</p>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Is there a contract?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>No lock-in contracts on any plan. Cancel or pause your membership any time from your account.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do I need experience to join?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Not at all. Every new member gets a free induction session covering the floor, equipment, and class options.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>What are the opening hours?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Performance and Elite members get 24/7 access. Basic members can train 6am&ndash;10pm daily.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Can I freeze my membership?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, you can freeze for up to 3 months a year at no extra cost &mdash; just let the team know.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="join">
     <div class="container">
         <div class="join-band">
@@ -237,6 +296,22 @@ footer a { color: var(--orange); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        var answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', function () {
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 })();
 </script>
 </body>

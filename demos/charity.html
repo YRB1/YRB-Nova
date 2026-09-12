@@ -78,6 +78,23 @@ section { padding: 84px 0; }
 .program-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .program-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
 
+.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.event-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; }
+.event-date { background: var(--blue); color: #fff; padding: 20px 18px; text-align: center; min-width: 78px; }
+.event-date .day { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; display: block; }
+.event-date .mon { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.event-body { padding: 20px; }
+.event-body h3 { font-size: 1rem; margin-bottom: 6px; }
+.event-body p { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-q .plus { font-size: 1.4rem; color: var(--orange); transition: transform 0.25s ease; flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
+
 footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
 footer p { font-size: 0.85rem; }
 footer a { color: #ff9a80; text-decoration: none; }
@@ -87,6 +104,7 @@ footer a { color: #ff9a80; text-decoration: none; }
     .info-row { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .programs { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -100,7 +118,7 @@ footer a { color: #ff9a80; text-decoration: none; }
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
-            <li><a href="#">Get Involved</a></li>
+            <li><a href="#events">Get Involved</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#donate" class="donate-btn">Donate Now</a>
@@ -173,6 +191,29 @@ footer a { color: #ff9a80; text-decoration: none; }
     </div>
 </section>
 
+<section id="events">
+    <div class="container">
+        <div class="section-title">
+            <p>Get Involved</p>
+            <h2>Upcoming Events</h2>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-date"><span class="day">14</span><span class="mon">Oct</span></div>
+                <div class="event-body"><h3>Community Food Drive</h3><p>Drop off non-perishables at the community hall, 10am&ndash;3pm.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">02</span><span class="mon">Nov</span></div>
+                <div class="event-body"><h3>Volunteer Induction Day</h3><p>New to Hopewell Trust? Join our next volunteer orientation session.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">21</span><span class="mon">Nov</span></div>
+                <div class="event-body"><h3>Winter Fundraiser Dinner</h3><p>Our annual fundraising dinner, tickets support the winter appeal.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="donate" class="section-alt">
     <div class="container">
         <div class="section-title">
@@ -183,6 +224,33 @@ footer a { color: #ff9a80; text-decoration: none; }
             <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;10</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">Feeds a family for a day</div></div>
             <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;25</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">A week of essentials</div></div>
             <div style="background:#fff; border:2px solid var(--line); border-radius:14px; padding:30px 36px; text-align:center; min-width:150px;"><div style="font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--blue);">&pound;50</div><div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">Supports a volunteer visit</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Questions</p>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How much of my donation reaches families directly?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>90% of every donation goes directly to programs and family support, with the remainder covering essential running costs.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Can I set up a monthly donation?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, monthly giving is the easiest way to support us long-term, and can be cancelled or changed any time.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How do I become a volunteer?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Come along to our next Volunteer Induction Day, or get in touch and we'll find the right role for you.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Is Hopewell Trust a registered charity?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, we're a registered UK charity and publish an annual report on how funds are used.</p></div>
+            </div>
         </div>
     </div>
 </section>
@@ -229,6 +297,22 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[i].classList.add('active');
         }, 4200);
     }
+
+    document.querySelectorAll('.faq-item').forEach((item) => {
+        const btn = item.querySelector('.faq-q');
+        const answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach((other) => {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 });
 </script>
 

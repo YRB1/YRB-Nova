@@ -60,6 +60,31 @@ section { padding: 90px 0; }
 .svc h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--cream); }
 .svc p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
 
+.beats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.beat-card { position: relative; aspect-ratio: 1/1; border-radius: 6px; overflow: hidden; }
+.beat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.beat-card:hover img { transform: scale(1.08); }
+.beat-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,12,0.9), transparent 60%); }
+.beat-card .play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 46px; height: 46px; border-radius: 50%; background: rgba(232,226,208,0.15); backdrop-filter: blur(4px);
+    border: 1px solid rgba(232,226,208,0.4); color: var(--cream); display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; z-index: 1; transition: background 0.2s, border-color 0.2s;
+}
+.beat-card:hover .play-btn { background: var(--accent); border-color: var(--accent); color: #14120d; }
+.beat-card .meta { position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 1; }
+.beat-card .meta .name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--cream); }
+.beat-card .meta .bpm { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.t-carousel { max-width: 680px; margin: 0 auto; position: relative; min-height: 140px; }
+.t-slide { display: none; text-align: center; }
+.t-slide.active { display: block; }
+.t-slide p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); margin-bottom: 16px; }
+.t-slide span { color: var(--accent); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.t-dots { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
+.t-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; }
+.t-dots button.active { background: var(--accent); }
+
 .tour-list { max-width: 720px; margin: 0 auto; }
 .tour-item { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); }
 .tour-item:last-child { border-bottom: none; }
@@ -76,6 +101,7 @@ footer a { color: var(--accent); text-decoration: none; }
     nav.top .nav-links { display: none; }
     .services-grid { grid-template-columns: 1fr; }
     .tour-item { flex-wrap: wrap; gap: 8px; }
+    .beats-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -122,6 +148,61 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="svc"><h3>Production</h3><p>Original beats and full production, built around your sound, not a preset.</p></div>
             <div class="svc"><h3>Mixing &amp; Mastering</h3><p>Radio-ready mixes with a warm, cinematic low end.</p></div>
             <div class="svc"><h3>Beat Licensing</h3><p>Exclusive and non-exclusive licensing for artists and labels.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="beats">
+    <div class="container">
+        <div class="section-title">
+            <p>Catalog</p>
+            <h2 style="color:var(--cream);">Latest Beats</h2>
+        </div>
+        <div class="beats-grid">
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Midnight Static</div><div class="bpm">140 BPM &middot; Trap</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Velvet Room</div><div class="bpm">92 BPM &middot; R&amp;B</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Skyline</div><div class="bpm">128 BPM &middot; Drill</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Afterglow</div><div class="bpm">110 BPM &middot; Soul</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Word On The Street</p>
+            <h2 style="color:var(--cream);">What Artists Say</h2>
+        </div>
+        <div class="t-carousel" id="t-carousel">
+            <div class="t-slide active">
+                <p>&ldquo;Sent over a rough idea and got back something better than I imagined. That's rare.&rdquo;</p>
+                <span>Nova K. &mdash; Recording Artist</span>
+            </div>
+            <div class="t-slide">
+                <p>&ldquo;The mix came back radio-ready first pass. Saved me weeks of back and forth.&rdquo;</p>
+                <span>Delroy M. &mdash; Independent Artist</span>
+            </div>
+            <div class="t-slide">
+                <p>&ldquo;Booked the studio for a day and left with three finished records. Different level.&rdquo;</p>
+                <span>Ashworth &mdash; Producer / DJ</span>
+            </div>
+            <div class="t-dots" id="t-dots"></div>
         </div>
     </div>
 </section>
@@ -177,6 +258,25 @@ footer a { color: var(--accent); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    var tSlides = document.querySelectorAll('.t-slide');
+    var tDotsWrap = document.getElementById('t-dots');
+    if (tSlides.length) {
+        var tIndex = 0;
+        tSlides.forEach(function (_, idx) {
+            var dot = document.createElement('button');
+            if (idx === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', 'Testimonial ' + (idx + 1));
+            dot.addEventListener('click', function () { showT(idx); });
+            tDotsWrap.appendChild(dot);
+        });
+        function showT(idx) {
+            tIndex = idx;
+            tSlides.forEach(function (s, i2) { s.classList.toggle('active', i2 === idx); });
+            Array.from(tDotsWrap.children).forEach(function (d, i2) { d.classList.toggle('active', i2 === idx); });
+        }
+        setInterval(function () { showT((tIndex + 1) % tSlides.length); }, 5000);
+    }
 })();
 </script>
 </body>

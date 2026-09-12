@@ -77,6 +77,26 @@ section { padding: 84px 0; }
 .review p { color: var(--text-dim); font-style: italic; margin-bottom: 14px; }
 .review h4 { font-size: 0.9rem; margin: 0; }
 
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
+.process-step { text-align: center; position: relative; }
+.process-step .num { width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.process-step h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.process-step p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+.process-line { display: none; }
+@media (min-width: 861px) {
+    .process-step:not(:last-child)::after {
+        content: ''; position: absolute; top: 27px; left: calc(50% + 40px); width: calc(100% - 80px); height: 2px; background: var(--line);
+    }
+}
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-q .plus { font-size: 1.4rem; color: var(--blue); transition: transform 0.25s ease; flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
+
 footer { background: #10131a; color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
 footer p { font-size: 0.85rem; }
 footer a { color: #6fb2ff; text-decoration: none; }
@@ -85,6 +105,7 @@ footer a { color: #6fb2ff; text-decoration: none; }
     nav.top .nav-links { display: none; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
     .reviews { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -98,7 +119,8 @@ footer a { color: #6fb2ff; text-decoration: none; }
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -140,6 +162,21 @@ footer a { color: #6fb2ff; text-decoration: none; }
     </div>
 </section>
 
+<section id="process">
+    <div class="container">
+        <div class="section-title">
+            <p>How It Works</p>
+            <h2>From Call To Fixed, Fast</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step"><div class="num">1</div><h3>Call Or Book Online</h3><p>Tell us what's wrong or what you need installed.</p></div>
+            <div class="process-step"><div class="num">2</div><h3>Free Quote</h3><p>We give you a clear, upfront price before any work starts.</p></div>
+            <div class="process-step"><div class="num">3</div><h3>We Get To Work</h3><p>Certified electricians arrive on time and get it done right.</p></div>
+            <div class="process-step"><div class="num">4</div><h3>Signed Off &amp; Certified</h3><p>Every job comes with the right paperwork and certification.</p></div>
+        </div>
+    </div>
+</section>
+
 <section id="about">
     <div class="container">
         <div class="emergency">
@@ -160,6 +197,33 @@ footer a { color: #6fb2ff; text-decoration: none; }
             <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Turned up on time, fixed the fuse box same day. Properly professional."</p><h4>Dave H.</h4></div>
             <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fitted our EV charger in an afternoon. Tidy work, fair price."</p><h4>Sarah M.</h4></div>
             <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Called out at 11pm for a power cut, sorted within the hour."</p><h4>Chris T.</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Questions</p>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Are you fully insured and certified?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes. Every electrician on our team is NICEIC certified and we carry full public liability insurance on every job.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How quickly can you attend an emergency?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>We aim to be on-site within the hour for genuine emergencies, 24 hours a day, 7 days a week.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you provide a written quote before starting?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Always. You'll get a clear, itemised quote before we start any work, so there are no surprises on the invoice.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you work on both homes and businesses?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, we cover residential and commercial properties, including landlord safety certificates and EICR reports.</p></div>
+            </div>
         </div>
     </div>
 </section>
@@ -194,6 +258,22 @@ footer a { color: #6fb2ff; text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        var answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', function () {
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 })();
 </script>
 </body>

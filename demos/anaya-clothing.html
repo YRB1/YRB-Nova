@@ -74,6 +74,20 @@ section { padding: 90px 0; }
 .story img { width: 100%; aspect-ratio: 7 / 8; object-fit: cover; border-radius: 2px; filter: saturate(0.85); }
 .story p { color: var(--text-dim); }
 
+.lookbook-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.lookbook-grid a { display: block; aspect-ratio: 3/4; overflow: hidden; border-radius: 2px; position: relative; }
+.lookbook-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; filter: saturate(0.85); }
+.lookbook-grid a:hover img { transform: scale(1.06); }
+.lookbook-grid a::after { content: '\2197'; position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; background: rgba(20,18,15,0.6); color: var(--gold-light); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+.lookbook-grid a:hover::after { opacity: 1; }
+
+.newsletter { background: var(--bg); border: 1px solid var(--line); padding: 60px; text-align: center; max-width: 640px; margin: 0 auto; }
+.newsletter p { color: var(--text-dim); max-width: 420px; margin: 0 auto 26px; }
+.newsletter-form { display: flex; gap: 10px; max-width: 380px; margin: 0 auto; }
+.newsletter-form input { flex: 1; background: transparent; border: 1px solid var(--line); color: var(--text); padding: 13px 16px; font-family: inherit; font-size: 0.88rem; }
+.newsletter-form input:focus { outline: none; border-color: var(--gold); }
+.newsletter-msg { color: var(--gold-light); font-size: 0.82rem; margin-top: 16px; display: none; }
+
 footer { background: #0f0d0b; padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
 footer p { color: var(--text-dim); font-size: 0.85rem; }
 footer a { color: var(--gold-light); text-decoration: none; }
@@ -82,6 +96,9 @@ footer a { color: var(--gold-light); text-decoration: none; }
     nav.top .nav-links { display: none; }
     .product-grid { grid-template-columns: 1fr; }
     .story { grid-template-columns: 1fr; }
+    .lookbook-grid { grid-template-columns: 1fr 1fr; }
+    .newsletter { padding: 40px 24px; }
+    .newsletter-form { flex-direction: column; }
 }
 </style>
 </head>
@@ -96,6 +113,7 @@ footer a { color: var(--gold-light); text-decoration: none; }
             <li><a href="#shop">Shop</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#story">About</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="touch-btn">Get In Touch</a>
@@ -152,6 +170,21 @@ footer a { color: var(--gold-light); text-decoration: none; }
     </div>
 </section>
 
+<section id="gallery">
+    <div class="container">
+        <div class="section-title">
+            <p>Lookbook</p>
+            <h2>Shop The Gallery</h2>
+        </div>
+        <div class="lookbook-grid">
+            <a href="#shop"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#shop"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#shop"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#shop"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+        </div>
+    </div>
+</section>
+
 <section id="story" class="story">
     <div>
         <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy">
@@ -164,7 +197,22 @@ footer a { color: var(--gold-light); text-decoration: none; }
     </div>
 </section>
 
-<section id="contact" style="background:var(--surface); text-align:center;">
+<section id="newsletter" style="background:var(--surface);">
+    <div class="container">
+        <div class="newsletter">
+            <p class="kicker" style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Stay In The Loop</p>
+            <h2 style="font-size:1.7rem;">Join The Nest List</h2>
+            <p>New arrivals, early access to drops, and members-only discounts. No spam, just the good stuff.</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-gold">Join</button>
+            </form>
+            <p class="newsletter-msg" id="newsletter-msg">You're on the list &mdash; welcome to the nest.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" style="text-align:center;">
     <div class="container">
         <div class="section-title">
             <p>Get In Touch</p>
@@ -190,6 +238,15 @@ footer a { color: var(--gold-light); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    var newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('newsletter-msg').style.display = 'block';
+            newsletterForm.reset();
+        });
+    }
 })();
 </script>
 </body>

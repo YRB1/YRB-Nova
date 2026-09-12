@@ -79,6 +79,25 @@ section { padding: 96px 0; }
 .why-card h3 { color: var(--navy); font-size: 1.15rem; }
 .why-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
 
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+.process-step { text-align: center; position: relative; }
+.process-step .num { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold-dark); font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.process-step h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 8px; }
+.process-step p { color: var(--text-dim); font-size: 0.88rem; margin: 0; }
+@media (min-width: 901px) {
+    .process-step:not(:last-child)::after {
+        content: ''; position: absolute; top: 26px; left: calc(50% + 38px); width: calc(100% - 76px); height: 1px; background: #e0ddd3;
+    }
+}
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid #e6e4dc; }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1.02rem; font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Cormorant Garamond', serif; }
+.faq-q .plus { font-size: 1.4rem; color: var(--gold-dark); transition: transform 0.25s ease; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
+
 .cta-band { background: var(--navy); border-radius: 6px; padding: 60px; text-align: center; color: #fff; }
 .cta-band h2 { color: #fff; }
 .cta-band p { color: #cfd6e2; max-width: 520px; margin: 0 auto 30px; }
@@ -92,6 +111,7 @@ footer a { color: var(--gold); text-decoration: none; }
     .listings { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .cta-band { padding: 40px 24px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -104,8 +124,9 @@ footer a { color: var(--gold); text-decoration: none; }
         <div class="brand">Meridian <span>Property</span></div>
         <ul class="nav-links">
             <li><a href="#listings">Listings</a></li>
+            <li><a href="#process">Process</a></li>
             <li><a href="#why">Why Meridian</a></li>
-            <li><a href="#agent">Our Team</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact" class="nav-cta">Book A Viewing</a></li>
         </ul>
     </div>
@@ -169,6 +190,21 @@ footer a { color: var(--gold); text-decoration: none; }
     </div>
 </section>
 
+<section id="process">
+    <div class="container">
+        <div class="section-title">
+            <p>How It Works</p>
+            <h2>Selling With Meridian</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step"><div class="num">1</div><h3>Free Valuation</h3><p>An honest, data-backed valuation with no obligation.</p></div>
+            <div class="process-step"><div class="num">2</div><h3>Staging &amp; Photography</h3><p>Professional staging and photography included as standard.</p></div>
+            <div class="process-step"><div class="num">3</div><h3>Qualified Viewings</h3><p>We only bring pre-qualified, serious buyers through the door.</p></div>
+            <div class="process-step"><div class="num">4</div><h3>Offer To Completion</h3><p>We manage negotiation and paperwork through to keys handed over.</p></div>
+        </div>
+    </div>
+</section>
+
 <section id="why">
     <div class="container">
         <div class="section-title">
@@ -191,6 +227,33 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <div style="max-width:640px; margin:0 auto; text-align:center;">
             <p style="color:var(--text-dim);">Our agents live in the areas they sell. That means real answers about schools, commutes, and neighbours, not just a listing sheet. When you work with Meridian, you get a direct line to someone who actually knows the street your home is on.</p>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container">
+        <div class="section-title">
+            <p>Questions</p>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How is my property valued?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>We combine live local sales data with an in-person assessment, so your valuation reflects the real current market, not a generic estimate.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>What fees do you charge?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>A single, transparent commission agreed upfront &mdash; no hidden marketing or admin fees added later.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How long does a typical sale take?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Most Meridian listings go under offer within 6 weeks, thanks to our pre-qualified buyer network.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you handle buying as well as selling?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, our team can represent you on both sides &mdash; finding your next home while we sell your current one.</p></div>
+            </div>
         </div>
     </div>
 </section>
@@ -219,6 +282,22 @@ footer a { color: var(--gold); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        var answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', function () {
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 })();
 </script>
 </body>

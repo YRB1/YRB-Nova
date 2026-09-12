@@ -67,6 +67,15 @@ section { padding: 88px 0; }
 .svc-card h3 { font-size: 1.02rem; margin-bottom: 8px; color: #fff; }
 .svc-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
 
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.stat-block { background: var(--bg); padding: 34px 20px; text-align: center; }
+.stat-value { display: block; font-weight: 800; font-size: 2.1rem; margin-bottom: 6px; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-label { color: var(--text-dim); font-size: 0.82rem; }
+
+.area-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.area-chip { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px 10px; text-align: center; font-size: 0.88rem; color: var(--text-dim); font-weight: 500; }
+.area-chip::before { content: '\1F4CD'; display: block; margin-bottom: 6px; font-size: 0.9rem; }
+
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .review { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
 .review .stars { color: #f5b501; margin-bottom: 12px; letter-spacing: 2px; }
@@ -84,6 +93,8 @@ footer a { color: var(--cyan); text-decoration: none; }
     nav.top .nav-links { display: none; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
     .reviews { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .area-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
@@ -95,8 +106,8 @@ footer a { color: var(--cyan); text-decoration: none; }
     <div class="container">
         <div class="brand">EliteFlow</div>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#areas">Coverage</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -132,6 +143,38 @@ footer a { color: var(--cyan); text-decoration: none; }
             <div class="svc-card"><div class="ic">02</div><h3>Boiler Servicing</h3><p>Annual servicing and repairs to keep you covered.</p></div>
             <div class="svc-card"><div class="ic">03</div><h3>Bathroom Installs</h3><p>Full bathroom fit-outs, from plan to finish.</p></div>
             <div class="svc-card"><div class="ic">04</div><h3>Drain Unblocking</h3><p>Fast, mess-free unblocking for sinks and drains.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="stats">
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-block"><span class="stat-value" data-count="4200" data-suffix="+">0</span><span class="stat-label">Jobs Completed</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="45" data-suffix=" min">0</span><span class="stat-label">Avg Response Time</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="12">0</span><span class="stat-label">Years Trading</span></div>
+            <div class="stat-block"><span class="stat-value" data-count="4.9" data-suffix="/5">0</span><span class="stat-label">Average Rating</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="areas" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Coverage</p>
+            <h2 style="color:#fff;">Areas We Cover</h2>
+        </div>
+        <div class="area-grid">
+            <div class="area-chip">Weybridge</div>
+            <div class="area-chip">Esher</div>
+            <div class="area-chip">Cobham</div>
+            <div class="area-chip">Walton</div>
+            <div class="area-chip">Kingston</div>
+            <div class="area-chip">Surbiton</div>
+            <div class="area-chip">Chertsey</div>
+            <div class="area-chip">Woking</div>
+            <div class="area-chip">Guildford</div>
+            <div class="area-chip">+ Surrounding Areas</div>
         </div>
     </div>
 </section>
@@ -175,6 +218,32 @@ footer a { color: var(--cyan); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
+
+    var statEls = document.querySelectorAll('.stat-value[data-count]');
+    var animate = function (el) {
+        var target = parseFloat(el.dataset.count);
+        var decimals = el.dataset.count.indexOf('.') > -1 ? el.dataset.count.split('.')[1].length : 0;
+        var suffix = el.dataset.suffix || '';
+        var duration = 1400;
+        var start = performance.now();
+        function tick(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = (target * eased).toFixed(decimals) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    };
+    var statObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animate(entry.target);
+                statObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    statEls.forEach(function (el) { statObserver.observe(el); });
 })();
 </script>
 </body>
