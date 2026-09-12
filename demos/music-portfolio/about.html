@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | The Executive Producer | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305070c'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23e8e2d0' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #05070c;
+    --surface: #0c0f16;
+    --line: rgba(232,226,208,0.1);
+    --text: #eceae4;
+    --text-dim: #8b8f9a;
+    --cream: #e8e2d0;
+    --accent: #c9a24a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-weight: 300; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 16px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--cream); color: #14120d; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #14120d; text-decoration: underline; }
+
+nav.top { position: sticky; top: 0; z-index: 10; padding: 22px 0; background: rgba(5,7,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
+.brand .mark { width: 30px; height: 30px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.8rem; transform: rotate(-6deg); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.nav-links a { color: var(--text-dim); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+.page-hero { position: relative; height: 46vh; min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.page-hero .hero-bg-img { position: absolute; inset: 0; }
+.page-hero .hero-bg-img img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,12,0.97) 5%, rgba(5,7,12,0.55) 60%, rgba(5,7,12,0.78) 100%); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-content h1 { font-size: clamp(2.6rem, 6vw, 4rem); color: #fff; margin-bottom: 10px; }
+.page-hero-content p { color: var(--text-dim); letter-spacing: 0.08em; font-size: 0.9rem; text-transform: uppercase; margin: 0; }
+
+.btn-ghost { display: inline-block; padding: 15px 34px; border: 1px solid rgba(232,226,208,0.4); color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; transition: border-color 0.2s, background 0.2s; }
+.btn-ghost:hover { border-color: var(--accent); background: rgba(201,162,74,0.08); }
+
+section { padding: 90px 0; }
+.section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 10px; }
+
+.bio-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+.bio-grid img { border-radius: 6px; width: 100%; height: 460px; object-fit: cover; }
+.bio-grid .bio-text p { color: var(--text-dim); font-size: 0.98rem; margin: 0 0 18px; }
+.bio-grid .bio-text p:last-child { margin-bottom: 0; }
+
+.timeline { max-width: 720px; margin: 0 auto; position: relative; padding-left: 30px; border-left: 1px solid var(--line); }
+.tl-item { position: relative; padding-bottom: 42px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content: ''; position: absolute; left: -35px; top: 3px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.tl-item .yr { color: var(--accent); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.tl-item h3 { font-size: 1.25rem; color: var(--cream); margin-bottom: 6px; }
+.tl-item p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.press-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 40px; margin-bottom: 46px; }
+.press-row span { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; letter-spacing: 0.03em; color: var(--text-dim); opacity: 0.75; text-transform: uppercase; }
+.collab-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.collab-row span { border: 1px solid var(--line); border-radius: 20px; padding: 8px 18px; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim); }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.gallery-grid img { width: 100%; height: 230px; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease; }
+.gallery-grid a { overflow: hidden; border-radius: 6px; display: block; }
+.gallery-grid a:hover img { transform: scale(1.06); }
+
+footer { padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .bio-grid { grid-template-columns: 1fr; gap: 30px; }
+    .bio-grid img { height: 320px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a class="brand" href="index.html"><span class="mark">&#127916;</span> The Executive Producer</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="booking.html">Booking</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="hero-bg-img"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    <div class="container page-hero-content">
+        <h1>The Story So Far</h1>
+        <p>Bio &middot; Milestones &middot; Press</p>
+    </div>
+</section>
+
+<section>
+    <div class="container bio-grid">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=75" alt="">
+        <div class="bio-text">
+            <div class="section-title" style="text-align:left; margin-bottom:26px;">
+                <p>Who We Are</p>
+                <h2 style="color:var(--cream);">Built In The Dark, Mixed Before Dawn</h2>
+            </div>
+            <p>Every record starts the same way: an empty session, a bad coffee, and a sound that hasn't been made yet. The Executive Producer has spent over a decade chasing that sound in bedrooms, rented studios, and now a home base built specifically for it.</p>
+            <p>What began as beats uploaded to a forum in the small hours has grown into a full production house &mdash; original beats, mixing and mastering, and licensing deals with independent artists and labels who want something that feels handmade, not templated.</p>
+            <p>No two sessions are approached the same way. Some start with a drum pattern, some with a single vocal take, some with nothing but a mood and a reference track. The through-line is restraint: knowing when a record is finished, and refusing to touch it again after that.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Milestones</p>
+            <h2 style="color:var(--cream);">Career Timeline</h2>
+        </div>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="yr">2016</div>
+                <h3>First Beats, First Uploads</h3>
+                <p>Started producing on a laptop and a pair of secondhand headphones, sharing loops and beats with online forums and local artists.</p>
+            </div>
+            <div class="tl-item">
+                <div class="yr">2018</div>
+                <h3>First Placement</h3>
+                <p>A licensed beat lands on an independent artist's debut EP &mdash; the first real proof the sound could travel beyond a bedroom setup.</p>
+            </div>
+            <div class="tl-item">
+                <div class="yr">2020</div>
+                <h3>The Studio Opens</h3>
+                <p>Moved out of the bedroom and into a proper room treated for sound, built around a small but serious rack of outboard gear.</p>
+            </div>
+            <div class="tl-item">
+                <div class="yr">2022</div>
+                <h3>A Breakout Record</h3>
+                <p>Co-produced and mixed a record that broke into national radio rotation, bringing a wave of new licensing and session enquiries.</p>
+            </div>
+            <div class="tl-item">
+                <div class="yr">2024</div>
+                <h3>Licensing Platform Launch</h3>
+                <p>Opened the full beat catalogue to direct licensing, making exclusive and non-exclusive deals available to artists worldwide.</p>
+            </div>
+            <div class="tl-item">
+                <div class="yr">2026</div>
+                <h3>Today</h3>
+                <p>Splitting time between studio sessions, live showcases, and a growing catalogue &mdash; still chasing the sound that hasn't been made yet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>In The Room</p>
+            <h2 style="color:var(--cream);">Press &amp; Collaborators</h2>
+        </div>
+        <div class="press-row">
+            <span>Wax &amp; Wire Magazine</span>
+            <span>Frequency Weekly</span>
+            <span>The Session Room Podcast</span>
+            <span>Undercut Radio</span>
+            <span>Late Cut Sessions</span>
+        </div>
+        <div class="collab-row">
+            <span>Nova K.</span>
+            <span>Delroy M.</span>
+            <span>Ashworth</span>
+            <span>Cassia Reign</span>
+            <span>Bloom Theory</span>
+            <span>Jae Nettles</span>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Behind The Scenes</p>
+            <h2 style="color:var(--cream);">Studio Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+            <a href="#"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&h=500&q=60&fm=jpg&flip=h" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&h=500&q=60&fm=jpg&flip=h" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&h=500&q=60&fm=jpg&flip=h" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&h=500&q=60&fm=jpg&flip=h" alt="" loading="lazy"></a>
+        </div>
+    </div>
+</section>
+
+<section style="text-align:center;">
+    <div class="container">
+        <div class="section-title" style="margin-bottom:30px;">
+            <p>Work Together</p>
+            <h2 style="color:var(--cream);">Ready To Start A Record?</h2>
+        </div>
+        <a href="booking.html" class="btn-ghost">Enquire About Booking</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 The Executive Producer &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

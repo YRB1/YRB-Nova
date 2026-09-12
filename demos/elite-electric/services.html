@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Elite Electric | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%230d6efd' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --surface: #f5f7fb;
+    --line: #e6e9ef;
+    --text: #16181d;
+    --text-dim: #5c6470;
+    --blue: #0d6efd;
+    --blue-dark: #0b5ed7;
+    --blue-soft: #eaf2ff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+h1, h2, h3 { font-weight: 800; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.01em; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--blue); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #fff; text-decoration: underline; }
+
+nav.top { background: #fff; padding: 20px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 800; font-size: 1.4rem; color: var(--blue); text-decoration: none; }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+.nav-links a { color: var(--text); text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: var(--blue); }
+.nav-links a.active { color: var(--blue); }
+
+.hero { position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+.hero.hero-sm { min-height: 320px; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; }
+.hero-bg .slide.active { opacity: 1; }
+.hero-bg .slide img { width: 100%; height: 100%; object-fit: cover; animation: heroPan 14s ease-in-out infinite; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(10,12,16,0.5); }
+@keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
+.hero .container { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); max-width: 760px; color: #fff; }
+.hero.hero-sm h1 { font-size: clamp(2rem, 4.2vw, 3rem); max-width: 700px; }
+.hero p { font-size: 1.15rem; color: rgba(255,255,255,0.88); max-width: 560px; margin-bottom: 36px; }
+.hero .eyebrow { color: #9fc4ff; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 14px; }
+
+.btn { display: inline-block; padding: 16px 34px; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 1rem; border: none; cursor: pointer; font-family: inherit; }
+.btn-primary { background: var(--blue); color: #fff; box-shadow: 0 12px 30px rgba(13,110,253,0.35); }
+.btn-primary:hover { background: var(--blue-dark); }
+.btn-outline { border: 2px solid rgba(255,255,255,0.5); color: #fff; background: none; }
+.btn-outline.dark { border-color: var(--blue); color: var(--blue); }
+
+section { padding: 84px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--blue); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; }
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.svc-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 32px 26px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.svc-card .ic { width: 48px; height: 48px; background: var(--blue-soft); color: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 18px; }
+.svc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.svc-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0 0 14px; }
+.svc-card .more { color: var(--blue); font-weight: 700; font-size: 0.85rem; text-decoration: none; }
+.svc-card .more:hover { text-decoration: underline; }
+.svc-card .from { font-size: 0.8rem; font-weight: 700; color: var(--blue); margin-top: auto; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.svc-card-lg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 34px 30px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); display: flex; flex-direction: column; }
+.svc-card-lg .ic { width: 52px; height: 52px; background: var(--blue-soft); color: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 18px; font-size: 1.1rem; }
+.svc-card-lg h3 { font-size: 1.18rem; margin-bottom: 10px; }
+.svc-card-lg p { color: var(--text-dim); font-size: 0.94rem; margin: 0 0 16px; flex: 1; }
+.svc-card-lg .from { font-size: 0.85rem; font-weight: 700; color: var(--blue); }
+
+.badges { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 10px; }
+.badge { font-size: 0.9rem; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.badge::before { content: '\2713'; color: #6fb2ff; font-weight: 900; }
+
+.emergency { background: linear-gradient(120deg, var(--blue), var(--blue-dark)); border-radius: 20px; padding: 54px; text-align: center; color: #fff; }
+.emergency h2 { color: #fff; }
+.emergency p { color: rgba(255,255,255,0.85); max-width: 540px; margin: 0 auto 30px; }
+.emergency .btn-primary { background: #fff; color: var(--blue-dark); box-shadow: none; }
+
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.review .stars { color: #f5b501; margin-bottom: 12px; letter-spacing: 2px; }
+.review p { color: var(--text-dim); font-style: italic; margin-bottom: 14px; }
+.review h4 { font-size: 0.9rem; margin: 0; }
+
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
+.process-step { text-align: center; position: relative; }
+.process-step .num { width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.process-step h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.process-step p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+@media (min-width: 861px) {
+    .process-step:not(:last-child)::after {
+        content: ''; position: absolute; top: 27px; left: calc(50% + 40px); width: calc(100% - 80px); height: 2px; background: var(--line);
+    }
+}
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-q .plus { font-size: 1.4rem; color: var(--blue); transition: transform 0.25s ease; flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.stat-item .num { font-size: 2.4rem; font-weight: 800; color: var(--blue); }
+.stat-item p { color: var(--text-dim); margin: 6px 0 0; font-size: 0.88rem; font-weight: 600; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.price-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 36px 30px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); display: flex; flex-direction: column; position: relative; }
+.price-card.featured { border: 2px solid var(--blue); box-shadow: 0 14px 32px rgba(13,110,253,0.16); }
+.price-card .tag { position: absolute; top: -13px; right: 26px; background: var(--blue); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase; }
+.price-card .tier { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); font-weight: 700; margin-bottom: 10px; }
+.price-card .amount { font-size: 2rem; font-weight: 800; margin-bottom: 4px; }
+.price-card .amount span { font-size: 0.95rem; font-weight: 600; color: var(--text-dim); }
+.price-card ul { list-style: none; padding: 0; margin: 22px 0 28px; flex: 1; }
+.price-card li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--text-dim); display: flex; gap: 10px; align-items: flex-start; }
+.price-card li::before { content: '\2713'; color: var(--blue); font-weight: 900; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.team-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(16,24,40,0.04); text-align: center; }
+.team-card img { width: 100%; height: 220px; object-fit: cover; }
+.team-card .info { padding: 22px 18px; }
+.team-card h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.team-card .role { color: var(--blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.team-card p { color: var(--text-dim); font-size: 0.87rem; margin: 0; }
+
+/* Certifications */
+.cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.cert-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.cert-card .ic { width: 48px; height: 48px; background: var(--blue-soft); color: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 14px; }
+.cert-card h4 { font-size: 0.92rem; margin: 0 0 6px; }
+.cert-card p { color: var(--text-dim); font-size: 0.82rem; margin: 0; }
+
+/* Service areas */
+.areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.area-chip { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; font-weight: 600; font-size: 0.92rem; display: flex; align-items: center; gap: 10px; }
+.area-chip::before { content: '\2713'; color: var(--blue); font-weight: 900; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+.contact-details .detail { display: flex; gap: 16px; margin-bottom: 26px; }
+.contact-details .detail .ic { width: 44px; height: 44px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+.contact-details h4 { margin: 0 0 4px; font-size: 0.95rem; }
+.contact-details p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+.contact-form { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 34px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.85rem; font-weight: 700; }
+.form-group input, .form-group select, .form-group textarea { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-family: inherit; font-size: 0.95rem; color: var(--text); background: var(--surface); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 14px; text-align: center; }
+
+/* Map */
+.map-placeholder { height: 320px; border-radius: 14px; background: repeating-linear-gradient(45deg, var(--surface), var(--surface) 10px, #eef2f8 10px, #eef2f8 20px); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: var(--text-dim); text-align: center; }
+.map-placeholder .pin { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+.map-placeholder strong { color: var(--text); }
+
+/* Company story */
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.story-grid img { border-radius: 16px; height: 100%; object-fit: cover; }
+
+footer { background: #10131a; color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: #6fb2ff; text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .reviews { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Elite Electric</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero hero-sm">
+    <div class="hero-bg">
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    </div>
+    <div class="container">
+        <p class="eyebrow">Our Services</p>
+        <h1>Full Electrical Services For Homes &amp; Businesses</h1>
+        <p>From a single faulty socket to a full rewire, our certified team covers the complete range of domestic and commercial electrical work.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>What We Do</p>
+            <h2>The Full Service Catalogue</h2>
+        </div>
+        <div class="grid-2">
+            <div class="svc-card-lg">
+                <div class="ic">01</div>
+                <h3>Full &amp; Partial Rewiring</h3>
+                <p>Whether you're renovating a period property or bringing an older home up to modern safety standards, we carry out full and partial rewires with minimal disruption. We plan the work in stages, protect your floors and walls, and make good behind us so the job looks tidy, not just functional. Every rewire is tested and signed off with the correct certification.</p>
+                <p class="from">From &pound;1,800</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">02</div>
+                <h3>Fuse Boxes &amp; Consumer Unit Upgrades</h3>
+                <p>Old fuse boxes are one of the most common fire and safety risks in UK homes. We replace outdated boards with modern, RCD-protected consumer units, fix wiring faults we find along the way, and explain exactly what's changed and why in plain English before we leave.</p>
+                <p class="from">From &pound;350</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">03</div>
+                <h3>EV Charger Installation</h3>
+                <p>We supply and install home EV charge points from all major manufacturers, sized correctly for your property's supply and future-proofed where possible for a second vehicle. Every installation includes load calculations, a dedicated circuit, and full manufacturer warranty registration.</p>
+                <p class="from">From &pound;650</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">04</div>
+                <h3>Electrical Inspections &amp; EICR Certificates</h3>
+                <p>An Electrical Installation Condition Report gives you a clear, documented picture of your property's electrical safety. We're regularly instructed by landlords, letting agents and homeowners buying or selling, and we can usually turn around the paperwork within 48 hours of the visit.</p>
+                <p class="from">From &pound;120</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">05</div>
+                <h3>Lighting Design &amp; Installation</h3>
+                <p>From simple room rewires to layered lighting schemes with dimmer zones, feature pendants and outdoor lighting, we help plan a layout that works for the space and then install it properly &mdash; including LED retrofits that cut your running costs.</p>
+                <p class="from">From &pound;180</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">06</div>
+                <h3>Smart Home &amp; Automation Wiring</h3>
+                <p>We install the wiring and infrastructure behind smart lighting, heating controls, video doorbells and whole-home automation systems, working alongside your preferred smart-home platform so everything talks to everything else reliably.</p>
+                <p class="from">From &pound;220</p>
+            </div>
+            <div class="svc-card-lg">
+                <div class="ic">07</div>
+                <h3>Landlord &amp; Commercial Safety Certificates</h3>
+                <p>Landlords and commercial property owners have specific legal obligations around electrical safety. We provide EICRs, PAT testing, and emergency lighting certification, and we can set up a rolling schedule so you never miss a renewal date.</p>
+                <p class="from">From &pound;95</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Pricing</p>
+            <h2>What's Included</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="tier">Call-Out &amp; Diagnostic</div>
+                <div class="amount">&pound;75</div>
+                <ul>
+                    <li>Fault-finding site visit</li>
+                    <li>Written diagnosis report</li>
+                    <li>No-obligation quote for any further work</li>
+                    <li>Priority booking for follow-up work</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline dark">Book This</a>
+            </div>
+            <div class="price-card featured">
+                <div class="tag">Most Popular</div>
+                <div class="tier">Standard Install / Repair</div>
+                <div class="amount">&pound;180 <span>avg.</span></div>
+                <ul>
+                    <li>Everything in Call-Out &amp; Diagnostic</li>
+                    <li>Consumer unit upgrades</li>
+                    <li>Socket &amp; lighting circuit work</li>
+                    <li>Minor Works Certificate included</li>
+                    <li>12-month workmanship guarantee</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Book This</a>
+            </div>
+            <div class="price-card">
+                <div class="tier">Full Rewire / Certified Project</div>
+                <div class="amount">Custom</div>
+                <ul>
+                    <li>Everything in Standard Install</li>
+                    <li>Full or partial property rewiring</li>
+                    <li>EICR + Electrical Installation Certificate</li>
+                    <li>Building control notification handled</li>
+                    <li>6-year workmanship guarantee</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline dark">Get A Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="process">
+    <div class="container">
+        <div class="section-title">
+            <p>How It Works</p>
+            <h2>From Call To Fixed, Fast</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step"><div class="num">1</div><h3>Call Or Book Online</h3><p>Tell us what's wrong or what you need installed.</p></div>
+            <div class="process-step"><div class="num">2</div><h3>Free Quote</h3><p>We give you a clear, upfront price before any work starts.</p></div>
+            <div class="process-step"><div class="num">3</div><h3>We Get To Work</h3><p>Certified electricians arrive on time and get it done right.</p></div>
+            <div class="process-step"><div class="num">4</div><h3>Signed Off &amp; Certified</h3><p>Every job comes with the right paperwork and certification.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="emergency">
+            <h2>Not Sure Which Service You Need?</h2>
+            <p>Give us a quick call and we'll point you in the right direction &mdash; no pressure, no obligation.</p>
+            <a href="contact.html" class="btn btn-primary">Talk To Us</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Elite Electric &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+(function () {
+    var slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+        slides[i].classList.remove('active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('active');
+    }, 4200);
+})();
+</script>
+</body>
+</html>

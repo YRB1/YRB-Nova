@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs | Hopewell Trust | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23ff5a36' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --line: #e7e5e0;
+    --text: #1b1d1f;
+    --text-dim: #5c6266;
+    --orange: #ff5a36;
+    --blue: #3d5a80;
+    --green: #1f7a3d;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+h1, h2, h3 { font-family: 'Fraunces', serif; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--text); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #ffb199; text-decoration: underline; }
+
+nav.top { background: #fff; padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.donate-btn { background: var(--blue); color: #fff; font-weight: 700; padding: 11px 24px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; }
+
+.page-hero { position: relative; min-height: 320px; display: flex; align-items: center; overflow: hidden; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,20,20,0.7), rgba(20,20,20,0.35)); }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: var(--orange); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+.page-hero h1 { color: #fff; font-size: 2.4rem; margin: 0; }
+
+section { padding: 84px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--orange); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+
+.program-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; margin-bottom: 70px; }
+.program-detail:last-child { margin-bottom: 0; }
+.program-detail.reverse .pd-img { order: 2; }
+.pd-img img { border-radius: 16px; width: 100%; height: 320px; object-fit: cover; }
+.pd-body .tag { display: inline-block; background: var(--surface); color: var(--blue); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 100px; margin-bottom: 14px; }
+.pd-body h3 { font-size: 1.5rem; }
+.pd-body p { color: var(--text-dim); }
+.pd-body ul { margin: 18px 0 0; padding: 0; list-style: none; }
+.pd-body ul li { padding-left: 26px; position: relative; margin-bottom: 10px; font-size: 0.92rem; color: var(--text-dim); }
+.pd-body ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.event-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; }
+.event-date { background: var(--blue); color: #fff; padding: 20px 18px; text-align: center; min-width: 78px; }
+.event-date .day { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; display: block; }
+.event-date .mon { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.event-body { padding: 20px; }
+.event-body h3 { font-size: 1rem; margin-bottom: 6px; }
+.event-body p { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
+
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.testimonial-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 30px; display: flex; flex-direction: column; }
+.testimonial-quote { font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 22px; flex-grow: 1; }
+.testimonial-person { display: flex; align-items: center; gap: 12px; }
+.testimonial-person img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+.testimonial-person .name { font-weight: 700; font-size: 0.9rem; }
+.testimonial-person .role { color: var(--text-dim); font-size: 0.78rem; }
+
+.cta-band { background: var(--blue); color: #fff; text-align: center; }
+.cta-band h2 { color: #fff; }
+.cta-band p.lead { color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 30px; }
+.btn-pill { display: inline-block; padding: 13px 30px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.88rem; }
+.btn-pill.orange { background: var(--orange); color: #fff; }
+
+footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: #ff9a80; text-decoration: none; }
+
+@media (max-width: 900px) {
+    nav.top .nav-links { display: none; }
+    .program-detail, .program-detail.reverse .pd-img { grid-template-columns: 1fr; order: unset; }
+    .program-detail { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real charity</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Hopewell Trust</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html" class="active">Programs</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+        <a href="get-involved.html#donate" class="donate-btn">Donate Now</a>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1600&q=75" alt="">
+    <div class="container">
+        <p class="eyebrow">What We Do</p>
+        <h1>Our Programs</h1>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Full Catalogue</p>
+            <h2>Five Ways We Support Our Community</h2>
+        </div>
+
+        <div class="program-detail" id="food-support">
+            <div class="pd-img"><img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy"></div>
+            <div class="pd-body">
+                <span class="tag">Food Support</span>
+                <h3>Weekly Food Parcels</h3>
+                <p>Our founding program provides fresh, nutritious food parcels to families facing hardship across the region &mdash; no referral, no means test, and no judgement.</p>
+                <ul>
+                    <li>Open drop-in every Tuesday and Friday at the community hall</li>
+                    <li>Parcels tailored to dietary needs and household size</li>
+                    <li>Emergency same-day parcels available for crisis situations</li>
+                    <li>Over 400 parcels distributed every month</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="program-detail reverse" id="volunteer-network">
+            <div class="pd-img"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy"></div>
+            <div class="pd-body">
+                <span class="tag">Volunteer Network</span>
+                <h3>Community Befriending &amp; Support</h3>
+                <p>Local volunteers deliver food, transport, and &mdash; just as importantly &mdash; company and conversation to elderly and isolated members of our community.</p>
+                <ul>
+                    <li>Weekly befriending visits for isolated older residents</li>
+                    <li>Volunteer-driven transport to medical appointments</li>
+                    <li>Companionship calls for those unable to receive visitors</li>
+                    <li>46 active volunteers giving over 300 hours a month</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="program-detail" id="community-programs">
+            <div class="pd-img"><img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy"></div>
+            <div class="pd-body">
+                <span class="tag">Community Programs</span>
+                <h3>Family Stability Workshops</h3>
+                <p>Long-term projects that help families build stability, not just get by &mdash; from budgeting workshops to cookery classes and back-to-work support.</p>
+                <ul>
+                    <li>Free monthly budgeting and benefits advice clinics</li>
+                    <li>Low-cost family cookery classes using food parcel staples</li>
+                    <li>Partnerships with local employers for back-to-work support</li>
+                    <li>Designed with input from the families who use them</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="program-detail reverse" id="youth-mentoring">
+            <div class="pd-img"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy"></div>
+            <div class="pd-body">
+                <span class="tag">Youth Mentoring</span>
+                <h3>Youth Mentoring Programme</h3>
+                <p>We pair young people aged 11&ndash;18 with trained, DBS-checked mentors for a year of regular one-to-one support, building confidence, resilience, and life skills.</p>
+                <ul>
+                    <li>Weekly one-to-one sessions for a minimum of 12 months</li>
+                    <li>All mentors trained, vetted, and supervised by our programmes team</li>
+                    <li>Group activity days to build peer confidence and teamwork</li>
+                    <li>Currently supporting 34 young people across the region</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="program-detail" id="winter-appeal">
+            <div class="pd-img"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy"></div>
+            <div class="pd-body">
+                <span class="tag">Winter Appeal</span>
+                <h3>Warm Homes Winter Appeal</h3>
+                <p>Every winter we distribute emergency fuel vouchers and warm packs &mdash; blankets, thermal wear, and hot water bottles &mdash; to households at risk of going cold.</p>
+                <ul>
+                    <li>Emergency fuel top-up vouchers for households in crisis</li>
+                    <li>Warm packs distributed alongside food parcels each winter</li>
+                    <li>Referral partnerships with local GP surgeries and schools</li>
+                    <li>Over 200 households supported last winter alone</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="events" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Get Involved</p>
+            <h2>Upcoming Events</h2>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-date"><span class="day">14</span><span class="mon">Oct</span></div>
+                <div class="event-body"><h3>Community Food Drive</h3><p>Drop off non-perishables at the community hall, 10am&ndash;3pm.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">02</span><span class="mon">Nov</span></div>
+                <div class="event-body"><h3>Volunteer Induction Day</h3><p>New to Hopewell Trust? Join our next volunteer orientation session.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">21</span><span class="mon">Nov</span></div>
+                <div class="event-body"><h3>Winter Fundraiser Dinner</h3><p>Our annual fundraising dinner, tickets support the winter appeal.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">05</span><span class="mon">Dec</span></div>
+                <div class="event-body"><h3>Winter Warmth Collection Point</h3><p>Donate blankets, coats, and thermal wear at the community hall, all day.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">12</span><span class="mon">Dec</span></div>
+                <div class="event-body"><h3>Carols for Community</h3><p>An evening fundraising concert at St. Anne's Hall, tickets on the door.</p></div>
+            </div>
+            <div class="event-card">
+                <div class="event-date"><span class="day">18</span><span class="mon">Jan</span></div>
+                <div class="event-body"><h3>New Year Volunteer Induction</h3><p>Start the year giving back &mdash; our first induction session of 2027.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="stories">
+    <div class="container">
+        <div class="section-title">
+            <p>Real Stories</p>
+            <h2>Impact In Their Own Words</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;Hopewell Trust helped us through the hardest winter of our lives. The food parcels meant my kids never went without, and no one made us feel ashamed to ask.&rdquo;</p>
+                <div class="testimonial-person">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=75" alt="">
+                    <div><div class="name">Sarah M.</div><div class="role">Food Support recipient</div></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;I started volunteering after I retired, just for something to do. Four years on, the befriending visits are the highlight of my week &mdash; for me as much as for them.&rdquo;</p>
+                <div class="testimonial-person">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=75" alt="">
+                    <div><div class="name">James P.</div><div class="role">Volunteer, 4 years</div></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;My son's mentor helped him believe he could actually go to college. Watching his confidence grow over that year was honestly life-changing for our whole family.&rdquo;</p>
+                <div class="testimonial-person">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=75" alt="">
+                    <div><div class="name">Maria K.</div><div class="role">Parent, Youth Mentoring</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container">
+        <h2>Want to Be Part of the Next Story?</h2>
+        <p class="lead">Whether it's a donation, a few hours a month, or spreading the word &mdash; there's a way for you to help.</p>
+        <a href="get-involved.html" class="btn-pill orange">Get Involved</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Hopewell Trust &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

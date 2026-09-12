@@ -29,11 +29,11 @@ img { max-width: 100%; display: block; }
 
 nav.top { position: sticky; top: 0; z-index: 10; padding: 22px 0; background: rgba(5,7,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 nav.top .container { display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); }
+.brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
 .brand .mark { width: 30px; height: 30px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.8rem; transform: rotate(-6deg); }
 .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
 .nav-links a { color: var(--text-dim); text-decoration: none; }
-.nav-links a:hover { color: var(--cream); }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
 
 .hero { position: relative; height: 92vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; }
@@ -47,6 +47,9 @@ nav.top .container { display: flex; align-items: center; justify-content: space-
 .hero-content p.tag { color: var(--text-dim); letter-spacing: 0.08em; font-size: 1rem; margin-bottom: 36px; }
 .btn-ghost { display: inline-block; padding: 15px 34px; border: 1px solid rgba(232,226,208,0.4); color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; transition: border-color 0.2s, background 0.2s; }
 .btn-ghost:hover { border-color: var(--accent); background: rgba(201,162,74,0.08); }
+.btn-solid { display: inline-block; padding: 15px 34px; background: var(--accent); color: #14120d; border: none; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: opacity 0.2s; }
+.btn-solid:hover { opacity: 0.88; }
+.btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .quote { position: relative; z-index: 1; max-width: 640px; margin: 50px auto 0; font-style: italic; color: var(--text-dim); font-size: 1.05rem; font-family: 'Cormorant Garamond', serif; }
 .quote span { display: block; margin-top: 14px; color: var(--accent); font-style: normal; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
@@ -54,6 +57,9 @@ section { padding: 90px 0; }
 .section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-title { text-align: center; margin-bottom: 50px; }
 .section-title p { color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 10px; }
+.section-cta { text-align: center; margin-top: 44px; }
+.section-cta a { color: var(--text-dim); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.section-cta a:hover { color: var(--accent); border-color: var(--accent); }
 
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .svc { background: var(--bg); padding: 40px 32px; text-align: center; }
@@ -111,12 +117,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
 <nav class="top">
     <div class="container">
-        <div class="brand"><span class="mark">&#127916;</span> The Executive Producer</div>
+        <a class="brand" href="index.html"><span class="mark">&#127916;</span> The Executive Producer</a>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#beats">Beats</a></li>
-            <li><a href="#tour">Tour</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="booking.html">Booking</a></li>
         </ul>
     </div>
 </nav>
@@ -128,9 +134,12 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="slide"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1800&q=75" alt=""></div>
     </div>
     <div class="container hero-content">
-        <h1>Welcome</h1>
-        <p class="tag">Immersive Made Possible</p>
-        <a href="#about" class="btn-ghost">Visit Us To Know More</a>
+        <h1>The Executive Producer</h1>
+        <p class="tag">Production &middot; Mixing &amp; Mastering &middot; Beat Licensing</p>
+        <div class="btn-row">
+            <a href="music.html" class="btn-ghost">Hear The Catalogue</a>
+            <a href="booking.html" class="btn-solid">Book A Session</a>
+        </div>
         <div class="quote">
             &ldquo;Great production doesn't announce itself. It just makes everything else make sense.&rdquo;
             <span>&mdash; The Executive Producer</span>
@@ -180,6 +189,7 @@ footer a { color: var(--accent); text-decoration: none; }
                 <div class="meta"><div class="name">Afterglow</div><div class="bpm">110 BPM &middot; Soul</div></div>
             </div>
         </div>
+        <div class="section-cta"><a href="music.html">View Full Catalogue &rarr;</a></div>
     </div>
 </section>
 
@@ -217,19 +227,15 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="tour-item">
                 <span class="date">12 OCT</span>
                 <span class="place">Late Night Sessions<span>Manchester, UK</span></span>
-                <a href="#">Details</a>
+                <a href="booking.html">Details</a>
             </div>
             <div class="tour-item">
                 <span class="date">03 NOV</span>
                 <span class="place">Studio Open Day<span>London, UK</span></span>
-                <a href="#">Details</a>
-            </div>
-            <div class="tour-item">
-                <span class="date">21 NOV</span>
-                <span class="place">Producer Showcase<span>Glasgow, UK</span></span>
-                <a href="#">Details</a>
+                <a href="booking.html">Details</a>
             </div>
         </div>
+        <div class="section-cta"><a href="booking.html">See All Dates &rarr;</a></div>
     </div>
 </section>
 
@@ -239,7 +245,10 @@ footer a { color: var(--accent); text-decoration: none; }
             <p>Get In Touch</p>
             <h2 style="color:var(--cream);">Start A Session</h2>
         </div>
-        <a href="mailto:hello@example.com" class="btn-ghost">Email The Studio</a>
+        <div class="btn-row">
+            <a href="mailto:hello@example.com" class="btn-ghost">Email The Studio</a>
+            <a href="booking.html" class="btn-solid">Enquire About Booking</a>
+        </div>
     </div>
 </section>
 
@@ -251,13 +260,14 @@ footer a { color: var(--accent); text-decoration: none; }
 <script>
 (function () {
     var slides = document.querySelectorAll('.hero-bg .slide');
-    if (slides.length < 2) return;
-    var i = 0;
-    setInterval(function () {
-        slides[i].classList.remove('active');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('active');
-    }, 4200);
+    if (slides.length > 1) {
+        var i = 0;
+        setInterval(function () {
+            slides[i].classList.remove('active');
+            i = (i + 1) % slides.length;
+            slides[i].classList.add('active');
+        }, 4200);
+    }
 
     var tSlides = document.querySelectorAll('.t-slide');
     var tDotsWrap = document.getElementById('t-dots');

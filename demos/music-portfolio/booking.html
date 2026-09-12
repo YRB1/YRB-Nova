@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking | The Executive Producer | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305070c'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23e8e2d0' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #05070c;
+    --surface: #0c0f16;
+    --line: rgba(232,226,208,0.1);
+    --text: #eceae4;
+    --text-dim: #8b8f9a;
+    --cream: #e8e2d0;
+    --accent: #c9a24a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-weight: 300; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 16px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--cream); color: #14120d; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #14120d; text-decoration: underline; }
+
+nav.top { position: sticky; top: 0; z-index: 10; padding: 22px 0; background: rgba(5,7,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
+.brand .mark { width: 30px; height: 30px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.8rem; transform: rotate(-6deg); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.nav-links a { color: var(--text-dim); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+.page-hero { position: relative; height: 46vh; min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.page-hero .hero-bg-img { position: absolute; inset: 0; }
+.page-hero .hero-bg-img img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,12,0.97) 5%, rgba(5,7,12,0.55) 60%, rgba(5,7,12,0.78) 100%); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-content h1 { font-size: clamp(2.6rem, 6vw, 4rem); color: #fff; margin-bottom: 10px; }
+.page-hero-content p { color: var(--text-dim); letter-spacing: 0.08em; font-size: 0.9rem; text-transform: uppercase; margin: 0; }
+
+.btn-ghost { display: inline-block; padding: 15px 34px; border: 1px solid rgba(232,226,208,0.4); color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; transition: border-color 0.2s, background 0.2s; }
+.btn-ghost:hover { border-color: var(--accent); background: rgba(201,162,74,0.08); }
+.btn-solid { display: inline-block; padding: 15px 34px; background: var(--accent); color: #14120d; border: none; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: opacity 0.2s; }
+.btn-solid:hover { opacity: 0.88; }
+
+section { padding: 90px 0; }
+.section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 10px; }
+
+.tour-list { max-width: 720px; margin: 0 auto; }
+.tour-item { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.tour-item:last-child { border-bottom: none; }
+.tour-item .date { color: var(--accent); font-weight: 500; font-size: 0.85rem; min-width: 110px; letter-spacing: 0.05em; }
+.tour-item .place { flex: 1; padding: 0 20px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--cream); }
+.tour-item .place span { display: block; color: var(--text-dim); font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.82rem; margin-top: 2px; }
+.tour-item a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.t-carousel { max-width: 680px; margin: 0 auto; position: relative; min-height: 140px; }
+.t-slide { display: none; text-align: center; }
+.t-slide.active { display: block; }
+.t-slide p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); margin-bottom: 16px; }
+.t-slide span { color: var(--accent); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.t-dots { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
+.t-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; }
+.t-dots button.active { background: var(--accent); }
+
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.contact-item { background: var(--bg); padding: 40px 32px; text-align: center; }
+.contact-item h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--cream); }
+.contact-item p, .contact-item a { color: var(--text-dim); font-size: 0.9rem; margin: 0; text-decoration: none; }
+.contact-item a:hover { color: var(--accent); }
+
+.booking-form { max-width: 640px; margin: 0 auto; display: grid; gap: 20px; }
+.booking-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.booking-form label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+.booking-form input, .booking-form select, .booking-form textarea {
+    width: 100%; background: var(--surface); border: 1px solid var(--line); color: var(--text); padding: 12px 14px;
+    font-family: 'Jost', sans-serif; font-size: 0.9rem; border-radius: 3px;
+}
+.booking-form textarea { resize: vertical; min-height: 110px; }
+.booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { outline: none; border-color: var(--accent); }
+.booking-form .submit-row { text-align: center; margin-top: 6px; }
+.form-note { text-align: center; color: var(--text-dim); font-size: 0.78rem; margin-top: 16px; }
+.thank-you { max-width: 640px; margin: 0 auto; text-align: center; padding: 30px; border: 1px solid var(--line); border-radius: 6px; }
+.thank-you h3 { color: var(--cream); margin-bottom: 10px; }
+.thank-you p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1rem; font-weight: 500; color: var(--cream); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Jost', sans-serif; }
+.faq-q .plus { font-size: 1.4rem; color: var(--accent); transition: transform 0.25s ease; flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.92rem; }
+
+footer { padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .tour-item { flex-wrap: wrap; gap: 8px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .booking-form .row2 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a class="brand" href="index.html"><span class="mark">&#127916;</span> The Executive Producer</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="booking.html" class="active">Booking</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="hero-bg-img"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    <div class="container page-hero-content">
+        <h1>Booking &amp; Tour</h1>
+        <p>Sessions &middot; Live Dates &middot; Licensing Enquiries</p>
+    </div>
+</section>
+
+<section id="tour">
+    <div class="container">
+        <div class="section-title">
+            <p>Live &amp; Sessions</p>
+            <h2 style="color:var(--cream);">Upcoming Dates</h2>
+        </div>
+        <div class="tour-list">
+            <div class="tour-item">
+                <span class="date">12 OCT</span>
+                <span class="place">Late Night Sessions<span>Manchester, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">03 NOV</span>
+                <span class="place">Studio Open Day<span>London, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">21 NOV</span>
+                <span class="place">Producer Showcase<span>Glasgow, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">09 DEC</span>
+                <span class="place">Listening Party: The Full Catalogue<span>Birmingham, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">18 JAN</span>
+                <span class="place">Beat Battle Live<span>Bristol, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">07 FEB</span>
+                <span class="place">Independent Label Showcase<span>Leeds, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">22 FEB</span>
+                <span class="place">Production &amp; Mixing Panel<span>Liverpool, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+            <div class="tour-item">
+                <span class="date">14 MAR</span>
+                <span class="place">Pop-Up Studio Weekend<span>Edinburgh, UK</span></span>
+                <a href="#booking-form">Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Word On The Street</p>
+            <h2 style="color:var(--cream);">What Artists Say</h2>
+        </div>
+        <div class="t-carousel" id="t-carousel">
+            <div class="t-slide active">
+                <p>&ldquo;Sent over a rough idea and got back something better than I imagined. That's rare.&rdquo;</p>
+                <span>Nova K. &mdash; Recording Artist</span>
+            </div>
+            <div class="t-slide">
+                <p>&ldquo;The mix came back radio-ready first pass. Saved me weeks of back and forth.&rdquo;</p>
+                <span>Delroy M. &mdash; Independent Artist</span>
+            </div>
+            <div class="t-slide">
+                <p>&ldquo;Booked the studio for a day and left with three finished records. Different level.&rdquo;</p>
+                <span>Ashworth &mdash; Producer / DJ</span>
+            </div>
+            <div class="t-slide">
+                <p>&ldquo;Booked them for a showcase and the room was still talking about it the next morning.&rdquo;</p>
+                <span>Cassia Reign &mdash; Vocalist</span>
+            </div>
+            <div class="t-dots" id="t-dots"></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Get In Touch</p>
+            <h2 style="color:var(--cream);">Contact Details</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-item"><h3>Booking &amp; Sessions</h3><a href="mailto:hello@example.com">hello@example.com</a></div>
+            <div class="contact-item"><h3>Licensing</h3><a href="mailto:licensing@example.com">licensing@example.com</a></div>
+            <div class="contact-item"><h3>Press &amp; Media</h3><a href="mailto:press@example.com">press@example.com</a></div>
+        </div>
+    </div>
+</section>
+
+<section id="booking-form" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Start A Session</p>
+            <h2 style="color:var(--cream);">Booking Inquiry</h2>
+        </div>
+        <form class="booking-form" id="inquiry-form">
+            <div class="row2">
+                <div>
+                    <label for="bf-name">Full Name</label>
+                    <input type="text" id="bf-name" name="name" placeholder="Your name" required>
+                </div>
+                <div>
+                    <label for="bf-email">Email</label>
+                    <input type="email" id="bf-email" name="email" placeholder="you@example.com" required>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <label for="bf-type">Enquiry Type</label>
+                    <select id="bf-type" name="type">
+                        <option>Studio Session</option>
+                        <option>Live Performance / Showcase</option>
+                        <option>Beat Licensing</option>
+                        <option>Press / Media</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="bf-date">Preferred Date</label>
+                    <input type="date" id="bf-date" name="date">
+                </div>
+            </div>
+            <div>
+                <label for="bf-budget">Budget Range</label>
+                <select id="bf-budget" name="budget">
+                    <option>Under &pound;500</option>
+                    <option>&pound;500 &ndash; &pound;1,500</option>
+                    <option>&pound;1,500 &ndash; &pound;5,000</option>
+                    <option>&pound;5,000+</option>
+                    <option>Let's discuss</option>
+                </select>
+            </div>
+            <div>
+                <label for="bf-message">Tell Us About The Project</label>
+                <textarea id="bf-message" name="message" placeholder="Project details, references, timelines..."></textarea>
+            </div>
+            <div class="submit-row">
+                <button type="submit" class="btn-solid">Send Enquiry</button>
+            </div>
+        </form>
+        <div class="thank-you" id="thank-you" style="display:none;">
+            <h3>Thanks &mdash; Enquiry Received</h3>
+            <p>This is a concept demo, so nothing was actually sent. On a real site, you'd hear back within 1&ndash;2 business days.</p>
+        </div>
+        <p class="form-note">This form is for demonstration purposes only and does not send any data.</p>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container">
+        <div class="section-title">
+            <p>Common Questions</p>
+            <h2 style="color:var(--cream);">Booking &amp; Licensing FAQ</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How do I book a studio session?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Fill out the booking inquiry form above with your preferred date and project details, or email hello@example.com directly. We'll confirm availability and send over a session plan.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>What's included in a licensing deal for a beat?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Every licensing deal includes the trackout stems, an MP3/WAV of the final beat, and a licensing agreement outlining usage rights, term, and distribution limits.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you offer exclusive vs non-exclusive licenses?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes. Non-exclusive licenses let a beat be leased to multiple artists at a lower rate, while exclusive licenses take the beat off the market entirely and transfer full rights to you.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How far in advance should I book for a live date or showcase?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>For showcases and live sessions, 4&ndash;6 weeks' notice is ideal so we can confirm logistics. Studio sessions can often be booked with a week or two of notice depending on availability.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Can I request custom production for my project?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Absolutely. Custom production sessions are built around your references and vision rather than picking from the existing catalogue, and are quoted separately based on scope.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>What file formats do I receive with a purchased beat?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Standard leases include a tagged MP3 and untagged WAV. Premium and exclusive licenses also include full trackout stems for mixing flexibility.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you offer mixing and mastering separately from production?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, mixing and mastering are available as standalone services for tracks produced elsewhere &mdash; just send over your session files or stems and we'll quote based on track count and complexity.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 The Executive Producer &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+
+<script>
+(function () {
+    var tSlides = document.querySelectorAll('.t-slide');
+    var tDotsWrap = document.getElementById('t-dots');
+    if (tSlides.length) {
+        var tIndex = 0;
+        tSlides.forEach(function (_, idx) {
+            var dot = document.createElement('button');
+            if (idx === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', 'Testimonial ' + (idx + 1));
+            dot.addEventListener('click', function () { showT(idx); });
+            tDotsWrap.appendChild(dot);
+        });
+        function showT(idx) {
+            tIndex = idx;
+            tSlides.forEach(function (s, i2) { s.classList.toggle('active', i2 === idx); });
+            Array.from(tDotsWrap.children).forEach(function (d, i2) { d.classList.toggle('active', i2 === idx); });
+        }
+        setInterval(function () { showT((tIndex + 1) % tSlides.length); }, 5000);
+    }
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        var answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', function () {
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    var form = document.getElementById('inquiry-form');
+    var thankYou = document.getElementById('thank-you');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            form.style.display = 'none';
+            thankYou.style.display = 'block';
+        });
+    }
+})();
+</script>
+</body>
+</html>

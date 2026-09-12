@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Anaya Fashion Nest | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23161311'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23d4b563' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #14120f;
+    --surface: #1c1915;
+    --line: rgba(212,181,99,0.18);
+    --text: #f2ede2;
+    --text-dim: #b3a893;
+    --gold: #d4b563;
+    --gold-light: #f0d07e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--gold); color: #1c1712; text-align: center; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; padding: 10px 16px; }
+.demo-banner a { color: #1c1712; text-decoration: underline; }
+
+nav.top { position: sticky; top: 0; z-index: 10; background: rgba(20,18,15,0.9); backdrop-filter: blur(10px); padding: 24px 0; border-bottom: 1px solid var(--line); }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.02em; }
+.brand em { font-style: italic; color: var(--gold-light); font-weight: 500; }
+.nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-links a { color: var(--text-dim); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+.touch-btn { border: 1px solid var(--gold); padding: 10px 22px; text-decoration: none; color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.page-hero { position: relative; height: 42vh; min-height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, rgba(20,18,15,0.35), rgba(20,18,15,0.92)); }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero p.kicker { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 16px; }
+.page-hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); color: #fff; margin-bottom: 10px; }
+.page-hero p.sub { color: var(--text-dim); max-width: 560px; margin: 0 auto; }
+
+.btn { display: inline-block; padding: 15px 34px; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.btn-gold { background: var(--gold); color: #1c1712; font-weight: 600; }
+.btn-outline-gold { border: 1px solid var(--gold); color: var(--gold-light); }
+
+section { padding: 90px 0; }
+.section-title { text-align: center; margin-bottom: 54px; }
+.section-title p { color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 10px; }
+
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story img { width: 100%; aspect-ratio: 7 / 8; object-fit: cover; border-radius: 2px; filter: saturate(0.85); }
+.story p { color: var(--text-dim); }
+
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.value-card { background: var(--surface); border: 1px solid var(--line); padding: 40px 30px; text-align: center; }
+.value-card .num { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1.9rem; margin-bottom: 16px; }
+.value-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.value-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+
+.founder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.founder-card { text-align: center; }
+.founder-card .img-wrap { border-radius: 2px; overflow: hidden; margin-bottom: 20px; aspect-ratio: 4/5; border: 1px solid var(--line); }
+.founder-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); }
+.founder-card h3 { font-size: 1.3rem; margin-bottom: 2px; font-style: italic; }
+.founder-card .role { color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 14px; display: block; }
+.founder-card p.bio { color: var(--text-dim); font-size: 0.9rem; }
+
+.lookbook-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.lookbook-grid a { display: block; aspect-ratio: 3/4; overflow: hidden; border-radius: 2px; position: relative; }
+.lookbook-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; filter: saturate(0.85); }
+.lookbook-grid a:hover img { transform: scale(1.06); }
+.lookbook-grid a::after { content: '\2197'; position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; background: rgba(20,18,15,0.6); color: var(--gold-light); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+.lookbook-grid a:hover::after { opacity: 1; }
+
+.cta-banner { background: var(--bg); border: 1px solid var(--line); padding: 60px; text-align: center; max-width: 720px; margin: 0 auto; }
+.cta-banner p { color: var(--text-dim); max-width: 460px; margin: 0 auto 26px; }
+
+footer { background: #0f0d0b; padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--gold-light); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .story { grid-template-columns: 1fr; }
+    .value-grid { grid-template-columns: 1fr; }
+    .founder-grid { grid-template-columns: 1fr; }
+    .lookbook-grid { grid-template-columns: 1fr 1fr; }
+    .cta-banner { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <div class="brand">Anaya <em>Fashion Nest</em></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="touch-btn">Get In Touch</a>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=75" alt="">
+    <div class="container">
+        <p class="kicker">Our Story</p>
+        <h1>Made To Be Worn, Not Just Bought</h1>
+        <p class="sub">How a small edit of clothes, bags and perfumes became a nest for pieces you actually reach for.</p>
+    </div>
+</section>
+
+<section id="story" class="story">
+    <div>
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy">
+    </div>
+    <div class="container" style="padding:0;">
+        <p style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Where It Started</p>
+        <h2>A nest, not a warehouse</h2>
+        <p>Anaya Fashion Nest started with a simple idea: clothing that fits into a real life, not just a lookbook. Every piece is chosen to be worn often, styled easily, and kept for years, not seasons.</p>
+        <p>We began as a small capsule edit shared between friends &mdash; a handful of jackets, wraps, and bags that all seemed to earn their place in a wardrobe. That instinct never left. Years later, the edit has grown to cover clothes, shoes, bags and perfumes, but the filter is still the same: would we reach for this on an ordinary Tuesday?</p>
+        <p>From bags to perfumes, our edit is curated for people who want pieces with a little more intention behind them &mdash; fabrics that age well, cuts that don't date, and details you only notice once you own the piece.</p>
+    </div>
+</section>
+
+<section style="background:var(--surface);">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Believe</p>
+            <h2>Values &amp; Craftsmanship</h2>
+        </div>
+        <div class="value-grid">
+            <div class="value-card">
+                <div class="num">01</div>
+                <h3>Quality Over Quantity</h3>
+                <p>We edit hard. Every product is chosen for how it wears over time, not how it photographs for one season.</p>
+            </div>
+            <div class="value-card">
+                <div class="num">02</div>
+                <h3>Considered Sourcing</h3>
+                <p>We work with a small number of makers we trust, prioritising natural fibres and finishing that holds up to real wear.</p>
+            </div>
+            <div class="value-card">
+                <div class="num">03</div>
+                <h3>Made To Last</h3>
+                <p>Seams, linings, and hardware are checked against one question: will this still look right in three years?</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Meet The Team</p>
+            <h2>The People Behind The Nest</h2>
+        </div>
+        <div class="founder-grid">
+            <div class="founder-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
+                <h3>Anaya Whitfield</h3>
+                <span class="role">Founder &amp; Creative Director</span>
+                <p class="bio">Anaya started the edit from her flat with three racks of clothes she couldn't stop wearing. She still approves every single piece before it's listed.</p>
+            </div>
+            <div class="founder-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
+                <h3>Priya Nandan</h3>
+                <span class="role">Head Of Sourcing</span>
+                <p class="bio">Priya spends most of her year visiting the small ateliers and mills we buy from, making sure every fabric earns its place in the nest.</p>
+            </div>
+            <div class="founder-card">
+                <div class="img-wrap"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy"></div>
+                <h3>Leo Marchetti</h3>
+                <span class="role">Design &amp; Fit</span>
+                <p class="bio">Leo leads fit and pattern work, obsessing over the details &mdash; drape, seam placement, closures &mdash; that make a piece feel considered.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" style="background:var(--surface);">
+    <div class="container">
+        <div class="section-title">
+            <p>Lookbook</p>
+            <h2>More From The Nest</h2>
+        </div>
+        <div class="lookbook-grid">
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&h=650&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=500&h=650&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&h=650&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&h=650&q=75" alt="" loading="lazy"></a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="cta-banner">
+            <p style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Like What You See?</p>
+            <h2 style="font-size:1.7rem;">Explore The Full Edit</h2>
+            <p>Dresses, outerwear and accessories &mdash; all chosen with the same values in mind.</p>
+            <a href="shop.html" class="btn btn-gold">Shop Now</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Anaya Fashion Nest &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

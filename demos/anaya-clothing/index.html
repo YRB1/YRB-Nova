@@ -33,7 +33,7 @@ nav.top .container { display: flex; align-items: center; justify-content: space-
 .brand em { font-style: italic; color: var(--gold-light); font-weight: 500; }
 .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .nav-links a { color: var(--text-dim); text-decoration: none; }
-.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 .touch-btn { border: 1px solid var(--gold); padding: 10px 22px; text-decoration: none; color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
 .hero { position: relative; height: 82vh; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
@@ -81,12 +81,8 @@ section { padding: 90px 0; }
 .lookbook-grid a::after { content: '\2197'; position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; background: rgba(20,18,15,0.6); color: var(--gold-light); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
 .lookbook-grid a:hover::after { opacity: 1; }
 
-.newsletter { background: var(--bg); border: 1px solid var(--line); padding: 60px; text-align: center; max-width: 640px; margin: 0 auto; }
-.newsletter p { color: var(--text-dim); max-width: 420px; margin: 0 auto 26px; }
-.newsletter-form { display: flex; gap: 10px; max-width: 380px; margin: 0 auto; }
-.newsletter-form input { flex: 1; background: transparent; border: 1px solid var(--line); color: var(--text); padding: 13px 16px; font-family: inherit; font-size: 0.88rem; }
-.newsletter-form input:focus { outline: none; border-color: var(--gold); }
-.newsletter-msg { color: var(--gold-light); font-size: 0.82rem; margin-top: 16px; display: none; }
+.cta-banner { background: var(--bg); border: 1px solid var(--line); padding: 60px; text-align: center; max-width: 720px; margin: 0 auto; }
+.cta-banner p { color: var(--text-dim); max-width: 460px; margin: 0 auto 26px; }
 
 footer { background: #0f0d0b; padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
 footer p { color: var(--text-dim); font-size: 0.85rem; }
@@ -97,8 +93,7 @@ footer a { color: var(--gold-light); text-decoration: none; }
     .product-grid { grid-template-columns: 1fr; }
     .story { grid-template-columns: 1fr; }
     .lookbook-grid { grid-template-columns: 1fr 1fr; }
-    .newsletter { padding: 40px 24px; }
-    .newsletter-form { flex-direction: column; }
+    .cta-banner { padding: 40px 24px; }
 }
 </style>
 </head>
@@ -110,13 +105,12 @@ footer a { color: var(--gold-light); text-decoration: none; }
     <div class="container">
         <div class="brand">Anaya <em>Fashion Nest</em></div>
         <ul class="nav-links">
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#story">About</a></li>
-            <li><a href="#newsletter">Newsletter</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="#contact" class="touch-btn">Get In Touch</a>
+        <a href="contact.html" class="touch-btn">Get In Touch</a>
     </div>
 </nav>
 
@@ -131,8 +125,8 @@ footer a { color: var(--gold-light); text-decoration: none; }
         <h1>Anaya<em>Fashion Nest</em></h1>
         <p class="sub">Clothes &middot; Shoes &middot; Bags &middot; Perfumes &mdash; For Everyone</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-            <a href="#shop" class="btn btn-gold">Shop Now</a>
-            <a href="#story" class="btn btn-outline-gold">Our Story</a>
+            <a href="shop.html" class="btn btn-gold">Shop Now</a>
+            <a href="about.html" class="btn btn-outline-gold">Our Story</a>
         </div>
     </div>
 </section>
@@ -167,20 +161,23 @@ footer a { color: var(--gold-light); text-decoration: none; }
                 <p class="price">&pound;210.00</p>
             </div>
         </div>
+        <div style="text-align:center; margin-top:50px;">
+            <a href="shop.html" class="btn btn-outline-gold">View The Full Shop</a>
+        </div>
     </div>
 </section>
 
-<section id="gallery">
+<section id="gallery" style="background:var(--surface);">
     <div class="container">
         <div class="section-title">
             <p>Lookbook</p>
             <h2>Shop The Gallery</h2>
         </div>
         <div class="lookbook-grid">
-            <a href="#shop"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
-            <a href="#shop"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
-            <a href="#shop"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
-            <a href="#shop"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="shop.html"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
         </div>
     </div>
 </section>
@@ -194,32 +191,18 @@ footer a { color: var(--gold-light); text-decoration: none; }
         <h2>Made to be worn, not just bought</h2>
         <p>Anaya Fashion Nest started with a simple idea: clothing that fits into a real life, not just a lookbook. Every piece is chosen to be worn often, styled easily, and kept for years, not seasons.</p>
         <p>From bags to perfumes, our edit is curated for people who want pieces with a little more intention behind them.</p>
+        <a href="about.html" class="btn btn-outline-gold" style="margin-top:10px;">Read Our Full Story</a>
     </div>
 </section>
 
-<section id="newsletter" style="background:var(--surface);">
+<section id="newsletter-cta">
     <div class="container">
-        <div class="newsletter">
-            <p class="kicker" style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Stay In The Loop</p>
+        <div class="cta-banner">
+            <p style="color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; margin-bottom:14px;">Stay In The Loop</p>
             <h2 style="font-size:1.7rem;">Join The Nest List</h2>
             <p>New arrivals, early access to drops, and members-only discounts. No spam, just the good stuff.</p>
-            <form class="newsletter-form" id="newsletter-form">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit" class="btn btn-gold">Join</button>
-            </form>
-            <p class="newsletter-msg" id="newsletter-msg">You're on the list &mdash; welcome to the nest.</p>
+            <a href="contact.html#newsletter" class="btn btn-gold">Sign Up On Our Contact Page</a>
         </div>
-    </div>
-</section>
-
-<section id="contact" style="text-align:center;">
-    <div class="container">
-        <div class="section-title">
-            <p>Get In Touch</p>
-            <h2>Visit Or Reach Out</h2>
-        </div>
-        <p style="color:var(--text-dim); max-width:440px; margin:0 auto 30px;">Questions about an order, a product, or want something set aside? We're a message away.</p>
-        <a href="mailto:hello@example.com" class="btn btn-gold">Email Us</a>
     </div>
 </section>
 
@@ -238,15 +221,6 @@ footer a { color: var(--gold-light); text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
-
-    var newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('newsletter-msg').style.display = 'block';
-            newsletterForm.reset();
-        });
-    }
 })();
 </script>
 </body>

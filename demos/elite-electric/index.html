@@ -30,12 +30,14 @@ img { max-width: 100%; display: block; }
 
 nav.top { background: #fff; padding: 20px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
 nav.top .container { display: flex; align-items: center; justify-content: space-between; }
-.brand { font-weight: 800; font-size: 1.4rem; color: var(--blue); }
+.brand { font-weight: 800; font-size: 1.4rem; color: var(--blue); text-decoration: none; }
 .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
 .nav-links a { color: var(--text); text-decoration: none; font-weight: 500; }
 .nav-links a:hover { color: var(--blue); }
+.nav-links a.active { color: var(--blue); }
 
 .hero { position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+.hero.hero-sm { min-height: 320px; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; }
 .hero-bg .slide.active { opacity: 1; }
@@ -44,12 +46,15 @@ nav.top .container { display: flex; align-items: center; justify-content: space-
 @keyframes heroPan { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(-1%,-1%); } 100% { transform: scale(1) translate(0,0); } }
 .hero .container { position: relative; z-index: 1; }
 .hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); max-width: 760px; color: #fff; }
+.hero.hero-sm h1 { font-size: clamp(2rem, 4.2vw, 3rem); max-width: 700px; }
 .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.88); max-width: 560px; margin-bottom: 36px; }
+.hero .eyebrow { color: #9fc4ff; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 14px; }
 
-.btn { display: inline-block; padding: 16px 34px; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 1rem; }
+.btn { display: inline-block; padding: 16px 34px; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 1rem; border: none; cursor: pointer; font-family: inherit; }
 .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 12px 30px rgba(13,110,253,0.35); }
 .btn-primary:hover { background: var(--blue-dark); }
-.btn-outline { border: 2px solid rgba(255,255,255,0.5); color: #fff; }
+.btn-outline { border: 2px solid rgba(255,255,255,0.5); color: #fff; background: none; }
+.btn-outline.dark { border-color: var(--blue); color: var(--blue); }
 
 section { padding: 84px 0; }
 .section-alt { background: var(--surface); }
@@ -60,7 +65,9 @@ section { padding: 84px 0; }
 .svc-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 32px 26px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
 .svc-card .ic { width: 48px; height: 48px; background: var(--blue-soft); color: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 18px; }
 .svc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-.svc-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+.svc-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0 0 14px; }
+.svc-card .more { color: var(--blue); font-weight: 700; font-size: 0.85rem; text-decoration: none; }
+.svc-card .more:hover { text-decoration: underline; }
 
 .badges { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 10px; }
 .badge { font-size: 0.9rem; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px; font-weight: 600; }
@@ -82,7 +89,6 @@ section { padding: 84px 0; }
 .process-step .num { width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
 .process-step h3 { font-size: 1.02rem; margin-bottom: 8px; }
 .process-step p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
-.process-line { display: none; }
 @media (min-width: 861px) {
     .process-step:not(:last-child)::after {
         content: ''; position: absolute; top: 27px; left: calc(50% + 40px); width: calc(100% - 80px); height: 2px; background: var(--line);
@@ -97,6 +103,67 @@ section { padding: 84px 0; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
 
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.stat-item .num { font-size: 2.4rem; font-weight: 800; color: var(--blue); }
+.stat-item p { color: var(--text-dim); margin: 6px 0 0; font-size: 0.88rem; font-weight: 600; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.price-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 36px 30px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); display: flex; flex-direction: column; }
+.price-card.featured { border: 2px solid var(--blue); box-shadow: 0 14px 32px rgba(13,110,253,0.16); position: relative; }
+.price-card .tag { position: absolute; top: -13px; right: 26px; background: var(--blue); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase; }
+.price-card .tier { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); font-weight: 700; margin-bottom: 10px; }
+.price-card .amount { font-size: 2rem; font-weight: 800; margin-bottom: 4px; }
+.price-card .amount span { font-size: 0.95rem; font-weight: 600; color: var(--text-dim); }
+.price-card ul { list-style: none; padding: 0; margin: 22px 0 28px; flex: 1; }
+.price-card li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--text-dim); display: flex; gap: 10px; align-items: flex-start; }
+.price-card li::before { content: '\2713'; color: var(--blue); font-weight: 900; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.team-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(16,24,40,0.04); text-align: center; }
+.team-card img { width: 100%; height: 220px; object-fit: cover; }
+.team-card .info { padding: 22px 18px; }
+.team-card h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.team-card .role { color: var(--blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.team-card p { color: var(--text-dim); font-size: 0.87rem; margin: 0; }
+
+/* Certifications */
+.cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.cert-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.cert-card .ic { width: 48px; height: 48px; background: var(--blue-soft); color: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 14px; }
+.cert-card h4 { font-size: 0.92rem; margin: 0 0 6px; }
+.cert-card p { color: var(--text-dim); font-size: 0.82rem; margin: 0; }
+
+/* Service areas */
+.areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.area-chip { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; font-weight: 600; font-size: 0.92rem; display: flex; align-items: center; gap: 10px; }
+.area-chip::before { content: '\2713'; color: var(--blue); font-weight: 900; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+.contact-details .detail { display: flex; gap: 16px; margin-bottom: 26px; }
+.contact-details .detail .ic { width: 44px; height: 44px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+.contact-details h4 { margin: 0 0 4px; font-size: 0.95rem; }
+.contact-details p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+.contact-form { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 34px; box-shadow: 0 4px 16px rgba(16,24,40,0.04); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.85rem; font-weight: 700; }
+.form-group input, .form-group select, .form-group textarea { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-family: inherit; font-size: 0.95rem; color: var(--text); background: var(--surface); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 14px; text-align: center; }
+
+/* Map */
+.map-placeholder { height: 320px; border-radius: 14px; background: repeating-linear-gradient(45deg, var(--surface), var(--surface) 10px, #eef2f8 10px, #eef2f8 20px); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: var(--text-dim); text-align: center; }
+.map-placeholder .pin { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+.map-placeholder strong { color: var(--text); }
+
+/* Company story */
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.story-grid img { border-radius: 16px; height: 100%; object-fit: cover; }
+
 footer { background: #10131a; color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
 footer p { font-size: 0.85rem; }
 footer a { color: #6fb2ff; text-decoration: none; }
@@ -106,6 +173,14 @@ footer a { color: #6fb2ff; text-decoration: none; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
     .reviews { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -115,13 +190,12 @@ footer a { color: #6fb2ff; text-decoration: none; }
 
 <nav class="top">
     <div class="container">
-        <div class="brand">Elite Electric</div>
+        <a href="index.html" class="brand">Elite Electric</a>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#process">How It Works</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
 </nav>
@@ -136,8 +210,8 @@ footer a { color: #6fb2ff; text-decoration: none; }
         <h1>Reliable Electrical Solutions For Your Property</h1>
         <p>Certified electricians delivering safe, efficient and affordable electrical services for homes and businesses.</p>
         <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:34px;">
-            <a href="#contact" class="btn btn-primary">Request A Quote</a>
-            <a href="#services" class="btn btn-outline">Our Services</a>
+            <a href="contact.html" class="btn btn-primary">Request A Quote</a>
+            <a href="services.html" class="btn btn-outline">Our Services</a>
         </div>
         <div class="badges">
             <span class="badge">Fully Insured</span>
@@ -147,47 +221,36 @@ footer a { color: #6fb2ff; text-decoration: none; }
     </div>
 </section>
 
-<section id="services" class="section-alt">
+<section>
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item"><div class="num">18+</div><p>Years In Business</p></div>
+            <div class="stat-item"><div class="num">4,200+</div><p>Jobs Completed</p></div>
+            <div class="stat-item"><div class="num">24/7</div><p>Emergency Response</p></div>
+            <div class="stat-item"><div class="num">5.0&#9733;</div><p>Average Customer Rating</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
     <div class="container">
         <div class="section-title">
             <p>What We Do</p>
             <h2>Services We Cover</h2>
         </div>
         <div class="grid-4">
-            <div class="svc-card"><div class="ic">01</div><h3>Rewiring</h3><p>Full and partial house rewires, done clean and on schedule.</p></div>
-            <div class="svc-card"><div class="ic">02</div><h3>Fuse Boxes</h3><p>Consumer unit upgrades and fault finding for older properties.</p></div>
-            <div class="svc-card"><div class="ic">03</div><h3>EV Chargers</h3><p>Home EV charger installation, fully certified and warrantied.</p></div>
-            <div class="svc-card"><div class="ic">04</div><h3>Inspections</h3><p>EICR reports and safety certificates for landlords and homeowners.</p></div>
+            <div class="svc-card"><div class="ic">01</div><h3>Rewiring</h3><p>Full and partial house rewires, done clean and on schedule.</p><a href="services.html" class="more">Learn more &rarr;</a></div>
+            <div class="svc-card"><div class="ic">02</div><h3>Fuse Boxes</h3><p>Consumer unit upgrades and fault finding for older properties.</p><a href="services.html" class="more">Learn more &rarr;</a></div>
+            <div class="svc-card"><div class="ic">03</div><h3>EV Chargers</h3><p>Home EV charger installation, fully certified and warrantied.</p><a href="services.html" class="more">Learn more &rarr;</a></div>
+            <div class="svc-card"><div class="ic">04</div><h3>Inspections</h3><p>EICR reports and safety certificates for landlords and homeowners.</p><a href="services.html" class="more">Learn more &rarr;</a></div>
+        </div>
+        <div style="text-align:center; margin-top:44px;">
+            <a href="services.html" class="btn btn-outline dark">View All Services</a>
         </div>
     </div>
 </section>
 
-<section id="process">
-    <div class="container">
-        <div class="section-title">
-            <p>How It Works</p>
-            <h2>From Call To Fixed, Fast</h2>
-        </div>
-        <div class="process-grid">
-            <div class="process-step"><div class="num">1</div><h3>Call Or Book Online</h3><p>Tell us what's wrong or what you need installed.</p></div>
-            <div class="process-step"><div class="num">2</div><h3>Free Quote</h3><p>We give you a clear, upfront price before any work starts.</p></div>
-            <div class="process-step"><div class="num">3</div><h3>We Get To Work</h3><p>Certified electricians arrive on time and get it done right.</p></div>
-            <div class="process-step"><div class="num">4</div><h3>Signed Off &amp; Certified</h3><p>Every job comes with the right paperwork and certification.</p></div>
-        </div>
-    </div>
-</section>
-
-<section id="about">
-    <div class="container">
-        <div class="emergency">
-            <h2>Electrical Emergency?</h2>
-            <p>We offer 24/7 emergency callouts for power outages, sparking outlets, and anything that can't wait until morning.</p>
-            <a href="#contact" class="btn btn-primary">Call 0800 000 0000</a>
-        </div>
-    </div>
-</section>
-
-<section class="section-alt">
+<section>
     <div class="container">
         <div class="section-title">
             <p>Reviews</p>
@@ -196,49 +259,16 @@ footer a { color: #6fb2ff; text-decoration: none; }
         <div class="reviews">
             <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Turned up on time, fixed the fuse box same day. Properly professional."</p><h4>Dave H.</h4></div>
             <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fitted our EV charger in an afternoon. Tidy work, fair price."</p><h4>Sarah M.</h4></div>
-            <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Called out at 11pm for a power cut, sorted within the hour."</p><h4>Chris T.</h4></div>
         </div>
     </div>
 </section>
 
-<section id="faq" class="section-alt">
+<section class="section-alt">
     <div class="container">
-        <div class="section-title">
-            <p>Questions</p>
-            <h2>Frequently Asked</h2>
-        </div>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button type="button" class="faq-q"><span>Are you fully insured and certified?</span><span class="plus">+</span></button>
-                <div class="faq-a"><p>Yes. Every electrician on our team is NICEIC certified and we carry full public liability insurance on every job.</p></div>
-            </div>
-            <div class="faq-item">
-                <button type="button" class="faq-q"><span>How quickly can you attend an emergency?</span><span class="plus">+</span></button>
-                <div class="faq-a"><p>We aim to be on-site within the hour for genuine emergencies, 24 hours a day, 7 days a week.</p></div>
-            </div>
-            <div class="faq-item">
-                <button type="button" class="faq-q"><span>Do you provide a written quote before starting?</span><span class="plus">+</span></button>
-                <div class="faq-a"><p>Always. You'll get a clear, itemised quote before we start any work, so there are no surprises on the invoice.</p></div>
-            </div>
-            <div class="faq-item">
-                <button type="button" class="faq-q"><span>Do you work on both homes and businesses?</span><span class="plus">+</span></button>
-                <div class="faq-a"><p>Yes, we cover residential and commercial properties, including landlord safety certificates and EICR reports.</p></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <div class="section-title">
-            <p>Get In Touch</p>
-            <h2>Book Your Free Quote</h2>
-        </div>
-        <div style="max-width:560px; margin:0 auto; text-align:center;">
-            <p style="color:var(--text-dim); margin-bottom:30px;">Tell us what you need and we'll get back to you the same day.</p>
-            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                <a href="tel:0000000000" class="btn btn-primary">Call 0800 000 0000</a>
-            </div>
+        <div class="emergency">
+            <h2>Ready To Get Started?</h2>
+            <p>Tell us what you need and we'll get back to you the same day with a clear, upfront quote.</p>
+            <a href="contact.html" class="btn btn-primary">Get Your Free Quote</a>
         </div>
     </div>
 </section>
@@ -246,7 +276,6 @@ footer a { color: #6fb2ff; text-decoration: none; }
 <footer>
     <p>&copy; 2026 Elite Electric &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
 </footer>
-
 
 <script>
 (function () {
@@ -258,22 +287,6 @@ footer a { color: #6fb2ff; text-decoration: none; }
         i = (i + 1) % slides.length;
         slides[i].classList.add('active');
     }, 4200);
-
-    document.querySelectorAll('.faq-item').forEach(function (item) {
-        var btn = item.querySelector('.faq-q');
-        var answer = item.querySelector('.faq-a');
-        btn.addEventListener('click', function () {
-            var isOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item.open').forEach(function (other) {
-                other.classList.remove('open');
-                other.querySelector('.faq-a').style.maxHeight = null;
-            });
-            if (!isOpen) {
-                item.classList.add('open');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-            }
-        });
-    });
 })();
 </script>
 </body>

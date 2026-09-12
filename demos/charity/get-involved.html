@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved | Hopewell Trust | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23ff5a36' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --line: #e7e5e0;
+    --text: #1b1d1f;
+    --text-dim: #5c6266;
+    --orange: #ff5a36;
+    --blue: #3d5a80;
+    --green: #1f7a3d;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+h1, h2, h3 { font-family: 'Fraunces', serif; line-height: 1.15; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--text); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #ffb199; text-decoration: underline; }
+
+nav.top { background: #fff; padding: 18px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.donate-btn { background: var(--blue); color: #fff; font-weight: 700; padding: 11px 24px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; }
+
+.page-hero { position: relative; min-height: 320px; display: flex; align-items: center; overflow: hidden; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,20,20,0.7), rgba(20,20,20,0.35)); }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: var(--orange); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+.page-hero h1 { color: #fff; font-size: 2.4rem; margin: 0; }
+
+section { padding: 84px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--orange); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 10px; }
+.section-title.wide { max-width: 700px; margin: 0 auto 50px; }
+
+.btn-pill { display: inline-block; padding: 13px 30px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.88rem; border: none; cursor: pointer; font-family: inherit; }
+.btn-pill.orange { background: var(--orange); color: #fff; }
+
+.amount-grid { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+.amount-card { background: #fff; border: 2px solid var(--line); border-radius: 14px; padding: 30px 36px; text-align: center; min-width: 150px; transition: border-color 0.2s; }
+.amount-card:hover { border-color: var(--orange); }
+.amount-card .amt { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; color: var(--blue); }
+.amount-card .desc { font-size: 0.8rem; color: var(--text-dim); margin-top: 6px; }
+.give-toggle { text-align: center; margin-bottom: 30px; }
+.give-toggle button { background: #fff; border: 1px solid var(--line); padding: 10px 22px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+.give-toggle button:first-child { border-radius: 100px 0 0 100px; }
+.give-toggle button:last-child { border-radius: 0 100px 100px 0; }
+.give-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.donate-final { text-align: center; }
+
+.ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 10px; }
+.way-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+.way-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.way-card p { color: var(--text-dim); font-size: 0.88rem; margin: 0; }
+
+.roles-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.role-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+.role-card .icon { font-size: 1.6rem; flex-shrink: 0; }
+.role-card h3 { font-size: 0.98rem; margin-bottom: 6px; }
+.role-card p { color: var(--text-dim); font-size: 0.87rem; margin: 0; }
+
+form.contact-form { max-width: 680px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 40px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; display: flex; flex-direction: column; }
+.form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+    padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-family: inherit; font-size: 0.92rem; background: #fff; color: var(--text);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-submit { background: var(--orange); color: #fff; border: none; padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; width: 100%; font-family: inherit; }
+.form-note { text-align: center; font-size: 0.8rem; color: var(--text-dim); margin-top: 14px; }
+
+.contact-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 20px; }
+.contact-info-card { text-align: center; padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.contact-info-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+.contact-info-card h3 { font-size: 0.95rem; margin-bottom: 6px; }
+.contact-info-card p { color: var(--text-dim); font-size: 0.86rem; margin: 0; }
+
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+.faq-q .plus { font-size: 1.4rem; color: var(--orange); transition: transform 0.25s ease; flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { color: var(--text-dim); padding: 0 4px 22px; margin: 0; font-size: 0.94rem; }
+
+footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: #ff9a80; text-decoration: none; }
+
+@media (max-width: 900px) {
+    nav.top .nav-links { display: none; }
+    .ways-grid { grid-template-columns: 1fr; }
+    .roles-list { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-info-grid { grid-template-columns: 1fr; }
+    form.contact-form { padding: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real charity</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Hopewell Trust</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="get-involved.html" class="active">Get Involved</a></li>
+        </ul>
+        <a href="#donate" class="donate-btn">Donate Now</a>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1600&q=75" alt="">
+    <div class="container">
+        <p class="eyebrow">Join Us</p>
+        <h1>Get Involved</h1>
+    </div>
+</section>
+
+<section id="donate">
+    <div class="container">
+        <div class="section-title">
+            <p>Give Today</p>
+            <h2>Every Donation Helps</h2>
+        </div>
+        <div class="give-toggle">
+            <button type="button" class="toggle-btn active" data-mode="once">One-Off</button><button type="button" class="toggle-btn" data-mode="monthly">Monthly</button>
+        </div>
+        <div class="amount-grid">
+            <div class="amount-card"><div class="amt">&pound;10</div><div class="desc">Feeds a family for a day</div></div>
+            <div class="amount-card"><div class="amt">&pound;25</div><div class="desc">A week of essentials</div></div>
+            <div class="amount-card"><div class="amt">&pound;50</div><div class="desc">Supports a volunteer visit</div></div>
+            <div class="amount-card"><div class="amt">&pound;100</div><div class="desc">Funds a month of mentoring</div></div>
+        </div>
+        <div class="donate-final">
+            <a href="#" class="btn-pill orange" onclick="return false;">Donate Securely</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title wide">
+            <p>Other Ways</p>
+            <h2>More Ways to Give</h2>
+        </div>
+        <div class="ways-grid">
+            <div class="way-card">
+                <h3>Leave a Gift in Your Will</h3>
+                <p>A gift of any size in your will helps secure Hopewell Trust's work for future generations of local families.</p>
+            </div>
+            <div class="way-card">
+                <h3>Fundraise for Us</h3>
+                <p>Run, bake, climb, or host an event &mdash; we'll support your fundraiser with materials, advice, and a shout-out.</p>
+            </div>
+            <div class="way-card">
+                <h3>Corporate Partnerships</h3>
+                <p>Payroll giving, matched donations, or a company volunteering day &mdash; we'd love to partner with your workplace.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="volunteer">
+    <div class="container">
+        <div class="section-title wide">
+            <p>Give Your Time</p>
+            <h2>Volunteer With Us</h2>
+        </div>
+        <div class="roles-list">
+            <div class="role-card">
+                <div class="icon">&#127838;</div>
+                <div><h3>Food Bank Helper</h3><p>Sort, pack, and hand out food parcels at our Tuesday and Friday drop-ins.</p></div>
+            </div>
+            <div class="role-card">
+                <div class="icon">&#128100;</div>
+                <div><h3>Befriending Volunteer</h3><p>Weekly visits or calls to isolated older residents in your local area.</p></div>
+            </div>
+            <div class="role-card">
+                <div class="icon">&#127942;</div>
+                <div><h3>Youth Mentor</h3><p>Commit to weekly sessions with a young person for at least 12 months.</p></div>
+            </div>
+            <div class="role-card">
+                <div class="icon">&#127908;</div>
+                <div><h3>Event Steward</h3><p>Help run our fundraising events, from car parking to serving on the night.</p></div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:36px;">
+            <a href="programs.html#events" class="btn-pill" style="background:var(--blue); color:#fff;">See Our Next Induction Day</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-alt">
+    <div class="container">
+        <div class="section-title wide">
+            <p>Say Hello</p>
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-info-grid">
+            <div class="contact-info-card">
+                <div class="icon">&#128205;</div>
+                <h3>Visit Us</h3>
+                <p>The Community Hall, 14 Wellspring Road, Hopewell HW1 2AB</p>
+            </div>
+            <div class="contact-info-card">
+                <div class="icon">&#128222;</div>
+                <h3>Call Us</h3>
+                <p>01000 000000<br>Mon&ndash;Fri, 9am&ndash;5pm</p>
+            </div>
+            <div class="contact-info-card">
+                <div class="icon">&#9993;</div>
+                <h3>Email Us</h3>
+                <p>hello@hopewelltrust.example</p>
+            </div>
+        </div>
+        <form class="contact-form" onsubmit="return false;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Jane Smith">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="07000 000000">
+                </div>
+                <div class="form-group">
+                    <label for="interest">I'm Interested In</label>
+                    <select id="interest" name="interest">
+                        <option>Donating</option>
+                        <option>Volunteering</option>
+                        <option>Youth Mentoring</option>
+                        <option>Corporate Partnership</option>
+                        <option>General Enquiry</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a little about how you'd like to help..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+            <p class="form-note">This is a demo form and does not submit real data.</p>
+        </form>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container">
+        <div class="section-title">
+            <p>Questions</p>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How much of my donation reaches families directly?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>90% of every donation goes directly to programs and family support, with the remainder covering essential running costs.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Can I set up a monthly donation?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, monthly giving is the easiest way to support us long-term, and can be cancelled or changed any time.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>What happens if I need to pause or cancel my monthly donation?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>No problem at all &mdash; just email or call us and we'll pause or cancel it straight away, no questions asked.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>How do I become a volunteer?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Come along to our next Volunteer Induction Day, or get in touch and we'll find the right role for you.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Can my company get involved or sponsor an event?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Absolutely &mdash; we work with local businesses on payroll giving, matched donations, and team volunteering days. Get in touch with our team to discuss options.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Do you accept donations of food or goods, not just money?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, we welcome non-perishable food, warm clothing, and blankets at our community hall drop-ins, especially during our seasonal collection events.</p></div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-q"><span>Is Hopewell Trust a registered charity?</span><span class="plus">+</span></button>
+                <div class="faq-a"><p>Yes, we're a registered UK charity and publish an annual report on how funds are used.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Hopewell Trust &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-item').forEach((item) => {
+        const btn = item.querySelector('.faq-q');
+        const answer = item.querySelector('.faq-a');
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach((other) => {
+                other.classList.remove('open');
+                other.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    const toggleBtns = document.querySelectorAll('.give-toggle .toggle-btn');
+    toggleBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            toggleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+});
+</script>
+
+</body>
+</html>

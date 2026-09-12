@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Ember &amp; Oak | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314100d'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23c9a227' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #14100d;
+    --surface: #1c1712;
+    --line: #2c241c;
+    --text: #f3ece1;
+    --text-dim: #b9ab97;
+    --gold: #c9a227;
+    --gold-dark: #a9841c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.18; margin: 0 0 16px; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--gold); color: #1c1712; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #1c1712; text-decoration: underline; }
+
+nav.top { background: rgba(20,16,13,0.9); backdrop-filter: blur(10px); padding: 22px 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; color: var(--gold); text-decoration: none; }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.9rem; align-items: center; }
+.nav-links a { color: var(--text); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { border: 1px solid var(--gold); padding: 10px 20px; border-radius: 2px; color: var(--gold) !important; }
+
+.btn { display: inline-block; padding: 16px 36px; font-weight: 600; text-decoration: none; border-radius: 2px; font-size: 0.92rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.btn-primary { background: var(--gold); color: #1c1712; }
+.btn-primary:hover { background: var(--gold-dark); }
+.btn-outline { border: 1px solid rgba(243,236,225,0.4); color: var(--text); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.page-hero { position: relative; min-height: 360px; display: flex; align-items: center; overflow: hidden; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,16,13,0.96) 5%, rgba(20,16,13,0.7) 60%, rgba(20,16,13,0.85) 100%); }
+.page-hero .container { position: relative; z-index: 1; text-align: center; }
+.page-hero .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 600; margin-bottom: 14px; }
+.page-hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin-bottom: 10px; }
+.page-hero p { color: var(--text-dim); max-width: 560px; margin: 0 auto; }
+
+section { padding: 96px 0; }
+.section-alt { background: var(--surface); }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title p { color: var(--gold); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.76rem; margin-bottom: 12px; }
+.section-title h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story img { border-radius: 4px; aspect-ratio: 4/5; object-fit: cover; }
+.story .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; font-weight: 600; margin-bottom: 14px; }
+.story p { color: var(--text-dim); }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+.team-card { text-align: center; }
+.team-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; margin-bottom: 20px; }
+.team-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.team-card .role { color: var(--gold); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 12px; display: block; }
+.team-card p.bio { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.gallery-grid a { display: block; aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; }
+.gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-grid a:hover img { transform: scale(1.08); }
+
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.value-card { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 34px 28px; text-align: center; }
+.value-card .icon { font-size: 1.8rem; margin-bottom: 16px; }
+.value-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.value-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.reserve-band { background: linear-gradient(120deg, #201810, #14100d); border: 1px solid var(--line); border-radius: 6px; padding: 60px; text-align: center; }
+.reserve-band p { color: var(--text-dim); max-width: 520px; margin: 0 auto 30px; }
+
+footer { background: #0e0b09; color: rgba(243,236,225,0.55); padding: 50px 0 30px; text-align: center; }
+footer p { font-size: 0.85rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .story { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .reserve-band { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Ember &amp; Oak</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="reserve.html" class="nav-cta">Reserve</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=75" alt="">
+    <div class="container">
+        <p class="eyebrow">Our Story</p>
+        <h1>Built Around The Fire</h1>
+        <p>How a single idea &mdash; strip cooking back to its oldest form &mdash; became a forty-seat dining room and an open kitchen.</p>
+    </div>
+</section>
+
+<section id="story">
+    <div class="container">
+        <div class="story">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=75" alt="Ember and Oak dining room" loading="lazy">
+            <div>
+                <p class="eyebrow">Our Story</p>
+                <h2>Built Around The Fire</h2>
+                <p>Ember &amp; Oak started with one idea: strip cooking back to its oldest form and do it properly. Every dish that leaves the kitchen passes over live coals or through the wood oven before it reaches the table.</p>
+                <p>The dining room seats forty, the kitchen is open, and the menu changes with what's in season &mdash; not what's easy to prep in advance.</p>
+                <p>We source directly from a handful of local farms, a day-boat fishmonger, and a single butcher we've worked with since day one. Nothing arrives frozen, and nothing sits in the walk-in longer than it has to.</p>
+                <p>What began as a single wood oven and a folding table of regulars has grown into a restaurant that still runs on the same principle: fewer ingredients, better fire, more attention.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>The People Behind It</p>
+            <h2>Meet The Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=600&q=75" alt="Portrait of Head Chef" loading="lazy">
+                <h3>Marcus Webb</h3>
+                <span class="role">Head Chef</span>
+                <p class="bio">Trained across three Michelin-starred kitchens before deciding all he really wanted was an open fire and a shorter menu. Runs the pass every service.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?auto=format&fit=crop&w=600&q=75" alt="Portrait of Sous Chef" loading="lazy">
+                <h3>Elena Foster</h3>
+                <span class="role">Sous Chef &amp; Pastry</span>
+                <p class="bio">Builds the dessert menu around whatever's overripe and about to turn &mdash; her burnt cheesecake has barely left the menu since opening week.</p>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=75" alt="Portrait of General Manager" loading="lazy">
+                <h3>Priya Shah</h3>
+                <span class="role">General Manager &amp; Sommelier</span>
+                <p class="bio">Keeps the floor running and the wine list short, seasonal, and mostly low-intervention. Ask her for a pairing, not a list.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="container">
+        <div class="section-title">
+            <p>Inside The Room</p>
+            <h2>Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+            <a href="#"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=60&sat=-40" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=500&q=60&sat=-30" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=60" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=60&sat=-20" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy"></a>
+            <a href="#"><img src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?auto=format&fit=crop&w=500&q=60&sat=-30" alt="" loading="lazy"></a>
+        </div>
+    </div>
+</section>
+
+<section id="values" class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>What We Believe</p>
+            <h2>Values &amp; Sourcing</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="icon">&#128293;</div>
+                <h3>Live-Fire Technique</h3>
+                <p>Every dish crosses coals or the wood oven at least once. No induction, no shortcuts &mdash; just heat, timing, and control.</p>
+            </div>
+            <div class="value-card">
+                <div class="icon">&#127807;</div>
+                <h3>Local &amp; Seasonal</h3>
+                <p>We buy from a handful of farms, a day-boat fishmonger, and one butcher. The menu changes with what they bring us, not the other way round.</p>
+            </div>
+            <div class="value-card">
+                <div class="icon">&#9878;</div>
+                <h3>Nothing Wasted</h3>
+                <p>Trim becomes stock, bones become jus, and off-cuts turn up as staff meal. Fire cooking rewards using the whole ingredient.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="reserve-band">
+            <h2>Come See The Kitchen</h2>
+            <p>The pass is open and the fire is always going. Book a table and taste what we're about.</p>
+            <a href="reserve.html" class="btn btn-primary">Reserve A Table</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Ember &amp; Oak &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>

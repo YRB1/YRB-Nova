@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music &amp; Beats | The Executive Producer | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305070c'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='50' fill='%23e8e2d0' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap">
+
+<style>
+:root {
+    --bg: #05070c;
+    --surface: #0c0f16;
+    --line: rgba(232,226,208,0.1);
+    --text: #eceae4;
+    --text-dim: #8b8f9a;
+    --cream: #e8e2d0;
+    --accent: #c9a24a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-weight: 300; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 16px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+.demo-banner { background: var(--cream); color: #14120d; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 10px 16px; }
+.demo-banner a { color: #14120d; text-decoration: underline; }
+
+nav.top { position: sticky; top: 0; z-index: 10; padding: 22px 0; background: rgba(5,7,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .container { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream); text-decoration: none; }
+.brand .mark { width: 30px; height: 30px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.8rem; transform: rotate(-6deg); }
+.nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.nav-links a { color: var(--text-dim); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+.page-hero { position: relative; height: 46vh; min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.page-hero .hero-bg-img { position: absolute; inset: 0; }
+.page-hero .hero-bg-img img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,12,0.97) 5%, rgba(5,7,12,0.55) 60%, rgba(5,7,12,0.78) 100%); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-content h1 { font-size: clamp(2.6rem, 6vw, 4rem); color: #fff; margin-bottom: 10px; }
+.page-hero-content p { color: var(--text-dim); letter-spacing: 0.08em; font-size: 0.9rem; text-transform: uppercase; margin: 0; }
+
+.btn-ghost { display: inline-block; padding: 15px 34px; border: 1px solid rgba(232,226,208,0.4); color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; transition: border-color 0.2s, background 0.2s; }
+.btn-ghost:hover { border-color: var(--accent); background: rgba(201,162,74,0.08); }
+.btn-solid { display: inline-block; padding: 15px 34px; background: var(--accent); color: #14120d; border: none; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: opacity 0.2s; }
+.btn-solid:hover { opacity: 0.88; }
+
+section { padding: 90px 0; }
+.section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title p { color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 10px; }
+
+.beats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.beat-card { position: relative; aspect-ratio: 1/1; border-radius: 6px; overflow: hidden; }
+.beat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.beat-card:hover img { transform: scale(1.08); }
+.beat-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,12,0.9), transparent 60%); }
+.beat-card .play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 46px; height: 46px; border-radius: 50%; background: rgba(232,226,208,0.15); backdrop-filter: blur(4px);
+    border: 1px solid rgba(232,226,208,0.4); color: var(--cream); display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; z-index: 1; transition: background 0.2s, border-color 0.2s;
+}
+.beat-card:hover .play-btn { background: var(--accent); border-color: var(--accent); color: #14120d; }
+.beat-card .meta { position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 1; }
+.beat-card .meta .name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--cream); }
+.beat-card .meta .bpm { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.track-list { max-width: 820px; margin: 0 auto; }
+.track-row { display: flex; align-items: center; gap: 16px; padding: 14px 10px; border-bottom: 1px solid var(--line); }
+.track-row:last-child { border-bottom: none; }
+.track-row .num { width: 26px; color: var(--text-dim); font-size: 0.8rem; text-align: right; flex-shrink: 0; }
+.track-row .cover { width: 52px; height: 52px; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.track-row .cover img { width: 100%; height: 100%; object-fit: cover; }
+.track-row .info { flex: 1; min-width: 0; }
+.track-row .info .t-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--cream); }
+.track-row .genre-tag { display: inline-block; padding: 2px 9px; border: 1px solid var(--line); border-radius: 20px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-right: 8px; margin-top: 4px; }
+.track-row .bpm-tag { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+.track-row .dur { color: var(--text-dim); font-size: 0.8rem; width: 44px; text-align: right; flex-shrink: 0; }
+.track-row .row-play { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(232,226,208,0.4); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; flex-shrink: 0; background: none; cursor: pointer; }
+.track-row .row-play:hover { background: var(--accent); border-color: var(--accent); color: #14120d; }
+
+.gear-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.gear-item { background: var(--bg); padding: 34px 30px; }
+.gear-item p.label { color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 8px; }
+.gear-item h3 { font-size: 1.1rem; color: var(--cream); margin-bottom: 8px; }
+.gear-item p.desc { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
+
+footer { padding: 50px 0 30px; text-align: center; border-top: 1px solid var(--line); }
+footer p { color: var(--text-dim); font-size: 0.85rem; }
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 860px) {
+    nav.top .nav-links { display: none; }
+    .beats-grid { grid-template-columns: 1fr 1fr; }
+    .gear-grid { grid-template-columns: 1fr; }
+    .track-row .cover { width: 42px; height: 42px; }
+    .track-row .bpm-tag { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a class="brand" href="index.html"><span class="mark">&#127916;</span> The Executive Producer</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="music.html" class="active">Music</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="booking.html">Booking</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="hero-bg-img"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+    <div class="container page-hero-content">
+        <h1>Music &amp; Beats</h1>
+        <p>The Full Catalogue &middot; Streaming Now</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Start Here</p>
+            <h2 style="color:var(--cream);">Featured Releases</h2>
+        </div>
+        <div class="beats-grid">
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Midnight Static</div><div class="bpm">140 BPM &middot; Trap</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Velvet Room</div><div class="bpm">92 BPM &middot; R&amp;B</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Skyline</div><div class="bpm">128 BPM &middot; Drill</div></div>
+            </div>
+            <div class="beat-card">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=75" alt="" loading="lazy">
+                <div class="play-btn">&#9658;</div>
+                <div class="meta"><div class="name">Afterglow</div><div class="bpm">110 BPM &middot; Soul</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="section-title">
+            <p>Discography</p>
+            <h2 style="color:var(--cream);">Full Catalogue</h2>
+        </div>
+        <div class="track-list">
+            <div class="track-row">
+                <span class="num">01</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Midnight Static</div><span class="genre-tag">Trap</span><span class="bpm-tag">140 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Midnight Static">&#9658;</button>
+                <span class="dur">2:58</span>
+            </div>
+            <div class="track-row">
+                <span class="num">02</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Velvet Room</div><span class="genre-tag">R&amp;B</span><span class="bpm-tag">92 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Velvet Room">&#9658;</button>
+                <span class="dur">3:24</span>
+            </div>
+            <div class="track-row">
+                <span class="num">03</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Skyline</div><span class="genre-tag">Drill</span><span class="bpm-tag">128 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Skyline">&#9658;</button>
+                <span class="dur">2:41</span>
+            </div>
+            <div class="track-row">
+                <span class="num">04</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Afterglow</div><span class="genre-tag">Soul</span><span class="bpm-tag">110 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Afterglow">&#9658;</button>
+                <span class="dur">3:12</span>
+            </div>
+            <div class="track-row">
+                <span class="num">05</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Concrete Bloom</div><span class="genre-tag">Trap</span><span class="bpm-tag">150 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Concrete Bloom">&#9658;</button>
+                <span class="dur">2:50</span>
+            </div>
+            <div class="track-row">
+                <span class="num">06</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Lowlight</div><span class="genre-tag">R&amp;B</span><span class="bpm-tag">88 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Lowlight">&#9658;</button>
+                <span class="dur">3:40</span>
+            </div>
+            <div class="track-row">
+                <span class="num">07</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Static Bloom (Interlude)</div><span class="genre-tag">Ambient</span><span class="bpm-tag">70 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Static Bloom">&#9658;</button>
+                <span class="dur">1:32</span>
+            </div>
+            <div class="track-row">
+                <span class="num">08</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Glass Ceiling</div><span class="genre-tag">Drill</span><span class="bpm-tag">132 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Glass Ceiling">&#9658;</button>
+                <span class="dur">3:05</span>
+            </div>
+            <div class="track-row">
+                <span class="num">09</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Amber Room</div><span class="genre-tag">Soul</span><span class="bpm-tag">96 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Amber Room">&#9658;</button>
+                <span class="dur">3:18</span>
+            </div>
+            <div class="track-row">
+                <span class="num">10</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Frequencies Pt. II</div><span class="genre-tag">Trap</span><span class="bpm-tag">145 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Frequencies Pt. II">&#9658;</button>
+                <span class="dur">2:45</span>
+            </div>
+            <div class="track-row">
+                <span class="num">11</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">Northbound</div><span class="genre-tag">Boom Bap</span><span class="bpm-tag">88 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview Northbound">&#9658;</button>
+                <span class="dur">3:30</span>
+            </div>
+            <div class="track-row">
+                <span class="num">12</span>
+                <div class="cover"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=120&q=70" alt="" loading="lazy"></div>
+                <div class="info"><div class="t-name">After Hours (Outro)</div><span class="genre-tag">Ambient</span><span class="bpm-tag">68 BPM</span></div>
+                <button type="button" class="row-play" aria-label="Preview After Hours">&#9658;</button>
+                <span class="dur">2:05</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <p>Behind The Sound</p>
+            <h2 style="color:var(--cream);">Studio &amp; Gear Setup</h2>
+        </div>
+        <div class="gear-grid">
+            <div class="gear-item"><p class="label">DAW</p><h3>Ableton Live 11 Suite</h3><p class="desc">The backbone of every session, from first sketch to final bounce.</p></div>
+            <div class="gear-item"><p class="label">Monitors</p><h3>Focal Twin6 Be</h3><p class="desc">Flat, honest monitoring so mixes translate everywhere.</p></div>
+            <div class="gear-item"><p class="label">Interface</p><h3>Universal Audio Apollo x8</h3><p class="desc">Clean conversion and analog-modeled preamps for tracking vocals.</p></div>
+            <div class="gear-item"><p class="label">Microphone</p><h3>Neumann U87</h3><p class="desc">The go-to for vocal sessions and reference recordings.</p></div>
+            <div class="gear-item"><p class="label">MIDI / Keys</p><h3>Native Instruments Komplete Kontrol S61</h3><p class="desc">For playing in chords, melodies, and quick sketch ideas.</p></div>
+            <div class="gear-item"><p class="label">Plugin Chain</p><h3>UAD &middot; FabFilter &middot; Soundtoys</h3><p class="desc">The mix bus staples behind the studio's signature warmth.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 The Executive Producer &mdash; a fictional concept demo. Real websites like this are built by <a href="https://www.yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+</footer>
+
+</body>
+</html>
