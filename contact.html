@@ -219,6 +219,9 @@ const formMessage = document.getElementById('formMessage');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
     const data = new FormData(form);
 
     // Save to our own database for the admin dashboard (best-effort, doesn't block submission)
