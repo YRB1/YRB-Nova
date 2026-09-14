@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact YRB Nova | Start Your Website Project</title>
-<meta name="description" content="Get in touch with YRB Nova to start your website project. Fast turnaround, UK-based, fixed pricing from £350. Fill out the form and we'll reply within one business day.">
-<link rel="canonical" href="https://yrbnova.com/contact.html">
+<title>Free Website Audit | YRB Nova</title>
+<meta name="description" content="Send us your current website and we'll tell you honestly, in plain English, what's working, what's costing you customers, and what we'd fix first. No cost, no obligation.">
+<link rel="canonical" href="https://yrbnova.com/free-website-audit.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,9 @@
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact YRB Nova | Start Your Website Project">
-<meta property="og:description" content="Fast turnaround, UK-based, fixed pricing from £350. Fill out the form and we'll reply within one business day.">
-<meta property="og:url" content="https://yrbnova.com/contact.html">
+<meta property="og:title" content="Free Website Audit | YRB Nova">
+<meta property="og:description" content="Send us your current website and we'll tell you honestly what's working, what isn't, and what we'd fix first. No cost, no obligation.">
+<meta property="og:url" content="https://yrbnova.com/free-website-audit.html">
 <meta property="og:image" content="https://yrbnova.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
@@ -23,14 +23,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "YRB Nova",
-  "url": "https://yrbnova.com/",
-  "email": "yrbnova@gmail.com",
-  "telephone": "+44 7555 985320",
+  "@type": "Service",
+  "name": "Free Website Audit",
+  "provider": { "@type": "ProfessionalService", "name": "YRB Nova", "url": "https://yrbnova.com/" },
   "areaServed": "United Kingdom",
-  "address": { "@type": "PostalAddress", "addressLocality": "Leicester", "addressCountry": "GB" },
-  "priceRange": "£350-£800"
+  "description": "A free, honest review of your current website covering speed, mobile experience, clarity, and calls to action, with the three fixes we'd prioritise first."
 }
 </script>
 
@@ -64,12 +61,10 @@
     .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-dimmer); }
     .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); outline: none; }
     .contact-form button { align-self: flex-start; }
-    .contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: none; border-radius: var(--radius-sm); }
-    .contact-details { list-style: none; padding: 0; margin: 0 0 24px; }
-    .contact-details li { padding-left: 18px; border-left: 2px solid var(--accent); margin-bottom: 18px; color: var(--text-dim); font-size: 0.98rem; }
-    .contact-details li strong { display: block; color: var(--text-dimmer); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-    .contact-details a { color: var(--text); text-decoration: none; }
-    .contact-details a:hover { color: var(--accent); }
+    .audit-checklist { list-style: none; padding: 0; margin: 0 0 26px; }
+    .audit-checklist li { padding-left: 26px; position: relative; margin-bottom: 14px; color: var(--text-dim); font-size: 0.96rem; }
+    .audit-checklist li::before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .audit-note { font-size: 0.85rem; color: var(--text-dimmer); border-top: 1px solid var(--line); padding-top: 20px; margin-top: auto; }
     @media (max-width: 760px) {
         .contact-panel { padding: 28px; }
     }
@@ -122,9 +117,9 @@
 
 <section class="page-hero text-center">
     <div class="container">
-        <p class="eyebrow mx-auto" style="justify-content:center;">Contact</p>
-        <h1 class="mx-auto">Let's build something great</h1>
-        <p class="lede mx-auto">Have a project in mind? Fill out the form below and we'll be in touch within one business day. Your reinvention starts here.</p>
+        <p class="eyebrow mx-auto" style="justify-content:center;">Free, No Obligation</p>
+        <h1 class="mx-auto">Get a free audit of your website</h1>
+        <p class="lede mx-auto">Send us your current site and we'll tell you honestly what's working, what's likely costing you customers, and the three things we'd fix first. No pitch, no pressure, just a straight answer.</p>
     </div>
 </section>
 
@@ -132,34 +127,29 @@
     <div class="container">
         <div class="contact-container">
             <div class="contact-panel contact-form">
-                <h2 style="font-size:1.5rem; margin-bottom:24px;">Tell us about your project</h2>
-                <form id="contactForm" action="https://formspree.io/f/mldaypqv" method="POST">
+                <h2 style="font-size:1.5rem; margin-bottom:24px;">Send us your website</h2>
+                <form id="auditForm" action="https://formspree.io/f/mldaypqv" method="POST">
+                    <input type="hidden" name="_subject" value="Free Website Audit Request">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Project Budget (Optional)">
-                    <textarea name="message" rows="6" placeholder="Tell us about your business and what you need..." required></textarea>
-                    <button type="submit" class="btn btn-primary">Start My Project</button>
+                    <input type="url" name="website" placeholder="Your Current Website URL" required>
+                    <textarea name="notes" rows="4" placeholder="Anything specific you'd like us to look at? (Optional)"></textarea>
+                    <button type="submit" class="btn btn-primary">Get My Free Audit</button>
                 </form>
-                <p id="formMessage" style="margin-top:15px; color:var(--accent); display:none;">Your message has been sent. We'll be in touch soon!</p>
+                <p id="formMessage" style="margin-top:15px; color:var(--accent); display:none;">Got it, thanks! We'll reply with your audit within one business day.</p>
             </div>
 
             <div class="contact-panel">
-                <h2 style="font-size:1.5rem; margin-bottom:24px;">Other ways to reach us</h2>
-                <ul class="contact-details">
-                    <li><strong>Email</strong><a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a></li>
-                    <li><strong>Phone</strong><a href="tel:07555985320">07555 985320</a></li>
-                    <li><strong>Location</strong>Based in Leicester, serving businesses across the UK</li>
-                    <li><strong>Response Time</strong>We reply within one business day</li>
-                    <li><strong>Not Ready Yet?</strong><a href="free-website-audit.html">Get a free audit of your current site instead</a></li>
+                <h2 style="font-size:1.5rem; margin-bottom:24px;">What you'll get back</h2>
+                <ul class="audit-checklist">
+                    <li>How fast your site loads, and what's slowing it down</li>
+                    <li>Whether it actually works properly on mobile</li>
+                    <li>If visitors can tell what you do within 5 seconds</li>
+                    <li>Whether your calls to action are clear enough to convert</li>
+                    <li>The 3 fixes we'd prioritise first, in plain English</li>
                 </ul>
-                <div class="contact-map">
-                    <iframe
-                        title="YRB Nova service area, Leicester, UK"
-                        src="https://www.google.com/maps?q=Leicester,UK&output=embed"
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
-                </div>
+                <p style="color:var(--text-dim); font-size:0.95rem; margin-bottom:20px;">Not sure a new website is even the answer yet? Read <a href="blog/signs-website-losing-customers.html" style="color:var(--accent); text-decoration:none; font-weight:600;">7 Signs Your Website Is Costing You Customers</a> first, or see what a full rebuild looks like across <a href="work.html" style="color:var(--accent); text-decoration:none; font-weight:600;">8 live demo sites</a>.</p>
+                <p class="audit-note">No website yet? That's fine too, just tell us about your business in the message box and we'll advise from there.</p>
             </div>
         </div>
     </div>
@@ -215,7 +205,7 @@
 
 <script src="main.js"></script>
 <script>
-const form = document.getElementById('contactForm');
+const form = document.getElementById('auditForm');
 const formMessage = document.getElementById('formMessage');
 
 form.addEventListener('submit', function(e) {
@@ -225,15 +215,14 @@ form.addEventListener('submit', function(e) {
     submitBtn.textContent = 'Sending...';
     const data = new FormData(form);
 
-    // Save to our own database for the admin dashboard (best-effort, doesn't block submission)
     fetch('/api/enquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             name: data.get('name'),
             email: data.get('_replyto'),
-            budget: data.get('subject'),
-            message: data.get('message')
+            budget: 'Free Audit Request',
+            message: 'Website: ' + data.get('website') + '\n\n' + (data.get('notes') || '')
         })
     }).catch(() => {});
 
@@ -249,11 +238,15 @@ form.addEventListener('submit', function(e) {
         } else {
             response.json().then(data => {
                 alert(data.error || 'Oops! There was a problem submitting your form.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get My Free Audit';
             });
         }
     })
-    .catch(error => {
+    .catch(function () {
         alert('Oops! There was a problem submitting your form.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Free Audit';
     });
 });
 </script>
