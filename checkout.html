@@ -271,11 +271,16 @@
         totalAmountEl.textContent = packages[selectedPkg].price;
     }
 
+    let elements = null;
+    let processing = false;
+
     Array.from(pkgSelect.children).forEach(el => {
         el.addEventListener('click', () => {
+            if (processing) return;
             selectedPkg = el.dataset.pkg;
             renderSelection();
-            if (typeof elements !== 'undefined' && elements) {
+            // Keep Elements' amount in sync with what the server will charge for this package
+            if (elements) {
                 elements.update({ amount: packages[selectedPkg].amount });
             }
         });
@@ -291,7 +296,7 @@
     }
 
     const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-    const elements = stripe.elements({
+    elements = stripe.elements({
         mode: 'payment',
         amount: packages[selectedPkg].amount,
         currency: 'gbp',
@@ -311,29 +316,69 @@
     const paymentElement = elements.create('payment');
     paymentElement.mount('#payment-element');
 
+    const FRIENDLY_ERROR = "Payment couldn't be processed, please try again.";
+
+    function showError(message) {
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+    }
+
+    function resetButton() {
+        processing = false;
+        payBtn.disabled = false;
+        payBtn.textContent = 'Pay & Book My Project';
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (processing) return;
+        processing = true;
         errorEl.style.display = 'none';
         payBtn.disabled = true;
         payBtn.textContent = 'Processing...';
 
+        // Snapshot the package so a click on another package mid-payment can't change what we charge for
+        const pkg = selectedPkg;
         const name = document.getElementById('cf-name').value.trim();
         const email = document.getElementById('cf-email').value.trim();
         const phone = document.getElementById('cf-phone').value.trim();
         const details = document.getElementById('cf-details').value.trim();
 
         try {
+            // a. Validate the Payment Element first - must happen before any other await
+            const { error: submitError } = await elements.submit();
+            if (submitError) {
+                console.error('elements.submit() error:', submitError);
+                // Validation errors (e.g. incomplete card number) are shown inline by the Payment Element itself
+                if (submitError.type !== 'validation_error') showError(FRIENDLY_ERROR);
+                resetButton();
+                return;
+            }
+
+            // b. Create the PaymentIntent (booking details go in its metadata; the webhook saves the booking on success)
             const res = await fetch('/api/create-payment-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pkg: selectedPkg, name, email, phone, details })
+                body: JSON.stringify({ pkg, name, email, phone, details })
             });
-            const data = await res.json();
+            const data = await res.json().catch(() => ({}));
 
             if (!res.ok || !data.clientSecret) {
-                throw new Error(data.error || 'Unable to start checkout.');
+                console.error('create-payment-intent failed:', res.status, data);
+                // Server errors on 400 are customer-fixable (missing name, bad email), so show those as-is
+                showError(res.status === 400 && data.error ? data.error : FRIENDLY_ERROR);
+                resetButton();
+                return;
             }
 
+            if (data.amount !== packages[pkg].amount) {
+                console.error('Amount mismatch: Elements has', packages[pkg].amount, 'but server created', data.amount);
+                showError(FRIENDLY_ERROR);
+                resetButton();
+                return;
+            }
+
+            // c. Confirm the payment - on success Stripe redirects to return_url
             const { error } = await stripe.confirmPayment({
                 elements,
                 clientSecret: data.clientSecret,
@@ -344,13 +389,14 @@
             });
 
             if (error) {
-                throw new Error(error.message || 'Payment failed. Please check your card details and try again.');
+                console.error('stripe.confirmPayment() error:', error);
+                showError(FRIENDLY_ERROR);
+                resetButton();
             }
         } catch (err) {
-            errorEl.textContent = err.message || 'Something went wrong. Please try again or contact us directly.';
-            errorEl.style.display = 'block';
-            payBtn.disabled = false;
-            payBtn.textContent = 'Pay & Book My Project';
+            console.error('Checkout error:', err);
+            showError(FRIENDLY_ERROR);
+            resetButton();
         }
     });
 })();
