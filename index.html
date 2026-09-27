@@ -25,15 +25,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "YRB Nova",
-  "url": "https://yrbnova.com/",
-  "email": "yrbnova@gmail.com",
-  "telephone": "+44 7555 985320",
-  "areaServed": "United Kingdom",
-  "description": "YRB Nova is a UK website design studio helping small businesses reinvent their online presence with fast, high-converting websites.",
-  "priceRange": "£350-£800",
-  "sameAs": []
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://yrbnova.com/#business",
+      "name": "YRB Nova",
+      "url": "https://yrbnova.com/",
+      "logo": "https://yrbnova.com/logo-mark.png",
+      "image": "https://yrbnova.com/og-image.png",
+      "email": "yrbnova@gmail.com",
+      "telephone": "+44 7555 985320",
+      "address": { "@type": "PostalAddress", "addressCountry": "GB" },
+      "areaServed": "United Kingdom",
+      "description": "YRB Nova is a UK website design studio helping small businesses reinvent their online presence with fast, high-converting websites.",
+      "priceRange": "£350-£800",
+      "sameAs": ["https://www.instagram.com/yrbnova"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://yrbnova.com/#website",
+      "name": "YRB Nova",
+      "url": "https://yrbnova.com/",
+      "publisher": { "@id": "https://yrbnova.com/#business" }
+    }
+  ]
 }
 </script>
 </head>
