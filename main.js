@@ -1,5 +1,14 @@
 // YRB Nova shared site behaviour
 
+// Vercel Web Analytics (cookieless, served from our own domain)
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+(function () {
+    const s = document.createElement('script');
+    s.defer = true;
+    s.src = '/_vercel/insights/script.js';
+    document.head.appendChild(s);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile nav: close menu on link click
