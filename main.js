@@ -14,6 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // Cal.com booking popup - only loaded on pages with a [data-cal-link] button.
+    // The buttons are real links to cal.com, so they still work if the embed fails to load.
+    const calButtons = document.querySelectorAll('[data-cal-link]');
+    if (calButtons.length) {
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "15min", { origin: "https://app.cal.com" });
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["15min"]("ui", {
+            hideEventTypeDetails: false,
+            layout: "month_view",
+            theme: "dark",
+            cssVarsPerTheme: { dark: { "cal-brand": "#4fc9ab" } }
+        });
+
+        // Open the popup instead of following the fallback link once the embed has loaded
+        calButtons.forEach(btn => btn.addEventListener('click', (e) => {
+            if (window.Cal && window.Cal.loaded) e.preventDefault();
+        }));
+    }
+
     // Animated stat counters
     const statEls = document.querySelectorAll('.stat-value[data-count]');
     if (statEls.length) {

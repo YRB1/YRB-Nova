@@ -956,9 +956,16 @@ footer.site-footer {
 #save-preferences:hover { background: var(--accent-hover); }
 #close-modal { background: transparent; border: 1px solid var(--line-strong); color: var(--text); }
 
+/* Mobile: compact bar pinned to the bottom so it doesn't hide the hero CTA */
 @media (max-width: 500px) {
-    #cookie-consent-popup { left: 10px; right: 10px; width: auto; }
-    .cookie-buttons button, .cookie-buttons a { width: 100%; text-align: center; }
+    #cookie-consent-popup {
+        left: 8px; right: 8px; bottom: 8px; width: auto; max-width: none;
+        padding: 14px 16px; font-size: 0.8rem; gap: 10px;
+    }
+    #cookie-consent-popup p { font-size: 0.8rem; line-height: 1.45; }
+    .cookie-buttons { gap: 8px; }
+    .cookie-buttons button { flex: 1 1 0; padding: 8px 6px; font-size: 0.8rem; text-align: center; }
+    .cookie-buttons a { font-size: 0.75rem; }
 }
 
 /* =========================
