@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | YRB Nova</title>
+<meta name="description" content="The page you were looking for could not be found.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+    .status-section { padding: 170px 0 120px; text-align: center; }
+    .status-icon {
+        width: 72px; height: 72px; border-radius: 50%;
+        background: var(--surface); color: var(--text-dim);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2rem; font-weight: 700; margin: 0 auto 28px;
+        border: 1px solid var(--line-strong);
+    }
+    @media (max-width: 640px) { .status-section { padding: 140px 0 90px; } }
+</style>
+</head>
+
+<body>
+
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent-popup">
+  <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
+  <div class="cookie-buttons">
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies" type="button">Deny</button>
+    <button id="view-preferences">Preferences</button>
+    <a href="/cookie-policy.html">Cookie Policy</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+  </div>
+</div>
+
+<div id="cookie-preferences-modal">
+  <div class="modal-content">
+    <h3>Cookie Preferences</h3>
+    <p>Toggle the types of cookies you allow:</p>
+    <label><input type="checkbox" disabled checked> Essential (always active)</label>
+    <label><input type="checkbox" id="analytics-cookies"> Analytical</label>
+    <label><input type="checkbox" id="marketing-cookies"> Marketing</label>
+    <div class="modal-buttons">
+      <button id="save-preferences">Save Preferences</button>
+      <button id="close-modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<header class="site-header">
+    <nav>
+        <a href="/index.html" class="site-logo"><img src="/logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/work.html">Work</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/services.html#pricing" class="nav-cta">Start a Project</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="status-section">
+    <div class="container">
+        <div class="status-icon" style="font-size:1.35rem;">404</div>
+        <p class="eyebrow" style="justify-content:center;">Page Not Found</p>
+        <h1 style="max-width:640px; margin:0 auto 20px;">This page doesn't exist</h1>
+        <p class="lede" style="max-width:560px; margin:0 auto 36px;">It may have moved, or the link might be wrong. Try the homepage, or take a look at our services and live demo sites.</p>
+        <div class="btn-row" style="justify-content:center;">
+            <a href="/index.html" class="btn btn-primary">Back to Homepage</a>
+            <a href="/work.html" class="btn btn-outline">See Live Demos</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">YRB <span>Nova</span></div>
+                <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="/about.html">About</a>
+                    <a href="/work.html">Work</a>
+                    <a href="/blog/index.html">Blog</a>
+                    <a href="/services.html">Services</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <a href="/contact.html">Contact Us</a>
+                    <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>
+                    <a href="tel:07555985320">07555 985320</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="/cookie-policy.html">Cookie Policy</a>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <span id="year">2026</span> YRB Nova. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="/main.js"></script>
+</body>
+</html>
