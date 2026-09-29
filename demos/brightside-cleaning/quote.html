@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Quote | Brightside Cleaning Co. | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230f9d7a'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%23ffffff' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand"><span class="mark">&#10022;</span>Brightside</a>
+        <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Prices</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="tel:01160000000" class="nav-phone">0116 000 0000</a></li>
+            <li><a href="quote.html" class="nav-quote">Instant Quote</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-head">
+    <div class="container">
+        <span class="pill">Takes 30 seconds</span>
+        <h1>Your instant cleaning quote</h1>
+        <p>Tell us about your home and see your price straight away. No call-backs, no obligation.</p>
+    </div>
+</section>
+
+<section style="padding-top:40px;">
+    <div class="container quote-wrap" id="quote">
+        <div>
+            <div class="q-card">
+                <h3>1. What type of clean?</h3>
+                <div class="opt-grid" data-group="type">
+                    <button type="button" class="opt selected" data-value="regular">Regular<small>Weekly / fortnightly</small></button>
+                    <button type="button" class="opt" data-value="deep">Deep Clean<small>One-off reset</small></button>
+                    <button type="button" class="opt" data-value="tenancy">End of Tenancy<small>Moving out</small></button>
+                </div>
+            </div>
+
+            <div class="q-card">
+                <h3>2. How big is your home?</h3>
+                <div class="counter"><span>Bedrooms</span><div class="ctl"><button type="button" data-step="bed" data-d="-1" aria-label="Fewer bedrooms">&minus;</button><span class="val" id="bed">2</span><button type="button" data-step="bed" data-d="1" aria-label="More bedrooms">+</button></div></div>
+                <div class="counter"><span>Bathrooms</span><div class="ctl"><button type="button" data-step="bath" data-d="-1" aria-label="Fewer bathrooms">&minus;</button><span class="val" id="bath">1</span><button type="button" data-step="bath" data-d="1" aria-label="More bathrooms">+</button></div></div>
+            </div>
+
+            <div class="q-card" id="freq-card">
+                <h3>3. How often?</h3>
+                <div class="opt-grid" data-group="freq">
+                    <button type="button" class="opt" data-value="weekly">Weekly<small>Save 15%</small></button>
+                    <button type="button" class="opt selected" data-value="fortnightly">Fortnightly<small>Save 10%</small></button>
+                    <button type="button" class="opt" data-value="once">One-off<small>No commitment</small></button>
+                </div>
+            </div>
+
+            <div class="q-card">
+                <h3>4. Any extras?</h3>
+                <label class="extra"><input type="checkbox" data-extra="45"> Oven clean <span class="p">+£45</span></label>
+                <label class="extra"><input type="checkbox" data-extra="20"> Inside fridge <span class="p">+£20</span></label>
+                <label class="extra"><input type="checkbox" data-extra="25"> Interior windows <span class="p">+£25</span></label>
+                <label class="extra"><input type="checkbox" data-extra="15"> Ironing (1 hour) <span class="p">+£15</span></label>
+            </div>
+        </div>
+
+        <aside class="q-summary">
+            <div id="q-form">
+                <h3>Your price</h3>
+                <div class="line"><span id="l-type">Regular clean</span><span id="l-hours"></span></div>
+                <div class="line"><span>Home</span><span id="l-home"></span></div>
+                <div class="line"><span>Extras</span><span id="l-extras">None</span></div>
+                <div class="big" id="total">£0</div>
+                <p class="per" id="per">per clean</p>
+                <div class="save" id="save"></div>
+                <input type="text" id="q-name" placeholder="Your name" autocomplete="name">
+                <input type="text" id="q-postcode" placeholder="Postcode" autocomplete="postal-code">
+                <button type="button" class="btn btn-green" id="q-book">Book This Clean</button>
+                <p id="q-err" style="color:var(--sun); font-size:0.9rem; margin:10px 0 0; display:none;"></p>
+            </div>
+            <div class="q-done" id="q-done">
+                <div class="tick">&#10003;</div>
+                <h3>Request received!</h3>
+                <p style="color:#b9cdc8;" id="q-done-text"></p>
+                <p style="color:#b9cdc8; font-size:0.85rem;">This is a demo, so no real booking was made.</p>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<script>
+(function () {
+    var s = { type: 'regular', freq: 'fortnightly', bed: 2, bath: 1 };
+    var RATE = 18;
+    var labels = { regular: 'Regular clean', deep: 'Deep clean', tenancy: 'End of tenancy' };
+
+    function hours() { return Math.max(2, Math.round((1 + s.bed * 0.75 + s.bath * 0.75) * 2) / 2); }
+    function price() {
+        var base;
+        if (s.type === 'regular') base = hours() * RATE;
+        else if (s.type === 'deep') base = Math.max(160, 100 + s.bed * 30 + s.bath * 25);
+        else base = Math.max(195, 125 + s.bed * 35 + s.bath * 30);
+        var extras = 0, names = [];
+        document.querySelectorAll('[data-extra]').forEach(function (c) {
+            if (c.checked) { extras += +c.dataset.extra; names.push(c.parentNode.textContent.trim().split(' +')[0]); }
+        });
+        var disc = s.type === 'regular' ? (s.freq === 'weekly' ? 0.15 : s.freq === 'fortnightly' ? 0.10 : 0) : 0;
+        return { base: base, extras: extras, names: names, disc: disc, total: Math.round((base + extras) * (1 - disc)) };
+    }
+
+    function render() {
+        var p = price();
+        document.getElementById('freq-card').style.display = s.type === 'regular' ? '' : 'none';
+        document.getElementById('bed').textContent = s.bed;
+        document.getElementById('bath').textContent = s.bath;
+        document.getElementById('l-type').textContent = labels[s.type];
+        document.getElementById('l-hours').textContent = s.type === 'regular' ? hours().toFixed(1).replace('.0', '') + ' hrs' : 'Fixed price';
+        document.getElementById('l-home').textContent = s.bed + ' bed, ' + s.bath + ' bath';
+        document.getElementById('l-extras').textContent = p.names.length ? p.names.join(', ') : 'None';
+        document.getElementById('total').textContent = '£' + p.total;
+        document.getElementById('per').textContent = s.type === 'regular' && s.freq !== 'once' ? 'per clean, ' + s.freq : 'one-off price';
+        var save = document.getElementById('save');
+        if (p.disc) { save.style.display = 'block'; save.textContent = 'You save £' + Math.round((p.base + p.extras) * p.disc) + ' with ' + s.freq + ' cleans'; }
+        else save.style.display = 'none';
+    }
+
+    document.getElementById('quote').addEventListener('click', function (e) {
+        var opt = e.target.closest('.opt');
+        if (opt) {
+            opt.parentNode.querySelectorAll('.opt').forEach(function (o) { o.classList.remove('selected'); });
+            opt.classList.add('selected');
+            s[opt.parentNode.dataset.group] = opt.dataset.value;
+        }
+        var step = e.target.closest('[data-step]');
+        if (step) {
+            var k = step.dataset.step;
+            s[k] = Math.min(k === 'bed' ? 6 : 4, Math.max(k === 'bed' ? 0 : 1, s[k] + +step.dataset.d));
+        }
+        render();
+    });
+    document.querySelectorAll('[data-extra]').forEach(function (c) { c.addEventListener('change', render); });
+
+    document.getElementById('q-book').addEventListener('click', function () {
+        var name = document.getElementById('q-name').value.trim();
+        var pc = document.getElementById('q-postcode').value.trim();
+        var err = document.getElementById('q-err');
+        if (!name || !pc) { err.textContent = 'Please add your name and postcode.'; err.style.display = 'block'; return; }
+        document.getElementById('q-form').style.display = 'none';
+        document.getElementById('q-done-text').textContent = 'Thanks ' + name + '! We\'ll confirm your ' + labels[s.type].toLowerCase() + ' for ' + pc.toUpperCase() + ' at ' + document.getElementById('total').textContent + ' within the hour.';
+        document.getElementById('q-done').style.display = 'block';
+    });
+
+    render();
+})();
+</script>
+
+<footer>
+    <div class="container">
+        <div class="foot-grid">
+            <div>
+                <p class="brand"><span class="mark">&#10022;</span>Brightside</p>
+                <p>Reliable, fully insured home and office cleaning across Leicestershire. Same trusted cleaner, every visit.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <a href="services.html">Regular Cleaning</a>
+                <a href="services.html">Deep Cleaning</a>
+                <a href="services.html">End of Tenancy</a>
+                <a href="services.html">Office Cleaning</a>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="quote.html">Get a Quote</a>
+                <a href="services.html#faq">FAQs</a>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>0116 000 0000</p>
+                <p>hello@brightside.example</p>
+                <p>Mon&ndash;Sat, 8am &ndash; 6pm</p>
+            </div>
+        </div>
+        <p class="foot-note">&copy; 2026 Brightside Cleaning Co. &mdash; a fictional concept demo. Real websites like this are built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>

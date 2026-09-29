@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prices | Blade &amp; Crown Barbers | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230c0b0a'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%23c9a45c' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Blade <span>&amp;</span> Crown</a>
+        <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Prices</a></li>
+            <li><a href="about.html">Our Barbers</a></li>
+            <li><a href="book.html" class="nav-book">Book Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-head">
+    <div class="container">
+        <span class="eyebrow">Price List</span>
+        <h1>Services &amp; Prices</h1>
+        <p>Straightforward pricing, no surprises. Every haircut includes a consultation, hot towel finish and styling.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="price-list">
+            <div class="price-group">
+                <h2>Haircuts</h2>
+                <div class="price-row"><div class="name">Skin Fade<span class="desc">Blended down to the skin, finished with a line-up</span></div><span class="dots"></span><span class="amt">£24</span></div>
+                <div class="price-row"><div class="name">Classic Cut<span class="desc">Scissor or clipper cut, any length</span></div><span class="dots"></span><span class="amt">£20</span></div>
+                <div class="price-row"><div class="name">Textured Crop<span class="desc">Modern crop with texture and a tapered fade</span></div><span class="dots"></span><span class="amt">£24</span></div>
+                <div class="price-row"><div class="name">Long Hair Restyle<span class="desc">Restyling for longer hair, includes wash</span></div><span class="dots"></span><span class="amt">£30</span></div>
+                <div class="price-row"><div class="name">Buzz Cut<span class="desc">One grade all over, neck and edges tidied</span></div><span class="dots"></span><span class="amt">£14</span></div>
+                <div class="price-row"><div class="name">Kids' Cut (under 12)<span class="desc">Any style, with a patient barber</span></div><span class="dots"></span><span class="amt">£14</span></div>
+            </div>
+
+            <div class="price-group">
+                <h2>Beards &amp; Shaves</h2>
+                <div class="price-row"><div class="name">Beard Sculpt<span class="desc">Shape, trim and line-up with hot towel and oil</span></div><span class="dots"></span><span class="amt">£15</span></div>
+                <div class="price-row"><div class="name">Hot Towel Shave<span class="desc">Traditional straight razor shave, the full ritual</span></div><span class="dots"></span><span class="amt">£22</span></div>
+                <div class="price-row"><div class="name">Line-Up Only<span class="desc">Crisp edges on hairline and beard</span></div><span class="dots"></span><span class="amt">£8</span></div>
+            </div>
+
+            <div class="price-group">
+                <h2>Combos</h2>
+                <div class="price-row"><div class="name">Cut &amp; Beard<span class="desc">Any haircut plus a full beard sculpt</span></div><span class="dots"></span><span class="amt">£35</span></div>
+                <div class="price-row"><div class="name">The Crown Package<span class="desc">Cut, hot towel shave, face mask and hair product to take home</span></div><span class="dots"></span><span class="amt">£55</span></div>
+                <div class="price-row"><div class="name">Father &amp; Son<span class="desc">Two haircuts, one adult and one under 12</span></div><span class="dots"></span><span class="amt">£30</span></div>
+            </div>
+
+            <p style="color:var(--text-dim); text-align:center;">Students get 10% off Monday to Thursday with valid ID. Card and contactless accepted.</p>
+            <div style="text-align:center; margin-top:30px;"><a href="book.html" class="btn btn-gold">Book An Appointment</a></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-alt">
+    <div class="container">
+        <div class="grid-2">
+            <div class="prose">
+                <span class="eyebrow">Opening Hours</span>
+                <h2 style="font-size:clamp(2rem,4vw,2.8rem);">Open 7 Days A Week</h2>
+                <p>Walk-ins are always welcome, but booking online guarantees your slot, especially on Fridays and Saturdays.</p>
+                <table class="hours" id="hours">
+                    <tr data-day="1"><td>Monday</td><td>9:00am &ndash; 7:00pm</td></tr>
+                    <tr data-day="2"><td>Tuesday</td><td>9:00am &ndash; 7:00pm</td></tr>
+                    <tr data-day="3"><td>Wednesday</td><td>9:00am &ndash; 7:00pm</td></tr>
+                    <tr data-day="4"><td>Thursday</td><td>9:00am &ndash; 8:00pm</td></tr>
+                    <tr data-day="5"><td>Friday</td><td>9:00am &ndash; 7:00pm</td></tr>
+                    <tr data-day="6"><td>Saturday</td><td>8:00am &ndash; 5:00pm</td></tr>
+                    <tr data-day="0"><td>Sunday</td><td>10:00am &ndash; 3:00pm</td></tr>
+                </table>
+            </div>
+            <div class="split-img"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=75" alt="Leather barber chair" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Highlight today's opening hours
+(function () {
+    var row = document.querySelector('#hours tr[data-day="' + new Date().getDay() + '"]');
+    if (row) row.classList.add('today');
+})();
+</script>
+
+<footer>
+    <div class="container">
+        <div class="foot-grid">
+            <div>
+                <p class="brand" style="margin-bottom:14px;">Blade <span>&amp;</span> Crown</p>
+                <p>Traditional craft, modern cuts. Walk-ins welcome, appointments recommended.</p>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <p>12 High Street<br>Leicester, LE1 0AA</p>
+                <p>0116 000 0000</p>
+            </div>
+            <div>
+                <h4>Hours</h4>
+                <p>Mon&ndash;Fri: 9am &ndash; 7pm</p>
+                <p>Saturday: 8am &ndash; 5pm</p>
+                <p>Sunday: 10am &ndash; 3pm</p>
+            </div>
+        </div>
+        <p class="foot-note">&copy; 2026 Blade &amp; Crown Barbers &mdash; a fictional concept demo. Real websites like this are built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Online | Blade &amp; Crown Barbers | Concept Demo by YRB Nova</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230c0b0a'/%3E%3Ctext x='50' y='68' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='54' fill='%23c9a45c' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+
+<nav class="top">
+    <div class="container">
+        <a href="index.html" class="brand">Blade <span>&amp;</span> Crown</a>
+        <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Prices</a></li>
+            <li><a href="about.html">Our Barbers</a></li>
+            <li><a href="book.html" class="nav-book">Book Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-head">
+    <div class="container">
+        <span class="eyebrow">Online Booking</span>
+        <h1>Book Your Appointment</h1>
+        <p>Choose a service, pick your barber and grab a time. It takes less than 30 seconds.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="booking" id="booking">
+            <div>
+                <div class="book-step">
+                    <h3><span class="n">1</span> Choose a service</h3>
+                    <div class="choice-grid" data-group="service">
+                        <button type="button" class="choice" data-value="Skin Fade" data-price="24">Skin Fade<small>45 mins &middot; £24</small></button>
+                        <button type="button" class="choice" data-value="Classic Cut" data-price="20">Classic Cut<small>30 mins &middot; £20</small></button>
+                        <button type="button" class="choice" data-value="Cut &amp; Beard" data-price="35">Cut &amp; Beard<small>60 mins &middot; £35</small></button>
+                        <button type="button" class="choice" data-value="Hot Towel Shave" data-price="22">Hot Towel Shave<small>40 mins &middot; £22</small></button>
+                        <button type="button" class="choice" data-value="Beard Sculpt" data-price="15">Beard Sculpt<small>20 mins &middot; £15</small></button>
+                        <button type="button" class="choice" data-value="Kids' Cut" data-price="14">Kids' Cut<small>25 mins &middot; £14</small></button>
+                    </div>
+                </div>
+
+                <div class="book-step">
+                    <h3><span class="n">2</span> Choose your barber</h3>
+                    <div class="choice-grid" data-group="barber">
+                        <button type="button" class="choice" data-value="Jordan">Jordan<small>Fades &amp; textured hair</small></button>
+                        <button type="button" class="choice" data-value="Luca">Luca<small>Scissor cuts &amp; restyles</small></button>
+                        <button type="button" class="choice" data-value="Sam">Sam<small>Beards &amp; shaves</small></button>
+                        <button type="button" class="choice" data-value="First available">Any barber<small>First available</small></button>
+                    </div>
+                </div>
+
+                <div class="book-step">
+                    <h3><span class="n">3</span> Pick a day &amp; time</h3>
+                    <div class="choice-grid" data-group="day" id="days" style="grid-template-columns:repeat(4,1fr); margin-bottom:16px;"></div>
+                    <div class="slots" data-group="time" id="slots"></div>
+                </div>
+
+                <div class="book-step">
+                    <h3><span class="n">4</span> Your details</h3>
+                    <input class="field" id="name" type="text" placeholder="Your name" autocomplete="name">
+                    <input class="field" id="phone" type="tel" placeholder="Mobile number" autocomplete="tel">
+                </div>
+            </div>
+
+            <aside class="summary">
+                <div id="summary-body">
+                    <h3>Your Booking</h3>
+                    <div class="row"><span>Service</span><span id="s-service">&mdash;</span></div>
+                    <div class="row"><span>Barber</span><span id="s-barber">&mdash;</span></div>
+                    <div class="row"><span>Day</span><span id="s-day">&mdash;</span></div>
+                    <div class="row"><span>Time</span><span id="s-time">&mdash;</span></div>
+                    <div class="total"><span>Total</span><span id="s-total">£0</span></div>
+                    <button type="button" class="btn btn-gold" id="confirm-btn">Confirm Booking</button>
+                    <p id="book-error" style="color:#e08a6c; font-size:0.9rem; margin:12px 0 0; display:none;"></p>
+                    <p style="color:var(--text-dim); font-size:0.82rem; margin:14px 0 0;">Pay in the shop after your cut. Free cancellation up to 2 hours before.</p>
+                </div>
+                <div class="confirm" id="confirm">
+                    <div class="tick">&#10003;</div>
+                    <h3>You're Booked In</h3>
+                    <p style="color:var(--text-dim);" id="confirm-text"></p>
+                    <p style="color:var(--text-dim); font-size:0.85rem;">This is a demo, so no real booking was made.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var state = {};
+    var days = document.getElementById('days');
+    var slots = document.getElementById('slots');
+    var names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    // Next 8 days as day buttons
+    for (var i = 0; i < 8; i++) {
+        var d = new Date(); d.setDate(d.getDate() + i);
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'choice';
+        b.dataset.value = (i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : names[d.getDay()] + ' ' + d.getDate());
+        b.dataset.dow = d.getDay();
+        b.innerHTML = (i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : names[d.getDay()]) + '<small>' + d.getDate() + '/' + (d.getMonth() + 1) + '</small>';
+        b.style.textAlign = 'center';
+        days.appendChild(b);
+    }
+
+    function renderSlots(dow) {
+        slots.innerHTML = '';
+        var start = dow === 0 ? 10 : dow === 6 ? 8 : 9;
+        var end = dow === 0 ? 15 : dow === 6 ? 17 : 19;
+        for (var h = start; h < end; h++) {
+            [0, 30].forEach(function (m) {
+                var t = (h > 12 ? h - 12 : h) + ':' + (m ? '30' : '00') + (h >= 12 ? 'pm' : 'am');
+                var s = document.createElement('button');
+                s.type = 'button'; s.className = 'choice'; s.dataset.value = t; s.textContent = t;
+                // Some slots look booked, to feel realistic
+                if ((h * 7 + m + dow * 3) % 5 === 0) s.disabled = true;
+                slots.appendChild(s);
+            });
+        }
+    }
+
+    function set(group, btn) {
+        btn.parentNode.querySelectorAll('.choice').forEach(function (c) { c.classList.remove('selected'); });
+        btn.classList.add('selected');
+        state[group] = btn.dataset.value;
+        if (group === 'service') state.price = btn.dataset.price;
+        if (group === 'day') { state.time = null; renderSlots(+btn.dataset.dow); }
+        document.getElementById('s-service').textContent = state.service || '—';
+        document.getElementById('s-barber').textContent = state.barber || '—';
+        document.getElementById('s-day').textContent = state.day || '—';
+        document.getElementById('s-time').textContent = state.time || '—';
+        document.getElementById('s-total').textContent = '£' + (state.price || 0);
+    }
+
+    document.getElementById('booking').addEventListener('click', function (e) {
+        var btn = e.target.closest('.choice');
+        if (!btn || btn.disabled) return;
+        set(btn.parentNode.dataset.group, btn);
+    });
+
+    renderSlots(new Date().getDay());
+
+    document.getElementById('confirm-btn').addEventListener('click', function () {
+        var err = document.getElementById('book-error');
+        var name = document.getElementById('name').value.trim();
+        var missing = ['service', 'barber', 'day', 'time'].filter(function (k) { return !state[k]; });
+        if (missing.length || !name) {
+            err.textContent = 'Please choose ' + (missing.length ? 'a ' + missing[0] : 'your name') + ' to continue.';
+            err.style.display = 'block';
+            return;
+        }
+        document.getElementById('summary-body').style.display = 'none';
+        document.getElementById('confirm-text').textContent = 'Thanks ' + name + '! ' + state.service + ' with ' + state.barber + ', ' + state.day + ' at ' + state.time + '. We\'ll text you a reminder.';
+        document.getElementById('confirm').style.display = 'block';
+    });
+})();
+</script>
+
+<footer>
+    <div class="container">
+        <div class="foot-grid">
+            <div>
+                <p class="brand" style="margin-bottom:14px;">Blade <span>&amp;</span> Crown</p>
+                <p>Traditional craft, modern cuts. Walk-ins welcome, appointments recommended.</p>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <p>12 High Street<br>Leicester, LE1 0AA</p>
+                <p>0116 000 0000</p>
+            </div>
+            <div>
+                <h4>Hours</h4>
+                <p>Mon&ndash;Fri: 9am &ndash; 7pm</p>
+                <p>Saturday: 8am &ndash; 5pm</p>
+                <p>Sunday: 10am &ndash; 3pm</p>
+            </div>
+        </div>
+        <p class="foot-note">&copy; 2026 Blade &amp; Crown Barbers &mdash; a fictional concept demo. Real websites like this are built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>
