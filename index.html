@@ -14,10 +14,15 @@
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="YRB Nova | Website Design Studio & Reinvention Partner">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="YRB Nova">
+<meta property="og:title" content="YRB Nova | Custom Websites for UK Small Businesses from £350">
 <meta property="og:description" content="We help small businesses reinvent how they show up online, with fast, high-converting websites built with intention, not templates.">
 <meta property="og:url" content="https://yrbnova.com/">
 <meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YRB Nova: custom websites for UK small businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 <meta name="twitter:title" content="YRB Nova | Website Design Studio & Reinvention Partner">
@@ -36,10 +41,27 @@
       "image": "https://yrbnova.com/og-image.png",
       "email": "yrbnova@gmail.com",
       "telephone": "+44 7555 985320",
-      "address": { "@type": "PostalAddress", "addressCountry": "GB" },
-      "areaServed": "United Kingdom",
-      "description": "YRB Nova is a UK website design studio helping small businesses reinvent their online presence with fast, high-converting websites.",
+      "address": { "@type": "PostalAddress", "addressRegion": "Leicestershire", "addressCountry": "GB" },
+      "founder": { "@type": "Person", "name": "Ben", "jobTitle": "Web designer and owner", "image": "https://yrbnova.com/ben.webp" },
+      "areaServed": [
+        { "@type": "City", "name": "Leicester" },
+        { "@type": "City", "name": "Loughborough" },
+        { "@type": "City", "name": "Nottingham" },
+        { "@type": "AdministrativeArea", "name": "Leicestershire" },
+        { "@type": "Country", "name": "United Kingdom" }
+      ],
+      "description": "YRB Nova is a Leicestershire-based website design studio, run by Ben, building fast, custom websites for UK small businesses. Fixed prices from £350, live in 2-5 days.",
+      "slogan": "Custom websites for UK small businesses, built from scratch, not templates.",
       "priceRange": "£350-£800",
+      "currenciesAccepted": "GBP",
+      "makesOffer": [
+        { "@type": "Offer", "name": "Basic Website Package", "price": "350", "priceCurrency": "GBP", "url": "https://yrbnova.com/services.html#pricing" },
+        { "@type": "Offer", "name": "Standard Website Package", "price": "600", "priceCurrency": "GBP", "url": "https://yrbnova.com/services.html#pricing" },
+        { "@type": "Offer", "name": "Premium Website Package", "price": "800", "priceCurrency": "GBP", "url": "https://yrbnova.com/services.html#pricing" },
+        { "@type": "Offer", "name": "Hosting & support (optional, monthly)", "price": "10", "priceCurrency": "GBP", "url": "https://yrbnova.com/services.html#hosting" },
+        { "@type": "Offer", "name": "Hosting & support (optional, yearly)", "price": "100", "priceCurrency": "GBP", "url": "https://yrbnova.com/services.html#hosting" },
+        { "@type": "Offer", "name": "Free website audit", "price": "0", "priceCurrency": "GBP", "url": "https://yrbnova.com/free-website-audit.html" }
+      ],
       "hasMap": "https://maps.google.com/?cid=12288202877381385939",
       "sameAs": ["https://www.instagram.com/yrbnova", "https://www.facebook.com/YrbNovaLtd/", "https://maps.google.com/?cid=12288202877381385939"]
     },
@@ -84,7 +106,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -93,17 +115,17 @@
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="services.html#pricing" class="nav-cta">Start a Project</a></li>
+            <li><a href="free-website-audit.html" class="nav-cta">Free Website Audit</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-slideshow">
-        <div class="slide active"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1950&q=80" alt="Website portfolio design on a dual-monitor desk setup"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1950&q=80" alt="Designing a website layout in Photoshop"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1950&q=80" alt="Hand-drawn website wireframe sketches"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1950&q=80" alt="Mobile-responsive website code on a phone screen"></div>
+        <div class="slide active"><img fetchpriority="high" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1600&q=62" alt="Website portfolio design on a dual-monitor desk setup"></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1600&q=62" alt="Designing a website layout in Photoshop"></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=62" alt="Hand-drawn website wireframe sketches"></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=62" alt="Mobile-responsive website code on a phone screen"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
@@ -111,33 +133,41 @@
         <h1>We reinvent how small businesses <em>show up online.</em></h1>
         <p class="lede">YRB Nova is a UK website design studio for businesses ready to be seen properly, through sites that look sharp, load fast, and turn visitors into real enquiries.</p>
         <div class="btn-row">
-            <a href="services.html#pricing" class="btn btn-primary">Start a Project</a>
-            <a href="work.html" class="btn btn-outline">See Live Demos</a>
+            <a href="free-website-audit.html" class="btn btn-primary">Get a Free Website Audit</a>
+            <a href="services.html#pricing" class="btn btn-outline">See Packages &amp; Prices</a>
         </div>
+        <ul class="trust-strip left">
+            <li>Fixed prices from £350</li>
+            <li>Live in 2-5 days</li>
+            <li>Built from scratch, not templates</li>
+            <li><a href="work.html">10 live demo sites</a></li>
+        </ul>
     </div>
     <div class="hero-wedge"></div>
 </section>
 
+<div class="ticker-clip">
 <div class="ticker-band">
     <div class="ticker-track">
         <span>Websites That Convert <i>&#9733;</i> Your Reinvention Partner <i>&#9733;</i> Built In The UK <i>&#9733;</i> Fast Turnaround <i>&#9733;</i> No Generic Templates <i>&#9733;</i> </span>
         <span aria-hidden="true">Websites That Convert <i>&#9733;</i> Your Reinvention Partner <i>&#9733;</i> Built In The UK <i>&#9733;</i> Fast Turnaround <i>&#9733;</i> No Generic Templates <i>&#9733;</i> </span>
     </div>
 </div>
+</div>
 
 <div class="marquee-wrap">
-    <p class="marquee-label">Real Projects, Real Businesses</p>
+    <p class="marquee-label">Live Demo Sites We've Built</p>
     <div class="marquee-track">
-        <img src="portfolio/eliteflow.jpg" alt="Plumbing business website built by YRB Nova" loading="lazy">
-        <img src="portfolio/executive-producer.jpg" alt="Music portfolio website built by YRB Nova" loading="lazy">
-        <img src="portfolio/hopewell-trust.jpg" alt="Charity donation website built by YRB Nova" loading="lazy">
-        <img src="portfolio/anaya-fashion-nest.jpg" alt="Clothing brand website built by YRB Nova" loading="lazy">
-        <img src="portfolio/elite-electric.jpg" alt="Electrician business website built by YRB Nova" loading="lazy">
-        <img src="portfolio/eliteflow.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="portfolio/executive-producer.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="portfolio/hopewell-trust.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="portfolio/anaya-fashion-nest.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="portfolio/elite-electric.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="portfolio/thumbs/eliteflow.webp" width="320" height="140" alt="Plumbing business website built by YRB Nova" loading="lazy">
+        <img src="portfolio/thumbs/executive-producer.webp" width="320" height="140" alt="Music portfolio website built by YRB Nova" loading="lazy">
+        <img src="portfolio/thumbs/hopewell-trust.webp" width="320" height="140" alt="Charity donation website built by YRB Nova" loading="lazy">
+        <img src="portfolio/thumbs/anaya-fashion-nest.webp" width="320" height="140" alt="Clothing brand website built by YRB Nova" loading="lazy">
+        <img src="portfolio/thumbs/elite-electric.webp" width="320" height="140" alt="Electrician business website built by YRB Nova" loading="lazy">
+        <img src="portfolio/thumbs/eliteflow.webp" width="320" height="140" alt="" loading="lazy" aria-hidden="true">
+        <img src="portfolio/thumbs/executive-producer.webp" width="320" height="140" alt="" loading="lazy" aria-hidden="true">
+        <img src="portfolio/thumbs/hopewell-trust.webp" width="320" height="140" alt="" loading="lazy" aria-hidden="true">
+        <img src="portfolio/thumbs/anaya-fashion-nest.webp" width="320" height="140" alt="" loading="lazy" aria-hidden="true">
+        <img src="portfolio/thumbs/elite-electric.webp" width="320" height="140" alt="" loading="lazy" aria-hidden="true">
     </div>
 </div>
 
@@ -159,6 +189,25 @@
             <div class="stat-block">
                 <span class="stat-value" data-count="350" data-prefix="&pound;">0</span>
                 <span class="stat-label">Starting Price</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="meet-ben">
+    <div class="container">
+        <div class="founder">
+            <img src="ben.webp" width="400" height="400" alt="Ben, founder and web designer at YRB Nova" class="founder-photo" loading="lazy" decoding="async">
+            <div>
+                <p class="eyebrow">Who you'll work with</p>
+                <h2>Hi, I'm Ben</h2>
+                <p>I'm the web designer behind YRB Nova, based in Leicestershire. When you book, you deal with me directly, from the first call to launch day. No account managers, no being passed around.</p>
+                <p>I build websites for my own brands, like YRB Supreme and ClientSniper, and for clients from a foster care agency to a hair stylist and a fashion boutique. Every site is built from scratch, around the customers you actually want to reach.</p>
+                <p class="founder-sign">Ben, founder of YRB Nova</p>
+                <div class="btn-row">
+                    <a href="free-website-audit.html" class="btn btn-primary">Get a Free Website Audit</a>
+                    <a href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" class="btn btn-outline" data-cal-link="yrb-nova-a1ionp/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}'>Book a 15-Min Call with Ben</a>
+                </div>
             </div>
         </div>
     </div>
@@ -193,16 +242,73 @@
     </div>
 </section>
 
+<section class="section" id="live-work">
+    <div class="container text-center">
+        <p class="eyebrow mx-auto" style="justify-content:center;">Real Work</p>
+        <h2>Live websites I've built</h2>
+        <p class="lede mx-auto">Real sites you can visit right now, from my own brands to businesses I've built for.</p>
+    </div>
+    <div class="container">
+        <div class="live-grid" style="margin-top:50px;">
+            <a href="https://www.yrbsupreme.com/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/yrb-supreme.webp" width="960" height="486" alt="YRB Supreme jewellery shop website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag own">Own brand · E-commerce</span>
+                    <h3>YRB Supreme</h3>
+                    <p>My own UK jewellery brand: a full online shop with product pages, a cart, secure Stripe checkout and seasonal sales.</p>
+                    <span class="visit">Visit yrbsupreme.com &rarr;</span>
+                </div>
+            </a>
+            <a href="https://www.clientsniperofficial.com/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/clientsniper.webp" width="960" height="486" alt="ClientSniper lead-finding platform website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag own">Own product · Web app</span>
+                    <h3>ClientSniper</h3>
+                    <p>My own lead-finding platform that helps freelancers and agencies find local businesses with missing or outdated websites.</p>
+                    <span class="visit">Visit clientsniperofficial.com &rarr;</span>
+                </div>
+            </a>
+            <a href="https://yrb1.github.io/MillyShop/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/anaya-fashion-nest-live.webp" width="960" height="486" alt="Anaya Fashion Nest boutique website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Fashion retail</span>
+                    <h3>Anaya Fashion Nest</h3>
+                    <p>A boutique website for a clothes, shoes, bags and perfume shop in Kampala, Uganda, with a shop, gallery and WhatsApp contact.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+            <a href="https://yrb1.github.io/Epiphany/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/epiphany.webp" width="960" height="486" alt="Epiphany Foster Care fostering agency website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Fostering agency</span>
+                    <h3>Epiphany Foster Care</h3>
+                    <p>A website for an independent fostering agency, with information for foster carers, referral routes for local authorities and a staff portal.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+            <a href="https://styledbykyx-website.vercel.app/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/styled-by-ky.webp" width="960" height="486" alt="Styled By KY hair stylist website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Hair stylist</span>
+                    <h3>Styled By KY</h3>
+                    <p>A website for an Afro and black hair stylist in Derby, with prices, a gallery, reviews and online booking.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
 <section class="section section-alt">
     <div class="container text-center">
         <p class="eyebrow">Selected Work</p>
-        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">Recent reinventions</h2>
-        <p class="lede" style="max-width:560px; margin:14px auto 0;">Every project below is a full, clickable live site, not a screenshot. Click through and use it yourself.</p>
+        <h2 style="max-width:640px; margin-left:auto; margin-right:auto;">Live demo sites</h2>
+        <p class="lede" style="max-width:560px; margin:14px auto 0;">Every concept site below is a full, clickable website built for a demo business, not a screenshot. Click through and use it yourself.</p>
     </div>
     <div class="container">
         <div class="work-grid" style="margin-top:50px;">
             <a href="work.html#elite-electric" class="work-card featured">
-                <div class="thumb"><img src="portfolio/elite-electric.jpg" alt="Elite Electric website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="thumb"><img src="portfolio/elite-electric.webp" width="960" height="486" alt="Elite Electric website homepage designed by YRB Nova" loading="lazy"></div>
                 <div class="work-info">
                     <span class="tag">Local Trade</span>
                     <h3>Elite Electric</h3>
@@ -210,7 +316,7 @@
                 </div>
             </a>
             <a href="work.html#new-plumber" class="work-card">
-                <div class="thumb"><img src="portfolio/eliteflow.jpg" alt="Plumber website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="thumb"><img src="portfolio/eliteflow.webp" width="960" height="488" alt="Plumber website homepage designed by YRB Nova" loading="lazy"></div>
                 <div class="work-info">
                     <span class="tag">Local Trade</span>
                     <h3>New Plumber Website</h3>
@@ -218,7 +324,7 @@
                 </div>
             </a>
             <a href="work.html#anaya" class="work-card">
-                <div class="thumb"><img src="portfolio/anaya-fashion-nest.jpg" alt="Anaya Clothing website homepage designed by YRB Nova" loading="lazy"></div>
+                <div class="thumb"><img src="portfolio/anaya-fashion-nest.webp" width="960" height="487" alt="Anaya Clothing website homepage designed by YRB Nova" loading="lazy"></div>
                 <div class="work-info">
                     <span class="tag">E-Commerce</span>
                     <h3>Anaya Clothing</h3>
@@ -329,9 +435,15 @@
         <h2>Ready to reinvent how you show up online?</h2>
         <p>Tell us about your business and we'll get back to you within one business day.</p>
         <div class="btn-row" style="justify-content:center;">
-            <a href="services.html#pricing" class="btn btn-primary">Start a Project</a>
+            <a href="free-website-audit.html" class="btn btn-primary">Get a Free Website Audit</a>
             <a href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" class="btn btn-outline" data-cal-link="yrb-nova-a1ionp/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}'>Book a Free 15-Min Call</a>
         </div>
+        <ul class="trust-strip">
+            <li>Fixed prices from £350</li>
+            <li>Live in 2-5 days</li>
+            <li>Built from scratch, not templates</li>
+            <li><a href="work.html">10 live demo sites</a></li>
+        </ul>
     </div>
 </section>
 
@@ -341,6 +453,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -375,6 +488,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>

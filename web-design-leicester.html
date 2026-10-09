@@ -13,10 +13,15 @@
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="YRB Nova">
 <meta property="og:title" content="Web Design Leicester | YRB Nova">
 <meta property="og:description" content="Leicestershire web design studio building fast, custom websites for local businesses. Fixed prices from £350, live in 2-5 days. See our live demo sites.">
 <meta property="og:url" content="https://yrbnova.com/web-design-leicester.html">
 <meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YRB Nova: custom websites for UK small businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 
@@ -64,6 +69,26 @@
     .lp-price-row .card .price { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--text); margin: 0 0 10px; }
     @media (max-width: 900px) { .lp-price-row { grid-template-columns: 1fr; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://yrbnova.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Web Design Leicester",
+      "item": "https://yrbnova.com/web-design-leicester.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -96,7 +121,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -105,7 +130,7 @@
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="services.html#pricing" class="nav-cta">Start a Project</a></li>
+            <li><a href="free-website-audit.html" class="nav-cta">Free Website Audit</a></li>
         </ul>
     </nav>
 </header>
@@ -200,7 +225,7 @@
     <div class="container text-center">
         <p class="eyebrow mx-auto" style="justify-content:center;">Fixed Pricing</p>
         <h2>Clear prices, no hidden fees</h2>
-        <p class="lede mx-auto">Pick the package that fits where your business is now. Every price is fixed and agreed before any work starts.</p>
+        <p class="lede mx-auto">Pick the package that fits where your business is now. Every price is fixed and agreed before any work starts. Optional hosting &amp; support from £10/month.</p>
     </div>
     <div class="container">
         <div class="lp-price-row">
@@ -268,9 +293,15 @@
         <h2>Ready to get more enquiries from your website?</h2>
         <p>Tell us about your business, or book a free 15-minute call and we'll talk it through. No pressure, no jargon.</p>
         <div class="btn-row" style="justify-content:center;">
-            <a href="services.html#pricing" class="btn btn-primary">Start a Project</a>
+            <a href="free-website-audit.html" class="btn btn-primary">Get a Free Website Audit</a>
             <a href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" class="btn btn-outline" data-cal-link="yrb-nova-a1ionp/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}'>Book a Free 15-Min Call</a>
         </div>
+        <ul class="trust-strip">
+            <li>Fixed prices from £350</li>
+            <li>Live in 2-5 days</li>
+            <li>Built from scratch, not templates</li>
+            <li><a href="work.html">10 live demo sites</a></li>
+        </ul>
     </div>
 </section>
 
@@ -280,6 +311,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -314,6 +346,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>

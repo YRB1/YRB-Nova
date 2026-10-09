@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact YRB Nova | Start Your Website Project</title>
-<meta name="description" content="Get in touch with YRB Nova to start your website project. Fast turnaround, UK-based, fixed pricing from £350. Fill out the form and we'll reply within one business day.">
+<title>Contact YRB Nova | Website Designer in Leicestershire</title>
+<meta name="description" content="Contact Ben at YRB Nova, a Leicestershire web designer for UK small businesses. Fixed prices from £350, live in 2-5 days. We reply within one business day.">
 <link rel="canonical" href="https://yrbnova.com/contact.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,15 @@
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="YRB Nova">
 <meta property="og:title" content="Contact YRB Nova | Start Your Website Project">
-<meta property="og:description" content="Fast turnaround, UK-based, fixed pricing from £350. Fill out the form and we'll reply within one business day.">
+<meta property="og:description" content="Contact Ben at YRB Nova, a Leicestershire web designer for UK small businesses. Fixed prices from £350, live in 2-5 days. We reply within one business day.">
 <meta property="og:url" content="https://yrbnova.com/contact.html">
 <meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YRB Nova: custom websites for UK small businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 
@@ -67,13 +72,41 @@
     .contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: none; border-radius: var(--radius-sm); }
     .contact-details { list-style: none; padding: 0; margin: 0 0 24px; }
     .contact-details li { padding-left: 18px; border-left: 2px solid var(--accent); margin-bottom: 18px; color: var(--text-dim); font-size: 0.98rem; }
-    .contact-details li strong { display: block; color: var(--text-dimmer); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .contact-details li strong { display: block; color: var(--text-dimmer); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
     .contact-details a { color: var(--text); text-decoration: none; }
     .contact-details a:hover { color: var(--accent); }
+    .business-details { margin-top: 30px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px 40px; }
+    .business-details h2 { font-size: 1.3rem; margin-bottom: 20px; }
+    .business-details dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; margin: 0; }
+    .business-details dt { color: var(--text-dimmer); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+    .business-details dd { margin: 0; color: var(--text-dim); font-size: 0.96rem; }
+    .business-details a { color: var(--text); }
     @media (max-width: 760px) {
         .contact-panel { padding: 28px; }
+        .business-details { padding: 26px 24px; }
+        .business-details dl { grid-template-columns: 1fr; }
     }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://yrbnova.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://yrbnova.com/contact.html"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -107,7 +140,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -116,7 +149,7 @@
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="services.html#pricing" class="nav-cta">Start a Project</a></li>
+            <li><a href="free-website-audit.html" class="nav-cta">Free Website Audit</a></li>
         </ul>
     </nav>
 </header>
@@ -150,19 +183,33 @@
                     <li><strong>Prefer to Talk?</strong><a href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" data-cal-link="yrb-nova-a1ionp/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}'>Book a free 15-minute call</a></li>
                     <li><strong>Email</strong><a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a></li>
                     <li><strong>Phone</strong><a href="tel:07555985320">07555 985320</a></li>
-                    <li><strong>Location</strong>Based in Leicester, serving businesses across the UK</li>
+                    <li><strong>Location</strong>Based in Leicestershire, serving businesses across the UK</li>
                     <li><strong>Response Time</strong>We reply within one business day</li>
                     <li><strong>Not Ready Yet?</strong><a href="free-website-audit.html">Get a free audit of your current site instead</a></li>
                 </ul>
                 <div class="contact-map">
                     <iframe
-                        title="YRB Nova service area, Leicester, UK"
-                        src="https://www.google.com/maps?q=Leicester,UK&output=embed"
+                        title="YRB Nova service area, Leicestershire, UK"
+                        src="https://www.google.com/maps?q=Leicestershire,UK&output=embed"
                         allowfullscreen=""
                         loading="lazy">
                     </iframe>
                 </div>
             </div>
+        </div>
+
+        <div class="business-details" id="business-details">
+            <h2>Business details</h2>
+            <dl>
+                <div><dt>Business name</dt><dd>YRB Nova</dd></div>
+                <div><dt>Run by</dt><dd>Ben (sole trader)</dd></div>
+                <div><dt>Based in</dt><dd>Leicestershire, UK</dd></div>
+                <div><dt>Area served</dt><dd>Leicester, Loughborough, Nottingham and businesses across the UK (remote)</dd></div>
+                <div><dt>Email</dt><dd><a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a></dd></div>
+                <div><dt>Response time</dt><dd>Within one business day</dd></div>
+                <div><dt>Prices</dt><dd>Fixed: £350, £600 or £800 (optional hosting &amp; support £10/month or £100/year)</dd></div>
+                <div><dt>Policies</dt><dd><a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-and-conditions.html">Terms</a> &middot; <a href="refund-cancellation.html">Refunds &amp; Cancellations</a> &middot; <a href="cookie-policy.html">Cookies</a></dd></div>
+            </dl>
         </div>
     </div>
 </section>
@@ -173,6 +220,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -207,6 +255,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>

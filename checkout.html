@@ -16,7 +16,9 @@
 <style>
     .checkout-wrap { max-width: 1080px; margin: 0 auto; padding: 110px 24px 100px; }
     .checkout-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: stretch; }
+    .checkout-grid > * { min-width: 0; }
     @media (max-width: 860px) { .checkout-grid { grid-template-columns: 1fr; } .checkout-wrap { padding-top: 96px; } }
+    @media (max-width: 500px) { .checkout-wrap { padding-left: 16px; padding-right: 16px; } .order-summary, .checkout-form { padding: 24px 18px; } }
 
     .order-summary {
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
@@ -42,12 +44,12 @@
         font-size: 0.78rem; color: var(--text-dim); padding-left: 18px; position: relative;
     }
     .pkg-features li::before {
-        content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 0.72rem;
+        content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 0.75rem;
     }
     .pkg-badge {
         position: absolute; top: -9px; right: 14px;
         background: var(--accent-gradient); color: #08080a;
-        font-size: 0.62rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+        font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
         padding: 3px 9px; border-radius: 20px;
     }
     .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--line); margin-top: 4px; }
@@ -60,9 +62,25 @@
     .next-steps li { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-dim); }
     .step-num {
         flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
-        background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.7rem;
+        background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.75rem;
         display: flex; align-items: center; justify-content: center;
     }
+
+    .discount-box { margin-bottom: 16px; }
+    .discount-box label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; }
+    .discount-input { display: flex; gap: 8px; }
+    .discount-input input {
+        flex: 1; min-width: 0; padding: 11px 14px; text-transform: uppercase;
+        background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+        color: var(--text); font-family: var(--font-body); font-size: 0.95rem;
+    }
+    .discount-input input:focus { outline: none; border-color: var(--accent); }
+    .discount-input .btn { padding: 10px 18px; }
+    .discount-msg { font-size: 0.82rem; margin: 6px 0 0; min-height: 1em; color: var(--text-dim); }
+    .discount-msg.ok { color: var(--accent); }
+    .discount-msg.bad { color: #ff6b6b; }
+    .discount-line { display: flex; justify-content: space-between; color: var(--accent); font-size: 0.92rem; padding: 10px 0 0; }
+    .order-total s { color: var(--text-dimmer); font-size: 1.1rem; font-weight: 500; margin-right: 6px; }
 
     .trust-note { display: flex; align-items: center; gap: 8px; color: var(--text-dimmer); font-size: 0.8rem; margin-top: auto; padding-top: 20px; }
 
@@ -93,7 +111,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -155,16 +173,28 @@
                     </ul>
                 </div>
             </div>
+            <div class="discount-box">
+                <label for="discount-code">Discount code</label>
+                <div class="discount-input">
+                    <input type="text" id="discount-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. NOVA10">
+                    <button type="button" id="apply-code" class="btn btn-outline">Apply</button>
+                </div>
+                <p class="discount-msg" id="discount-msg" role="status"></p>
+            </div>
+            <div class="discount-line" id="discount-line" hidden>
+                <span id="discount-label">Discount</span>
+                <span id="discount-amount"></span>
+            </div>
             <div class="order-total">
                 <span class="label">Total due today</span>
-                <span class="amount" id="order-total-amount">&pound;350</span>
+                <span class="amount"><s id="order-list-price" hidden></s> <span id="order-total-amount">&pound;350</span></span>
             </div>
 
             <div class="next-steps">
                 <h3>What Happens Next</h3>
                 <ul>
                     <li><span class="step-num">1</span> Instant booking confirmation by email</li>
-                    <li><span class="step-num">2</span> We contact you within 24 hours to kick things off</li>
+                    <li><span class="step-num">2</span> We contact you within one business day to kick things off</li>
                     <li><span class="step-num">3</span> Your site is delivered on the timeline above</li>
                 </ul>
             </div>
@@ -214,6 +244,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -248,6 +279,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>
@@ -274,15 +306,81 @@
 
     const pkgSelect = document.getElementById('pkg-select');
     const totalAmountEl = document.getElementById('order-total-amount');
+    const listPriceEl = document.getElementById('order-list-price');
+    const discountLine = document.getElementById('discount-line');
+    const codeInput = document.getElementById('discount-code');
+    const codeMsg = document.getElementById('discount-msg');
     const form = document.getElementById('checkout-form');
     const payBtn = document.getElementById('pay-btn');
     const errorEl = document.getElementById('checkout-error');
+
+    // Mirror of lib/pricing.js so the customer sees the same price the server charges.
+    // The server is the source of truth: if they ever disagree we show the server's price.
+    let offers = null;
+    let appliedCode = '';
+
+    function seasonalActive() {
+        const s = offers && offers.seasonal;
+        if (!s || !s.enabled || !s.endsAt) return null;
+        const now = Date.now();
+        if (s.startsAt && now < Date.parse(s.startsAt)) return null;
+        if (now >= Date.parse(s.endsAt)) return null;
+        return s;
+    }
+    function discountFor(o, list) {
+        if (o.amountOffPence) return Math.min(o.amountOffPence, list);
+        if (o.percentOff) return Math.round(list * o.percentOff / 100);
+        return 0;
+    }
+    function codeIsValid(code) {
+        const p = offers && offers.popupDiscount;
+        return !!(p && p.enabled && code && code.toUpperCase() === String(p.code).toUpperCase());
+    }
+    function priceFor(pkgKey) {
+        const list = packages[pkgKey].amount;
+        const cands = [];
+        if (codeIsValid(appliedCode)) cands.push({ label: offers.popupDiscount.label, pence: discountFor(offers.popupDiscount, list) });
+        const s = seasonalActive();
+        if (s) cands.push({ label: s.label, pence: discountFor(s, list) });
+        const best = cands.sort((a, b) => b.pence - a.pence)[0] || null;
+        return { list, discount: best, amount: list - (best ? best.pence : 0) };
+    }
+    const gbp = pence => '£' + (pence / 100).toFixed(pence % 100 ? 2 : 0);
 
     function renderSelection() {
         Array.from(pkgSelect.children).forEach(el => {
             el.classList.toggle('selected', el.dataset.pkg === selectedPkg);
         });
-        totalAmountEl.textContent = packages[selectedPkg].price;
+        const p = priceFor(selectedPkg);
+        totalAmountEl.textContent = gbp(p.amount);
+        listPriceEl.hidden = !p.discount;
+        listPriceEl.textContent = gbp(p.list);
+        discountLine.hidden = !p.discount;
+        if (p.discount) {
+            document.getElementById('discount-label').textContent = p.discount.label;
+            document.getElementById('discount-amount').textContent = '−' + gbp(p.discount.pence);
+        }
+        // Keep Elements' amount in sync with what the server will charge
+        if (elements) elements.update({ amount: p.amount });
+    }
+
+    function applyCode(code, quiet) {
+        code = (code || '').trim().toUpperCase();
+        codeInput.value = code;
+        if (!code) { appliedCode = ''; codeMsg.textContent = ''; codeMsg.className = 'discount-msg'; renderSelection(); return; }
+        if (!offers) { appliedCode = code; codeMsg.textContent = 'Checking code…'; return; }
+        if (codeIsValid(code)) {
+            appliedCode = code;
+            const best = priceFor(selectedPkg).discount;
+            codeMsg.textContent = best && best.label !== offers.popupDiscount.label
+                ? 'Code accepted, but the ' + best.label + ' saves you more, so that has been applied instead.'
+                : offers.popupDiscount.label + ' applied.';
+            codeMsg.className = 'discount-msg ok';
+        } else {
+            appliedCode = '';
+            if (!quiet) { codeMsg.textContent = "That code isn't valid."; codeMsg.className = 'discount-msg bad'; }
+        }
+        renderSelection();
     }
 
     let elements = null;
@@ -293,14 +391,20 @@
             if (processing) return;
             selectedPkg = el.dataset.pkg;
             renderSelection();
-            // Keep Elements' amount in sync with what the server will charge for this package
-            if (elements) {
-                elements.update({ amount: packages[selectedPkg].amount });
-            }
         });
     });
+    document.getElementById('apply-code').addEventListener('click', () => { if (!processing) applyCode(codeInput.value); });
+    codeInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (!processing) applyCode(codeInput.value); } });
+
+    // Pre-fill a code from the link (?code=) or one the visitor got from the popup
+    let savedCode = params.get('code') || '';
+    try { savedCode = savedCode || localStorage.getItem('yn_discount_code') || ''; } catch (_) {}
 
     renderSelection();
+    fetch('/offers.json', { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : null)
+        .then(o => { offers = o; applyCode(appliedCode || savedCode, !params.get('code')); })
+        .catch(() => { offers = null; });
 
     if (!STRIPE_PUBLISHABLE_KEY || STRIPE_PUBLISHABLE_KEY.indexOf('__STRIPE') === 0) {
         errorEl.textContent = 'Payments are not configured yet. Please contact us directly to book your project.';
@@ -312,7 +416,7 @@
     const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
     elements = stripe.elements({
         mode: 'payment',
-        amount: packages[selectedPkg].amount,
+        amount: priceFor(selectedPkg).amount,
         currency: 'gbp',
         paymentMethodTypes: ['card'],
         appearance: {
@@ -373,7 +477,7 @@
             const res = await fetch('/api/create-payment-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pkg, name, email, phone, details })
+                body: JSON.stringify({ pkg, name, email, phone, details, code: appliedCode })
             });
             const data = await res.json().catch(() => ({}));
 
@@ -385,9 +489,15 @@
                 return;
             }
 
-            if (data.amount !== packages[pkg].amount) {
-                console.error('Amount mismatch: Elements has', packages[pkg].amount, 'but server created', data.amount);
-                showError(FRIENDLY_ERROR);
+            const shown = priceFor(pkg).amount;
+            if (data.amount !== shown) {
+                // e.g. an offer ended while the page was open. Never charge a price the customer hasn't seen.
+                console.error('Amount mismatch: page showed', shown, 'but server priced', data.amount);
+                totalAmountEl.textContent = gbp(data.amount);
+                elements.update({ amount: data.amount });
+                showError('The price has been updated to ' + gbp(data.amount) + '. Please check it and press Pay again.');
+                // Reload the current offers so the page and server agree on the next attempt
+                fetch('/offers.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(o => { if (o) { offers = o; applyCode(appliedCode, true); } }).catch(() => {});
                 resetButton();
                 return;
             }

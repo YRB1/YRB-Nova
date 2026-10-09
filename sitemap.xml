@@ -1,134 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://yrbnova.com/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/about.html</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/work.html</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yrbnova.com/ben.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://yrbnova.com/services.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/web-design-leicester.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/websites-for-electricians.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/websites-for-plumbers.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/websites-for-restaurants.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/websites-for-barbers.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/websites-for-cleaners.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/web-design-loughborough.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/web-design-nottingham.html</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/contact.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yrbnova.com/free-website-audit.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/work.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/yrb-supreme.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/clientsniper.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/anaya-fashion-nest-live.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/epiphany.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/styled-by-ky.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/elite-electric.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/eliteflow.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/anaya-fashion-nest.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/hopewell-trust.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/executive-producer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/ember-oak.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/meridian-property.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/forge-fitness.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/blade-crown.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yrbnova.com/portfolio/brightside-cleaning.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/about.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/contact.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/web-design-leicester.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/web-design-loughborough.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/web-design-nottingham.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/websites-for-electricians.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/websites-for-plumbers.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/websites-for-restaurants.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/websites-for-barbers.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/websites-for-cleaners.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yrbnova.com/blog/index.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yrbnova.com/blog/see-your-website-before-you-pay.html</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://yrbnova.com/blog/website-cost-uk-2026.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://yrbnova.com/blog/signs-website-losing-customers.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://yrbnova.com/blog/why-tradespeople-need-a-website.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://yrbnova.com/cookie-policy.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <loc>https://yrbnova.com/blog/see-your-website-before-you-pay.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/privacy-policy.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://yrbnova.com/privacy-policy.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <loc>https://yrbnova.com/cookie-policy.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://yrbnova.com/terms-and-conditions.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://yrbnova.com/refund-cancellation.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

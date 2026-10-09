@@ -1,10 +1,5 @@
 const Stripe = require('stripe');
-
-const PACKAGES = {
-    basic: { name: 'Basic Website Package', amount: 35000 },
-    standard: { name: 'Standard Website Package', amount: 60000 },
-    premium: { name: 'Premium Website Package', amount: 80000 }
-};
+const { priceFor, isValidCode } = require('../lib/pricing');
 
 module.exports = async (req, res) => {
     if (req.method !== 'POST') {
@@ -20,10 +15,16 @@ module.exports = async (req, res) => {
 
     try {
         const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-        const selected = PACKAGES[body.pkg];
+        const code = (body.code || '').trim();
+        const price = priceFor(body.pkg, code);
 
-        if (!selected) {
+        if (!price) {
             return res.status(400).json({ error: 'Invalid package selected' });
+        }
+        // A code was entered but isn't a real live code: tell the customer rather than silently charging full price.
+        // (A valid code that's beaten by a bigger seasonal offer is fine - the customer gets the bigger discount.)
+        if (code && !isValidCode(code)) {
+            return res.status(400).json({ error: "That discount code isn't valid. Remove it to continue at the full price." });
         }
 
         const name = (body.name || '').trim();
@@ -39,14 +40,17 @@ module.exports = async (req, res) => {
         }
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: selected.amount,
+            amount: price.amount,
             currency: 'gbp',
             receipt_email: email,
-            description: `YRB Nova - ${selected.name}`,
+            description: `YRB Nova - ${price.pkg.name}` + (price.discount ? ` (${price.discount.label})` : ''),
             payment_method_types: ['card'],
             metadata: {
                 package: body.pkg,
-                package_name: selected.name,
+                package_name: price.pkg.name,
+                list_price_pence: String(price.listPence),
+                discount_pence: String(price.discountPence),
+                discount: price.discount ? (price.discount.code || price.discount.id || price.discount.label) : '',
                 customer_name: name.slice(0, 250),
                 customer_phone: phone.slice(0, 60),
                 project_details: details.slice(0, 480)
@@ -55,8 +59,8 @@ module.exports = async (req, res) => {
 
         return res.status(200).json({
             clientSecret: paymentIntent.client_secret,
-            amount: selected.amount,
-            packageName: selected.name
+            amount: price.amount,
+            packageName: price.pkg.name
         });
     } catch (err) {
         console.error('PaymentIntent creation error:', err);

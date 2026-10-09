@@ -57,7 +57,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -75,8 +75,8 @@
     <div class="container">
         <div class="status-icon">&#10003;</div>
         <p class="eyebrow" style="justify-content:center;">Payment Received</p>
-        <h1 style="max-width:640px; margin:0 auto 20px;">Thanks, your project is officially booked in</h1>
-        <p class="lede" style="max-width:560px; margin:0 auto 36px;">We've got your payment and the details you shared with us. We'll be in touch within one business day to kick things off.</p>
+        <h1 id="ps-title" style="max-width:640px; margin:0 auto 20px;">Thanks, your project is officially booked in</h1>
+        <p id="ps-text" class="lede" style="max-width:560px; margin:0 auto 36px;">We've got your payment and the details you shared with us. We'll be in touch within one business day to kick things off.</p>
         <div class="btn-row" style="justify-content:center;">
             <a href="index.html" class="btn btn-primary">Back to Home</a>
             <a href="work.html" class="btn btn-outline">See Our Work</a>
@@ -91,6 +91,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -125,6 +126,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>
@@ -136,6 +138,13 @@
 </footer>
 
 <script src="main.js"></script>
+<script>
+// Hosting & support subscriptions return here with ?hosting=1
+if (new URLSearchParams(location.search).get("hosting") === "1") {
+    document.getElementById("ps-title").textContent = "Thanks, your hosting & support is set up";
+    document.getElementById("ps-text").textContent = "Your subscription is active and you'll get a receipt from Stripe by email. We'll be in touch within one business day if we need anything from you.";
+}
+</script>
 <script>
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');

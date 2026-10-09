@@ -1,0 +1,20 @@
+{
+  "_readme": "Single source of truth for discounts. Read by the site (banner, popup, checkout display) AND by api/create-payment-intent.js, which is what actually charges the customer. Discounts never stack: the checkout applies whichever single discount saves the customer the most.",
+  "popupDiscount": {
+    "enabled": true,
+    "code": "NOVA10",
+    "percentOff": 10,
+    "label": "10% off your website"
+  },
+  "seasonal": {
+    "_readme": "Set enabled to true and fill in the offer to switch it on. It only applies between startsAt and endsAt (UTC, ISO format), then switches itself off everywhere automatically. Use either amountOffPence or percentOff, not both.",
+    "enabled": true,
+    "id": "christmas-2026",
+    "label": "Christmas offer (20% off)",
+    "bannerText": "Christmas offer: 20% off any website booked before 24 December",
+    "amountOffPence": null,
+    "percentOff": 20,
+    "startsAt": "2026-10-09T00:00:00Z",
+    "endsAt": "2026-12-24T00:00:00Z"
+  }
+}

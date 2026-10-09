@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Design Portfolio &amp; Live Demos | YRB Nova</title>
-<meta name="description" content="Explore recent website design projects by YRB Nova, from tradespeople and local services to portfolios and e-commerce, built to convert visitors into customers.">
+<meta name="description" content="Website design portfolio and 10 live demo sites by YRB Nova: trades, barbers, cleaners, restaurants, gyms, shops and more. Click through them on your phone.">
 <link rel="canonical" href="https://yrbnova.com/work.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,15 @@
 <link rel="stylesheet" href="styles.css">
 
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="YRB Nova">
 <meta property="og:title" content="Our Work | YRB Nova Website Design Case Studies">
-<meta property="og:description" content="Recent website design projects by YRB Nova, from tradespeople and local services to portfolios and e-commerce.">
+<meta property="og:description" content="Website design portfolio and 10 live demo sites by YRB Nova: trades, barbers, cleaners, restaurants, gyms, shops and more. Click through them on your phone.">
 <meta property="og:url" content="https://yrbnova.com/work.html">
 <meta property="og:image" content="https://yrbnova.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YRB Nova: custom websites for UK small businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 
@@ -27,7 +32,7 @@
     .case-grid.reverse .case-media { order: 2; }
     .case-media { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
     .case-media img { width: 100%; display: block; aspect-ratio: 1280 / 655; object-fit: cover; }
-    .case-tag { display:inline-block; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#06060a; background:var(--accent-gradient); font-weight:700; padding:5px 12px; border-radius:100px; transform:rotate(-2deg); margin-bottom:16px; }
+    .case-tag { display:inline-block; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:#06060a; background:var(--accent-gradient); font-weight:700; padding:5px 12px; border-radius:100px; transform:rotate(-2deg); margin-bottom:16px; }
     .case-stats { display: flex; gap: 30px; margin-top: 26px; flex-wrap: wrap; }
     .case-stats div strong { display:block; font-family: var(--font-display); font-size: 1.5rem; }
     .case-stats div span { color: var(--text-dim); font-size: 0.82rem; }
@@ -37,6 +42,26 @@
         .case-study { padding: 50px 0; }
     }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://yrbnova.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Work",
+      "item": "https://yrbnova.com/work.html"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -70,7 +95,7 @@
 
 <header class="site-header">
     <nav>
-        <a href="index.html" class="site-logo"><img src="logo-mark.png" alt="YRB Nova" class="nav-logo-img"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
+        <a href="index.html" class="site-logo"><img src="logo-mark.webp" alt="YRB Nova" class="nav-logo-img" width="118" height="80"><span class="nav-logo-text">YRB <span>NOVA</span></span></a>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon"><span></span><span></span><span></span></label>
         <ul class="nav-links">
@@ -79,7 +104,7 @@
             <li><a href="work.html" class="active">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="services.html#pricing" class="nav-cta">Start a Project</a></li>
+            <li><a href="free-website-audit.html" class="nav-cta">Free Website Audit</a></li>
         </ul>
     </nav>
 </header>
@@ -87,22 +112,79 @@
 <section class="page-hero has-media">
     <div class="page-hero-media">
         <div class="hero-slideshow">
-            <div class="slide active"><img src="portfolio/elite-electric.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/eliteflow.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/anaya-fashion-nest.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/hopewell-trust.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/executive-producer.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/ember-oak.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/meridian-property.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/forge-fitness.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/blade-crown.jpg" alt="" role="presentation"></div>
-            <div class="slide"><img src="portfolio/brightside-cleaning.jpg" alt="" role="presentation"></div>
+            <div class="slide active"><img fetchpriority="high" src="portfolio/elite-electric.webp" width="960" height="486" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/eliteflow.webp" width="960" height="488" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/anaya-fashion-nest.webp" width="960" height="487" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/hopewell-trust.webp" width="960" height="494" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/executive-producer.webp" width="960" height="491" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/ember-oak.webp" width="960" height="486" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/meridian-property.webp" width="960" height="486" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/forge-fitness.webp" width="960" height="486" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/blade-crown.webp" width="960" height="486" alt="" role="presentation"></div>
+            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/brightside-cleaning.webp" width="960" height="486" alt="" role="presentation"></div>
         </div>
     </div>
     <div class="container">
         <p class="eyebrow">Our Work</p>
-        <h1>Real businesses, real reinventions</h1>
-        <p class="lede">A look at recent projects. Every one is built around the business behind it, not a template dressed up to look custom.</p>
+        <h1>Live demo sites, built from scratch</h1>
+        <p class="lede">Ten full, clickable concept websites we designed for different kinds of business, so you can see exactly what we build before you book. Every one is built around the business, not a template dressed up to look custom.</p>
+    </div>
+</section>
+
+<section class="section" id="live-work">
+    <div class="container text-center">
+        <p class="eyebrow mx-auto" style="justify-content:center;">Real Work</p>
+        <h2>Live websites I've built</h2>
+        <p class="lede mx-auto">Real sites you can visit right now, from my own brands to businesses I've built for.</p>
+    </div>
+    <div class="container">
+        <div class="live-grid" style="margin-top:50px;">
+            <a href="https://www.yrbsupreme.com/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/yrb-supreme.webp" width="960" height="486" alt="YRB Supreme jewellery shop website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag own">Own brand · E-commerce</span>
+                    <h3>YRB Supreme</h3>
+                    <p>My own UK jewellery brand: a full online shop with product pages, a cart, secure Stripe checkout and seasonal sales.</p>
+                    <span class="visit">Visit yrbsupreme.com &rarr;</span>
+                </div>
+            </a>
+            <a href="https://www.clientsniperofficial.com/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/clientsniper.webp" width="960" height="486" alt="ClientSniper lead-finding platform website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag own">Own product · Web app</span>
+                    <h3>ClientSniper</h3>
+                    <p>My own lead-finding platform that helps freelancers and agencies find local businesses with missing or outdated websites.</p>
+                    <span class="visit">Visit clientsniperofficial.com &rarr;</span>
+                </div>
+            </a>
+            <a href="https://yrb1.github.io/MillyShop/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/anaya-fashion-nest-live.webp" width="960" height="486" alt="Anaya Fashion Nest boutique website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Fashion retail</span>
+                    <h3>Anaya Fashion Nest</h3>
+                    <p>A boutique website for a clothes, shoes, bags and perfume shop in Kampala, Uganda, with a shop, gallery and WhatsApp contact.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+            <a href="https://yrb1.github.io/Epiphany/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/epiphany.webp" width="960" height="486" alt="Epiphany Foster Care fostering agency website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Fostering agency</span>
+                    <h3>Epiphany Foster Care</h3>
+                    <p>A website for an independent fostering agency, with information for foster carers, referral routes for local authorities and a staff portal.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+            <a href="https://styledbykyx-website.vercel.app/" target="_blank" rel="noopener" class="live-card">
+                <img src="portfolio/clients/styled-by-ky.webp" width="960" height="486" alt="Styled By KY hair stylist website homepage" loading="lazy" decoding="async">
+                <div class="live-info">
+                    <span class="tag">Client · Hair stylist</span>
+                    <h3>Styled By KY</h3>
+                    <p>A website for an Afro and black hair stylist in Derby, with prices, a gallery, reviews and online booking.</p>
+                    <span class="visit">Visit the live site &rarr;</span>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -112,12 +194,12 @@
         <div class="case-study" id="elite-electric">
             <div class="case-grid">
                 <div class="case-media">
-                    <img src="portfolio/elite-electric.jpg" alt="Elite Electric website homepage designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/elite-electric.webp" width="960" height="486" alt="Elite Electric website homepage designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Local Trade · Electrical</span>
+                    <span class="case-tag">Concept demo · Local Trade · Electrical</span>
                     <h2>Elite Electric</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A local electrical business needed a site that built trust with homeowners fast, made services clear at a glance, and turned page visits into phone calls.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a local electrical business needed a site that built trust with homeowners fast, made services clear at a glance, and turned page visits into phone calls.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We built a clean, credibility-first layout with service breakdowns, clear calls-to-action, and a mobile-first design, since most enquiries were coming from phones.</p>
                     <div class="case-stats">
                         <div><strong>2 Days</strong><span>Turnaround</span></div>
@@ -131,12 +213,12 @@
         <div class="case-study" id="new-plumber">
             <div class="case-grid reverse">
                 <div class="case-media">
-                    <img src="portfolio/eliteflow.jpg" alt="Plumber website homepage designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/eliteflow.webp" width="960" height="488" alt="Plumber website homepage designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Local Trade · Plumbing</span>
+                    <span class="case-tag">Concept demo · Local Trade · Plumbing</span>
                     <h2>EliteFlow</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">This plumbing business was relying entirely on word of mouth with no online presence at all. We built a professional site from scratch, showcasing services, booking, and contact features in one clear flow.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> this plumbing business was relying entirely on word of mouth with no online presence at all. We built a professional site from scratch, showcasing services, booking, and contact features in one clear flow.</p>
                     <p class="text-dim" style="color:var(--text-dim);">The goal: make it effortless for a stressed customer with a leaking pipe to find what they need and get in touch immediately.</p>
                     <div class="case-stats">
                         <div><strong>3 Pages</strong><span>Home · Services · Contact</span></div>
@@ -150,12 +232,12 @@
         <div class="case-study" id="anaya">
             <div class="case-grid">
                 <div class="case-media">
-                    <img src="portfolio/anaya-fashion-nest.jpg" alt="Anaya Clothing website homepage designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/anaya-fashion-nest.webp" width="960" height="487" alt="Anaya Clothing website homepage designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">E-Commerce · Fashion</span>
+                    <span class="case-tag">Concept demo · E-Commerce · Fashion</span>
                     <h2>Anaya Fashion Nest</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A clothing brand needed a website that could actually showcase products properly and guide customers through a seamless shopping experience, without feeling like a generic store template.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a clothing brand needed a website that could actually showcase products properly and guide customers through a seamless shopping experience, without feeling like a generic store template.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We focused on clean product presentation, fast page loads, and a layout that puts the clothing front and centre.</p>
                     <div class="case-stats">
                         <div><strong>Premium</strong><span>Package</span></div>
@@ -169,12 +251,12 @@
         <div class="case-study" id="charity">
             <div class="case-grid reverse">
                 <div class="case-media">
-                    <img src="portfolio/hopewell-trust.jpg" alt="Charity donation website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/hopewell-trust.webp" width="960" height="494" alt="Charity donation website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Non-Profit · Donations</span>
+                    <span class="case-tag">Concept demo · Non-Profit · Donations</span>
                     <h2>Hopewell Trust</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A straightforward, user-friendly donation page designed to make supporting the cause simple and accessible on any device, with no unnecessary steps between a visitor and a donation.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a straightforward, user-friendly donation page designed to make supporting the cause simple and accessible on any device, with no unnecessary steps between a visitor and a donation.</p>
                     <div class="case-stats">
                         <div><strong>1 Page</strong><span>Focused Layout</span></div>
                         <div><strong>Fast</strong><span>Load Time</span></div>
@@ -187,12 +269,12 @@
         <div class="case-study" id="music-portfolio">
             <div class="case-grid">
                 <div class="case-media">
-                    <img src="portfolio/executive-producer.jpg" alt="Music portfolio website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/executive-producer.webp" width="960" height="491" alt="Music portfolio website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Portfolio · Music</span>
+                    <span class="case-tag">Concept demo · Portfolio · Music</span>
                     <h2>The Executive Producer</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A clean, focused portfolio built to showcase work clearly and reflect the artist's style and brand, without competing with the music itself for attention.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a clean, focused portfolio built to showcase work clearly and reflect the artist's style and brand, without competing with the music itself for attention.</p>
                     <div class="case-stats">
                         <div><strong>Basic</strong><span>Package</span></div>
                         <div><strong>1 Page</strong><span>Custom Layout</span></div>
@@ -205,12 +287,12 @@
         <div class="case-study" id="ember-oak">
             <div class="case-grid reverse">
                 <div class="case-media">
-                    <img src="portfolio/ember-oak.jpg" alt="Ember and Oak restaurant website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/ember-oak.webp" width="960" height="486" alt="Ember and Oak restaurant website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Hospitality · Fine Dining</span>
+                    <span class="case-tag">Concept demo · Hospitality · Fine Dining</span>
                     <h2>Ember &amp; Oak</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A fire-led restaurant needed a site that matched the intensity of the room: dark, confident, and menu-first, with reservations front and centre.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a fire-led restaurant needed a site that matched the intensity of the room: dark, confident, and menu-first, with reservations front and centre.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We built a moody, editorial layout with a rotating hero, signature dish highlights, and a straight line to booking a table.</p>
                     <div class="case-stats">
                         <div><strong>Standard</strong><span>Package</span></div>
@@ -224,12 +306,12 @@
         <div class="case-study" id="meridian-property">
             <div class="case-grid">
                 <div class="case-media">
-                    <img src="portfolio/meridian-property.jpg" alt="Meridian Property real estate website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/meridian-property.webp" width="960" height="486" alt="Meridian Property real estate website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Real Estate · Luxury Residential</span>
+                    <span class="case-tag">Concept demo · Real Estate · Luxury Residential</span>
                     <h2>Meridian Property</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A residential agency needed a site that felt as premium as the homes it sells, with listings that presented properly instead of looking like a generic template.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a residential agency needed a site that felt as premium as the homes it sells, with listings that presented properly instead of looking like a generic template.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We designed a navy-and-gold luxury aesthetic with a featured listings grid, agent credibility section, and a clear path to booking a viewing.</p>
                     <div class="case-stats">
                         <div><strong>Premium</strong><span>Package</span></div>
@@ -243,12 +325,12 @@
         <div class="case-study" id="forge-fitness">
             <div class="case-grid reverse">
                 <div class="case-media">
-                    <img src="portfolio/forge-fitness.jpg" alt="Forge Fitness gym website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/forge-fitness.webp" width="960" height="486" alt="Forge Fitness gym website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Fitness · Gym &amp; Training</span>
+                    <span class="case-tag">Concept demo · Fitness · Gym &amp; Training</span>
                     <h2>Forge Fitness</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A gym wanted a site with the same energy as walking through the door: bold, dark, and built to convert visitors into free-trial sign-ups.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a gym wanted a site with the same energy as walking through the door: bold, dark, and built to convert visitors into free-trial sign-ups.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We built a high-contrast layout with class breakdowns, transparent membership tiers, and member results front and centre.</p>
                     <div class="case-stats">
                         <div><strong>Standard</strong><span>Package</span></div>
@@ -262,12 +344,12 @@
         <div class="case-study" id="blade-crown">
             <div class="case-grid">
                 <div class="case-media">
-                    <img src="portfolio/blade-crown.jpg" alt="Blade and Crown barber shop website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/blade-crown.webp" width="960" height="486" alt="Blade and Crown barber shop website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Hair &amp; Beauty · Barber Shop</span>
+                    <span class="case-tag">Concept demo · Hair &amp; Beauty · Barber Shop</span>
                     <h2>Blade &amp; Crown Barbers</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A barber shop wanted to stop losing customers to phone tag and walk-in queues, and to look as sharp online as the cuts they deliver.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a barber shop wanted to stop losing customers to phone tag and walk-in queues, and to look as sharp online as the cuts they deliver.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We built a moody, premium design with a clear price list, barber profiles, and a working four-step online booking flow with live time slots and instant confirmation.</p>
                     <div class="case-stats">
                         <div><strong>Online</strong><span>Booking Flow</span></div>
@@ -281,12 +363,12 @@
         <div class="case-study" id="brightside-cleaning">
             <div class="case-grid reverse">
                 <div class="case-media">
-                    <img src="portfolio/brightside-cleaning.jpg" alt="Brightside Cleaning company website designed by YRB Nova" loading="lazy">
+                    <img src="portfolio/brightside-cleaning.webp" width="960" height="486" alt="Brightside Cleaning company website designed by YRB Nova" loading="lazy">
                 </div>
                 <div>
-                    <span class="case-tag">Home Services · Cleaning</span>
+                    <span class="case-tag">Concept demo · Home Services · Cleaning</span>
                     <h2>Brightside Cleaning Co.</h2>
-                    <p class="text-dim" style="color:var(--text-dim);">A cleaning company was spending hours on the phone giving quotes. They wanted customers to see a price and book without waiting for a call-back.</p>
+                    <p class="text-dim" style="color:var(--text-dim);"><strong>The brief:</strong> a cleaning company was spending hours on the phone giving quotes. They wanted customers to see a price and book without waiting for a call-back.</p>
                     <p class="text-dim" style="color:var(--text-dim);">We built a bright, trust-first site with an instant quote calculator: pick the clean type, home size, frequency and extras, and the price updates live.</p>
                     <div class="case-stats">
                         <div><strong>Instant</strong><span>Quote Calculator</span></div>
@@ -304,7 +386,16 @@
     <div class="cta-band">
         <h2>Want to see your business here next?</h2>
         <p>Tell us about your project and we'll get back to you within one business day.</p>
-        <a href="services.html#pricing" class="btn btn-primary">Start a Project</a>
+        <div class="btn-row" style="justify-content:center;">
+            <a href="free-website-audit.html" class="btn btn-primary">Get a Free Website Audit</a>
+            <a href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" class="btn btn-outline" data-cal-link="yrb-nova-a1ionp/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"}'>Book a Free 15-Min Call</a>
+        </div>
+        <ul class="trust-strip">
+            <li>Fixed prices from £350</li>
+            <li>Live in 2-5 days</li>
+            <li>Built from scratch, not templates</li>
+            <li><a href="work.html">10 live demo sites</a></li>
+        </ul>
     </div>
 </section>
 
@@ -314,6 +405,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">YRB <span>Nova</span></div>
                 <p class="footer-tagline">Your reinvention partner for websites that work as hard as you do.</p>
+                <p class="footer-owner">Run by Ben &middot; Leicestershire, UK</p>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
@@ -348,6 +440,7 @@
                     <a href="cookie-policy.html">Cookie Policy</a>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <a href="refund-cancellation.html">Refunds &amp; Cancellations</a>
                 </div>
             </div>
         </div>
