@@ -1,0 +1,92 @@
+/* Lumen Skin Clinic — luxurious, editorial, high-end. Near-black + champagne + blush, Cormorant Garamond + Manrope. */
+:root {
+    --k-font-head: 'Cormorant Garamond', Georgia, serif;
+    --k-font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --k-head-weight: 500;
+    --k-head-tracking: 0;
+    --k-bg: #121010;
+    --k-ink: #E7DFD5;
+    --k-ink-strong: #FAF7F2;
+    --k-ink-soft: #ADA397;
+    --k-primary: #D9C3A5;
+    --k-primary-hover: #E8D6BC;
+    --k-on-primary: #17130E;
+    --k-primary-shadow: rgba(217, 195, 165, 0.18);
+    --k-primary-soft: rgba(217, 195, 165, 0.12);
+    --k-accent: #EADBD3;
+    --k-on-accent: #241B17;
+    --k-accent-text: #D9C3A5;
+    --k-link: #E2CFB2;
+    --k-focus: #EADBD3;
+    --k-line: rgba(217, 195, 165, 0.16);
+    --k-line-strong: rgba(217, 195, 165, 0.3);
+    --k-input-bg: rgba(255, 255, 255, 0.05);
+    --k-glass-bg: rgba(30, 26, 24, 0.55);
+    --k-glass-border: rgba(217, 195, 165, 0.22);
+    --k-glass-highlight: rgba(255, 255, 255, 0.06);
+    --k-glass-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+    --k-glass-blur: 22px;
+    --k-overlay-bg: rgba(18, 16, 16, 0.92);
+    --k-radius: 6px;
+    --k-radius-lg: 10px;
+    --k-radius-xl: 14px;
+    --k-btn-radius: 2px;
+    --k-urgent-bg: #3A2A22;
+    --k-urgent-ink: #EADBD3;
+    --k-ok-bg: rgba(160, 196, 160, 0.16);
+    --k-ok-ink: #B9D8B4;
+    --k-error: #F0A898;
+    --k-star: #D9C3A5;
+    --k-map-bg: #1E1A18;
+    --k-map-road: #2E2825;
+    --k-map-block: #262120;
+    --k-map-park: #23281F;
+    --k-phone-bg: linear-gradient(160deg, #221D1A 0%, #0D0B0A 100%);
+    --k-phone-ink: #F3ECE3;
+    --k-bubble-ai: rgba(217, 195, 165, 0.12);
+    --k-bubble-ai-ink: #F3ECE3;
+    --k-bubble-caller: #EADBD3;
+    --k-bubble-caller-ink: #241B17;
+    --k-wave: #D9C3A5;
+    --k-wave-caller: #EADBD3;
+    --k-glow-opacity: 0.35;
+}
+body {
+    background:
+        radial-gradient(1000px 600px at 100% 0%, rgba(140, 107, 74, 0.25), transparent 60%),
+        radial-gradient(900px 700px at -10% 50%, rgba(90, 74, 85, 0.25), transparent 60%),
+        var(--k-bg);
+    background-attachment: fixed;
+    letter-spacing: 0.005em;
+}
+h1 { font-size: clamp(2.8rem, 9vw, 5.2rem); line-height: 1.02; }
+h2 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); line-height: 1.05; }
+h1 em, h2 em { font-style: italic; }
+.k-eyebrow { letter-spacing: 0.24em; font-weight: 500; font-size: 0.78rem; }
+.k-eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.k-btn { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; font-weight: 700; }
+.k-btn-primary { box-shadow: none; }
+.k-logo span { font-family: var(--k-font-body); letter-spacing: 0.32em; font-weight: 500; font-size: 0.95rem; }
+.k-logo .logo-sub { display: block; letter-spacing: 0.2em; font-size: 0.75rem; opacity: 0.75; margin: 2px 0 0; }
+.k-logo { line-height: 1.1; }
+.k-header .k-bar { border-radius: 4px; }
+.k-hero-media { border-radius: 2px; aspect-ratio: 4 / 5; }
+.k-hero-media::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(217, 195, 165, 0.5); pointer-events: none; }
+.k-hero .k-pill { background: transparent; border: 1px solid var(--k-line-strong); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; }
+.k-glass { border-top-color: rgba(217, 195, 165, 0.35); }
+.k-icon { background: transparent; border: 1px solid var(--k-line-strong); border-radius: 50%; color: var(--k-primary); }
+.k-service img { filter: saturate(0.85) contrast(1.05); }
+.k-service:hover img { filter: none; }
+.k-steps li::before { background: transparent; border: 1px solid var(--k-primary); color: var(--k-primary); font-family: var(--k-font-head); font-size: 1.2rem; }
+.k-price-table td:last-child { font-family: var(--k-font-head); font-size: 1.25rem; font-weight: 600; }
+.k-review blockquote { font-family: var(--k-font-head); font-size: 1.35rem; font-style: italic; line-height: 1.35; }
+.k-urgent { border-bottom: 1px solid rgba(217, 195, 165, 0.2); }
+.k-urgent a { color: #F1E3CB; }
+.offer-band { background: linear-gradient(120deg, rgba(234, 219, 211, 0.12), rgba(217, 195, 165, 0.06)); }
+.k-footer { border-top: 1px solid var(--k-line); margin-top: 40px; color: var(--k-ink-soft); }
+.k-footer h2 { color: var(--k-primary); font-family: var(--k-font-body); letter-spacing: 0.24em; font-weight: 500; }
+.k-footer a, .k-footer .k-logo { color: var(--k-ink-strong); }
+.k-footer-bottom { border-top: 1px solid var(--k-line); }
+.k-cookie p a { color: var(--k-link); }
+.k-option[aria-pressed="true"] { background: rgba(217, 195, 165, 0.14); }
+select option { background: #1E1A18; color: #E7DFD5; }

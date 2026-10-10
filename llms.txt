@@ -16,6 +16,11 @@
 - [Web design in Loughborough](https://yrbnova.com/web-design-loughborough.html)
 - [Web design in Nottingham](https://yrbnova.com/web-design-nottingham.html)
 
+## AI receptionist & healthcare groups
+
+- [YRB VoiceDesk AI receptionist](https://yrbnova.com/voicedesk.html): answers calls 24/7, books appointments, transfers urgent calls to a human. £299/month + £500 setup (setup waived with a new website).
+- [Websites for healthcare groups](https://yrbnova.com/healthcare.html): multi-location sites for dental, vet and aesthetics groups from £3,000, with live demos.
+
 ## About
 
 - [About YRB Nova](https://yrbnova.com/about.html)

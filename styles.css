@@ -1114,3 +1114,74 @@ footer.site-footer {
 .hosting-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-gradient); color: #06060a; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
 .hosting-error { color: #ff6b6b; text-align: center; margin: 14px 0 0; min-height: 1em; font-size: 0.9rem; }
 @media (max-width: 600px) { .hosting-plans { grid-template-columns: 1fr; } }
+
+/* =========================
+   YRB VoiceDesk (AI receptionist) page + homepage teaser
+========================= */
+.vd-note { color: var(--text-dimmer); font-size: 0.85rem; margin-top: 14px; }
+.vd-live { margin-top: 30px; }
+.vd-live-card { position: relative; display: grid; gap: 18px; align-items: center; padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--accent); background: linear-gradient(140deg, rgba(79, 201, 171, 0.12), rgba(139, 128, 224, 0.1)); overflow: hidden; }
+@media (min-width: 860px) { .vd-live-card { grid-template-columns: 1.3fr auto auto; } }
+.vd-live-card h3 { margin-bottom: 6px; }
+.vd-live-card p { color: var(--text-dim); margin: 0; }
+.vd-live-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.vd-call-phone { font-size: 1.05rem; padding: 16px 26px; }
+.vd-orb { width: 74px; height: 74px; position: relative; margin: 0 auto; }
+.vd-orb span { position: absolute; inset: 0; border-radius: 50%; background: var(--accent-gradient); opacity: 0.25; }
+.vd-orb span:nth-child(2) { inset: 12px; opacity: 0.45; }
+.vd-orb span:nth-child(3) { inset: 24px; opacity: 1; }
+.vd-orb[data-state="listening"] span:first-child { animation: vd-pulse 1.8s ease-in-out infinite; }
+.vd-orb[data-state="speaking"] span { animation: vd-pulse 0.7s ease-in-out infinite; }
+.vd-orb[data-state="speaking"] span:nth-child(2) { animation-delay: -0.2s; }
+@keyframes vd-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+.vd-live-status { grid-column: 1 / -1; font-weight: 600; color: var(--text) !important; min-height: 1.4em; }
+.vd-features .icon { font-size: 1.3rem; }
+.vd-calc { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .vd-calc { grid-template-columns: 1.1fr 1fr; gap: 60px; } }
+.vd-field { margin: 22px 0; }
+.vd-field label { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; margin-bottom: 10px; }
+.vd-field output { font-family: var(--font-display); color: var(--accent); font-weight: 700; }
+.vd-field input[type="range"] { width: 100%; accent-color: var(--accent); height: 28px; cursor: pointer; }
+.vd-calc-result { background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 34px 30px; }
+.vd-calc-label { color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; font-weight: 700; margin: 0 0 6px; }
+.vd-big { font-family: var(--font-display); font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 700; margin: 0; line-height: 1.1; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.vd-big small { display: block; font-size: 0.95rem; font-family: var(--font-body); color: var(--text-dim); -webkit-text-fill-color: var(--text-dim); font-weight: 500; margin-bottom: 14px; }
+.vd-big.alt { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+.vd-calc-foot { color: var(--text-dimmer); font-size: 0.82rem; margin: 6px 0 20px; }
+.vd-steps { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 860px) { .vd-steps { grid-template-columns: 1fr; } }
+.vd-list { list-style: none; margin: 0; padding: 0; }
+.vd-list li { padding: 12px 0 12px 30px; position: relative; border-bottom: 1px dashed var(--line); color: var(--text-dim); }
+.vd-list li:last-child { border-bottom: 0; }
+.vd-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+.vd-list strong { color: var(--text); }
+/* Homepage teaser: mini looping transcript */
+.vd-teaser { display: grid; gap: 34px; align-items: center; }
+@media (min-width: 900px) { .vd-teaser { grid-template-columns: 1fr 1fr; gap: 60px; } }
+.vd-mini { background: linear-gradient(160deg, #1b1b22, #0b0b0e); border: 1px solid var(--line-strong); border-radius: 26px; padding: 18px; min-height: 290px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.vd-mini-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-dim); padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.vd-mini-top b { color: var(--accent); }
+.vd-mini-msg { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 0.92rem; line-height: 1.45; animation: vd-in 0.4s ease both; }
+.vd-mini-msg.ai { align-self: flex-start; background: rgba(79, 201, 171, 0.16); border-bottom-left-radius: 5px; }
+.vd-mini-msg.caller { align-self: flex-end; background: #8b80e0; color: #fff; border-bottom-right-radius: 5px; }
+.vd-mini-msg.event { align-self: center; font-size: 0.8rem; font-weight: 700; color: var(--accent); background: transparent; border: 1px dashed rgba(79, 201, 171, 0.4); }
+@keyframes vd-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .vd-mini-msg { animation: none; } }
+
+/* =========================
+   Healthcare groups page
+========================= */
+.hc-demos { display: grid; gap: 26px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .hc-demos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .hc-demos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.hc-demos .live-card img { aspect-ratio: 960 / 535; }
+.hc-form { margin-top: 34px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 30px; }
+.hc-row { margin-bottom: 16px; }
+.hc-row label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 6px; }
+.hc-row input, .hc-row select, .hc-row textarea { width: 100%; padding: 13px 14px; background: var(--bg-alt); color: var(--text); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 1rem; }
+.hc-row input:focus, .hc-row select:focus, .hc-row textarea:focus { outline: none; border-color: var(--accent); }
+.hc-grid { display: grid; grid-template-columns: 1fr; gap: 0 16px; }
+@media (min-width: 600px) { .hc-grid { grid-template-columns: 1fr 1fr; } }
+.hc-msg { margin: 14px 0 0; text-align: center; min-height: 1.2em; }
+.hc-msg.ok { color: var(--accent); font-weight: 600; }
+.hc-msg.bad { color: #ff6b6b; }

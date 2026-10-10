@@ -1,0 +1,82 @@
+/* Hollow Oak Vets — friendly, warm, natural. Oatmeal + moss + oak + honey, Bricolage Grotesque + Nunito Sans. */
+:root {
+    --k-font-head: 'Bricolage Grotesque', system-ui, sans-serif;
+    --k-font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --k-head-weight: 700;
+    --k-head-tracking: -0.02em;
+    --k-bg: #F7F1E6;
+    --k-ink: #33362D;
+    --k-ink-strong: #1F2A1C;
+    --k-ink-soft: #5F6457;
+    --k-primary: #3E6B48;
+    --k-primary-hover: #315A3A;
+    --k-on-primary: #FFFFFF;
+    --k-primary-shadow: rgba(62, 107, 72, 0.3);
+    --k-primary-soft: rgba(62, 107, 72, 0.11);
+    --k-accent: #F4C26B;
+    --k-on-accent: #3B2A0B;
+    --k-accent-text: #8B5E3C;
+    --k-link: #3E6B48;
+    --k-focus: #C77F1E;
+    --k-line: rgba(62, 64, 45, 0.12);
+    --k-line-strong: rgba(62, 64, 45, 0.24);
+    --k-input-bg: rgba(255, 255, 255, 0.88);
+    --k-glass-bg: rgba(255, 253, 246, 0.6);
+    --k-glass-border: rgba(255, 255, 255, 0.9);
+    --k-glass-highlight: rgba(255, 255, 255, 0.95);
+    --k-glass-shadow: 0 16px 40px -18px rgba(62, 80, 50, 0.3);
+    --k-glass-blur: 16px;
+    --k-overlay-bg: rgba(247, 241, 230, 0.92);
+    --k-radius: 20px;
+    --k-radius-lg: 28px;
+    --k-radius-xl: 36px;
+    --k-urgent-bg: #B5462F;
+    --k-urgent-ink: #FFFFFF;
+    --k-ok-bg: #DDEBD6;
+    --k-ok-ink: #2F6B35;
+    --k-error: #A63A24;
+    --k-star: #E0A21F;
+    --k-map-bg: #E9E2CC;
+    --k-map-road: #FFFDF7;
+    --k-map-block: #DCD3B8;
+    --k-map-park: #C8DDB8;
+    --k-phone-bg: linear-gradient(160deg, #3E6B48 0%, #24402B 100%);
+    --k-phone-ink: #FBF6EA;
+    --k-bubble-ai: rgba(255, 255, 255, 0.14);
+    --k-bubble-ai-ink: #FBF6EA;
+    --k-bubble-caller: #F4C26B;
+    --k-bubble-caller-ink: #3B2A0B;
+    --k-wave: #F4C26B;
+    --k-wave-caller: #FBF6EA;
+    --k-glow-opacity: 0.5;
+}
+body {
+    background:
+        radial-gradient(900px 520px at 105% 0%, rgba(244, 194, 107, 0.28), transparent 60%),
+        radial-gradient(800px 600px at -10% 40%, rgba(169, 201, 164, 0.32), transparent 60%),
+        var(--k-bg);
+    background-attachment: fixed;
+}
+.k-btn { border-radius: 18px; }
+.k-header .k-bar { border-radius: 26px; }
+.k-hero-media { overflow: visible; border-radius: 0; }
+.k-hero-media img { border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; box-shadow: 0 30px 60px -25px rgba(62, 80, 50, 0.45), 0 0 0 8px rgba(255, 253, 246, 0.7); }
+.page-index .k-hero-float:first-of-type, .k-hero-float { z-index: 2; }
+.k-hero .k-pill { background: var(--k-accent); color: var(--k-on-accent); }
+.k-icon { border-radius: 50%; background: rgba(244, 194, 107, 0.32); color: #6E4A2E; }
+.k-service { border-radius: 30px; }
+.k-service img { border-radius: 30px 30px 0 0; }
+.k-card, .k-practice, .k-review { border-radius: 28px; }
+.k-steps li::before { background: var(--k-accent); color: var(--k-on-accent); }
+.k-section:nth-of-type(even)::before { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 24 24' fill='%233E6B48' opacity='.045'%3E%3Ccircle cx='6' cy='10' r='2.2'/%3E%3Ccircle cx='10' cy='5.5' r='2.2'/%3E%3Ccircle cx='14' cy='5.5' r='2.2'/%3E%3Ccircle cx='18' cy='10' r='2.2'/%3E%3Cpath d='M12 11c-3 0-6 4.5-6 7 0 1.7 1.3 2.5 3 2.5 1.3 0 2-.6 3-.6s1.7.6 3 .6c1.7 0 3-.8 3-2.5 0-2.5-3-7-6-7z'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+.fees-notice { background: rgba(244, 194, 107, 0.3); border: 2px solid #E9B655; }
+.offer-band { background: linear-gradient(120deg, #3E6B48, #2E5236); color: #FBF6EA; border-color: rgba(255, 255, 255, 0.15); }
+.offer-band h2, .offer-band .k-eyebrow { color: #FFF8E6; }
+.offer-band p { color: rgba(251, 246, 234, 0.88); }
+.offer-band .k-btn-primary { background: var(--k-accent); color: var(--k-on-accent); box-shadow: none; }
+.k-footer { background: #24402B; color: #E8E2D0; margin-top: 40px; border-radius: 48px 48px 0 0; }
+.k-footer h2 { color: #F4C26B; }
+.k-footer a, .k-footer .k-logo { color: #FBF6EA; }
+.k-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.k-footer .k-badge-247 { background: #F4C26B; color: #3B2A0B; }
+.page-fees .k-hero h1 { color: var(--k-primary); }

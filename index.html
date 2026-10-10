@@ -114,6 +114,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="voicedesk.html">AI Receptionist</a></li>
             <li><a href="blog/index.html">Blog</a></li>
             <li><a href="free-website-audit.html" class="nav-cta">Free Website Audit</a></li>
         </ul>
@@ -242,6 +243,20 @@
     </div>
 </section>
 
+<section class="section section-alt" id="voicedesk-teaser" aria-labelledby="vdt-h">
+    <div class="container vd-teaser">
+        <div>
+            <p class="eyebrow">New · YRB VoiceDesk</p>
+            <h2 id="vdt-h">An AI receptionist that answers every call, 24/7</h2>
+            <p class="lede" style="max-width:none">Missed calls are missed bookings. VoiceDesk answers when you can't, books appointments into your calendar and puts urgent calls straight through to you.</p>
+            <div class="btn-row"><a href="voicedesk.html" class="btn btn-primary">See it in action</a><a href="voicedesk.html#pricing" class="btn btn-outline">£299/month</a></div>
+        </div>
+        <div class="vd-mini" id="vd-mini" aria-label="Example call transcript" role="img">
+            <div class="vd-mini-top"><span>Incoming call · 7:42pm</span><b>● VoiceDesk</b></div>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="live-work">
     <div class="container text-center">
         <p class="eyebrow mx-auto" style="justify-content:center;">Real Work</p>
@@ -296,6 +311,22 @@
                 </div>
             </a>
         </div>
+    </div>
+</section>
+
+<section class="section" id="healthcare-demos" aria-labelledby="hcd-h">
+    <div class="container text-center">
+        <p class="eyebrow mx-auto" style="justify-content:center;">For healthcare groups</p>
+        <h2 id="hcd-h">Multi-location sites for dental, vet and aesthetics groups</h2>
+        <p class="lede mx-auto">One brand across every practice, a postcode finder, online booking and an AI receptionist. Open a demo on your phone.</p>
+    </div>
+    <div class="container">
+        <div class="hc-demos" style="margin-top:40px;">
+            <a class="live-card" href="demos/brightwell-dental/index.html" target="_blank" rel="noopener"><img src="portfolio/healthcare/brightwell-dental.webp" width="960" height="535" alt="Brightwell Dental Group demo website" loading="lazy" decoding="async"><div class="live-info"><span class="tag">Demo · Dental</span><h3>Brightwell Dental Group</h3><span class="visit">Open demo &rarr;</span></div></a>
+            <a class="live-card" href="demos/hollow-oak-vets/index.html" target="_blank" rel="noopener"><img src="portfolio/healthcare/hollow-oak-vets.webp" width="960" height="535" alt="Hollow Oak Vets demo website" loading="lazy" decoding="async"><div class="live-info"><span class="tag">Demo · Vets</span><h3>Hollow Oak Vets</h3><span class="visit">Open demo &rarr;</span></div></a>
+            <a class="live-card" href="demos/lumen-skin/index.html" target="_blank" rel="noopener"><img src="portfolio/healthcare/lumen-skin.webp" width="960" height="535" alt="Lumen Skin Clinic demo website" loading="lazy" decoding="async"><div class="live-info"><span class="tag">Demo · Aesthetics</span><h3>Lumen Skin Clinic</h3><span class="visit">Open demo &rarr;</span></div></a>
+        </div>
+        <p class="text-center" style="margin-top:26px"><a href="healthcare.html" class="btn btn-outline">Healthcare group packages from £3,000</a></p>
     </div>
 </section>
 
@@ -462,6 +493,7 @@
                     <a href="work.html">Work</a>
                     <a href="blog/index.html">Blog</a>
                     <a href="services.html">Services</a>
+                    <a href="voicedesk.html">AI Receptionist</a>
                 </div>
                 <div class="footer-col">
                     <h4>Websites For</h4>
@@ -470,6 +502,7 @@
                     <a href="websites-for-cleaners.html">Cleaners</a>
                     <a href="websites-for-barbers.html">Barbers</a>
                     <a href="websites-for-restaurants.html">Restaurants</a>
+                    <a href="healthcare.html">Healthcare groups</a>
                 </div>
                 <div class="footer-col">
                     <h4>Areas</h4>
@@ -516,5 +549,18 @@
 <button id="back-to-top" title="Go to top">&#9650;</button>
 
 <script src="main.js"></script>
+<script>
+// Homepage teaser: a short looping example call (reduced-motion users see it static)
+(function () {
+    var box = document.getElementById('vd-mini'); if (!box) return;
+    var lines = [['caller', 'Hi, can I book a check-up for next week?'], ['ai', 'Of course! I have Tuesday at 8am or Wednesday at 8:30am.'], ['caller', 'Tuesday at 8, please.'], ['event', '✓ Booked: Tue 8:00am · SMS sent'], ['ai', 'You\u2019re all booked. I\u2019ve texted you the details.']];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var head = box.firstElementChild, i = 0;
+    function add(l) { var d = document.createElement('div'); d.className = 'vd-mini-msg ' + l[0]; d.textContent = l[1]; box.appendChild(d); }
+    if (reduce) { lines.forEach(add); return; }
+    function tick() { if (i >= lines.length) { setTimeout(function () { while (box.lastChild !== head) box.removeChild(box.lastChild); i = 0; tick(); }, 2600); return; } add(lines[i++]); setTimeout(tick, 1400); }
+    tick();
+})();
+</script>
 </body>
 </html>
