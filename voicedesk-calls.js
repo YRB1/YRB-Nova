@@ -18,7 +18,7 @@ window.SITE.calls = {
             { event: { icon: 'check', title: 'Appointment booked: Tue 8:00am', detail: 'New patient exam · added to the practice diary' } },
             { who: 'ai', text: 'You\'re booked for Tuesday at 8am. I\'ve texted you the details and a link to your medical history form.' },
             { event: { icon: 'sms', title: 'Confirmation SMS sent', detail: 'Address, parking and forms link' } },
-            { event: { icon: 'cal', title: 'Added to calendar', detail: 'Synced with the practice booking system' } },
+            { event: { icon: 'cal', title: 'Added to calendar', detail: 'Booked into the practice calendar' } },
             { event: { icon: 'note', title: 'Call summary sent', detail: 'Emailed to reception for 8am' } }
         ]
     },
@@ -49,7 +49,7 @@ window.SITE.calls = {
             { event: { icon: 'check', title: 'Consultation booked: Sat 11:30am', detail: 'Skin consultation · £50' } },
             { who: 'ai', text: 'You\'re booked for Saturday at 11:30, Olivia. I\'ve sent a confirmation with a short questionnaire so we can focus on you.' },
             { event: { icon: 'sms', title: 'Confirmation SMS sent', detail: 'With pre-consultation questionnaire' } },
-            { event: { icon: 'cal', title: 'Added to calendar', detail: 'Synced with the clinic diary' } }
+            { event: { icon: 'cal', title: 'Added to calendar', detail: 'Booked into the clinic calendar' } }
         ]
     },
     trades: {
