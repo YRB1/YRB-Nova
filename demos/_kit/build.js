@@ -39,13 +39,14 @@ function build(id) {
 
     /* ---------- shared layout ---------- */
     const navItems = [['index.html', 'Home'], ['locations.html', S.copy.navLocations || 'Locations'], ['treatments.html', S.copy.navTreatments || 'Treatments'], ['fees.html', S.copy.navFees || 'Prices'], ['team.html', S.copy.navTeam || 'Our team'], ['offers.html', S.copy.navOffers || 'New patients']];
+    const metaDesc = d => S.demoMetaPrefix ? `${S.demoMetaPrefix} ${d}` : d;
     const head = (page) => `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(page.title)}</title>
-<meta name="description" content="${esc(page.desc)}">
+<meta name="description" content="${esc(metaDesc(page.desc))}">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${BASE}${page.file === 'index.html' ? '' : page.file}">
 <meta name="theme-color" content="${S.themeColor}">
@@ -53,7 +54,7 @@ function build(id) {
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(S.name)} (demo)">
 <meta property="og:title" content="${esc(page.title)}">
-<meta property="og:description" content="${esc(page.desc)}">
+<meta property="og:description" content="${esc(metaDesc(page.desc))}">
 <meta property="og:url" content="${BASE}${page.file === 'index.html' ? '' : page.file}">
 <meta property="og:image" content="${img(S.ogImage, 1200, 630, 75)}">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +72,9 @@ ${(page.schema || []).map(j => `<script type="application/ld+json">\n${JSON.stri
     const urgent = () => `<div class="k-urgent" role="region" aria-label="${esc(S.urgent.label)}">
     <div class="k-container"><span class="k-dot" aria-hidden="true"></span><span>${S.urgent.html}</span></div>
 </div>`;
-    const header = (file) => `${urgent()}
+    const demoBanner = () => S.demoBanner ? `<div class="k-demo-banner">Concept demo built by <a href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a> &mdash; not a real business</div>
+` : '';
+    const header = (file) => `${demoBanner()}${urgent()}
 <header class="k-header">
     <div class="k-bar k-glass">
         <a class="k-logo" href="index.html" aria-label="${esc(S.name)} home">${S.logo}<span>${S.logoText}</span></a>

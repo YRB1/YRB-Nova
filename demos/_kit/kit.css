@@ -378,3 +378,6 @@ body.k-has-bar .k-sales-panel { bottom: 132px; }
 .k-hero h1 em { font-style: italic; color: var(--k-accent-text, var(--k-primary)); }
 .team-card img { object-fit: cover; }
 @media (max-width: 600px) { .k-urgent .k-dot { display: none; } }
+/* Optional "concept demo" strip (S.demoBanner), matching the small-business demos */
+.k-demo-banner { position: relative; z-index: 902; background: var(--k-ink-strong); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600; padding: 8px 16px; }
+.k-demo-banner a { color: #fff; text-decoration: underline; }
