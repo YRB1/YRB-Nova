@@ -6,15 +6,27 @@
     "percentOff": 10,
     "label": "10% off your website"
   },
-  "seasonal": {
-    "_readme": "Set enabled to true and fill in the offer to switch it on. It only applies between startsAt and endsAt (UTC, ISO format), then switches itself off everywhere automatically. Use either amountOffPence or percentOff, not both.",
-    "enabled": true,
-    "id": "christmas-2026",
-    "label": "Christmas offer (20% off)",
-    "bannerText": "Christmas offer: 20% off any website booked before 24 December",
-    "amountOffPence": null,
-    "percentOff": 20,
-    "startsAt": "2026-10-09T00:00:00Z",
-    "endsAt": "2026-12-24T00:00:00Z"
-  }
+  "seasonal": [
+    {
+      "id": "black-friday-2026",
+      "enabled": true,
+      "label": "Black Friday offer (30% off)",
+      "bannerText": "Black Friday: 30% off any website. 5 spots only, ends Cyber Monday",
+      "amountOffPence": null,
+      "percentOff": 30,
+      "startsAt": "2026-11-20T00:00:00Z",
+      "endsAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "enabled": true,
+      "id": "christmas-2026",
+      "label": "Christmas offer (20% off)",
+      "bannerText": "Christmas offer: 20% off any website booked before 24 December",
+      "amountOffPence": null,
+      "percentOff": 20,
+      "startsAt": "2026-10-09T00:00:00Z",
+      "endsAt": "2026-12-24T00:00:00Z"
+    }
+  ],
+  "_seasonalReadme": "List of seasonal offers. Each switches itself on and off between startsAt and endsAt (UTC, ISO format). If two are live at once, the biggest saving wins everywhere (banner, checkout and the amount charged). Use either amountOffPence or percentOff, not both. Black Friday is capped at 5 spots: set its enabled to false once 5 are sold."
 }

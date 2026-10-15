@@ -142,12 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const getOffers = () => offersPromise || (offersPromise = fetch('/offers.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null));
 
     function seasonalActive(o) {
-        const s = o && o.seasonal;
-        if (!s || !s.enabled || !s.endsAt) return null;
+        const list = [].concat((o && o.seasonal) || []);
         const now = Date.now();
-        if (s.startsAt && now < Date.parse(s.startsAt)) return null;
-        if (now >= Date.parse(s.endsAt)) return null;
-        return s;
+        const live = list.filter(s => s && s.enabled && s.endsAt && !(s.startsAt && now < Date.parse(s.startsAt)) && now < Date.parse(s.endsAt));
+        const strength = s => s.amountOffPence ? s.amountOffPence : Math.round(80000 * (s.percentOff || 0) / 100);
+        return live.sort((a, b) => strength(b) - strength(a))[0] || null;
     }
 
     function showSeasonalBanner(s) {
