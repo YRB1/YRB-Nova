@@ -20,8 +20,8 @@ window.VOICEDESK_CONFIG = {
     site: 'https://ai-receptionist-backend-sage.vercel.app',
     phone: '',
     webCall: {
-        enabled: false,
+        enabled: true,
         endpoint: '/api/voicedesk-web-call',
-        sdkUrl: 'https://cdn.jsdelivr.net/npm/retell-client-js-sdk@2/+esm'
+        sdkUrl: 'https://cdn.jsdelivr.net/npm/retell-client-js-sdk@2.0.8/+esm'
     }
 };
