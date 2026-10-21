@@ -8,6 +8,16 @@
   },
   "seasonal": [
     {
+      "id": "early-bird-2026",
+      "enabled": true,
+      "label": "Early bird offer (10% off)",
+      "bannerText": "Early bird: 10% off any website before Black Friday",
+      "amountOffPence": null,
+      "percentOff": 10,
+      "startsAt": "2026-10-21T00:00:00Z",
+      "endsAt": "2026-11-20T00:00:00Z"
+    },
+    {
       "id": "black-friday-2026",
       "enabled": true,
       "label": "Black Friday offer (30% off)",
@@ -24,7 +34,7 @@
       "bannerText": "Christmas offer: 20% off any website booked before 24 December",
       "amountOffPence": null,
       "percentOff": 20,
-      "startsAt": "2026-10-09T00:00:00Z",
+      "startsAt": "2026-12-01T00:00:00Z",
       "endsAt": "2026-12-24T00:00:00Z"
     }
   ],
