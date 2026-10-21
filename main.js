@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Testimonial carousel
     const carousel = document.querySelector('.carousel');
-    if (carousel) {
+    // Dots and autoplay only make sense once there's more than one testimonial
+    if (carousel && carousel.children.length > 1) {
         const slides = carousel.children;
         const total = slides.length;
         let index = 0;

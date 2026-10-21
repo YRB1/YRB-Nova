@@ -42,6 +42,9 @@
       <image:loc>https://yrbnova.com/portfolio/clients/styled-by-ky.webp</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://yrbnova.com/portfolio/clients/otr-detailing.webp</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://yrbnova.com/portfolio/elite-electric.webp</image:loc>
     </image:image>
     <image:image>
@@ -188,12 +191,6 @@
   </url>
   <url>
     <loc>https://yrbnova.com/voicedesk.html</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yrbnova.com/healthcare.html</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

@@ -658,6 +658,12 @@ header.site-header nav {
 .review-card p { font-size: 1.2rem; color: var(--text); font-style: italic; margin-bottom: 22px; }
 .review-card h4 { margin: 0; font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .review-card .stars { color: var(--nova); margin-bottom: 14px; font-size: 1.15rem; letter-spacing: 2px; }
+.review-card { margin: 0; }
+.review-card blockquote { margin: 0; }
+.review-card figcaption { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.review-card .review-role { color: var(--text-dim); font-size: 0.9rem; }
+.review-card .review-source { color: var(--text-dim); font-size: 0.82rem; text-decoration: underline; text-underline-offset: 3px; }
+.review-card .review-source:hover { color: var(--accent); }
 
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
 .carousel-dots button {

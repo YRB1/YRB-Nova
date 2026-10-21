@@ -11,6 +11,11 @@
       "has": [{ "type": "host", "value": "www.yrbnova.com" }],
       "destination": "https://yrbnova.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/healthcare.html",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "headers": [

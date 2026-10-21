@@ -119,7 +119,7 @@ ${(page.schema || []).map(j => `<script type="application/ld+json">\n${JSON.stri
         </div>
         <div class="k-footer-bottom">
             <span>&copy; <span data-year>2026</span> ${esc(S.name)}. ${esc(S.copy.regLine)}</span>
-            <span class="k-demo-note">Demo website by <a href="https://yrbnova.com/healthcare.html">YRB Nova</a>, fictional brand. Practices, people and reviews are illustrative.</span>
+            <span class="k-demo-note">Demo website by <a href="https://yrbnova.com/">YRB Nova</a>, fictional brand. Practices, people and reviews are illustrative.</span>
         </div>
     </div>
 </footer>
