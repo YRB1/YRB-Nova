@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
     const key = process.env.RETELL_API_KEY;
-    const agent = process.env.RETELL_AGENT_ID;
+    let agent = process.env.RETELL_AGENT_ID;
     if (!key || !agent) {
         return res.status(503).json({ error: 'The live demo isn\'t switched on yet.' });
     }
@@ -37,8 +37,13 @@ module.exports = async (req, res) => {
         const b = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
         if (['voicedesk', 'contact'].includes(b.source)) source = b.source;
     } catch (_) {}
+    // The contact page needs YRB Nova's own receptionist, never the demo business's agent
+    if (source === 'contact') {
+        agent = process.env.RETELL_CONTACT_AGENT_ID;
+        if (!agent) return res.status(503).json({ error: 'The live line isn\'t switched on yet.' });
+    }
     try {
-        const r = await fetch('https://api.retellai.com/v2/create-web-call', {
+        const r = await fetch('https://api.retellai.com/v3/create-web-call', {
             method: 'POST',
             headers: { Authorization: `Bearer ${key.trim()}`, 'Content-Type': 'application/json' },
             body: JSON.stringify({ agent_id: agent.trim(), metadata: { source: `yrbnova.com/${source}` } }),

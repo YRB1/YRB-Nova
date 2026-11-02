@@ -8,7 +8,7 @@
     /* ---------- Layer A: live demo (hidden until configured) ---------- */
     const live = $('vd-live');
     const hasPhone = !!(cfg.phone && cfg.phone.trim());
-    const hasWeb = !!(cfg.webCall && cfg.webCall.enabled);
+    const hasWeb = !!(cfg.webCall && cfg.webCall.enabled) && !(live && live.dataset.source === 'contact' && !cfg.webCall.contactEnabled);
     if (live && (hasPhone || hasWeb)) {
         live.hidden = false;
         if (hasPhone) {

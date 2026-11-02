@@ -21,6 +21,8 @@ window.VOICEDESK_CONFIG = {
     phone: '',
     webCall: {
         enabled: true,
+        // Contact page call: needs RETELL_CONTACT_AGENT_ID (a YRB Nova receptionist) in Vercel. Set true once it exists.
+        contactEnabled: false,
         endpoint: '/api/voicedesk-web-call',
         sdkUrl: 'https://cdn.jsdelivr.net/npm/retell-client-js-sdk@2.0.8/+esm'
     }
