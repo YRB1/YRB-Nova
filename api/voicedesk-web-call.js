@@ -31,11 +31,17 @@ module.exports = async (req, res) => {
     if (overLimit(ip)) {
         return res.status(429).json({ error: 'You\'ve tried the live demo a few times already. Book a call and we\'ll show you more.' });
     }
+    // Which page started the call, so calls from the contact page show up as enquiries in Retell
+    let source = 'voicedesk';
+    try {
+        const b = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+        if (['voicedesk', 'contact'].includes(b.source)) source = b.source;
+    } catch (_) {}
     try {
         const r = await fetch('https://api.retellai.com/v2/create-web-call', {
             method: 'POST',
             headers: { Authorization: `Bearer ${key.trim()}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ agent_id: agent.trim(), metadata: { source: 'yrbnova.com/voicedesk' } }),
+            body: JSON.stringify({ agent_id: agent.trim(), metadata: { source: `yrbnova.com/${source}` } }),
             signal: AbortSignal.timeout(10000)
         });
         const data = await r.json().catch(() => ({}));

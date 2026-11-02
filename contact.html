@@ -163,6 +163,27 @@
     </div>
 </section>
 
+<section class="section" style="padding-top:0; padding-bottom:40px;">
+    <div class="container">
+        <div class="vd-live" id="vd-live" hidden data-source="contact" data-end-msg="Call ended. Thanks for talking to us! We'll follow up within one business day." data-fail-msg="Couldn't connect the call. Use the form below or call 07555 985320 instead.">
+            <div class="vd-live-card">
+                <div class="vd-live-text">
+                    <p class="eyebrow" style="margin-bottom:8px;">Answered 24/7 &middot; by YRB VoiceDesk</p>
+                    <h3>Want an answer right now? Talk to us.</h3>
+                    <p>Our AI receptionist picks up instantly, day or night. Ask about prices and timings, or book your free 15-minute call. It's the same VoiceDesk we set up for clients, so you can hear exactly what your callers would get.</p>
+                </div>
+                <div class="vd-live-actions">
+                    <a class="btn btn-primary vd-call-phone" id="vd-phone" hidden href="#">Call now</a>
+                    <button type="button" class="btn btn-primary" id="vd-start" hidden>Talk to us now</button>
+                    <button type="button" class="btn btn-outline" id="vd-end" hidden>End call</button>
+                </div>
+                <div class="vd-orb" id="vd-orb" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p class="vd-live-status" id="vd-status" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section" style="padding-top:0;">
     <div class="container">
         <div class="contact-container">
@@ -175,7 +196,7 @@
                     <textarea name="message" rows="6" placeholder="Tell us about your business and what you need..." required></textarea>
                     <button type="submit" class="btn btn-primary">Start My Project</button>
                 </form>
-                <p id="formMessage" style="margin-top:15px; color:var(--accent); display:none;">Your message has been sent. We'll be in touch soon!</p>
+                <p id="formMessage" style="margin-top:15px; color:var(--accent); display:none;">Your message has been sent. We'll be in touch within one business day. <span class="vd-after" hidden>Can't wait? <a href="#vd-live">Talk to us now</a> and get answers straight away.</span></p>
             </div>
 
             <div class="contact-panel">
@@ -285,6 +306,8 @@
 <button id="back-to-top" title="Go to top">&#9650;</button>
 
 <script src="main.js"></script>
+<script src="voicedesk-config.js"></script>
+<script src="voicedesk.js" defer></script>
 <script>
 const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
@@ -316,6 +339,8 @@ form.addEventListener('submit', function(e) {
     .then(response => {
         if (response.ok) {
             formMessage.style.display = 'block';
+            const live = document.getElementById('vd-live');
+            if (live && !live.hidden) formMessage.querySelector('.vd-after').hidden = false;
             form.reset();
         } else {
             response.json().then(data => {

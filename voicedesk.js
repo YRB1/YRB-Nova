@@ -22,13 +22,13 @@
             start.hidden = false;
             let client = null;
             const setState = s => { orb.dataset.state = s; };
-            const finish = msg => { start.hidden = false; end.hidden = true; start.disabled = false; setState(''); status.textContent = msg || 'Call ended. Thanks for trying VoiceDesk!'; client = null; };
+            const finish = msg => { start.hidden = false; end.hidden = true; start.disabled = false; setState(''); status.textContent = msg || live.dataset.endMsg || 'Call ended. Thanks for trying VoiceDesk!'; client = null; };
             start.addEventListener('click', async () => {
                 start.disabled = true; status.textContent = 'Connecting… please allow microphone access.';
                 try {
                     const mod = await import(cfg.webCall.sdkUrl);
                     const RetellWebClient = mod.RetellWebClient || (mod.default && mod.default.RetellWebClient);
-                    const r = await fetch(cfg.webCall.endpoint, { method: 'POST' });
+                    const r = await fetch(cfg.webCall.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: live.dataset.source || 'voicedesk' }) });
                     const d = await r.json().catch(() => ({}));
                     if (!r.ok || !d.accessToken) throw new Error(d.error || 'Could not start the call.');
                     client = new RetellWebClient();
@@ -40,7 +40,7 @@
                     await client.startCall({ accessToken: d.accessToken });
                 } catch (err) {
                     console.error('VoiceDesk start error:', err);
-                    finish(/permission|NotAllowed/i.test(String(err && err.name || err)) ? 'Microphone access is needed to talk to the demo.' : 'Couldn\'t start the live call. Try the example calls below.');
+                    finish(/permission|NotAllowed/i.test(String(err && err.name || err)) ? 'Microphone access is needed to talk to the demo.' : (live.dataset.failMsg || 'Couldn\'t start the live call. Try the example calls below.'));
                 }
             });
             end.addEventListener('click', () => { if (client) { try { client.stopCall(); } catch (_) {} } finish(); });

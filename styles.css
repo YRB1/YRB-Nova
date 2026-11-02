@@ -1,3 +1,6 @@
+/* Make the hidden attribute win over display rules like .btn (fixes stray VoiceDesk buttons) */
+[hidden] { display: none !important; }
+
 /* ==========================================================================
    YRB Nova Shared Design System
    ========================================================================== */
