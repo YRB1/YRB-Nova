@@ -20,103 +20,35 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
 
-<style>
-body {
-    background-color: #ffffff;
-    color: #646363;
-    font-family: Inter, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-
-
-.back-button {
-    display: inline-block;
-    margin-bottom: 30px;
-    padding: 7px 6px;
-    background-color: #1e90ff;
-    color: #fff4f4;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    float: right;
-}
-
-.back-button:hover {
-    background-color: #3aa0ff;
-}
-
-header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    position: relative; /* allows float coexist with centered text */
-}
-
-header h1,
-header h2 {
-    margin: 0;
-    color: #949393;
-}
-
-header h2 {
-    margin-top: 10px;
-    color: #959494;
-}
-
-.back-button:hover {
-    background-color: #3aa0ff;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-main h3 {
-    margin-top: 30px;
-    color: #fff;
-}
-
-main a {
-    color: #1e90ff;
-    text-decoration: underline;
-}
-
-footer {
-    background-color: #fffbfb;
-    color: #888;
-    text-align: center;
-    padding: 80px 20px 40px;
-    font-size: 0.9rem;
-    border-top: 2px solid rgb(235, 232, 232);
-}
-
-footer p {
-    margin-bottom: 30px;
-}
-
-.footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 20px;
-}
-
-.footer-social a svg {
-    width: 24px;
-    height: 24px;
-    fill: #888;
-    transition: transform 0.3s ease, fill 0.3s;
-}
-
-.footer-social a:hover svg {
-    transform: translateY(-3px);
-    fill: #1e90ff;
-}
-</style>
+  <style>
+    /* Legal pages: same dark look as the rest of YRB Nova */
+    :root { --bg:#08080a; --surface:#16161a; --line:rgba(255,255,255,0.10); --text:#f5f5f2; --text-dim:#b4b1b6; --accent:#4fc9ab; }
+    body { background:var(--bg); color:var(--text-dim); font-family:Inter, sans-serif; line-height:1.7; margin:0; padding:0; }
+    .skip-link { position:absolute; left:12px; top:-60px; z-index:100; background:var(--accent); color:#08080a; padding:10px 16px; border-radius:8px; font-weight:700; text-decoration:none; }
+    .skip-link:focus { top:12px; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    .back-button { display:inline-block; margin-bottom:30px; padding:9px 16px; background:var(--accent); color:#08080a; font-weight:600; text-decoration:none; border-radius:100px; float:right; }
+    .back-button:hover { background:#6cddc0; }
+    header { text-align:center; padding:48px 20px 20px; position:relative; border-bottom:1px solid var(--line); }
+    header h1, header h2 { margin:0; color:var(--text); font-family:'Space Grotesk', Inter, sans-serif; }
+    header h2 { margin-top:10px; color:var(--text-dim); font-weight:500; }
+    main { max-width:800px; margin:0 auto; padding:24px 20px 60px; }
+    main h2 { color:var(--text); margin-top:36px; font-family:'Space Grotesk', Inter, sans-serif; }
+    main h3 { margin-top:28px; color:var(--text); }
+    main strong { color:var(--text); }
+    main a { color:var(--accent); text-decoration:underline; }
+    ul { margin-left:20px; }
+    table { border-collapse:collapse; width:100%; }
+    th, td { border:1px solid var(--line); padding:10px; text-align:left; }
+    th { color:var(--text); background:var(--surface); }
+    footer { background:var(--surface); color:var(--text-dim); text-align:center; padding:60px 20px 40px; font-size:0.9rem; border-top:1px solid var(--line); }
+    footer a { color:var(--text-dim); }
+    footer a:hover { color:var(--accent); }
+    footer p { margin-bottom:24px; }
+    .footer-social { display:flex; justify-content:center; gap:25px; margin-bottom:20px; }
+    .footer-social a svg { width:24px; height:24px; fill:var(--text-dim); transition:transform 0.3s ease, fill 0.3s; }
+    .footer-social a:hover svg { transform:translateY(-3px); fill:var(--accent); }
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -139,6 +71,7 @@ footer p {
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header>
     <a href="index.html" class="back-button">Back to YRB Nova</a>
@@ -146,11 +79,11 @@ footer p {
     <h2>General Terms and Conditions</h2>
 </header>
 
-<main>
+<main id="main">
     <p>These are the general terms and conditions of YRB Nova, run by Ben, based in Leicestershire, UK. These terms apply to all services and agreements. This page is the current version of our terms.</p>
 
-    <p><strong>Version:</strong> 2026.3<br>
-       <strong>Last updated:</strong> 07-10-2026
+    <p><strong>Version:</strong> 2026.4<br>
+       <strong>Last updated:</strong> 03-11-2026
     </p>
 
     <h3>1. General</h3>
@@ -165,8 +98,10 @@ footer p {
     <h3>4. Hosting and Domain</h3>
     <p>Where the client takes the hosting &amp; support add-on, hosting is provided by the contractor; the domain name is provided by the contractor unless agreed otherwise. Contractor is not liable for outages or disruptions caused by the hosting provider.</p>
 
-    <h3>5. Delivery and Refund</h3>
-    <p>Delivery occurs after full payment of the one-off amount. A 14-day period applies for refunds, only in the case of irreparable technical errors caused by the contractor. Changes by the client void refund eligibility. See our <a href="refund-cancellation.html">Refunds &amp; Cancellations policy</a> for full details.</p>
+    <h3>5. Delivery, Cancellation and Refund</h3>
+    <p>Delivery occurs after full payment of the one-off amount. A 14-day period applies for refunds, only in the case of irreparable technical errors caused by the contractor. Changes by the client void refund eligibility.</p>
+    <p><strong>If you are buying as a consumer</strong> (for personal use, not for a business), you also have the legal right to cancel within 14 days of booking. When you book, you ask us to start work straight away. If you cancel within those 14 days, we refund what you paid minus a fair amount for the work already done. Once your website has been fully delivered with your agreement, the right to cancel ends. This right does not apply to business customers.</p>
+    <p>See our <a href="refund-cancellation.html">Refunds &amp; Cancellations policy</a> for full details.</p>
 
     <h3>6. Changes</h3>
     <p>Minor content changes can be requested. Structural changes or repeated adjustments are outside the standard service and can be invoiced separately.</p>
@@ -176,6 +111,7 @@ footer p {
 
     <h3>8. Liability</h3>
     <p>Liability is limited to the amount paid in the last 3 months, with a maximum of the one-off project amount. Contractor is not liable for hacks, data loss, consequential damages, or client-caused errors.</p>
+    <p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot be limited or excluded by law. If you are a consumer, nothing in these terms affects your statutory rights, including your rights under the Consumer Rights Act 2015.</p>
 
     <h3>9. Security</h3>
     <p>Reasonable security measures are taken, but absolute security cannot be guaranteed.</p>
@@ -186,8 +122,11 @@ footer p {
     <h3>11. Termination</h3>
     <p>The hosting &amp; support add-on can be cancelled with one month’s notice. Paid amounts are not refunded. After termination of hosting, the website will be taken offline.</p>
 
-    <h3>12. Applicable Law</h3>
-    <p>These terms are governed by UK law.</p>
+    <h3>12. YRB VoiceDesk (AI receptionist)</h3>
+    <p>VoiceDesk costs £299 per month plus a one-off £500 setup fee (the setup fee is waived when booked with a new website). The monthly fee is billed in advance and the service rolls on monthly until cancelled. You can cancel with one month's notice by email; amounts already paid are not refunded. Once setup work has started, the setup fee is not refundable. The client is responsible for any legal duties to their own callers, such as telling them calls are recorded; VoiceDesk announces that it is an AI and that the call is recorded at the start of every call. Call data is handled under a written data processing agreement agreed before going live.</p>
+
+    <h3>13. Applicable Law</h3>
+    <p>These terms are governed by the laws of England and Wales, and disputes will be handled by the courts of England and Wales. If you are a consumer living in Scotland or Northern Ireland, you can also bring proceedings in your local courts.</p>
 </main>
 
 <footer>

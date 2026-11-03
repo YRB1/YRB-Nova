@@ -621,3 +621,17 @@
     /* ---------------- Year ---------------- */
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 })();
+
+/* Demo disclosure: a visible top ribbon so nobody mistakes a demo brand, its people or its reviews for a real practice. */
+(function () {
+    function addRibbon() {
+        if (document.querySelector('.k-demo-ribbon')) return;
+        var bar = document.createElement('div');
+        bar.className = 'k-demo-ribbon';
+        bar.setAttribute('role', 'note');
+        bar.innerHTML = 'Concept demo by <a href="https://yrbnova.com/" style="color:inherit;text-decoration:underline">YRB Nova</a>. Fictional brand: practices, people and reviews are illustrative.';
+        bar.style.cssText = 'background:#0b0b0d;color:#f5f5f2;text-align:center;font:600 13px/1.4 system-ui,sans-serif;padding:8px 14px;position:relative;z-index:1000';
+        document.body.insertBefore(bar, document.body.firstChild);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addRibbon); else addRibbon();
+})();

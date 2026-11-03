@@ -113,11 +113,11 @@
 
 <!-- Cookie Consent Popup -->
 <div id="cookie-consent-popup">
-  <p>We use cookies to improve your experience. You can accept all, reject all, or manage your preferences. Essential cookies are always active.</p>
+  <p>We only use essential storage by default. With your OK we also load Google Maps and the Cal.com booking widget, which set their own cookies. Our visitor stats are cookie-free.</p>
   <div class="cookie-buttons">
-    <button id="accept-cookies">Accept</button>
-    <button id="deny-cookies" type="button">Deny</button>
-    <button id="view-preferences">Preferences</button>
+    <button id="accept-cookies" type="button">Accept all</button>
+    <button id="deny-cookies" type="button">Reject all</button>
+    <button id="view-preferences" type="button">Preferences</button>
     <a href="cookie-policy.html">Cookie Policy</a>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
@@ -128,8 +128,8 @@
     <h3>Cookie Preferences</h3>
     <p>Toggle the types of cookies you allow:</p>
     <label><input type="checkbox" disabled checked> Essential (always active)</label>
-    <label><input type="checkbox" id="analytics-cookies"> Analytical</label>
-    <label><input type="checkbox" id="marketing-cookies"> Marketing</label>
+    <label><input type="checkbox" id="analytics-cookies"> Analytics (none in use right now)</label>
+    <label><input type="checkbox" id="marketing-cookies"> Third-party embeds (Google Maps, Cal.com booking)</label>
     <div class="modal-buttons">
       <button id="save-preferences">Save Preferences</button>
       <button id="close-modal">Cancel</button>
@@ -171,6 +171,7 @@
                     <p class="eyebrow" style="margin-bottom:8px;">Answered 24/7 &middot; by YRB VoiceDesk</p>
                     <h3>Want an answer right now? Talk to us.</h3>
                     <p>Our AI receptionist picks up instantly, day or night. Ask about prices and timings, or book your free 15-minute call. It's the same VoiceDesk we set up for clients, so you can hear exactly what your callers would get.</p>
+                    <p class="vd-consent-note">Calls are handled by our voice AI provider, Retell AI, and may be recorded and transcribed. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
                 </div>
                 <div class="vd-live-actions">
                     <a class="btn btn-primary vd-call-phone" id="vd-phone" hidden href="#">Call now</a>
@@ -190,10 +191,11 @@
             <div class="contact-panel contact-form">
                 <h2 style="font-size:1.5rem; margin-bottom:24px;">Tell us about your project</h2>
                 <form id="contactForm" action="https://formspree.io/f/mldaypqv" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Project Budget (Optional)">
-                    <textarea name="message" rows="6" placeholder="Tell us about your business and what you need..." required></textarea>
+                    <input type="text" name="name" placeholder="Your Name" aria-label="Your name" autocomplete="name" required>
+                    <input type="email" name="_replyto" placeholder="Your Email" aria-label="Your email" autocomplete="email" required>
+                    <input type="text" name="subject" placeholder="Project Budget (Optional)" aria-label="Project budget (optional)">
+                    <textarea name="message" rows="6" placeholder="Tell us about your business and what you need..." aria-label="Your message" required></textarea>
+                    <p class="form-privacy">We only use these details to reply to you. No mailing lists. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
                     <button type="submit" class="btn btn-primary">Start My Project</button>
                 </form>
                 <p id="formMessage" style="margin-top:15px; color:var(--accent); display:none;">Your message has been sent. We'll be in touch within one business day. <span class="vd-after" hidden>Can't wait? <a href="#vd-live">Talk to us now</a> and get answers straight away.</span></p>
@@ -210,11 +212,15 @@
                     <li><strong>Not Ready Yet?</strong><a href="free-website-audit.html">Get a free audit of your current site instead</a></li>
                 </ul>
                 <div class="contact-map">
+                    <div class="map-placeholder">
+                        <p>Map of our service area (Leicestershire, UK). Google Maps sets its own cookies, so it only loads if you allow it.</p>
+                        <button type="button" class="btn btn-outline" data-load-map>Load map</button>
+                    </div>
                     <iframe
                         title="YRB Nova service area, Leicestershire, UK"
-                        src="https://www.google.com/maps?q=Leicestershire,UK&output=embed"
+                        data-consent-src="https://www.google.com/maps?q=Leicestershire,UK&output=embed"
                         allowfullscreen=""
-                        loading="lazy">
+                        loading="lazy" hidden>
                     </iframe>
                 </div>
             </div>

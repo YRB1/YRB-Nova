@@ -20,104 +20,33 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
   <style>
-    body {
-      background-color: #ffffff;
-      color: #646363;
-      font-family: Inter, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-
-    .back-button {
-      display: inline-block;
-      margin-bottom: 30px;
-      padding: 7px 6px;
-      background-color: #1e90ff;
-      color: #fff4f4;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      float: right;
-    }
-
-    .back-button:hover {
-      background-color: #3aa0ff;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-      position: relative;
-    }
-
-    header h1,
-    header h2 {
-      margin: 0;
-      color: #949393;
-    }
-
-    header h2 {
-      margin-top: 10px;
-      color: #959494;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    main h2 {
-      color: #646363;
-      margin-top: 30px;
-    }
-
-    main h3 {
-      margin-top: 30px;
-      color: #646363;
-    }
-
-    main a {
-      color: #1e90ff;
-      text-decoration: underline;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    footer {
-      background-color: #fffbfb;
-      color: #888;
-      text-align: center;
-      padding: 80px 20px 40px;
-      font-size: 0.9rem;
-      border-top: 2px solid rgb(235, 232, 232);
-    }
-
-    footer p {
-      margin-bottom: 30px;
-    }
-
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 20px;
-    }
-
-    .footer-social a svg {
-      width: 24px;
-      height: 24px;
-      fill: #888;
-      transition: transform 0.3s ease, fill 0.3s;
-    }
-
-    .footer-social a:hover svg {
-      transform: translateY(-3px);
-      fill: #1e90ff;
-    }
+    /* Legal pages: same dark look as the rest of YRB Nova */
+    :root { --bg:#08080a; --surface:#16161a; --line:rgba(255,255,255,0.10); --text:#f5f5f2; --text-dim:#b4b1b6; --accent:#4fc9ab; }
+    body { background:var(--bg); color:var(--text-dim); font-family:Inter, sans-serif; line-height:1.7; margin:0; padding:0; }
+    .skip-link { position:absolute; left:12px; top:-60px; z-index:100; background:var(--accent); color:#08080a; padding:10px 16px; border-radius:8px; font-weight:700; text-decoration:none; }
+    .skip-link:focus { top:12px; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    .back-button { display:inline-block; margin-bottom:30px; padding:9px 16px; background:var(--accent); color:#08080a; font-weight:600; text-decoration:none; border-radius:100px; float:right; }
+    .back-button:hover { background:#6cddc0; }
+    header { text-align:center; padding:48px 20px 20px; position:relative; border-bottom:1px solid var(--line); }
+    header h1, header h2 { margin:0; color:var(--text); font-family:'Space Grotesk', Inter, sans-serif; }
+    header h2 { margin-top:10px; color:var(--text-dim); font-weight:500; }
+    main { max-width:800px; margin:0 auto; padding:24px 20px 60px; }
+    main h2 { color:var(--text); margin-top:36px; font-family:'Space Grotesk', Inter, sans-serif; }
+    main h3 { margin-top:28px; color:var(--text); }
+    main strong { color:var(--text); }
+    main a { color:var(--accent); text-decoration:underline; }
+    ul { margin-left:20px; }
+    table { border-collapse:collapse; width:100%; }
+    th, td { border:1px solid var(--line); padding:10px; text-align:left; }
+    th { color:var(--text); background:var(--surface); }
+    footer { background:var(--surface); color:var(--text-dim); text-align:center; padding:60px 20px 40px; font-size:0.9rem; border-top:1px solid var(--line); }
+    footer a { color:var(--text-dim); }
+    footer a:hover { color:var(--accent); }
+    footer p { margin-bottom:24px; }
+    .footer-social { display:flex; justify-content:center; gap:25px; margin-bottom:20px; }
+    .footer-social a svg { width:24px; height:24px; fill:var(--text-dim); transition:transform 0.3s ease, fill 0.3s; }
+    .footer-social a:hover svg { transform:translateY(-3px); fill:var(--accent); }
   </style>
 <script type="application/ld+json">
 {
@@ -141,13 +70,14 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header>
   <h1>Privacy Policy</h1>
 </header>
 
-<main>
-  <p>Last updated: 7 October 2026</p>
+<main id="main">
+  <p>Last updated: 3 November 2026</p>
 
   <h2>1. Who We Are</h2>
   <p>
@@ -165,6 +95,9 @@
   <h3>Call bookings</h3>
   <p>If you book a free call, Cal.com collects your name, email and chosen time on our behalf so we can hold the call.</p>
 
+  <h3>VoiceDesk demo calls</h3>
+  <p>If you use the "Talk to us" or VoiceDesk demo call, your voice is processed by our voice AI provider, Retell AI, to run the conversation. The call may be recorded and transcribed, and we may see the transcript and a summary. Please don't share sensitive details on a demo call.</p>
+
   <h3>Bookings and payments</h3>
   <p>Your name, email address, phone number (if given), the package you choose and your project details. Card details are entered directly into Stripe's secure payment form. We never see or store your card number.</p>
 
@@ -177,6 +110,8 @@
     <li><strong>To reply to your enquiry or audit request</strong> - legitimate interests (responding to people who contact us).</li>
     <li><strong>To take payment, deliver your project and send confirmations</strong> - performance of a contract with you.</li>
     <li><strong>To keep business and tax records</strong> - legal obligation.</li>
+    <li><strong>To run demo calls with our AI receptionist</strong> - legitimate interests (you chose to start the call).</li>
+    <li><strong>To load Google Maps and the Cal.com booking popup</strong> - consent (only if you allow them in the cookie banner).</li>
     <li><strong>To keep the website secure and prevent fraud</strong> - legitimate interests.</li>
   </ul>
   <p>We do not sell your data, and we do not use it for automated decision-making. We will only send you marketing emails if you have asked us to, and you can opt out at any time.</p>
@@ -189,13 +124,16 @@
     <li><strong>Formspree</strong> - delivery of contact form messages by email (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>)</li>
     <li><strong>Cal.com</strong> - scheduling of free calls (<a href="https://cal.com/privacy" target="_blank" rel="noopener">privacy policy</a>)</li>
     <li><strong>Vercel</strong> - website hosting (<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>)</li>
-    <li><strong>Google</strong> - email (Gmail) and web fonts (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>)</li>
+    <li><strong>Retell AI</strong> - voice AI for VoiceDesk demo calls (<a href="https://www.retellai.com/privacy" target="_blank" rel="noopener">privacy policy</a>)</li>
+    <li><strong>Google</strong> - email (Gmail), web fonts and, if you allow it, Google Maps (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>)</li>
   </ul>
   <p>Some of these providers may process data outside the UK, for example in the USA. Where they do, they use approved safeguards such as the UK International Data Transfer Addendum or the UK-US Data Bridge.</p>
 
   <h2>5. How Long We Keep It</h2>
   <ul>
     <li><strong>Enquiries</strong> that do not lead to a project: up to 2 years, then deleted.</li>
+    <li><strong>Discount popup emails</strong>: up to 2 years, or sooner if you ask us to stop contacting you.</li>
+    <li><strong>Demo call recordings and transcripts</strong>: up to 90 days, then deleted.</li>
     <li><strong>Bookings and payment records</strong>: 6 years, as required by HMRC for tax purposes.</li>
   </ul>
 
@@ -210,6 +148,9 @@
     <li>Withdraw consent at any time, where we rely on consent</li>
   </ul>
   <p>To use any of these rights, email <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>. We will respond within one month.</p>
+  <h3 id="delete-my-data">Ask us to delete your data</h3>
+  <p>Email <a href="mailto:yrbnova@gmail.com?subject=Data%20deletion%20request&amp;body=Please%20delete%20the%20personal%20data%20you%20hold%20about%20me.%0A%0AEmail%20address%20I%20used%3A%20">yrbnova@gmail.com</a> with the subject "Data deletion request" and the email address you used with us. We'll delete your enquiries, popup sign-ups and call transcripts and confirm within one month. The only thing we have to keep is booking and payment records, for 6 years, because HMRC requires it.</p>
+  <p>To stop hearing from us, reply "unsubscribe" to any email we send, and we'll stop straight away.</p>
   <p>If you are unhappy with how we handle your data, you can complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
   <h2>7. Cookies</h2>

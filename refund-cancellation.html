@@ -20,104 +20,33 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://yrbnova.com/og-image.png">
   <style>
-    body {
-      background-color: #ffffff;
-      color: #646363;
-      font-family: Inter, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-
-    .back-button {
-      display: inline-block;
-      margin-bottom: 30px;
-      padding: 7px 6px;
-      background-color: #1e90ff;
-      color: #fff4f4;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      float: right;
-    }
-
-    .back-button:hover {
-      background-color: #3aa0ff;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-      position: relative;
-    }
-
-    header h1,
-    header h2 {
-      margin: 0;
-      color: #949393;
-    }
-
-    header h2 {
-      margin-top: 10px;
-      color: #959494;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    main h2 {
-      color: #646363;
-      margin-top: 30px;
-    }
-
-    main h3 {
-      margin-top: 30px;
-      color: #646363;
-    }
-
-    main a {
-      color: #1e90ff;
-      text-decoration: underline;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    footer {
-      background-color: #fffbfb;
-      color: #888;
-      text-align: center;
-      padding: 80px 20px 40px;
-      font-size: 0.9rem;
-      border-top: 2px solid rgb(235, 232, 232);
-    }
-
-    footer p {
-      margin-bottom: 30px;
-    }
-
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 20px;
-    }
-
-    .footer-social a svg {
-      width: 24px;
-      height: 24px;
-      fill: #888;
-      transition: transform 0.3s ease, fill 0.3s;
-    }
-
-    .footer-social a:hover svg {
-      transform: translateY(-3px);
-      fill: #1e90ff;
-    }
+    /* Legal pages: same dark look as the rest of YRB Nova */
+    :root { --bg:#08080a; --surface:#16161a; --line:rgba(255,255,255,0.10); --text:#f5f5f2; --text-dim:#b4b1b6; --accent:#4fc9ab; }
+    body { background:var(--bg); color:var(--text-dim); font-family:Inter, sans-serif; line-height:1.7; margin:0; padding:0; }
+    .skip-link { position:absolute; left:12px; top:-60px; z-index:100; background:var(--accent); color:#08080a; padding:10px 16px; border-radius:8px; font-weight:700; text-decoration:none; }
+    .skip-link:focus { top:12px; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    .back-button { display:inline-block; margin-bottom:30px; padding:9px 16px; background:var(--accent); color:#08080a; font-weight:600; text-decoration:none; border-radius:100px; float:right; }
+    .back-button:hover { background:#6cddc0; }
+    header { text-align:center; padding:48px 20px 20px; position:relative; border-bottom:1px solid var(--line); }
+    header h1, header h2 { margin:0; color:var(--text); font-family:'Space Grotesk', Inter, sans-serif; }
+    header h2 { margin-top:10px; color:var(--text-dim); font-weight:500; }
+    main { max-width:800px; margin:0 auto; padding:24px 20px 60px; }
+    main h2 { color:var(--text); margin-top:36px; font-family:'Space Grotesk', Inter, sans-serif; }
+    main h3 { margin-top:28px; color:var(--text); }
+    main strong { color:var(--text); }
+    main a { color:var(--accent); text-decoration:underline; }
+    ul { margin-left:20px; }
+    table { border-collapse:collapse; width:100%; }
+    th, td { border:1px solid var(--line); padding:10px; text-align:left; }
+    th { color:var(--text); background:var(--surface); }
+    footer { background:var(--surface); color:var(--text-dim); text-align:center; padding:60px 20px 40px; font-size:0.9rem; border-top:1px solid var(--line); }
+    footer a { color:var(--text-dim); }
+    footer a:hover { color:var(--accent); }
+    footer p { margin-bottom:24px; }
+    .footer-social { display:flex; justify-content:center; gap:25px; margin-bottom:20px; }
+    .footer-social a svg { width:24px; height:24px; fill:var(--text-dim); transition:transform 0.3s ease, fill 0.3s; }
+    .footer-social a:hover svg { transform:translateY(-3px); fill:var(--accent); }
   </style>
 <script type="application/ld+json">
 {
@@ -141,13 +70,14 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header>
   <h1>Refunds &amp; Cancellations</h1>
 </header>
 
-<main>
-  <p>Last updated: 7 October 2026</p>
+<main id="main">
+  <p>Last updated: 3 November 2026</p>
 
   <p>This page explains how refunds and cancellations work for website projects and the optional hosting &amp; support add-on from <strong>YRB Nova</strong>, run by Ben, based in Leicestershire, UK. It summarises sections 5 and 11 of our <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.</p>
 
@@ -157,8 +87,18 @@
     <li>Your website is delivered after full payment of the one-off amount.</li>
     <li>For <strong>14 days after delivery</strong>, you can request a refund if the website has an <strong>irreparable technical error caused by us</strong>, meaning a fault we are unable to fix.</li>
     <li>If you or anyone else makes changes to the website after delivery, refund eligibility no longer applies.</li>
-    <li>Refunds are not given for a change of mind or a change of plans once the project has been booked.</li>
+    <li>For business customers, refunds are not given for a change of mind or a change of plans once the project has been booked.</li>
   </ul>
+
+  <h2>1a. If you are a consumer: your 14-day right to cancel</h2>
+  <p>If you are booking for personal use rather than for a business, UK law gives you 14 days from the day you book to cancel for any reason.</p>
+  <ul>
+    <li>At checkout you ask us to start work straight away, so we can deliver in 2-5 days.</li>
+    <li>If you cancel within the 14 days, we refund what you paid <strong>minus a fair amount for the work already done</strong> up to the time you told us.</li>
+    <li>If your website has already been fully delivered with your agreement, the right to cancel no longer applies.</li>
+    <li>We will refund you within 14 days of you telling us you want to cancel.</li>
+  </ul>
+  <p>To cancel, email <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a> with a clear statement that you want to cancel. You can use this wording: <em>"I hereby give notice that I cancel my contract for the supply of the following service: [package], booked on [date]. Name: [your name]. Email: [email you booked with]."</em></p>
 
   <h2>2. Fixing problems first</h2>
   <p>If something isn't working as it should, tell us as soon as possible at <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a>. We will always try to fix a technical fault before a refund is considered.</p>
@@ -171,11 +111,18 @@
     <li>When hosting ends, the website will be taken offline.</li>
   </ul>
 
+  <h2>3a. YRB VoiceDesk (£299 per month)</h2>
+  <ul>
+    <li>Billed monthly in advance, rolling until you cancel.</li>
+    <li>Cancel any time with <strong>one month's notice</strong> by email. Amounts already paid are not refunded.</li>
+    <li>The £500 setup fee (waived with a new website) is not refundable once setup work has started.</li>
+  </ul>
+
   <h2>4. How to ask for a refund or cancel</h2>
   <p>Email <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a> with your name, the email you booked with and a short description of the issue. We reply within one business day. Approved refunds are returned to the original payment card.</p>
 
   <h2>5. Your statutory rights</h2>
-  <p>Nothing in this policy affects your statutory rights under UK law.</p>
+  <p>Nothing in this policy affects your statutory rights under UK law, including your rights under the Consumer Rights Act 2015 if a service is not carried out with reasonable care and skill.</p>
 
   <h2>6. Contact</h2>
   <p>

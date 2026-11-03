@@ -147,7 +147,7 @@
                     </ul>
                 </div>
                 <div class="pkg-option" data-pkg="standard" data-amount="60000" data-name="Standard Website Package">
-                    <span class="pkg-badge">Most Popular</span>
+                    <span class="pkg-badge">Recommended</span>
                     <div class="pkg-top">
                         <span class="name">Standard</span>
                         <span class="price">&pound;600</span>
@@ -231,6 +231,10 @@
                     <div id="payment-element"></div>
                 </div>
 
+                <label class="consent-row" for="cf-terms">
+                    <input type="checkbox" id="cf-terms" required>
+                    <span>I agree to the <a href="terms-and-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> and <a href="refund-cancellation.html" target="_blank" rel="noopener">Refunds &amp; Cancellations</a> policy. I'd like work to start straight away, and I understand that if I cancel within 14 days I'll pay for work already done, and once my website is delivered I can no longer cancel.</span>
+                </label>
                 <button type="submit" id="pay-btn" class="btn btn-primary pay-btn">Pay &amp; Book My Project</button>
                 <div class="secure-row">&#128274; Secured by Stripe &middot; 256-bit encryption</div>
                 <p class="checkout-error" id="checkout-error"></p>
@@ -262,7 +266,8 @@
                     <a href="websites-for-plumbers.html">Plumbers</a>
                     <a href="websites-for-cleaners.html">Cleaners</a>
                     <a href="websites-for-barbers.html">Barbers</a>
-                    <a href="websites-for-restaurants.html">Restaurants</a>
+                    <a href="websites-for-restaurants.html">Restaurants</a>
+
                 </div>
                 <div class="footer-col">
                     <h4>Areas</h4>
@@ -451,6 +456,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (processing) return;
+        if (!document.getElementById('cf-terms').checked) { showError('Please tick the box to agree to the terms before paying.'); return; }
         processing = true;
         errorEl.style.display = 'none';
         payBtn.disabled = true;

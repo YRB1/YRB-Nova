@@ -23,10 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // Third-party embeds (Cal.com popup, Google Maps) set their own cookies, so they only load
+    // after the visitor accepts. Without consent the Cal buttons stay plain links to cal.com.
+    const embedConsent = () => {
+        try {
+            if (localStorage.getItem('cookieChoice') === 'accepted') return true;
+            const p = JSON.parse(localStorage.getItem('cookiesPreferences') || 'null');
+            return !!(p && p.marketing);
+        } catch (_) { return false; }
+    };
+
+    function loadMaps() {
+        document.querySelectorAll('iframe[data-consent-src]').forEach(f => {
+            f.src = f.dataset.consentSrc;
+            f.removeAttribute('data-consent-src');
+            f.hidden = false;
+            const ph = f.parentElement && f.parentElement.querySelector('.map-placeholder');
+            if (ph) ph.remove();
+        });
+    }
+    document.querySelectorAll('[data-load-map]').forEach(btn => btn.addEventListener('click', loadMaps));
+
+    let calLoaded = false;
     // Cal.com booking popup - only loaded on pages with a [data-cal-link] button.
-    // The buttons are real links to cal.com, so they still work if the embed fails to load.
+    // The buttons are real links to cal.com, so they still work if the embed isn't loaded.
     const calButtons = document.querySelectorAll('[data-cal-link]');
-    if (calButtons.length) {
+    function loadCal() {
+    if (calLoaded || !calButtons.length) return;
+    calLoaded = true;
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
         Cal("init", "15min", { origin: "https://app.cal.com" });
         Cal.config = Cal.config || {};
@@ -43,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.Cal && window.Cal.loaded) e.preventDefault();
         }));
     }
+    function loadEmbeds() { if (embedConsent()) { loadCal(); loadMaps(); } }
+    loadEmbeds();
 
     // Animated stat counters
     const statEls = document.querySelectorAll('.stat-value[data-count]');
@@ -172,9 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Email popup rules: once per visitor, after ~10s of total time on the site (across pages),
-    // only after cookie consent, never on checkout/payment/admin pages.
+    // only after the cookie banner is answered, never on checkout/payment/admin pages.
     const POPUP_SECONDS = 10;
-    const hasConsent = () => store.get('cookieChoice') === 'accepted' || !!store.get('cookiesPreferences');
+    // Wait until the visitor has answered the cookie banner (either way) so the two never stack
+    const hasConsent = () => !!store.get('cookieChoice') || !!store.get('cookiesPreferences');
 
     function showLeadPopup(p) {
         store.set('yn_popup_shown', '1');
@@ -288,22 +315,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('cookie-preferences-modal');
 
     if (popup) {
-        if (!localStorage.getItem('cookieChoice') && !localStorage.getItem('cookiesPreferences')) {
+        if (!store.get('cookieChoice') && !store.get('cookiesPreferences')) {
             popup.style.display = 'flex';
         }
-
-        document.getElementById('accept-cookies').onclick = () => {
-            localStorage.setItem('cookieChoice', 'accepted');
+        const decide = (choice) => {
+            store.set('cookieChoice', choice);
+            try { localStorage.removeItem('cookiesPreferences'); } catch (_) {}
             popup.style.display = 'none';
+            if (modal) modal.style.display = 'none';
+            loadEmbeds();
         };
 
-        document.getElementById('deny-cookies').onclick = () => {
-            localStorage.setItem('cookieChoice', 'denied');
-            popup.style.display = 'none';
-        };
+        document.getElementById('accept-cookies').onclick = () => decide('accepted');
+        document.getElementById('deny-cookies').onclick = () => decide('denied');
 
         document.getElementById('view-preferences').onclick = (e) => {
             e.preventDefault();
+            let prefs = null;
+            try { prefs = JSON.parse(store.get('cookiesPreferences') || 'null'); } catch (_) {}
+            const accepted = store.get('cookieChoice') === 'accepted';
+            document.getElementById('analytics-cookies').checked = !!(prefs ? prefs.analytics : accepted);
+            document.getElementById('marketing-cookies').checked = !!(prefs ? prefs.marketing : accepted);
             modal.style.display = 'flex';
         };
 
@@ -314,9 +346,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('save-preferences').onclick = () => {
             const analytics = document.getElementById('analytics-cookies').checked;
             const marketing = document.getElementById('marketing-cookies').checked;
-            localStorage.setItem('cookiesPreferences', JSON.stringify({ analytics, marketing }));
+            try { localStorage.removeItem('cookieChoice'); } catch (_) {}
+            store.set('cookiesPreferences', JSON.stringify({ analytics, marketing }));
             popup.style.display = 'none';
             modal.style.display = 'none';
+            loadEmbeds();
         };
+
+        // "Cookie settings" link next to the Cookie Policy link in every footer, so visitors can change their mind
+        document.querySelectorAll('.site-footer a[href$="cookie-policy.html"]').forEach(a => {
+            const link = document.createElement('a');
+            link.href = '#cookie-settings';
+            link.textContent = 'Cookie Settings';
+            link.addEventListener('click', (e) => { e.preventDefault(); popup.style.display = 'flex'; });
+            a.insertAdjacentElement('afterend', link);
+        });
+        if (location.hash === '#cookie-settings') popup.style.display = 'flex';
     }
 });
