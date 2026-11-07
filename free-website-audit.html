@@ -288,8 +288,8 @@ form.addEventListener('submit', function(e) {
     })
     .then(response => {
         if (response.ok) {
-            formMessage.style.display = 'block';
             form.reset();
+            window.location.href = '/thank-you.html?from=audit';
         } else {
             response.json().then(data => {
                 alert(data.error || 'Oops! There was a problem submitting your form.');
