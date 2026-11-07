@@ -344,10 +344,8 @@ form.addEventListener('submit', function(e) {
     })
     .then(response => {
         if (response.ok) {
-            formMessage.style.display = 'block';
-            const live = document.getElementById('vd-live');
-            if (live && !live.hidden) formMessage.querySelector('.vd-after').hidden = false;
             form.reset();
+            window.location.href = '/thank-you.html?from=contact';
         } else {
             response.json().then(data => {
                 alert(data.error || 'Oops! There was a problem submitting your form.');
