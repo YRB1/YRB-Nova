@@ -29,6 +29,9 @@
 
 ## Blog
 
+<!-- AUTO-POSTS:START -->
+- [Two Real Businesses, Two New Websites: OTR Detailing and Styled By KY](https://yrbnova.com/blog/case-studies-otr-detailing-styled-by-ky.html): How we took a Coventry mobile detailer and a Derby hair stylist from "DM me on Instagram" to proper websites with prices, booking and real reviews.
+<!-- AUTO-POSTS:END -->
 - [How much does a website cost in the UK in 2026?](https://yrbnova.com/blog/website-cost-uk-2026.html)
 - [Why tradespeople need a website](https://yrbnova.com/blog/why-tradespeople-need-a-website.html)
 - [Signs your website is losing customers](https://yrbnova.com/blog/signs-website-losing-customers.html)

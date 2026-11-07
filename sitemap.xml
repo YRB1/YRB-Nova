@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://yrbnova.com/blog/index.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -381,4 +381,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<!-- AUTO-BLOG:START -->
+  <url>
+    <loc>https://yrbnova.com/blog/case-studies-otr-detailing-styled-by-ky.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- AUTO-BLOG:END -->
 </urlset>
