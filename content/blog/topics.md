@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] Why "DM for price" is costing you customers (and what to do instead)
 - [ ] Website vs Instagram page: which does a small business actually need?
 - [ ] Do I need a booking system on my website? A guide for salons, barbers and detailers
 - [ ] How to take photos of your work that sell (phone-only guide for tradespeople)
@@ -35,4 +34,5 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-09: Why "DM for Price" Is Costing You Customers (dm-for-price)
 - [x] 2026-11-07: Two real businesses, two new websites (case-studies-otr-detailing-styled-by-ky)

@@ -30,6 +30,7 @@
 ## Blog
 
 <!-- AUTO-POSTS:START -->
+- [Why "DM for Price" Is Costing You Customers (and What to Do)](https://yrbnova.com/blog/dm-for-price.html): Hiding your prices behind DMs sends buyers to the next business. Three ways to show prices on your website, even when every job is different.
 - [Two Real Businesses, Two New Websites: OTR Detailing and Styled By KY](https://yrbnova.com/blog/case-studies-otr-detailing-styled-by-ky.html): How we took a Coventry mobile detailer and a Derby hair stylist from "DM me on Instagram" to proper websites with prices, booking and real reviews.
 <!-- AUTO-POSTS:END -->
 - [How much does a website cost in the UK in 2026?](https://yrbnova.com/blog/website-cost-uk-2026.html)
