@@ -433,3 +433,17 @@ body.ix .nav-links a:hover, body.ix .nav-links a.active { color: var(--text); }
 .ix-js .is-in .ix-stars i:nth-child(5) { transition-delay: 0.67s; }
 @media (max-width: 860px) { .ix-review-grid { grid-template-columns: 1fr; } .ix-review:nth-child(2) { margin-top: 0; } .ix-review { padding: 34px 26px 26px; } }
 @media (prefers-reduced-motion: reduce) { .ix-review { animation: none; } }
+
+/* Short screens (laptops, VS Code previews): keep the hero from colliding */
+@media (max-height: 860px) {
+    .ix-cue { display: none !important; }
+    .ix-scene { padding-bottom: 40px; }
+    .ix-h1 { font-size: min(7.2vw, 9.6vh); margin-bottom: 20px; }
+    .ix-kicker { margin-bottom: 16px; }
+    .ix-hero .ix-lede { margin-bottom: 26px; }
+    .ix-proof { margin-top: 22px; }
+}
+@media (max-height: 700px) {
+    .ix-h1 { font-size: min(7.2vw, 8.4vh); }
+    .ix-hero .ix-lede { font-size: 0.98rem; margin-bottom: 20px; }
+}
