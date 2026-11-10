@@ -177,13 +177,17 @@
                 track.style.height = ''; gal.style.height = '';
             }
             if (!orbit) { updateBar(); return; }
-            cardW = Math.min(340, (Math.min(vw(), 1180) - 48 - 56) / 3);
+            // Short screens get compact cards (no description) so the grid stays big enough to read
+            gal.classList.toggle('is-compact', vh() < 860);
+            cardW = Math.min(400, (Math.min(vw(), 1260) - 48 - 56) / 3);
             cards.forEach(function (c) { c.style.width = cardW + 'px'; });
             cardH = Math.max.apply(null, cards.map(function (c) { return c.offsetHeight; }));
             R = Math.round((cardW + 40) / (2 * Math.tan(Math.PI / N)) * 1.35);
-            var avail = vh() - (parseFloat(getComputedStyle(root).getPropertyValue('--hdr')) || 77) - head.offsetHeight - 70;
+            // The menu bar tucks away while scrolling down, so the grid can use that space
+            // When flat, the heading fades and the grid gets the whole screen
             var gridH = cardH * 2 + 28;
-            fit = clamp(avail / gridH, 0.6, 1);
+            var gridW = cardW * 3 + 56;
+            fit = clamp(Math.min((vh() - 48) / gridH, (vw() - 80) / gridW), 0.6, 1);
             track.style.height = Math.max(cardH + 80, gridH * fit + 20) + 'px';
             gal.style.height = (vh() * 3.2) + 'px';
             YN.dirty = true;
@@ -197,6 +201,11 @@
             if (t === 0) frozen = false;
             var rot = -ringP * 300 + spin;
             var tilt = lerp(-16, 0, t);
+            var tr = track.getBoundingClientRect(), pr = track.parentNode.getBoundingClientRect();
+            var centerShift = vh() / 2 - ((tr.top - pr.top) + tr.height / 2);
+            head.style.opacity = (1 - ramp(t, 0.1, 0.7)).toFixed(3);
+            head.style.transform = 'translateY(' + (-40 * t).toFixed(1) + 'px)';
+            head.style.pointerEvents = t > 0.5 ? 'none' : '';
             track.style.transform = 'rotateX(' + tilt.toFixed(2) + 'deg)';
             cards.forEach(function (c, i) {
                 var th = i * STEP + rot;
@@ -205,7 +214,7 @@
                 var xr = R * Math.sin(rad), zr = R * Math.cos(rad) - R;
                 var col = i % 3, row = Math.floor(i / 3);
                 var xg = (col - 1) * (cardW + 28) * fit, yg = (row - 0.5) * (cardH + 28) * fit;
-                var x = lerp(xr, xg, t), y = lerp(-40, yg, t), z = lerp(zr, 0, t), ry = lerp(thn, 0, t), sc = lerp(0.9, fit, t);
+                var x = lerp(xr, xg, t), y = lerp(-40, yg + centerShift, t), z = lerp(zr, 0, t), ry = lerp(thn, 0, t), sc = lerp(0.9, fit, t);
                 var face = (Math.cos(rad) + 1) / 2;
                 c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,' + z.toFixed(1) + 'px) rotateY(' + ry.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ')';
                 c.style.opacity = lerp(0.12 + face * 0.88, 1, t).toFixed(3);
@@ -213,7 +222,13 @@
                 c.style.zIndex = String(Math.round(lerp(face * 100, 50, t)));
                 c.classList.toggle('is-front', t === 0 && face > 0.97);
             });
-            gal.classList.toggle('is-flat', t >= 0.999);
+            var flat = t >= 0.999;
+            if (flat !== gal.classList.contains('is-flat')) {
+                gal.classList.toggle('is-flat', flat);
+                // Once flat, the cursor says "Visit" on each card instead of "Drag"
+                if (flat) { track.removeAttribute('data-cursor'); cards.forEach(function (c) { c.setAttribute('data-cursor', 'Visit'); }); }
+                else { track.setAttribute('data-cursor', 'Drag'); cards.forEach(function (c) { c.removeAttribute('data-cursor'); }); }
+            }
             if (hint) hint.style.opacity = (1 - ramp(oP, 0.42, 0.55)).toFixed(3);
             if (bar) bar.style.setProperty('--p', oP.toFixed(3));
         };
