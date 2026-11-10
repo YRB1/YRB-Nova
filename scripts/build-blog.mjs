@@ -141,8 +141,8 @@ for (const p of posts) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../fx.css">
+<link rel="stylesheet" href="../styles.css?v=20261110b">
+<link rel="stylesheet" href="../fx.css?v=20261110b">
 <script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('ix-js');</script>
 
 <meta property="og:type" content="article">
