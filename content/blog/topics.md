@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] Do I need a booking system on my website? A guide for salons, barbers and detailers
 - [ ] How to take photos of your work that sell (phone-only guide for tradespeople)
 - [ ] What should be on a tradesperson's homepage? A checklist
 - [ ] How to get your business on Google Maps (Google Business Profile, step by step)
@@ -33,6 +32,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-10: Do I Need a Booking System on My Website? Salons and Barbers (booking-system-for-small-business-website)
 - [x] 2026-11-09: Website vs Instagram: Which Does a Small Business Actually Need? (website-vs-instagram)
 - [x] 2026-11-09: Why "DM for Price" Is Costing You Customers (dm-for-price)
 - [x] 2026-11-07: Two real businesses, two new websites (case-studies-otr-detailing-styled-by-ky)

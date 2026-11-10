@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://yrbnova.com/blog/index.html</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -382,6 +382,12 @@
     <priority>0.8</priority>
   </url>
 <!-- AUTO-BLOG:START -->
+  <url>
+    <loc>https://yrbnova.com/blog/booking-system-for-small-business-website.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://yrbnova.com/blog/website-vs-instagram.html</loc>
     <lastmod>2026-11-09</lastmod>
