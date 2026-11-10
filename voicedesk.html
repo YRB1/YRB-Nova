@@ -9,8 +9,9 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fx.css">
 <link rel="stylesheet" href="demos/_kit/call-sim.css">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
@@ -79,6 +80,7 @@
   ]
 }
 </script>
+<script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('ix-js');</script>
 </head>
 <body>
 
@@ -126,10 +128,17 @@
     </nav>
 </header>
 
-<section class="page-hero text-center vd-hero">
+<section class="page-hero text-center vd-hero has-media">
+    <div class="page-hero-media">
+        <video data-ix-video autoplay muted loop playsinline preload="auto" poster="media/voicedesk-hero-poster.webp" aria-hidden="true">
+            <source src="media/voicedesk-hero-sm.mp4" type="video/mp4" media="(max-width: 760px)">
+            <source src="media/voicedesk-hero.mp4" type="video/mp4">
+        </video>
+    </div>
     <div class="container">
+        <p class="vd-hero-ring"><i></i>Answering calls right now, 24/7</p>
         <p class="eyebrow mx-auto" style="justify-content:center;">YRB VoiceDesk · AI Receptionist</p>
-        <h1 class="mx-auto">Never miss another booking. Your AI receptionist answers every call, 24/7.</h1>
+        <h1 class="mx-auto">Never miss another booking. Your AI receptionist answers <em>every call, 24/7.</em></h1>
         <p class="lede mx-auto">YRB VoiceDesk answers your phone when you can't: it books appointments into your calendar, answers questions about prices and opening hours, and puts urgent calls straight through to a real person.</p>
         <div class="btn-row" style="justify-content:center;">
             <a href="#live-demo" class="btn btn-primary">Try the live demo</a>
@@ -411,6 +420,7 @@
 <button id="back-to-top" title="Go to top">&#9650;</button>
 
 <script src="main.js"></script>
+<script src="fx.js"></script>
 <script src="voicedesk-config.js"></script>
 <script src="voicedesk-calls.js"></script>
 <script src="demos/_kit/kit.js" defer></script>

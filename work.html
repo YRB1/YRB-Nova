@@ -9,8 +9,9 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fx.css">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
@@ -32,7 +33,7 @@
     .case-grid.reverse .case-media { order: 2; }
     .case-media { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
     .case-media img { width: 100%; display: block; aspect-ratio: 1280 / 655; object-fit: cover; }
-    .case-tag { display:inline-block; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:#06060a; background:var(--accent-gradient); font-weight:700; padding:5px 12px; border-radius:100px; transform:rotate(-2deg); margin-bottom:16px; }
+    .case-tag { display:inline-block; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); background:rgba(243,241,236,0.06); border:1px solid var(--line-strong); font-weight:600; padding:5px 12px; border-radius:100px; margin-bottom:16px; }
     .case-stats { display: flex; gap: 30px; margin-top: 26px; flex-wrap: wrap; }
     .case-stats div strong { display:block; font-family: var(--font-display); font-size: 1.5rem; }
     .case-stats div span { color: var(--text-dim); font-size: 0.82rem; }
@@ -62,6 +63,7 @@
   ]
 }
 </script>
+<script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('ix-js');</script>
 </head>
 
 <body>
@@ -110,24 +112,18 @@
     </nav>
 </header>
 
-<section class="page-hero has-media">
-    <div class="page-hero-media">
-        <div class="hero-slideshow">
-            <div class="slide active"><img fetchpriority="high" src="portfolio/elite-electric.webp" width="960" height="486" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/eliteflow.webp" width="960" height="488" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/anaya-fashion-nest.webp" width="960" height="487" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/hopewell-trust.webp" width="960" height="494" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/executive-producer.webp" width="960" height="491" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/ember-oak.webp" width="960" height="486" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/meridian-property.webp" width="960" height="486" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/forge-fitness.webp" width="960" height="486" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/blade-crown.webp" width="960" height="486" alt="" role="presentation"></div>
-            <div class="slide"><img loading="lazy" decoding="async" src="portfolio/brightside-cleaning.webp" width="960" height="486" alt="" role="presentation"></div>
+<section class="page-hero work-hero">
+    <div class="work-wall" aria-hidden="true">
+        <div class="work-wall-inner">
+            <div class="work-wall-col"><img src="portfolio/elite-electric.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/executive-producer.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/blade-crown.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/halden-physio.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/elite-electric.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/executive-producer.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/blade-crown.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/halden-physio.webp" width="960" height="486" alt="" decoding="async"></div>
+            <div class="work-wall-col"><img src="portfolio/eliteflow.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/ember-oak.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/brightside-cleaning.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/palmetto-medspa.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/eliteflow.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/ember-oak.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/brightside-cleaning.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/palmetto-medspa.webp" width="960" height="486" alt="" decoding="async"></div>
+            <div class="work-wall-col"><img src="portfolio/anaya-fashion-nest.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/meridian-property.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/corbel-build.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/anaya-fashion-nest.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/meridian-property.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/corbel-build.webp" width="960" height="486" alt="" decoding="async"></div>
+            <div class="work-wall-col"><img src="portfolio/hopewell-trust.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/forge-fitness.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/summit-roofing.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/hopewell-trust.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/forge-fitness.webp" width="960" height="486" alt="" decoding="async"><img src="portfolio/summit-roofing.webp" width="960" height="486" alt="" decoding="async"></div>
         </div>
     </div>
     <div class="container">
         <p class="eyebrow">Our Work</p>
-        <h1>Live demo sites, built from scratch</h1>
+        <h1>Live demo sites, <em>built from scratch</em></h1>
         <p class="lede">Ten full, clickable concept websites we designed for different kinds of business, so you can see exactly what we build before you book. Every one is built around the business, not a template dressed up to look custom.</p>
     </div>
 </section>
@@ -556,5 +552,6 @@
 <button id="back-to-top" title="Go to top">&#9650;</button>
 
 <script src="main.js"></script>
+<script src="fx.js"></script>
 </body>
 </html>

@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hideEventTypeDetails: false,
             layout: "month_view",
             theme: "dark",
-            cssVarsPerTheme: { dark: { "cal-brand": "#4fc9ab" } }
+            cssVarsPerTheme: { dark: { "cal-brand": "#8fb1ff" } }
         });
 
         // Open the popup instead of following the fallback link once the embed has loaded
