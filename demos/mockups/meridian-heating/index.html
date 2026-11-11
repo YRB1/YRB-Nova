@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Meridian Heating | Boilers, heating and plumbing in Wigston and Leicester</title>
+<meta name="description" content="Family-run heating engineers in Wigston, Leicester. Boiler installs, repairs and servicing, central heating, underfloor heating and plumbing. Vaillant Master Tec approved.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14202b;--soft:#4b5b69;--bg:#f6f3ee;--card:#fff;--flame:#e8572a;--flame-d:#c4431b;--navy:#0f2a3d;--line:#e3ddd3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit}
+.concept{display:block;background:#111;color:#fff;text-align:center;font-size:.8rem;padding:7px 12px;text-decoration:none;letter-spacing:.02em}
+.concept b{color:#ffb38f}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(246,243,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Archivo,sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.nav nav a{text-decoration:none;font-weight:500;margin-left:22px;color:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:1rem}
+.btn-fire{background:var(--flame);color:#fff}.btn-fire:hover{background:var(--flame-d)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink)}
+.nav .btn{padding:10px 18px;font-size:.95rem}
+@media(max-width:760px){.nav nav{display:none}}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--flame-d);margin-bottom:14px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.08;margin:0 0 14px;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800}
+.lead{font-size:1.15rem;color:var(--soft);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 22px}
+.proof{display:flex;flex-wrap:wrap;gap:18px;font-size:.92rem;color:var(--soft)}
+.proof span{display:flex;align-items:center;gap:6px}.proof b{color:var(--ink)}
+.dial{background:var(--navy);border-radius:28px;aspect-ratio:1/1.05;position:relative;overflow:hidden;display:grid;place-items:center}
+.dial svg{width:78%}
+.dial .tag{position:absolute;left:18px;bottom:18px;right:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:16px;padding:14px 16px;font-size:.9rem}
+.dial .tag b{display:block;font-family:Archivo;font-size:1.05rem}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:36px}.dial{max-width:420px;aspect-ratio:1.2/1}}
+section{padding:64px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media(max-width:860px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.card svg{width:36px;height:36px;margin-bottom:12px}
+.card h3{font-size:1.15rem}.card p{margin:0;color:var(--soft);font-size:.96rem}
+.band{background:var(--navy);color:#fff}
+.band .soft{color:#b8c6d1}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px}
+.stat b{display:block;font-family:Archivo;font-size:2rem;color:#ffb38f}
+.stat small{color:#b8c6d1}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.areas span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.9rem}
+.contact{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+@media(max-width:760px){.contact{grid-template-columns:1fr;padding:24px}}
+.contact dl{margin:0}.contact dt{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-top:14px}.contact dd{margin:2px 0 0;font-weight:600}
+footer{padding:30px 0 90px;color:var(--soft);font-size:.88rem}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;display:none;gap:10px;z-index:20}
+.sticky a{flex:1;justify-content:center}
+@media(max-width:760px){.sticky{display:flex}}
+</style>
+</head>
+<body>
+<a class="concept" href="https://yrbnova.com">Concept by <b>YRB Nova</b> - see your website before you pay</a>
+<header><div class="wrap nav">
+  <a class="logo" href="#"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#0f2a3d"/><path d="M16 6c3 4 6 7 6 11a6 6 0 0 1-12 0c0-2 1-4 2-5 0 2 1 3 2 3 0-3 1-6 2-9z" fill="#e8572a"/></svg>Meridian Heating</a>
+  <nav><a href="#services">Services</a><a href="#why">Why us</a><a href="#areas">Areas</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-fire" href="tel:01164646498">0116 464 6498</a>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <span class="eyebrow">Family run in Wigston since 2013</span>
+    <h1>Warm house, working boiler, no drama.</h1>
+    <p class="lead">Boiler installs, repairs and servicing, central heating and plumbing across Leicester and Leicestershire. A small family team with 13 years of local work behind it.</p>
+    <div class="cta">
+      <a class="btn btn-fire" href="tel:07540266972">Call Chris: 07540 266972</a>
+      <a class="btn btn-line" href="mailto:chris@meridian-heating.co.uk?subject=Quote%20request">Get a quote</a>
+    </div>
+    <div class="proof">
+      <span><b>4.9/5</b> from 66 Which? Trusted Traders reviews</span>
+      <span><b>Vaillant</b> Master Tec approved</span>
+    </div>
+  </div>
+  <div class="dial" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#e8572a" stroke-width="14" stroke-linecap="round" stroke-dasharray="360 503" transform="rotate(135 100 100)"/>
+      <text x="100" y="108" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="46" fill="#fff">21°</text>
+      <text x="100" y="134" text-anchor="middle" font-family="Inter" font-size="12" fill="#b8c6d1">heating on</text>
+    </svg>
+    <div class="tag"><b>Boiler playing up?</b>Ring before 7pm on a weekday and we'll talk you through it.</div>
+  </div>
+</div>
+
+<section id="services"><div class="wrap">
+  <span class="eyebrow">What we do</span>
+  <h2>Gas, heating and plumbing, all under one roof.</h2>
+  <div class="grid">
+    <div class="card"><svg viewBox="0 0 36 36"><rect x="7" y="4" width="22" height="28" rx="4" fill="none" stroke="#e8572a" stroke-width="2.5"/><circle cx="18" cy="15" r="4" fill="#e8572a"/><path d="M12 25h12" stroke="#0f2a3d" stroke-width="2.5"/></svg><h3>Boiler installation</h3><p>New combi or system boilers fitted properly, with the paperwork and the walkthrough.</p></div>
+    <div class="card"><svg viewBox="0 0 36 36"><path d="M10 26 26 10M20 8l8 8M8 20l8 8" stroke="#e8572a" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg><h3>Repairs and servicing</h3><p>Annual services and fault finding so the boiler doesn't pick January to give up.</p></div>
+    <div class="card"><svg viewBox="0 0 36 36"><rect x="5" y="9" width="26" height="18" rx="3" fill="none" stroke="#e8572a" stroke-width="2.5"/><path d="M11 9v18M17 9v18M23 9v18" stroke="#0f2a3d" stroke-width="2"/></svg><h3>Radiators and central heating</h3><p>New radiators, full systems and power flushing for cold spots and sludge.</p></div>
+    <div class="card"><svg viewBox="0 0 36 36"><path d="M5 27h26M8 22c3-3 5 3 8 0s5 3 8 0 5 3 7 0" stroke="#e8572a" stroke-width="2.5" fill="none"/></svg><h3>Underfloor heating</h3><p>Warm floors that free up wall space, planned around how you use the room.</p></div>
+    <div class="card"><svg viewBox="0 0 36 36"><path d="M18 5v10M11 15h14v6a7 7 0 0 1-14 0z" stroke="#e8572a" stroke-width="2.5" fill="none"/><path d="M18 28v4" stroke="#0f2a3d" stroke-width="2.5"/></svg><h3>Gas safety checks</h3><p>Testing and inspection, including certificates for landlords.</p></div>
+    <div class="card"><svg viewBox="0 0 36 36"><path d="M8 8h8v8h12v12" stroke="#e8572a" stroke-width="2.5" fill="none"/><circle cx="28" cy="30" r="2" fill="#0f2a3d"/></svg><h3>Plumbing</h3><p>Leaks, immersion heaters and the general plumbing jobs that come with a house.</p></div>
+  </div>
+</div></section>
+
+<section id="why" class="band"><div class="wrap split">
+  <div>
+    <span class="eyebrow" style="color:#ffb38f">Why people stick with us</span>
+    <h2>Small team, proper standards.</h2>
+    <p class="soft">Meridian is a family business. Chris runs the jobs, Wendy runs the office and the team are trained installers and maintenance engineers. We're endorsed by Which? Trusted Traders and approved for landlords.</p>
+  </div>
+  <div class="stat">
+    <div><b>4.9</b><small>Which? rating</small></div>
+    <div><b>98%</b><small>would recommend</small></div>
+    <div><b>2013</b><small>trading since</small></div>
+  </div>
+</div></section>
+
+<section id="areas"><div class="wrap">
+  <span class="eyebrow">Where we work</span>
+  <h2>Based in Wigston, covering Leicestershire.</h2>
+  <div class="areas"><span>Wigston</span><span>Leicester</span><span>Market Harborough</span><span>Across Leicestershire</span><span>LE2 to LE67</span></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <div>
+      <h2>Tell us what's going on.</h2>
+      <p class="lead">A quick call is usually fastest. If you'd rather write it down, email a photo of the boiler and a line about the problem and we'll come back to you.</p>
+      <div class="cta"><a class="btn btn-fire" href="tel:01164646498">Call 0116 464 6498</a><a class="btn btn-line" href="mailto:chris@meridian-heating.co.uk">Email us</a></div>
+    </div>
+    <dl>
+      <dt>Mobile</dt><dd>07540 266972</dd>
+      <dt>Email</dt><dd>chris@meridian-heating.co.uk</dd>
+      <dt>Hours</dt><dd>Mon to Fri, 7:30am to 7pm</dd>
+      <dt>Based</dt><dd>Wigston, Leicester LE18</dd>
+    </dl>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">Meridian Heating Ltd, Wigston, Leicestershire. This is a concept homepage made by YRB Nova and isn't the official Meridian Heating website.</div></footer>
+<div class="sticky"><a class="btn btn-fire" href="tel:07540266972">Call now</a><a class="btn btn-line" style="background:#fff" href="mailto:chris@meridian-heating.co.uk?subject=Quote%20request">Quote</a></div>
+</body>
+</html>
