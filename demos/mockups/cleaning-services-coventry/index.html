@@ -95,6 +95,58 @@ body{padding-bottom:0}
 section{padding:84px 0}
 }
 </style>
+<style id="hero-photo">
+header{position:absolute;left:0;right:0;z-index:6;background:transparent!important;border-bottom:0!important}
+.hero{position:relative;overflow:hidden;min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;background:#15191d;color:#fff}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-media .ix-hero-img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;display:block;max-width:none}
+.hero-media::after{content:"";position:absolute;inset:0;background:var(--hero-shade)}
+.hero>.wrap{position:relative;z-index:1;width:100%}
+.rc-card blockquote{margin:0;padding:0;border:0;background:none;border-radius:0;font-size:1.05rem;line-height:1.55}
+.rc-slot{background:transparent!important;box-shadow:none!important;border:2px dashed var(--rc-accent)!important;align-items:flex-start;justify-content:center;min-height:230px}
+.rc-slot blockquote{font-size:1.3rem;font-weight:700;flex:0 0 auto}
+@media(min-width:760px){footer{padding-bottom:96px!important}}
+.rc-slot-ic{width:42px;height:42px;border-radius:50%;border:2px dashed var(--rc-accent);display:grid;place-items:center;font-weight:800;color:var(--rc-accent)}
+
+.hero{--hero-shade:linear-gradient(180deg,rgba(18,28,26,.72) 0%,rgba(18,28,26,.3) 30%,rgba(18,28,26,.66) 58%,rgba(18,28,26,.94) 100%);padding:0!important}
+.hero .wrap{display:block!important;padding-top:110px;padding-bottom:44px}
+.logo b{color:#fff}.logo small{color:#dfe7e3}
+.nav .call{color:#fff}
+.hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{color:var(--lemon);background:none}
+.hero p.lead{color:#eef2ef}
+.hero .btn-o{border-color:#fff;color:#fff}
+.hero .btn-o:hover{background:#fff;color:var(--ink)}
+.rc{background:var(--cream)}
+.rc-card{border:1px solid var(--line)}
+.rc-head h2{margin:6px 0 4px}
+@media(min-width:760px){
+ .hero{min-height:min(88vh,860px);justify-content:center}
+ .hero{--hero-shade:linear-gradient(90deg,rgba(18,28,26,.9) 0%,rgba(18,28,26,.68) 45%,rgba(18,28,26,.12) 100%),linear-gradient(180deg,rgba(18,28,26,.5) 0%,rgba(18,28,26,0) 25%)}
+ .hero .wrap{padding-top:120px;padding-bottom:80px}
+ .hero .wrap>div{max-width:600px}
+}
+</style>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
 <style id="ix-style">
 /* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
 html{scroll-behavior:smooth}
@@ -131,6 +183,7 @@ html{scroll-behavior:smooth}
 
 <main id="top">
 <section class="hero">
+<div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1280" alt="A cleaner in uniform and yellow gloves vacuuming the carpet of a bright, modern office (stock photo)" fetchpriority="high" decoding="async" style="object-position:72% 50%"></div>
 <div class="wrap">
 <div>
 <span class="tag">Coventry &amp; surrounding areas</span>
@@ -140,23 +193,6 @@ html{scroll-behavior:smooth}
 <a class="btn btn-p" href="tel:07970346549">Call 07970 346549</a>
 <a class="btn btn-o" href="mailto:cleaning.servicescoventry@hotmail.com?subject=Cleaning%20quote%20request">Email for a quote</a>
 </div>
-</div>
-<div class="art" aria-hidden="true">
-<svg viewBox="0 0 400 320">
-<rect x="40" y="70" width="320" height="210" rx="10" fill="#faf6ee" stroke="#1f2b2a" stroke-width="3"/>
-<path d="M40 70 200 18l160 52" fill="none" stroke="#1f2b2a" stroke-width="3" stroke-linejoin="round"/>
-<rect x="72" y="104" width="96" height="82" rx="4" fill="#fff" stroke="#1f2b2a" stroke-width="3"/>
-<path d="M120 104v82M72 145h96" stroke="#1f2b2a" stroke-width="2"/>
-<path d="M84 170 108 116M98 176 124 120" stroke="#3f6b5c" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-<rect x="232" y="104" width="96" height="82" rx="4" fill="#fff" stroke="#1f2b2a" stroke-width="3"/>
-<path d="M280 104v82M232 145h96" stroke="#1f2b2a" stroke-width="2"/>
-<rect x="176" y="200" width="48" height="80" rx="3" fill="#3f6b5c" stroke="#1f2b2a" stroke-width="3"/>
-<circle cx="214" cy="242" r="3" fill="#f2d95c"/>
-<g fill="#f2d95c" stroke="#1f2b2a" stroke-width="2"><path d="M346 30l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M60 26l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
-<g transform="translate(300 210)"><rect x="0" y="34" width="56" height="36" rx="6" fill="#f2d95c" stroke="#1f2b2a" stroke-width="3"/><path d="M8 34c0-14 40-14 40 0" fill="none" stroke="#1f2b2a" stroke-width="3"/><path d="M28 20V-6" stroke="#1f2b2a" stroke-width="3"/><rect x="18" y="-24" width="20" height="20" rx="4" fill="#dfeee6" stroke="#1f2b2a" stroke-width="3"/></g>
-<circle cx="250" cy="226" r="8" fill="#fff" stroke="#3f6b5c" stroke-width="2"/><circle cx="268" cy="212" r="5" fill="#fff" stroke="#3f6b5c" stroke-width="2"/><circle cx="252" cy="200" r="4" fill="#fff" stroke="#3f6b5c" stroke-width="2"/>
-<path d="M20 280h360" stroke="#1f2b2a" stroke-width="3" stroke-linecap="round"/>
-</svg>
 </div>
 </div>
 </section>
@@ -195,6 +231,23 @@ html{scroll-behavior:smooth}
 <li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect x="5" y="9" width="26" height="20" rx="3" fill="none" stroke="#f2d95c" stroke-width="2.5"/><path d="M5 15h26M12 5v6M24 5v6" stroke="#f2d95c" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Domestic and commercial</b><span>One company for your home, your rental property and your workplace.</span></div></li>
 <li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M8 6h6l3 7-4 2a16 16 0 0 0 8 8l2-4 7 3v6a2 2 0 0 1-2 2C15 30 6 21 6 8a2 2 0 0 1 2-2z" fill="none" stroke="#f2d95c" stroke-width="2.5" stroke-linejoin="round"/></svg><div><b>Speak to us directly</b><span>Call or email and you'll deal with the company itself, a registered limited company.</span></div></li>
 </ul>
+</div>
+</section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#3f6b5c;--rc-card:#fff;--rc-ink:#1f2b2a;--rc-soft:#5b6866">
+<div class="rc-wrap">
+<div class="rc-head">
+<h2>What customers say</h2>
+<p class="rc-sum">Your Google rating and review count will show here</p>
+<div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+</div>
+<div class="rc-track rc-cards" tabindex="0">
+<figure class="rc-card rc-slot" aria-roledescription="slide"><div class="rc-slot-ic" aria-hidden="true">G</div><blockquote>Your Google reviews show here</blockquote><figcaption><b>Review slot 1</b><span>Placeholder: real customer reviews are added once connected</span></figcaption></figure>
+<figure class="rc-card rc-slot" aria-roledescription="slide"><div class="rc-slot-ic" aria-hidden="true">G</div><blockquote>Your Google reviews show here</blockquote><figcaption><b>Review slot 2</b><span>Placeholder: real customer reviews are added once connected</span></figcaption></figure>
+<figure class="rc-card rc-slot" aria-roledescription="slide"><div class="rc-slot-ic" aria-hidden="true">G</div><blockquote>Your Google reviews show here</blockquote><figcaption><b>Review slot 3</b><span>Placeholder: real customer reviews are added once connected</span></figcaption></figure>
+<figure class="rc-card rc-slot" aria-roledescription="slide"><div class="rc-slot-ic" aria-hidden="true">G</div><blockquote>Your Google reviews show here</blockquote><figcaption><b>Review slot 4</b><span>Placeholder: real customer reviews are added once connected</span></figcaption></figure>
+</div>
+<div class="rc-dots" aria-hidden="true"></div>
 </div>
 </section>
 
@@ -292,7 +345,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -324,6 +377,27 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
   });
 })();
 </script>

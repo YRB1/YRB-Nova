@@ -115,6 +115,56 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
 </style>
 <script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="ph-style">
+/* Full-bleed photo hero */
+.ph-hero{position:relative;overflow:hidden;isolation:isolate;min-height:88svh;display:flex;align-items:flex-end;color:#fff;background:#15191d}
+.ph-hero .ix-hero-img{position:absolute;top:-10%;left:-5%;width:110%;height:120%;max-width:none;object-fit:cover;display:block;z-index:-2}
+.ph-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(9,12,15,.32) 0%,rgba(9,12,15,.2) 24%,rgba(9,12,15,.6) 50%,rgba(9,12,15,.92) 100%)}
+.ph-in{position:relative;width:100%;padding-top:56px;padding-bottom:44px}
+.ph-copy{max-width:660px}
+.ph-hero h1{color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.ph-hero p{color:rgba(255,255,255,.9)}
+@media(min-width:861px){
+.ph-hero{min-height:clamp(560px,84vh,820px);align-items:center}
+.ph-hero::before{background:linear-gradient(90deg,rgba(9,12,15,.9) 0%,rgba(9,12,15,.74) 40%,rgba(9,12,15,.28) 72%,rgba(9,12,15,.12) 100%),linear-gradient(180deg,rgba(9,12,15,.45) 0%,transparent 24%,transparent 70%,rgba(9,12,15,.5) 100%)}
+.ph-in{padding-top:72px;padding-bottom:72px}
+}
+@media(max-width:760px){.ph-in{padding-top:40px;padding-bottom:104px}}
+</style>
+<style id="ph-page">
+.rc-wrap{max-width:1100px}
+.rc-card{border:1.5px solid var(--ink);border-radius:0;box-shadow:8px 8px 0 var(--paper2)}
+.rc-card blockquote{padding:0;border:0;font-size:1.08rem;line-height:1.5}
+.rc-nav button{border-radius:0}
+.ph-hero .kicker{color:#f0a98a}
+.ph-hero h1 em{color:#f0a98a}
+.ph-hero .lead{color:rgba(255,255,255,.9)}
+.ph-hero .btn-ghost{border-color:rgba(255,255,255,.85);color:#fff;background:rgba(255,255,255,.06)}
+.ph-hero .btn-ghost:hover{background:#fff;color:var(--ink)}
+.ph-hero .facts{color:rgba(255,255,255,.85);border-top-color:rgba(255,255,255,.3)}.ph-hero .facts b{color:#fff}
+@media(max-width:640px){.ph-in{padding-bottom:110px}}
+@media(min-width:641px){footer{padding-bottom:96px}}
+</style>
 </head>
 <body>
 <a class="concept" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
@@ -128,8 +178,10 @@ html{scroll-behavior:smooth}
 </div>
 </header>
 <main id="top">
-<div class="wrap hero">
-<div>
+<div class="ph-hero">
+<img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1200" alt="A finished single storey rear extension with a roof window, sliding patio doors and a dining area" fetchpriority="high" decoding="async" style="object-position:50% 40%">
+<div class="wrap ph-in">
+<div class="ph-copy">
 <div class="kicker">Design and build, Nottingham</div>
 <h1>From the first sketch to the <em>last tile.</em></h1>
 <p class="lead">Extensions, loft and garage conversions, bathrooms and full renovations. We can draw it up, help with the planning side, and then build it with our own team.</p>
@@ -139,35 +191,7 @@ html{scroll-behavior:smooth}
 </div>
 <div class="facts"><span><b>5.0</b> from 3 reviews on Which? Trusted Traders</span><span><b>100%</b> would recommend</span></div>
 </div>
-<figure class="plan" style="margin:0">
-<svg viewBox="0 0 400 300" aria-label="Line drawing of a house with a rear extension" role="img">
-<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0v20" fill="none" stroke="rgba(255,255,255,.08)"/></pattern></defs>
-<rect width="400" height="300" fill="url(#g)"/>
-<g fill="none" stroke="#e8eef4" stroke-width="2" stroke-linejoin="round">
-<path d="M40 250V130l80-60 80 60v120Z"/>
-<path d="M200 250V160h150v90"/>
-<path d="M60 250V130"/>
-<rect x="72" y="150" width="34" height="40"/><rect x="132" y="150" width="34" height="40"/>
-<path d="M105 250v-46h30v46"/>
-<path d="M140 98h-40l20-15Z"/>
-</g>
-<g fill="none" stroke="#e59a7b" stroke-width="2.4">
-<path d="M200 160h150v90H200"/>
-<rect x="222" y="182" width="104" height="68" stroke-dasharray="6 5"/>
-<path d="M200 150h150l-10-10H200"/>
-</g>
-<g stroke="#9fb3c6" stroke-width="1.2" fill="none">
-<path d="M200 274h150M200 268v12M350 268v12"/>
-<path d="M368 160v90M362 160h12M362 250h12"/>
-</g>
-<g fill="#c9d6e2" font-family="Work Sans,sans-serif" font-size="11" letter-spacing="1.5">
-<text x="248" y="292">NEW EXTENSION</text>
-<text x="246" y="216" fill="#e59a7b">BI-FOLD</text>
-</g>
-<circle cx="120" cy="110" r="4" fill="#e59a7b"/>
-</svg>
-<figcaption><span>Rear extension, concept</span><span>Not to scale</span></figcaption>
-</figure>
+</div>
 </div>
 
 <section id="services" style="padding-top:20px">
@@ -191,7 +215,6 @@ html{scroll-behavior:smooth}
 <div class="kicker">Why Constructive Choice</div>
 <h2>Checked, endorsed and well reviewed</h2>
 <div class="rating"><b>5.0</b>from 3 verified reviews on Which? Trusted Traders, with 100% of customers saying they would recommend us.</div>
-<blockquote>&ldquo;The team is skilled and friendly. The workmanship is exceptional!&rdquo;<cite>Thomas, review on Trustpilot</cite></blockquote>
 </div>
 <div>
 <ul class="points">
@@ -201,9 +224,46 @@ html{scroll-behavior:smooth}
 <li><b>Domestic and commercial.</b> From a bathroom refit to a full HMO conversion.</li>
 <li><b>Nottingham based.</b> Our office is at Trentview Court in NG2.</li>
 </ul>
-<blockquote>&ldquo;Very professional and good at suggesting solutions and looking for alternative options.&rdquo;<cite>Diana, review on Trustpilot</cite></blockquote>
 </div>
 </div>
+</section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#b5532f;--rc-card:#fffdf8;--rc-ink:#1d1f1c;--rc-soft:#55584f">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>5.0 / 5</b> from 3 reviews on Which? Trusted Traders &middot; <b>4.0</b> TrustScore from 3 reviews on Trustpilot</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Sergej completed a single story rear extension for us. After searching for the right company we found Sergej and his team and couldn&#39;t be happier with the result. ... He and his team completed the works to highest of standards keeping us informed with what was going on and what the next steps were as we progressed.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Mar 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;I&#39;ve worked with Constructive Choice on two projects. A full, back to brick, 4 bed HMO conversion for investment. ... The team is skilled and friendly. The workmanship is exceptional!&rdquo;</blockquote>
+        <figcaption><b>Thomas</b><span>Trustpilot &middot; Feb 2022</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Great bathroom repair and renovation completed by Sergej and Remis. Good communication and reasonable prices. Remis is very skilled and provided excellent advice on the materials and items we should use in our bathroom. Would definitely use their services again.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Mar 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;I have worked with Sergej and his team repairing and extending my own house in 2021. ... Very professional and good at suggesting solutions and looking for alternative options.&rdquo;</blockquote>
+        <figcaption><b>Diana</b><span>Trustpilot &middot; Jan 2022</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Good communication and work completed to a high standard. Very helpful with ideas and understanding about delays outside at our end. All workers were very polite and professional.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Mar 2024</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
 </section>
 
 <section id="areas">
@@ -286,7 +346,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -318,6 +378,28 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setTimeout(function(){t.querySelectorAll('.ix-r').forEach(function(c){c.classList.add('ix-in')})},250)})},{threshold:.1}).observe(t)}
   });
 })();
 </script>

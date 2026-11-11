@@ -81,6 +81,49 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
 </style>
 <script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="ph-style">
+/* Full-bleed photo hero */
+.ph-hero{position:relative;overflow:hidden;isolation:isolate;min-height:88svh;display:flex;align-items:flex-end;color:#fff;background:#15191d}
+.ph-hero .ix-hero-img{position:absolute;top:-10%;left:-5%;width:110%;height:120%;max-width:none;object-fit:cover;display:block;z-index:-2}
+.ph-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(9,12,15,.32) 0%,rgba(9,12,15,.2) 24%,rgba(9,12,15,.6) 50%,rgba(9,12,15,.92) 100%)}
+.ph-in{position:relative;width:100%;padding-top:56px;padding-bottom:44px}
+.ph-copy{max-width:660px}
+.ph-hero h1{color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.ph-hero p{color:rgba(255,255,255,.9)}
+@media(min-width:861px){
+.ph-hero{min-height:clamp(560px,84vh,820px);align-items:center}
+.ph-hero::before{background:linear-gradient(90deg,rgba(9,12,15,.9) 0%,rgba(9,12,15,.74) 40%,rgba(9,12,15,.28) 72%,rgba(9,12,15,.12) 100%),linear-gradient(180deg,rgba(9,12,15,.45) 0%,transparent 24%,transparent 70%,rgba(9,12,15,.5) 100%)}
+.ph-in{padding-top:72px;padding-bottom:72px}
+}
+@media(max-width:760px){.ph-in{padding-top:40px;padding-bottom:104px}}
+</style>
+<style id="ph-page">
+.ph-hero p{color:rgba(255,255,255,.9);font-size:1.15rem;max-width:31em}
+.ph-hero .btn-ghost{border-color:rgba(255,255,255,.85);color:#fff;background:rgba(255,255,255,.06)}
+.ph-hero .btn-ghost:hover{background:#fff;color:var(--ink)}
+.ph-hero .rating{color:rgba(255,255,255,.85)}.ph-hero .rating b{color:#fff}
+.rc-card blockquote{font-size:1.02rem}
+</style>
 </head>
 <body>
 <a class="concept" href="https://yrbnova.com">Concept by <b>YRB Nova</b> - see your website before you pay</a>
@@ -90,20 +133,17 @@ html{scroll-behavior:smooth}
 </div></header>
 
 <main>
-<div class="wrap hero">
-  <div>
+<div class="ph-hero">
+  <img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1083" alt="A decorated bedroom with a patterned grey feature wall, upholstered headboard and white bedding" fetchpriority="high" decoding="async" style="object-position:70% 50%">
+  <div class="wrap ph-in"><div class="ph-copy">
     <h1>Sharp lines. Clean finish. No mess left behind.</h1>
     <p>Interior and exterior decorating for homes and businesses across Nottingham and the East Midlands. A qualified, fully insured team, all background checked.</p>
     <div class="cta">
       <a class="btn btn-main" href="mailto:info@leonshaw.co.uk?subject=Decorating%20quote">Ask for a free quote</a>
       <a class="btn btn-ghost" href="tel:07771694109">Call Leon</a>
     </div>
-    <div class="rating"><b>4.9 out of 5</b> from 117 reviews on Which? Trusted Traders</div>
-  </div>
-  <div class="swatches" aria-hidden="true">
-    <div class="sw sw1">Sage</div><div class="sw sw2">Terracotta</div><div class="sw sw3">Ochre</div>
-    <svg class="roller" viewBox="0 0 100 120"><rect x="8" y="8" width="70" height="26" rx="8" fill="#fbf8f3" stroke="#1d1b19" stroke-width="4"/><path d="M78 21h12v26H46v18" fill="none" stroke="#1d1b19" stroke-width="4"/><rect x="38" y="64" width="16" height="48" rx="6" fill="#1d1b19"/></svg>
-  </div>
+    <div class="rating"><b>4.9 out of 5</b> from 118 reviews on Which? Trusted Traders</div>
+  </div></div>
 </div>
 
 <section class="alt"><div class="wrap">
@@ -126,8 +166,51 @@ html{scroll-behavior:smooth}
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
-  <div class="big"><div class="n">117</div><div><h3 style="color:#fff">reviews and counting</h3><p>Customers rate Leon and the team 4.9 out of 5 for customer service, quality and value on Which? Trusted Traders.</p></div></div>
+  <div class="big"><div class="n">118</div><div><h3 style="color:#fff">reviews and counting</h3><p>Customers rate Leon and the team 4.9 out of 5 for customer service, quality and value on Which? Trusted Traders.</p></div></div>
 </div></section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#c9774f;--rc-card:#fff;--rc-ink:#1d1b19;--rc-soft:#5f5953">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>4.9 / 5</b> from 118 reviews on Which? Trusted Traders</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;They were consistently considerate and positive and exhibited an outstanding level of care, skill and attention to detail. ... I am delighted with the quality of the work, and extraordinarily grateful to the team for making this such stress free experience!&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottingham</b><span>Which? Trusted Traders &middot; Nov 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Leon arrived promptly and covered my bedroom impeccably with plastic sheeting ... He came back the following day for a short time, cleaned the room leaving it spotless. I am delighted with the result.&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottingham</b><span>Which? Trusted Traders &middot; Jan 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;He has transformed my staircase from shabby to smart, the colour is perfect, the finish is superb and I can finally call it posh. Leon and his men are a pleasure to deal with, reliable and respectful.&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottingham</b><span>Which? Trusted Traders &middot; Sep 2025</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;I live in a Victorian property with slight imperfections in the walls, but this was no trouble at all. Leon and his team are highly experienced and have given each room the wow factor. I cannot pick a single fault with either room, and I am absolutely over the moon with the finish.&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottinghamshire</b><span>Which? Trusted Traders &middot; Jul 2025</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Leon did some wallpapering, he did a fabulous job and aims for perfection. He left the room very tidy and even moved the furniture back. He was very punctual and arrived exactly when he said he would.&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottingham</b><span>Which? Trusted Traders &middot; Jul 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;The preparation and time taken to ensure that the finish was perfect was exceptional, I can&#39;t recommend them enough. The team were extremely professional and left the house as they&#39;d found it every time.&rdquo;</blockquote>
+        <figcaption><b>Customer in Nottinghamshire</b><span>Which? Trusted Traders &middot; Nov 2022</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
+</section>
 
 <section class="alt"><div class="wrap">
   <h2>Where we work</h2>
@@ -181,7 +264,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -213,6 +296,28 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setTimeout(function(){t.querySelectorAll('.ix-r').forEach(function(c){c.classList.add('ix-in')})},250)})},{threshold:.1}).observe(t)}
   });
 })();
 </script>

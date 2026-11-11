@@ -86,6 +86,50 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
 </style>
 <script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="ph-style">
+/* Full-bleed photo hero */
+.ph-hero{position:relative;overflow:hidden;isolation:isolate;min-height:88svh;display:flex;align-items:flex-end;color:#fff;background:#15191d}
+.ph-hero .ix-hero-img{position:absolute;top:-10%;left:-5%;width:110%;height:120%;max-width:none;object-fit:cover;display:block;z-index:-2}
+.ph-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(9,12,15,.32) 0%,rgba(9,12,15,.2) 24%,rgba(9,12,15,.6) 50%,rgba(9,12,15,.92) 100%)}
+.ph-in{position:relative;width:100%;padding-top:56px;padding-bottom:44px}
+.ph-copy{max-width:660px}
+.ph-hero h1{color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.ph-hero p{color:rgba(255,255,255,.9)}
+@media(min-width:861px){
+.ph-hero{min-height:clamp(560px,84vh,820px);align-items:center}
+.ph-hero::before{background:linear-gradient(90deg,rgba(9,12,15,.9) 0%,rgba(9,12,15,.74) 40%,rgba(9,12,15,.28) 72%,rgba(9,12,15,.12) 100%),linear-gradient(180deg,rgba(9,12,15,.45) 0%,transparent 24%,transparent 70%,rgba(9,12,15,.5) 100%)}
+.ph-in{padding-top:72px;padding-bottom:72px}
+}
+@media(max-width:760px){.ph-in{padding-top:40px;padding-bottom:104px}}
+</style>
+<style id="ph-page">
+.ph-hero .eyebrow{color:#ffb38f}
+.ph-hero .lead{color:rgba(255,255,255,.9)}
+.ph-hero .btn-line{border-color:rgba(255,255,255,.85);color:#fff;background:rgba(255,255,255,.06)}
+.ph-hero .btn-line:hover{background:#fff;color:var(--ink)}
+.ph-hero .proof{color:rgba(255,255,255,.85)}.ph-hero .proof b{color:#fff}
+@media(max-width:440px){.nav .btn{padding:9px 14px;font-size:.88rem;white-space:nowrap}.logo{font-size:1.08rem;white-space:nowrap;gap:8px}}
+</style>
 </head>
 <body>
 <a class="concept" href="https://yrbnova.com">Concept by <b>YRB Nova</b> - see your website before you pay</a>
@@ -96,8 +140,9 @@ html{scroll-behavior:smooth}
 </div></header>
 
 <main>
-<div class="wrap hero">
-  <div>
+<div class="ph-hero">
+  <img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1064" alt="Heating pipework with valves, pumps and pressure gauges above a boiler" fetchpriority="high" decoding="async" style="object-position:60% 50%">
+  <div class="wrap ph-in"><div class="ph-copy">
     <span class="eyebrow">Family run in Wigston since 2013</span>
     <h1>Warm house, working boiler, no drama.</h1>
     <p class="lead">Boiler installs, repairs and servicing, central heating and plumbing across Leicester and Leicestershire. A small family team with 13 years of local work behind it.</p>
@@ -109,16 +154,7 @@ html{scroll-behavior:smooth}
       <span><b>4.9/5</b> from 66 Which? Trusted Traders reviews</span>
       <span><b>Vaillant</b> Master Tec approved</span>
     </div>
-  </div>
-  <div class="dial" aria-hidden="true">
-    <svg viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14"/>
-      <circle cx="100" cy="100" r="80" fill="none" stroke="#e8572a" stroke-width="14" stroke-linecap="round" stroke-dasharray="360 503" transform="rotate(135 100 100)"/>
-      <text x="100" y="108" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="46" fill="#fff">21°</text>
-      <text x="100" y="134" text-anchor="middle" font-family="Inter" font-size="12" fill="#b8c6d1">heating on</text>
-    </svg>
-    <div class="tag"><b>Boiler playing up?</b>Ring before 7pm on a weekday and we'll talk you through it.</div>
-  </div>
+  </div></div>
 </div>
 
 <section id="services"><div class="wrap">
@@ -146,6 +182,49 @@ html{scroll-behavior:smooth}
     <div><b>2013</b><small>trading since</small></div>
   </div>
 </div></section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#e8572a;--rc-card:#fff;--rc-ink:#14202b;--rc-soft:#4b5b69">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>4.9 / 5</b> from 66 reviews on Which? Trusted Traders</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;I am repeat customer - he arrives on time, polite and carries out his work competently and I never have a problem.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Nov 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Chris and Keeleigh from Meridian Heating have done an excellent job today of installing a SureStop stopcock with switch, automatic radiator valves and reinstalled a toilet and bathroom tap. They have left all work areas clean and tidy. All that for a very reasonable price. ...&rdquo;</blockquote>
+        <figcaption><b>Customer in Leicester</b><span>Which? Trusted Traders &middot; Jun 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Chris has been maintaining our boiler since fitting it in 2017. ... Chris, Keeley and Wendy are a great team, excellent work and customer care. I can highly recommend them.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Jun 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Fast, efficient, and friendly. Communication when setting up the service was excellent, and Chris was honest and clear throughout the process. Would happily recommend.&rdquo;</blockquote>
+        <figcaption><b>Which? customer</b><span>Which? Trusted Traders &middot; Jun 2025</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;We have used Chris to service our boiler for a few years now and he installed our new one 2 years ago. Cannot fault his service, he is reliable, trustworthy, always on time and efficient. ...&rdquo;</blockquote>
+        <figcaption><b>Customer in Leicestershire</b><span>Which? Trusted Traders &middot; Feb 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;We needed a new, updated heating system that was easier to use than our current one and Chris provided a great service from start to finish. ... A truly professional and friendly service that didn&#39;t break the bank.&rdquo;</blockquote>
+        <figcaption><b>Customer in Leicestershire</b><span>Which? Trusted Traders &middot; Dec 2022</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
+</section>
 
 <section id="areas"><div class="wrap">
   <span class="eyebrow">Where we work</span>
@@ -210,7 +289,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -242,6 +321,28 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setTimeout(function(){t.querySelectorAll('.ix-r').forEach(function(c){c.classList.add('ix-in')})},250)})},{threshold:.1}).observe(t)}
   });
 })();
 </script>

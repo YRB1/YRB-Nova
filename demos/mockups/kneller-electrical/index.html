@@ -111,6 +111,46 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
 </style>
 <script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="hero-photo">
+@media(min-width:761px){footer{padding-bottom:calc(10vh + 24px)}}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:-2;background:rgb(11,17,24)}
+.hero-media .ix-hero-img{position:absolute;top:-10%;left:-6%;width:112%;max-width:none;height:120%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(11,17,24,.5) 0%,rgba(11,17,24,.12) 30%,rgba(11,17,24,.4) 66%,rgba(11,17,24,.9) 100%),linear-gradient(90deg,rgba(11,17,24,.82) 0%,rgba(11,17,24,.55) 42%,rgba(11,17,24,0) 78%)}
+@media(max-width:760px){.hero-shade{background:linear-gradient(180deg,rgba(11,17,24,.5) 0%,rgba(11,17,24,.35) 28%,rgba(11,17,24,.82) 58%,rgba(11,17,24,.96) 100%)}}
+.rc-card blockquote{background:none;padding:0;border:0;border-radius:0;margin:0}
+
+.hero{display:flex;min-height:calc(88svh - 64px)}
+.hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:center;width:100%}
+.hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero .lead{color:#dbe3ea;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .btn.o{color:#fff;border-color:rgba(255,255,255,.8);background:rgba(11,17,24,.35)}
+.rc-head h2{margin:0}
+.rc-card{border:1px solid var(--line)}
+.rc-card blockquote{font-family:"IBM Plex Sans",sans-serif;font-size:1.02rem;color:var(--text)}
+.rc-nav button:hover{color:#111}
+@media(max-width:759px){.hero>.wrap{justify-content:flex-end;padding-bottom:36px}}
+</style>
 </head>
 <body>
 <a class="yrb" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
@@ -121,10 +161,8 @@ html{scroll-behavior:smooth}
 
 <main id="top">
 <div class="hero">
- <svg class="circuit" viewBox="0 0 400 300" aria-hidden="true" fill="none" stroke="#f5c518" stroke-width="2">
-  <path d="M0 60h120l30 30h90l20-20h140M0 140h80l40 40h120l30-30h130M60 260h100l30-30h90l40 40h80"/>
-  <circle cx="120" cy="60" r="6"/><circle cx="240" cy="90" r="6"/><circle cx="80" cy="140" r="6"/><circle cx="240" cy="180" r="6"/><circle cx="190" cy="230" r="6"/><circle cx="320" cy="270" r="6"/>
- </svg>
+<div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1200" alt="An electrician testing an electrical panel with a multimeter (stock photo)" fetchpriority="high" decoding="async" style="object-position:40% 50%"></div>
+<div class="hero-shade" aria-hidden="true"></div>
  <div class="wrap">
   <span class="tag">Electrical contractors &middot; Groby, Leicester</span>
   <h1>Safe, tidy electrical work, <span>done properly.</span></h1>
@@ -162,8 +200,48 @@ html{scroll-behavior:smooth}
   <div class="row"><span class="n">03</span><div><h3>Homes and businesses</h3><p>From new installations to full refurbishments, plus the testing and certificates landlords need.</p></div></div>
   <div class="row"><span class="n">04</span><div><h3>Local to Groby</h3><p>A Leicestershire contractor with many years of experience, run by Steph.</p></div></div>
  </div>
- <blockquote>&ldquo;There was no call out charge and the invoice was reasonably priced.&rdquo;<cite>Paul, Leicestershire, on Which? Trusted Traders</cite></blockquote>
 </div></section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#f5c518;--rc-card:#1c2935;--rc-ink:#e8edf1;--rc-soft:#9fb0bf">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>4.9 / 5</b> from 38 reviews on Which? Trusted Traders, with 97% recommending us</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track rc-items" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;After being messed about by the &ldquo;big&rdquo; companies I found Kneller and Kneller. Two weeks from initial contact to installation. A competitive price, clear communication through out. ...&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicester</b><span>Which? Trusted Traders &middot; Jun 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;I have used this company on a number of occasions and they have been absolutely brilliant. Punctual, tidy and have brought my property up to current specification ...&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Aug 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Office staff and engineers were able to react very quickly to the problem we reported ... There was no call out charge and the invoice was reasonably priced. Top job!&rdquo;</blockquote>
+        <figcaption><b>Paul, Leicestershire</b><span>Which? Trusted Traders &middot; Dec 2021</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;They did exactly what they said they would do, on time, in full and at the agreed price. ...&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Nov 2023</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Everything from start to finish has always been fantastic. Steph is great to speak to on the phone and always organises a quote very quickly. ...&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicester</b><span>Which? Trusted Traders &middot; Jun 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;... Their chap turned up on time, wore a mask and quickly resolved the issue - which was not as complex as it was made out to be. The professional approach really restored my faith in tradespeople.&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Mar 2024</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Simply brilliant end to end service. Emails answered, work done on time and at the agreed price. Will use again.&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicester</b><span>Which? Trusted Traders &middot; Apr 2024</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
+</section>
 
 <section class="areas"><div class="wrap">
  <p class="label">// Areas covered</p>
@@ -234,7 +312,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -266,6 +344,27 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
   });
 })();
 </script>

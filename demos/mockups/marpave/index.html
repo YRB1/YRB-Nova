@@ -88,6 +88,56 @@ footer p+p{margin-top:8px}
  .contact .grid{grid-template-columns:repeat(3,1fr)}
 }
 </style>
+<style id="hero-photo">
+header{position:absolute;left:0;right:0;z-index:6;background:transparent!important;border-bottom:0!important}
+.hero{position:relative;overflow:hidden;min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;background:#15191d;color:#fff}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-media .ix-hero-img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;display:block;max-width:none}
+.hero-media::after{content:"";position:absolute;inset:0;background:var(--hero-shade)}
+.hero>.wrap{position:relative;z-index:1;width:100%}
+.rc-card blockquote{margin:0;padding:0;border:0;background:none;border-radius:0;font-size:1.05rem;line-height:1.55}
+.rc-slot{background:transparent!important;box-shadow:none!important;border:2px dashed var(--rc-accent)!important;align-items:flex-start;justify-content:center;min-height:230px}
+.rc-slot blockquote{font-size:1.3rem;font-weight:700;flex:0 0 auto}
+@media(min-width:760px){footer{padding-bottom:96px!important}}
+.rc-slot-ic{width:42px;height:42px;border-radius:50%;border:2px dashed var(--rc-accent);display:grid;place-items:center;font-weight:800;color:var(--rc-accent)}
+
+.hero{--hero-shade:linear-gradient(180deg,rgba(28,40,31,.7) 0%,rgba(28,40,31,.3) 30%,rgba(28,40,31,.62) 60%,rgba(24,34,27,.93) 100%)}
+.hero .wrap{display:block!important;padding-top:110px!important;padding-bottom:46px!important}
+.logo b{color:#fff}
+nav.top a{color:#fff}
+.hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 i{color:#f0c39c}
+.hero p{color:#f1ede4}
+.rc{background:var(--cream)}
+.rc-card{border:1px solid #ebe3d5}
+.rc-card blockquote{font-family:"DM Serif Display",Georgia,serif;font-size:1.15rem;line-height:1.4}
+@media(min-width:760px){
+ .hero{min-height:min(88vh,860px);justify-content:center}
+ .hero{--hero-shade:linear-gradient(90deg,rgba(24,34,27,.9) 0%,rgba(24,34,27,.7) 45%,rgba(24,34,27,.2) 100%),linear-gradient(180deg,rgba(24,34,27,.5) 0%,rgba(24,34,27,0) 25%)}
+ .hero .wrap{padding-top:120px!important;padding-bottom:80px!important}
+ .hero .wrap>div{max-width:620px}
+}
+</style>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
 <style id="ix-style">
 /* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
 html{scroll-behavior:smooth}
@@ -118,8 +168,9 @@ html{scroll-behavior:smooth}
 </div></header>
 
 <main id="top">
-<div class="hero"><div class="wrap">
- <div class="pave" role="img" aria-label="Illustration of herringbone paving edged with planting"></div>
+<div class="hero">
+<div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1200w" sizes="100vw" width="1200" height="600" alt="Curved block-paved garden path around a planted bed with alliums, from Marpave's own project photos" fetchpriority="high" decoding="async" style="object-position:42% 60%"></div>
+<div class="wrap">
  <div>
   <span class="pill">Driveway &amp; patio specialists</span>
   <h1>Driveways, patios and gardens, <i>designed and built.</i></h1>
@@ -155,13 +206,25 @@ html{scroll-behavior:smooth}
   <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><path d="M4 28c4-10 6-14 6-20M12 28c2-8 3-12 3-18M20 28c1-8 2-12 5-17M28 28c-1-6 0-10 2-14"/><path d="M2 30h30"/></svg><div><h3>Trulawn partner</h3><p>Artificial grass in partnership with Trulawn.</p></div></div>
   <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><path d="M5 29h24M8 29V14l9-8 9 8v15"/><path d="M14 29v-8h6v8"/></svg><div><h3>Design &amp; build</h3><p>One firm from the first plan to the final slab.</p></div></div>
  </div>
- <div class="quotes">
-  <blockquote>&ldquo;Marpave were really brilliant in transforming my garden.&rdquo;<cite>Su, on Bark</cite></blockquote>
-  <blockquote>&ldquo;More than happy with service and quality of work from Marpave&rdquo;<cite>Maureen, on Bark</cite></blockquote>
-  <blockquote>&ldquo;Nothing appeared to be too much trouble and this was very much appreciated.&rdquo;<cite>Wendy, on Trustpilot</cite></blockquote>
- </div>
 </div></section>
 
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#9a6440;--rc-card:#fff;--rc-ink:#2a2a27;--rc-soft:#5f5f58">
+<div class="rc-wrap">
+<div class="rc-head">
+<h2 class="t">What customers say</h2>
+<p class="rc-sum"><b>5 / 5</b> from 4 reviews on Bark, plus a 5-star review on Trustpilot</p>
+<div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+</div>
+<div class="rc-track rc-cards" tabindex="0">
+<figure class="rc-card" aria-roledescription="slide"><div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;...Nothing appeared to be too much trouble and this was very much appreciated. ... Well done Marpave, a job well done.&rdquo;</blockquote><figcaption><b>Wendy</b><span>Trustpilot &middot; Mar 2026</span></figcaption></figure>
+<figure class="rc-card" aria-roledescription="slide"><div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;More than happy with service and quality of work from Marpave ... They did come recommended and we had seen examples o their work in local area which looked great and they did not fail to impress us and certainly lived up to high expectations&rdquo;</blockquote><figcaption><b>Maureen</b><span>Google review, shown on Bark &middot; Dec 2019</span></figcaption></figure>
+<figure class="rc-card" aria-roledescription="slide"><div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;They are so down to earth and consider your every need. They took our garden drawing and turned it into reality. Very good workmanship. Will have them again when our driveway needs doing...&rdquo;</blockquote><figcaption><b>Su</b><span>Facebook review, shown on Bark &middot; Nov 2019</span></figcaption></figure>
+<figure class="rc-card" aria-roledescription="slide"><div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;Marpave were really brilliant in transforming my garden. It is so lovely to sit in now. Can't wait for summer next year. Thanks Rob for your hard effort.&rdquo;</blockquote><figcaption><b>Su</b><span>Google review, shown on Bark &middot; Oct 2019</span></figcaption></figure>
+<figure class="rc-card" aria-roledescription="slide"><div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;They did my Front Drive block paving some years ago. Excellent professional job and very pleased with result.&rdquo;</blockquote><figcaption><b>GrrMeister</b><span>Google review, shown on Bark &middot; Jul 2018</span></figcaption></figure>
+</div>
+<div class="rc-dots" aria-hidden="true"></div>
+</div>
+</section>
 <section class="areas"><div class="wrap">
  <div class="box">
   <div><h2 class="t">Where we work</h2><p style="color:#55554e">Based in Charnwood, taking on driveway, patio and garden projects across Leicestershire.</p></div>
@@ -229,7 +292,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -261,6 +324,27 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
   });
 })();
 </script>

@@ -119,10 +119,54 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
 </style>
 <script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="hero-photo">
+@media(min-width:761px){footer{padding-bottom:calc(10vh + 24px)}}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:-2;background:rgb(18,26,31)}
+.hero-media .ix-hero-img{position:absolute;top:-10%;left:-6%;width:112%;max-width:none;height:120%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(18,26,31,.5) 0%,rgba(18,26,31,.12) 30%,rgba(18,26,31,.4) 66%,rgba(18,26,31,.9) 100%),linear-gradient(90deg,rgba(18,26,31,.82) 0%,rgba(18,26,31,.55) 42%,rgba(18,26,31,0) 78%)}
+@media(max-width:760px){.hero-shade{background:linear-gradient(180deg,rgba(18,26,31,.5) 0%,rgba(18,26,31,.35) 28%,rgba(18,26,31,.82) 58%,rgba(18,26,31,.96) 100%)}}
+.rc-card blockquote{background:none;padding:0;border:0;border-radius:0;margin:0}
+
+.top.hero{display:flex;flex-direction:column;min-height:calc(88svh - 32px);padding:0;gap:0}
+.top.hero>header,.hcopy{width:100%}
+.hcopy{flex:1;display:flex;align-items:center;padding-top:40px;padding-bottom:72px}
+.hcopy>div{max-width:660px}
+.hcopy .lead{color:#e4e9ec;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hcopy h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hcopy .score{color:#d3dbe0}
+.hcopy .btn-out{border-color:#e4e9ec;background:rgba(18,26,31,.35)}
+.why{align-items:start}
+.why>div>p{color:#46525a;max-width:30em}
+.rc-nav button:hover{color:#121a1f}
+@media(max-width:760px){.hcopy{align-items:flex-end;padding-top:24px;padding-bottom:40px}}
+</style>
 </head>
 <body>
 <a class="concept" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
-<div class="top">
+<div class="top hero" id="top">
+<div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1200" alt="A brick garage and timber garden room with new EPDM rubber flat roofs, from Rain Defence Roofing's own work gallery" fetchpriority="high" decoding="async" style="object-position:32% 45%"></div>
+<div class="hero-shade" aria-hidden="true"></div>
 <header class="wrap nav">
 <a class="logo" href="#top" aria-label="Rain Defence Roofing home">
 <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M3 20h30v5H3z" fill="#f2c230"/><path d="M3 27h30v4H3z" fill="#a9b7bf"/><path d="M10 4v8M18 2v10M26 4v8" stroke="#ece8df" stroke-width="2.4" stroke-linecap="round"/></svg>
@@ -130,7 +174,7 @@ html{scroll-behavior:smooth}
 <nav aria-label="Main"><a href="#services">Services</a><a href="#why">Why us</a><a href="#areas">Areas</a><a href="#contact">Contact</a></nav>
 <a class="btn btn-sun" href="tel:01159250283">0115 925 0283</a>
 </header>
-<div class="wrap hero" id="top">
+<div class="wrap hcopy">
 <div>
 <span class="tag">Flat roofing, Wollaton, Nottingham</span>
 <h1>Flat roof leaking? <span>Swap it for rubber.</span></h1>
@@ -140,25 +184,6 @@ html{scroll-behavior:smooth}
 <a class="btn btn-out" href="mailto:info@raindefenceroofing.com?subject=Free%20roof%20quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></svg>Email for a free quote</a>
 </div>
 <div class="score"><b>4.8</b><span><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>from 14 reviews on Which? Trusted Traders</span></div>
-</div>
-<div class="xs">
-<svg viewBox="0 0 400 260" role="img" aria-label="Cross-section of an EPDM flat roof shedding rain">
-<g stroke="#a9b7bf" stroke-width="2" stroke-linecap="round" opacity=".7">
-<path d="M60 10l-8 26M110 4l-8 26M160 16l-8 26M210 6l-8 26M260 14l-8 26M310 4l-8 26M355 18l-8 26M85 50l-6 18M185 52l-6 18M285 50l-6 18"/>
-</g>
-<path d="M30 110 370 98v12L30 122Z" fill="#f2c230"/>
-<path d="M30 122 370 110v22L30 144Z" fill="#c9c2b1"/>
-<path d="M30 144 370 132v16L30 160Z" fill="#8a6a45"/>
-<g fill="#5b4632"><rect x="44" y="160" width="14" height="70"/><rect x="134" y="157" width="14" height="73"/><rect x="224" y="154" width="14" height="76"/><rect x="314" y="151" width="14" height="79"/></g>
-<path d="M370 98c10 0 14 6 14 14v10" fill="none" stroke="#f2c230" stroke-width="4"/>
-<path d="M378 128c0 8-4 12-4 18M388 134c0 6-3 10-3 15" stroke="#a9b7bf" stroke-width="2" fill="none"/>
-<g font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#ece8df" letter-spacing=".5">
-<text x="40" y="96">EPDM RUBBER MEMBRANE</text>
-<text x="40" y="250" fill="#a9b7bf">JOISTS</text>
-<text x="196" y="196" fill="#a9b7bf">DECK + INSULATION</text>
-</g>
-</svg>
-<p>One piece, no seams or joins on most domestic roofs</p>
 </div>
 </div>
 </div>
@@ -198,6 +223,8 @@ html{scroll-behavior:smooth}
 <div>
 <span class="tag" style="color:#8a6a15">Why Rain Defence</span>
 <h2>A local, family roofing firm</h2>
+<p>A family flat roofing firm based in Wollaton, fitting EPDM rubber roofs across Nottingham and Derby.</p>
+</div>
 <ul class="ticks">
 <li>Endorsed by Which? Trusted Traders, rated 4.8 from 14 reviews</li>
 <li>Members of the Confederation of Roofing Contractors</li>
@@ -207,11 +234,47 @@ html{scroll-behavior:smooth}
 <li>Based in Wollaton, with hundreds of flat roofs fitted across Nottingham and Derby</li>
 </ul>
 </div>
-<div>
-<div class="quote"><p>&ldquo;Pete and Neil are friendly, helpful, hard-working, timely and totally professional. The quality of workmanship is outstanding.&rdquo;</p><span>Steve, Google review</span></div>
-<div class="quote"><p>&ldquo;Pete and Neil did a great job with our flat garage roof.&rdquo;</p><span>Ian, Google review</span></div>
-</div>
-</div>
+</section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#b8890a;--rc-card:#fff;--rc-ink:#121a1f;--rc-soft:#46525a">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>4.8 / 5</b> from 14 reviews on Which? Trusted Traders, plus 51 Google reviews</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track rc-items" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;I would without doubt recommend these guys. So friendly, trustworthy and professional with vast experience and knowledge. Neat finish and left no mess. Completed in the timescale stated and excellent quote.&rdquo;</blockquote>
+        <figcaption><b>Customer, Derbyshire</b><span>Which? Trusted Traders &middot; Jul 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;I was impressed with the level of knowledge and the fact he was Firestone approved. The quote was within the expected range and reasonable. ... We are very happy with the end result.&rdquo;</blockquote>
+        <figcaption><b>Customer, Derby</b><span>Which? Trusted Traders &middot; May 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Pete and Neil are friendly, helpful, hard-working, timely and totally professional. The quality of workmanship is outstanding. They tidied up every last trace when they had finished, leaving a perfectly clean job.&rdquo;</blockquote>
+        <figcaption><b>Steve</b><span>Google review</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;They left the area spotlessly clean and the finished job extremely well executed. I would recommend them to anyone who want professionals, and at a very reasonable price.&rdquo;</blockquote>
+        <figcaption><b>Customer, Nottingham</b><span>Which? Trusted Traders &middot; Jan 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Arrived as agreed and carried out work in a professional manner leaving the roof and garden clean and tidy. ... Very pleased with both the work and customer service, and happy to recommend to others.&rdquo;</blockquote>
+        <figcaption><b>Customer, Nottingham</b><span>Which? Trusted Traders &middot; Mar 2025</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Pete and Neil did a great job with our flat garage roof. Pricing was competitive and nice to give the job to locals rather than a national firm ...&rdquo;</blockquote>
+        <figcaption><b>Ian</b><span>Google review</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Pete and Neil are genuinely friendly and professional gents. ... The EPDM rubber roofing that was used to replace the aging felt looks first rate and will undoubtedly last significantly longer than the previous material.&rdquo;</blockquote>
+        <figcaption><b>Customer, Nottingham</b><span>Which? Trusted Traders &middot; Mar 2022</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
 </section>
 
 <section id="areas" class="areas">
@@ -290,7 +353,7 @@ html{scroll-behavior:smooth}
     var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
     if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
     // parallax art inside the hero
-    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
     art.forEach(function(a){a.classList.add('ix-par')});
     // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
     var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
@@ -322,6 +385,27 @@ html{scroll-behavior:smooth}
     }
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
     frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
   });
 })();
 </script>
