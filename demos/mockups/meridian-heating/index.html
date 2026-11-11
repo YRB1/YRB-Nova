@@ -65,6 +65,27 @@ footer{padding:30px 0 90px;color:var(--soft);font-size:.88rem}
 .sticky a{flex:1;justify-content:center}
 @media(max-width:760px){.sticky{display:flex}}
 </style>
+<style id="ix-style">
+/* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
+html{scroll-behavior:smooth}
+.ix-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ix-accent,#e8572a);z-index:999;pointer-events:none}
+.ix-on .ix-r{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1);transition-delay:var(--d,0s)}
+.ix-on .ix-r.ix-in{opacity:1;transform:none}
+.ix-on .ix-w{display:inline-block;opacity:0;transform:translate3d(0,.5em,0) rotate(2deg);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.1,1);transition-delay:var(--d,0s)}
+.ix-on.ix-go .ix-w{opacity:1;transform:none}
+.ix-par{will-change:transform}
+.ix-hero-x{min-height:calc(100svh - 120px);display:grid;align-content:center}
+.ix-cue{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.85rem;opacity:.7;text-decoration:none;color:inherit}
+.ix-cue i{width:20px;height:32px;border:2px solid currentColor;border-radius:12px;position:relative}
+.ix-cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:ixcue 1.6s infinite}
+@media(max-width:760px){.ix-cue{display:none}}
+@keyframes ixcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.ix-on a[href^="tel:"],.ix-on a[href^="mailto:"]{transition:transform .25s ease,box-shadow .25s ease}
+.ix-on a[href^="tel:"]:active,.ix-on a[href^="mailto:"]:active{transform:scale(.97)}
+@media (hover:hover){.ix-on a.btn:hover,.ix-on [class*="btn"]:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
+</style>
+<script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
 </head>
 <body>
 <a class="concept" href="https://yrbnova.com">Concept by <b>YRB Nova</b> - see your website before you pay</a>
@@ -150,5 +171,79 @@ footer{padding:30px 0 90px;color:var(--soft);font-size:.88rem}
 </main>
 <footer><div class="wrap">Meridian Heating Ltd, Wigston, Leicestershire. This is a concept homepage made by YRB Nova and isn't the official Meridian Heating website.</div></footer>
 <div class="sticky"><a class="btn btn-fire" href="tel:07540266972">Call now</a><a class="btn btn-line" style="background:#fff" href="mailto:chris@meridian-heating.co.uk?subject=Quote%20request">Quote</a></div>
+<script id="ix-script">
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('ix-on');window.__ix=1;
+  function ready(f){d.readyState!=='loading'?f():d.addEventListener('DOMContentLoaded',f)}
+  ready(function(){
+    // accent colour from the main call button
+    var tel=d.querySelector('a[href^="tel:"]');
+    if(tel){var bg=getComputedStyle(tel).backgroundColor;if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent')root.style.setProperty('--ix-accent',bg)}
+    var bar=d.createElement('div');bar.className='ix-bar';d.body.appendChild(bar);
+    // hero: the block holding the h1
+    var h1=d.querySelector('h1'),hero=null;
+    if(h1){
+      hero=h1.closest('section,.hero,[class*="hero"]')||h1.parentElement;
+      // split headline words for a staggered entrance
+      var walk=function(n){
+        Array.prototype.slice.call(n.childNodes).forEach(function(c){
+          if(c.nodeType===3&&c.textContent.trim()){
+            var f=d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(p){
+              if(!p)return; if(/^\s+$/.test(p)){f.appendChild(d.createTextNode(p));return}
+              var s=d.createElement('span');s.className='ix-w';s.textContent=p;f.appendChild(s)});
+            n.replaceChild(f,c);
+          } else if(c.nodeType===1&&!/^(BR|SVG)$/i.test(c.tagName)) walk(c);
+        });
+      };
+      walk(h1);
+      h1.querySelectorAll('.ix-w').forEach(function(w,i){w.style.setProperty('--d',(0.08+i*0.06).toFixed(2)+'s')});
+      // scroll cue under the hero buttons
+      var btnRow=hero.querySelector('[class*="cta"],[class*="actions"],[class*="buttons"]');
+      if(btnRow&&!hero.querySelector('.ix-cue')){var cue=d.createElement('a');cue.className='ix-cue';cue.href='#ix-next';cue.innerHTML='<i></i>Scroll';btnRow.parentNode.appendChild(cue)}
+    }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ix-go')})});
+    // mark next section for the cue
+    var secs=Array.prototype.slice.call(d.querySelectorAll('main section, body > section, section'));
+    var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
+    if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
+    // parallax art inside the hero
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    art.forEach(function(a){a.classList.add('ix-par')});
+    // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
+    var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
+    var seen=[];
+    secs.concat(Array.prototype.slice.call(d.querySelectorAll('footer'))).forEach(function(s){
+      if(hero&&(s===hero||hero.contains(s)||s.contains(h1)))return;
+      s.querySelectorAll(sel).forEach(function(el){
+        if(el.closest('[class*="sticky"]')||el.closest('.ix-r'))return;
+        if(seen.indexOf(el)>-1)return; seen.push(el);
+        el.classList.add('ix-r');
+        var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+        el.style.setProperty('--d',Math.min(sib*0.08,0.4).toFixed(2)+'s');
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window)){seen.forEach(function(e){e.classList.add('ix-in')})}
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ix-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      seen.forEach(function(e){io.observe(e)});
+    }
+    // safety: never leave content hidden
+    setTimeout(function(){seen.forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight)e.classList.add('ix-in')})},2500);
+    // scroll-driven: progress bar + hero parallax
+    var tick=false;
+    function frame(){
+      tick=false;
+      var y=scrollY,max=Math.max(1,d.documentElement.scrollHeight-innerHeight);
+      bar.style.transform='scaleX('+(y/max).toFixed(4)+')';
+      if(!reduce&&y<innerHeight*1.4){art.forEach(function(a,i){a.style.transform='translate3d(0,'+(y*(0.12+i*0.05)).toFixed(1)+'px,0) rotate('+(y*0.004).toFixed(2)+'deg)'})}
+    }
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  });
+})();
+</script>
 </body>
 </html>

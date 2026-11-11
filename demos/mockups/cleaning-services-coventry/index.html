@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cleaning Services Coventry Ltd | Home &amp; Office Cleaning</title>
+<meta name="description" content="Concept homepage for Cleaning Services Coventry Ltd: home, office, end of tenancy and deep cleaning across Coventry and the surrounding areas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f2b2a;--sage:#3f6b5c;--sage-d:#2e5246;--mint:#dfeee6;--cream:#faf6ee;--lemon:#f2d95c;--line:#d9d2c3;--muted:#5b6866}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px;padding-bottom:76px}
+a{color:inherit}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.15}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.yrb{display:block;background:var(--ink);color:#f3efe4;text-align:center;font-size:13px;padding:7px 12px;text-decoration:none;letter-spacing:.01em}
+.yrb:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:var(--cream)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1080px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.logo svg{flex:none}
+.logo b{font-family:"Young Serif",serif;font-weight:400;font-size:19px;line-height:1.1;display:block}
+.logo small{display:block;font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nav .call{display:none;font-weight:600;text-decoration:none;color:var(--sage-d)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;text-decoration:none;border-radius:999px;padding:13px 22px;font-size:16px;border:2px solid transparent}
+.btn-p{background:var(--sage);color:#fff}
+.btn-p:hover{background:var(--sage-d)}
+.btn-o{border-color:var(--ink);color:var(--ink)}
+.btn-o:hover{background:var(--ink);color:var(--cream)}
+.hero{padding:44px 0 36px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:34px}
+.tag{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-d);background:var(--mint);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,9vw,58px);margin-bottom:16px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--lemon) 62%)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:34em;margin-bottom:24px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.art{background:var(--mint);border-radius:28px 28px 28px 4px;padding:18px;max-width:440px;width:100%;justify-self:center}
+.art svg{display:block;width:100%;height:auto}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.strip ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.strip li{padding:16px 12px;font-weight:600;font-size:15px;display:flex;gap:8px;align-items:center}
+.strip li+li{border-left:1px solid var(--line)}
+.strip li:nth-child(3){border-left:0}
+.strip li:nth-child(n+3){border-top:1px solid var(--line)}
+section{padding:60px 0}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+h2{font-size:clamp(28px,6.5vw,40px);margin:6px 0 14px}
+.intro{color:var(--muted);max-width:36em;margin-bottom:30px}
+.svc{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 22px;position:relative}
+.card .n{font-family:"Young Serif",serif;color:var(--sage);font-size:15px}
+.card h3{font-size:24px;margin:8px 0 8px}
+.card p{color:var(--muted);font-size:16px}
+.card svg{position:absolute;top:20px;right:20px}
+.why{background:var(--sage-d);color:#eef4ef}
+.why .kicker{color:var(--lemon)}
+.why .intro{color:#c9dbd1}
+.facts{display:grid;gap:14px;list-style:none}
+.facts li{border-top:1px solid rgba(255,255,255,.22);padding:18px 0 4px;display:grid;grid-template-columns:44px 1fr;gap:14px}
+.facts b{display:block;font-size:18px;margin-bottom:2px}
+.facts span{color:#c9dbd1;font-size:16px}
+.area{display:grid;gap:28px;align-items:center}
+.pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:6px}
+.pills li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px}
+.mapart{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;max-width:420px;width:100%;justify-self:center}
+.mapart svg{display:block;width:100%;height:auto}
+.contact{background:var(--mint)}
+.cbox{background:#fff;border-radius:22px;padding:28px 22px;display:grid;gap:22px;border:1px solid var(--line)}
+.cline{display:flex;flex-direction:column;gap:2px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.cline small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.cline a,.cline span{font-size:18px;font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.cline a:hover{color:var(--sage)}
+footer{background:var(--ink);color:#c8cfcc;padding:34px 0 30px;font-size:14px}
+footer p+p{margin-top:8px}
+footer a{color:#fff}
+.bar{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,238,.97);border-top:1px solid var(--line);z-index:20}
+.bar .btn{padding:12px 10px;font-size:15px}
+@media(min-width:760px){
+body{padding-bottom:0}
+.bar{display:none}
+.nav .call{display:inline}
+.hero{padding:70px 0 60px}
+.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center}
+.strip ul{grid-template-columns:repeat(4,1fr)}
+.strip li:nth-child(3){border-left:1px solid var(--line)}
+.strip li:nth-child(n+3){border-top:0}
+.svc{grid-template-columns:1fr 1fr}
+.facts{grid-template-columns:1fr 1fr;column-gap:40px}
+.area{grid-template-columns:1fr 1fr}
+.cbox{grid-template-columns:1fr 1fr;padding:40px}
+section{padding:84px 0}
+}
+</style>
+<style id="ix-style">
+/* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
+html{scroll-behavior:smooth}
+.ix-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ix-accent,#e8572a);z-index:999;pointer-events:none}
+.ix-on .ix-r{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1);transition-delay:var(--d,0s)}
+.ix-on .ix-r.ix-in{opacity:1;transform:none}
+.ix-on .ix-w{display:inline-block;opacity:0;transform:translate3d(0,.5em,0) rotate(2deg);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.1,1);transition-delay:var(--d,0s)}
+.ix-on.ix-go .ix-w{opacity:1;transform:none}
+.ix-par{will-change:transform}
+.ix-hero-x{min-height:calc(100svh - 120px);display:grid;align-content:center}
+.ix-cue{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.85rem;opacity:.7;text-decoration:none;color:inherit}
+.ix-cue i{width:20px;height:32px;border:2px solid currentColor;border-radius:12px;position:relative}
+.ix-cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:ixcue 1.6s infinite}
+@media(max-width:760px){.ix-cue{display:none}}
+@keyframes ixcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.ix-on a[href^="tel:"],.ix-on a[href^="mailto:"]{transition:transform .25s ease,box-shadow .25s ease}
+.ix-on a[href^="tel:"]:active,.ix-on a[href^="mailto:"]:active{transform:scale(.97)}
+@media (hover:hover){.ix-on a.btn:hover,.ix-on [class*="btn"]:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
+</style>
+<script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+</head>
+<body>
+<a class="yrb" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
+<header>
+<div class="nav">
+<a class="logo" href="#top" aria-label="Cleaning Services Coventry Ltd">
+<svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="11" fill="#3f6b5c"/><path d="M19 8c4 6 8 9.5 8 14a8 8 0 0 1-16 0c0-4.5 4-8 8-14z" fill="#faf6ee"/><circle cx="16" cy="22" r="2.2" fill="#f2d95c"/></svg>
+<span><b>Cleaning Services</b><small>Coventry Ltd</small></span>
+</a>
+<a class="call" href="tel:07970346549">07970 346549</a>
+</div>
+</header>
+
+<main id="top">
+<section class="hero">
+<div class="wrap">
+<div>
+<span class="tag">Coventry &amp; surrounding areas</span>
+<h1>Clean homes, tidy offices, <em>no fuss.</em></h1>
+<p class="lead">Cleaning Services Coventry Ltd is a fully insured team of professional cleaners looking after homes and workplaces across Coventry, from the weekly clean to the big end of tenancy job.</p>
+<div class="ctas">
+<a class="btn btn-p" href="tel:07970346549">Call 07970 346549</a>
+<a class="btn btn-o" href="mailto:cleaning.servicescoventry@hotmail.com?subject=Cleaning%20quote%20request">Email for a quote</a>
+</div>
+</div>
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 400 320">
+<rect x="40" y="70" width="320" height="210" rx="10" fill="#faf6ee" stroke="#1f2b2a" stroke-width="3"/>
+<path d="M40 70 200 18l160 52" fill="none" stroke="#1f2b2a" stroke-width="3" stroke-linejoin="round"/>
+<rect x="72" y="104" width="96" height="82" rx="4" fill="#fff" stroke="#1f2b2a" stroke-width="3"/>
+<path d="M120 104v82M72 145h96" stroke="#1f2b2a" stroke-width="2"/>
+<path d="M84 170 108 116M98 176 124 120" stroke="#3f6b5c" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+<rect x="232" y="104" width="96" height="82" rx="4" fill="#fff" stroke="#1f2b2a" stroke-width="3"/>
+<path d="M280 104v82M232 145h96" stroke="#1f2b2a" stroke-width="2"/>
+<rect x="176" y="200" width="48" height="80" rx="3" fill="#3f6b5c" stroke="#1f2b2a" stroke-width="3"/>
+<circle cx="214" cy="242" r="3" fill="#f2d95c"/>
+<g fill="#f2d95c" stroke="#1f2b2a" stroke-width="2"><path d="M346 30l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M60 26l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
+<g transform="translate(300 210)"><rect x="0" y="34" width="56" height="36" rx="6" fill="#f2d95c" stroke="#1f2b2a" stroke-width="3"/><path d="M8 34c0-14 40-14 40 0" fill="none" stroke="#1f2b2a" stroke-width="3"/><path d="M28 20V-6" stroke="#1f2b2a" stroke-width="3"/><rect x="18" y="-24" width="20" height="20" rx="4" fill="#dfeee6" stroke="#1f2b2a" stroke-width="3"/></g>
+<circle cx="250" cy="226" r="8" fill="#fff" stroke="#3f6b5c" stroke-width="2"/><circle cx="268" cy="212" r="5" fill="#fff" stroke="#3f6b5c" stroke-width="2"/><circle cx="252" cy="200" r="4" fill="#fff" stroke="#3f6b5c" stroke-width="2"/>
+<path d="M20 280h360" stroke="#1f2b2a" stroke-width="3" stroke-linecap="round"/>
+</svg>
+</div>
+</div>
+</section>
+
+<div class="strip">
+<ul class="wrap">
+<li>&#10003; Home cleaning</li>
+<li>&#10003; Office cleaning</li>
+<li>&#10003; End of tenancy</li>
+<li>&#10003; Deep cleaning</li>
+</ul>
+</div>
+
+<section id="services">
+<div class="wrap">
+<span class="kicker">What we do</span>
+<h2>Four ways we can help</h2>
+<p class="intro">Domestic and commercial cleaning, booked around you. Tell us what needs doing and we'll come back with a quote.</p>
+<div class="svc">
+<div class="card"><span class="n">01</span><h3>Home cleaning</h3><p>Regular or one-off cleans for houses and flats, so you can come home to a place that's ready to enjoy.</p><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M5 16 17 6l12 10v13H5z" fill="#dfeee6" stroke="#2e5246" stroke-width="2" stroke-linejoin="round"/></svg></div>
+<div class="card"><span class="n">02</span><h3>Office cleaning</h3><p>Commercial cleaning for offices and workplaces, keeping desks, kitchens and shared spaces in good order for staff and visitors.</p><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="5" width="22" height="25" rx="2" fill="#dfeee6" stroke="#2e5246" stroke-width="2"/><path d="M11 11h4M19 11h4M11 17h4M19 17h4M15 30v-6h4v6" stroke="#2e5246" stroke-width="2"/></svg></div>
+<div class="card"><span class="n">03</span><h3>End of tenancy</h3><p>A thorough clean when you're moving out or getting a property ready for the next tenant.</p><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="12" cy="17" r="6" fill="#dfeee6" stroke="#2e5246" stroke-width="2"/><path d="M18 17h12M26 17v5M30 17v4" stroke="#2e5246" stroke-width="2" stroke-linecap="round"/></svg></div>
+<div class="card"><span class="n">04</span><h3>Deep cleaning</h3><p>For the jobs a routine clean doesn't reach: built-up grime, neglected corners and rooms that need a proper reset.</p><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 4l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#f2d95c" stroke="#2e5246" stroke-width="2" stroke-linejoin="round"/></svg></div>
+</div>
+</div>
+</section>
+
+<section class="why" id="why">
+<div class="wrap">
+<span class="kicker">Why choose us</span>
+<h2>Straightforward cleaning from a local company</h2>
+<p class="intro">No inflated promises. Just the basics you should expect from anyone you let into your home or workplace.</p>
+<ul class="facts">
+<li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M18 4 30 9v8c0 8-5 13-12 15C11 30 6 25 6 17V9z" fill="none" stroke="#f2d95c" stroke-width="2.5" stroke-linejoin="round"/><path d="m12 18 4 4 8-8" fill="none" stroke="#f2d95c" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Fully insured</b><span>Cover in place for the work we carry out.</span></div></li>
+<li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="12" r="6" fill="none" stroke="#f2d95c" stroke-width="2.5"/><path d="M6 32c1-7 6-10 12-10s11 3 12 10" fill="none" stroke="#f2d95c" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Professional cleaners</b><span>Your clean is carried out by the company's own professional cleaners.</span></div></li>
+<li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect x="5" y="9" width="26" height="20" rx="3" fill="none" stroke="#f2d95c" stroke-width="2.5"/><path d="M5 15h26M12 5v6M24 5v6" stroke="#f2d95c" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Domestic and commercial</b><span>One company for your home, your rental property and your workplace.</span></div></li>
+<li><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M8 6h6l3 7-4 2a16 16 0 0 0 8 8l2-4 7 3v6a2 2 0 0 1-2 2C15 30 6 21 6 8a2 2 0 0 1 2-2z" fill="none" stroke="#f2d95c" stroke-width="2.5" stroke-linejoin="round"/></svg><div><b>Speak to us directly</b><span>Call or email and you'll deal with the company itself, a registered limited company.</span></div></li>
+</ul>
+</div>
+</section>
+
+<section id="areas">
+<div class="wrap area">
+<div>
+<span class="kicker">Where we work</span>
+<h2>Coventry and the surrounding areas</h2>
+<p class="intro">We clean homes and businesses across Coventry and nearby. Our registered office is in Leamington Spa. Not sure if you're covered? Just ask.</p>
+<ul class="pills"><li>Coventry</li><li>Surrounding areas</li><li>Office: Leamington Spa</li></ul>
+</div>
+<div class="mapart" aria-hidden="true">
+<svg viewBox="0 0 360 260">
+<rect width="360" height="260" rx="14" fill="#faf6ee"/>
+<path d="M0 190c60-20 90 10 150-10s110-60 210-40" fill="none" stroke="#dfeee6" stroke-width="18"/>
+<path d="M30 40 330 220M40 230 320 30M180 0v260" stroke="#e7e0d1" stroke-width="6"/>
+<circle cx="170" cy="100" r="62" fill="#3f6b5c" opacity=".12"/>
+<circle cx="170" cy="100" r="62" fill="none" stroke="#3f6b5c" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M170 64c-13 0-22 9-22 21 0 16 22 37 22 37s22-21 22-37c0-12-9-21-22-21z" fill="#3f6b5c"/><circle cx="170" cy="85" r="8" fill="#faf6ee"/>
+<text x="170" y="186" text-anchor="middle" font-family="Figtree,sans-serif" font-size="16" font-weight="700" fill="#1f2b2a">Coventry</text>
+<circle cx="236" cy="222" r="7" fill="#f2d95c" stroke="#1f2b2a" stroke-width="2"/>
+<text x="250" y="227" font-family="Figtree,sans-serif" font-size="13" fill="#1f2b2a">Leamington Spa</text>
+</svg>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="wrap">
+<span class="kicker">Get a quote</span>
+<h2>Tell us what needs cleaning</h2>
+<p class="intro">Give us a ring or drop us an email with the type of clean, the size of the property and where it is.</p>
+<div class="cbox">
+<div>
+<div class="cline"><small>Phone</small><a href="tel:07970346549">07970 346549</a></div>
+<div class="cline" style="margin-top:14px"><small>Email</small><a href="mailto:cleaning.servicescoventry@hotmail.com">cleaning.servicescoventry@hotmail.com</a></div>
+<div class="cline" style="margin-top:14px;border:0"><small>Registered office</small><span>49 Chesham Street, Leamington Spa, CV31 1JS</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+<a class="btn btn-p" href="tel:07970346549">Call now</a>
+<a class="btn btn-o" href="mailto:cleaning.servicescoventry@hotmail.com?subject=Cleaning%20quote%20request">Request a quote by email</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Cleaning Services Coventry Ltd &middot; Home, office, end of tenancy and deep cleaning in Coventry.</p>
+<p>This is a concept homepage made by YRB Nova and isn't the official Cleaning Services Coventry Ltd website. <a href="https://yrbnova.com">yrbnova.com</a></p>
+</div>
+</footer>
+
+<div class="bar">
+<a class="btn btn-p" href="tel:07970346549">Call</a>
+<a class="btn btn-o" href="mailto:cleaning.servicescoventry@hotmail.com?subject=Cleaning%20quote%20request">Get a quote</a>
+</div>
+<script id="ix-script">
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('ix-on');window.__ix=1;
+  function ready(f){d.readyState!=='loading'?f():d.addEventListener('DOMContentLoaded',f)}
+  ready(function(){
+    // accent colour from the main call button
+    var tel=d.querySelector('a[href^="tel:"]');
+    if(tel){var bg=getComputedStyle(tel).backgroundColor;if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent')root.style.setProperty('--ix-accent',bg)}
+    var bar=d.createElement('div');bar.className='ix-bar';d.body.appendChild(bar);
+    // hero: the block holding the h1
+    var h1=d.querySelector('h1'),hero=null;
+    if(h1){
+      hero=h1.closest('section,.hero,[class*="hero"]')||h1.parentElement;
+      // split headline words for a staggered entrance
+      var walk=function(n){
+        Array.prototype.slice.call(n.childNodes).forEach(function(c){
+          if(c.nodeType===3&&c.textContent.trim()){
+            var f=d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(p){
+              if(!p)return; if(/^\s+$/.test(p)){f.appendChild(d.createTextNode(p));return}
+              var s=d.createElement('span');s.className='ix-w';s.textContent=p;f.appendChild(s)});
+            n.replaceChild(f,c);
+          } else if(c.nodeType===1&&!/^(BR|SVG)$/i.test(c.tagName)) walk(c);
+        });
+      };
+      walk(h1);
+      h1.querySelectorAll('.ix-w').forEach(function(w,i){w.style.setProperty('--d',(0.08+i*0.06).toFixed(2)+'s')});
+      // scroll cue under the hero buttons
+      var btnRow=hero.querySelector('[class*="cta"],[class*="actions"],[class*="buttons"]');
+      if(btnRow&&!hero.querySelector('.ix-cue')){var cue=d.createElement('a');cue.className='ix-cue';cue.href='#ix-next';cue.innerHTML='<i></i>Scroll';btnRow.parentNode.appendChild(cue)}
+    }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ix-go')})});
+    // mark next section for the cue
+    var secs=Array.prototype.slice.call(d.querySelectorAll('main section, body > section, section'));
+    var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
+    if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
+    // parallax art inside the hero
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    art.forEach(function(a){a.classList.add('ix-par')});
+    // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
+    var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
+    var seen=[];
+    secs.concat(Array.prototype.slice.call(d.querySelectorAll('footer'))).forEach(function(s){
+      if(hero&&(s===hero||hero.contains(s)||s.contains(h1)))return;
+      s.querySelectorAll(sel).forEach(function(el){
+        if(el.closest('[class*="sticky"]')||el.closest('.ix-r'))return;
+        if(seen.indexOf(el)>-1)return; seen.push(el);
+        el.classList.add('ix-r');
+        var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+        el.style.setProperty('--d',Math.min(sib*0.08,0.4).toFixed(2)+'s');
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window)){seen.forEach(function(e){e.classList.add('ix-in')})}
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ix-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      seen.forEach(function(e){io.observe(e)});
+    }
+    // safety: never leave content hidden
+    setTimeout(function(){seen.forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight)e.classList.add('ix-in')})},2500);
+    // scroll-driven: progress bar + hero parallax
+    var tick=false;
+    function frame(){
+      tick=false;
+      var y=scrollY,max=Math.max(1,d.documentElement.scrollHeight-innerHeight);
+      bar.style.transform='scaleX('+(y/max).toFixed(4)+')';
+      if(!reduce&&y<innerHeight*1.4){art.forEach(function(a,i){a.style.transform='translate3d(0,'+(y*(0.12+i*0.05)).toFixed(1)+'px,0) rotate('+(y*0.004).toFixed(2)+'deg)'})}
+    }
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  });
+})();
+</script>
+</body>
+</html>

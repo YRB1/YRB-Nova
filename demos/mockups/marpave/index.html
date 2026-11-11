@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Marpave | Driveways, Patios &amp; Landscaping, Leicestershire</title>
+<meta name="description" content="Concept homepage for Marpave Ltd, driveway and patio specialists offering design and build hard landscaping in Leicestershire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--moss:#3f5a45;--moss-d:#2c4232;--sand:#e9dfcf;--stone:#d6c8b1;--cream:#f8f4ec;--char:#2a2a27;--muted:#6a6a62;--clay:#b0754b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Karla,system-ui,sans-serif;background:var(--cream);color:var(--char);line-height:1.6;font-size:16px;padding-bottom:72px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.08}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.yrb{display:block;background:var(--moss-d);color:var(--sand);text-align:center;font-size:13px;padding:7px 12px;text-decoration:none}
+.yrb:hover{text-decoration:underline}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo b{font-family:"DM Serif Display",serif;font-weight:400;font-size:26px;color:var(--moss);line-height:1}
+.mk{width:30px;height:30px;display:grid;grid-template-columns:1fr 1fr;gap:2px;transform:rotate(45deg)}
+.mk i{background:var(--clay);border-radius:1px}.mk i:nth-child(2),.mk i:nth-child(3){background:var(--moss)}
+nav.top a{display:none;text-decoration:none;font-weight:700;color:var(--moss)}
+.hero{position:relative}
+.hero .wrap{display:grid;gap:28px;padding-top:24px;padding-bottom:48px}
+.pave{height:190px;border-radius:120px 120px 6px 6px;background-color:var(--stone);background-image:repeating-linear-gradient(45deg,transparent 0 22px,rgba(42,42,39,.16) 22px 24px),repeating-linear-gradient(-45deg,transparent 0 46px,rgba(42,42,39,.16) 46px 48px);position:relative;overflow:hidden}
+.pave::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:var(--moss);clip-path:polygon(0 60%,15% 30%,30% 55%,48% 20%,66% 50%,82% 25%,100% 50%,100% 100%,0 100%)}
+.pill{display:inline-block;background:var(--sand);color:var(--moss-d);font-weight:700;font-size:13px;padding:6px 12px;border-radius:30px;letter-spacing:.03em}
+.hero h1{font-size:clamp(38px,10vw,66px);color:var(--moss-d);margin:14px 0 16px}
+.hero h1 i{color:var(--clay)}
+.hero p{font-size:18px;color:#45453f;max-width:30em}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:40px;font-weight:700;text-decoration:none;font-size:16px}
+.btn.p{background:var(--moss);color:#fff}
+.btn.p:hover{background:var(--moss-d)}
+.btn.o{background:var(--sand);color:var(--moss-d)}
+.btn.o:hover{background:var(--stone)}
+section{padding:58px 0}
+.t{font-size:clamp(30px,7vw,46px);color:var(--moss-d);margin-bottom:8px}
+.sub{color:var(--muted);font-size:17px;margin-bottom:28px;max-width:34em}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:#fff;border-radius:14px;padding:18px 16px;border:1px solid #ebe3d5}
+.tile .sw{height:46px;border-radius:8px;margin-bottom:12px}
+.tile h3{font-size:20px;color:var(--moss-d)}
+.tile p{font-size:14px;color:var(--muted);margin-top:4px}
+.sw.hb{background-color:#c9b598;background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(0,0,0,.14) 10px 11px),repeating-linear-gradient(-45deg,transparent 0 20px,rgba(0,0,0,.14) 20px 21px)}
+.sw.fl{background-color:#ddd2bf;background-image:linear-gradient(90deg,transparent 48%,rgba(0,0,0,.14) 48% 50%,transparent 50%),linear-gradient(transparent 48%,rgba(0,0,0,.14) 48% 52%,transparent 52%);background-size:48px 100%,100% 100%}
+.sw.br{background-color:#b36b48;background-image:linear-gradient(transparent 45%,#e9dfcf 45% 55%,transparent 55%),linear-gradient(90deg,transparent 46%,#e9dfcf 46% 52%,transparent 52%);background-size:100% 23px,44px 23px}
+.sw.wt{background:linear-gradient(180deg,#7fa3a0,#4f7c7a)}
+.sw.tm{background-color:#9a7451;background-image:repeating-linear-gradient(90deg,transparent 0 18px,rgba(0,0,0,.2) 18px 20px)}
+.sw.gr{background-color:#6f9160;background-image:repeating-linear-gradient(80deg,transparent 0 3px,rgba(255,255,255,.12) 3px 5px)}
+.why{background:var(--moss);color:#eef0e8}
+.why .t{color:#fff}
+.why .sub{color:#c9d3c6}
+.badges{display:grid;gap:12px}
+.badge{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.07);border-radius:14px;padding:18px}
+.badge svg{flex:none}
+.badge h3{font-size:21px;color:#fff}
+.badge p{font-size:15px;color:#c9d3c6}
+.quotes{display:grid;gap:12px;margin-top:30px}
+blockquote{background:var(--cream);color:var(--char);border-radius:14px;padding:20px;font-family:"DM Serif Display",serif;font-size:20px;line-height:1.35}
+blockquote cite{display:block;font-family:Karla,sans-serif;font-style:normal;font-size:14px;color:var(--muted);margin-top:10px}
+.areas .box{background:var(--sand);border-radius:18px;padding:24px;display:grid;gap:20px}
+.places{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.places li{background:var(--cream);padding:8px 14px;border-radius:30px;font-weight:700;color:var(--moss-d);font-size:15px}
+.contact .grid{display:grid;gap:12px}
+.cc{display:block;background:#fff;border:1px solid #ebe3d5;border-radius:14px;padding:20px;text-decoration:none}
+.cc:hover{border-color:var(--moss)}
+.cc small{display:block;color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.cc strong{font-size:21px;color:var(--moss-d);word-break:break-word}
+.dir{margin-top:18px;color:var(--muted)}
+footer{background:var(--char);color:#bdb8ad;font-size:14px;padding:28px 0}
+footer p+p{margin-top:8px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(248,244,236,.97);border-top:1px solid #e3dac9}
+.sticky .btn{padding:12px 8px;font-size:15px}
+@media(min-width:760px){
+ body{padding-bottom:0}.sticky{display:none}nav.top a{display:inline}
+ .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center;padding-top:50px;padding-bottom:70px}
+ .pave{height:380px;order:2}
+ .tiles{grid-template-columns:repeat(4,1fr);gap:16px}
+ .badges{grid-template-columns:repeat(2,1fr)}
+ .quotes{grid-template-columns:repeat(3,1fr)}
+ .areas .box{grid-template-columns:1fr 1fr;align-items:center;padding:36px}
+ .contact .grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+<style id="ix-style">
+/* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
+html{scroll-behavior:smooth}
+.ix-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ix-accent,#e8572a);z-index:999;pointer-events:none}
+.ix-on .ix-r{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1);transition-delay:var(--d,0s)}
+.ix-on .ix-r.ix-in{opacity:1;transform:none}
+.ix-on .ix-w{display:inline-block;opacity:0;transform:translate3d(0,.5em,0) rotate(2deg);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.1,1);transition-delay:var(--d,0s)}
+.ix-on.ix-go .ix-w{opacity:1;transform:none}
+.ix-par{will-change:transform}
+.ix-hero-x{min-height:calc(100svh - 120px);display:grid;align-content:center}
+.ix-cue{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.85rem;opacity:.7;text-decoration:none;color:inherit}
+.ix-cue i{width:20px;height:32px;border:2px solid currentColor;border-radius:12px;position:relative}
+.ix-cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:ixcue 1.6s infinite}
+@media(max-width:760px){.ix-cue{display:none}}
+@keyframes ixcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.ix-on a[href^="tel:"],.ix-on a[href^="mailto:"]{transition:transform .25s ease,box-shadow .25s ease}
+.ix-on a[href^="tel:"]:active,.ix-on a[href^="mailto:"]:active{transform:scale(.97)}
+@media (hover:hover){.ix-on a.btn:hover,.ix-on [class*="btn"]:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
+</style>
+<script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+</head>
+<body>
+<a class="yrb" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
+<header><div class="wrap">
+ <a class="logo" href="#top"><span class="mk" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>Marpave</b></a>
+ <nav class="top"><a href="tel:01509557461">01509 557461</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+ <div class="pave" role="img" aria-label="Illustration of herringbone paving edged with planting"></div>
+ <div>
+  <span class="pill">Driveway &amp; patio specialists</span>
+  <h1>Driveways, patios and gardens, <i>designed and built.</i></h1>
+  <p>Marpave Ltd is a hard landscaping company working across Leicestershire, taking projects from first design through to the finished build.</p>
+  <div class="btns">
+   <a class="btn p" href="tel:01509557461">Call 01509 557461</a>
+   <a class="btn o" href="mailto:admin@marpave.co.uk?subject=Landscaping%20quote">Ask for a quote</a>
+  </div>
+ </div>
+</div></div>
+
+<section id="services"><div class="wrap">
+ <h2 class="t">What we build</h2>
+ <p class="sub">A full landscaping package, from the drive at the front to the garden at the back.</p>
+ <div class="tiles">
+  <div class="tile"><div class="sw hb"></div><h3>Driveways</h3><p>Driveway design and installation.</p></div>
+  <div class="tile"><div class="sw fl"></div><h3>Patios</h3><p>Patios and paved seating areas.</p></div>
+  <div class="tile"><div class="sw br"></div><h3>Walls &amp; brickwork</h3><p>Garden walls and decorative brickwork.</p></div>
+  <div class="tile"><div class="sw wt"></div><h3>Water features</h3><p>Ponds of all sizes and water features.</p></div>
+  <div class="tile"><div class="sw tm"></div><h3>Decking &amp; timber</h3><p>Decking and timber structures.</p></div>
+  <div class="tile"><div class="sw tm" style="filter:hue-rotate(-12deg) brightness(.85)"></div><h3>Fencing &amp; gates</h3><p>Fencing and gates to finish the plot.</p></div>
+  <div class="tile"><div class="sw gr"></div><h3>Artificial grass</h3><p>Fitted in partnership with Trulawn.</p></div>
+  <div class="tile"><div class="sw fl" style="background-color:#cfc4ae"></div><h3>Decorative features</h3><p>The finishing details that pull a garden together.</p></div>
+ </div>
+</div></section>
+
+<section class="why"><div class="wrap">
+ <h2 class="t">Why Marpave</h2>
+ <p class="sub">Formerly Marpave Paving, run by director Robert Martin.</p>
+ <div class="badges">
+  <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><circle cx="17" cy="14" r="9"/><path d="M11 21l-3 10 9-4 9 4-3-10"/></svg><div><h3>Premier Brett Approved Contractor</h3><p>Approved to install Brett paving products.</p></div></div>
+  <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><path d="M17 3l11 5v8c0 8-5 13-11 15C11 29 6 24 6 16V8z"/><path d="M12 17l4 4 7-8"/></svg><div><h3>Resiblock Approved Installer</h3><p>Approved for Resiblock sealing systems.</p></div></div>
+  <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><path d="M4 28c4-10 6-14 6-20M12 28c2-8 3-12 3-18M20 28c1-8 2-12 5-17M28 28c-1-6 0-10 2-14"/><path d="M2 30h30"/></svg><div><h3>Trulawn partner</h3><p>Artificial grass in partnership with Trulawn.</p></div></div>
+  <div class="badge"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#e9dfcf" stroke-width="2"><path d="M5 29h24M8 29V14l9-8 9 8v15"/><path d="M14 29v-8h6v8"/></svg><div><h3>Design &amp; build</h3><p>One firm from the first plan to the final slab.</p></div></div>
+ </div>
+ <div class="quotes">
+  <blockquote>&ldquo;Marpave were really brilliant in transforming my garden.&rdquo;<cite>Su, on Bark</cite></blockquote>
+  <blockquote>&ldquo;More than happy with service and quality of work from Marpave&rdquo;<cite>Maureen, on Bark</cite></blockquote>
+  <blockquote>&ldquo;Nothing appeared to be too much trouble and this was very much appreciated.&rdquo;<cite>Wendy, on Trustpilot</cite></blockquote>
+ </div>
+</div></section>
+
+<section class="areas"><div class="wrap">
+ <div class="box">
+  <div><h2 class="t">Where we work</h2><p style="color:#55554e">Based in Charnwood, taking on driveway, patio and garden projects across Leicestershire.</p></div>
+  <ul class="places"><li>Sileby</li><li>Barrow upon Soar</li><li>Loughborough</li><li>Leicestershire</li></ul>
+ </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <h2 class="t">Start your project</h2>
+ <p class="sub">Call or email with a rough idea of what you'd like, and we'll arrange a quote.</p>
+ <div class="grid">
+  <a class="cc" href="tel:01509557461"><small>Office</small><strong>01509 557461</strong></a>
+  <a class="cc" href="tel:07966483296"><small>Mobile</small><strong>07966 483296</strong></a>
+  <a class="cc" href="mailto:admin@marpave.co.uk?subject=Landscaping%20quote"><small>Email</small><strong>admin@marpave.co.uk</strong></a>
+ </div>
+ <p class="dir">Marpave Ltd &middot; Director: Robert Martin</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <p>&copy; Marpave Ltd &middot; Hard landscaping, Leicestershire</p>
+ <p>This is a concept homepage made by <a href="https://yrbnova.com">YRB Nova</a> and isn't the official Marpave website.</p>
+</div></footer>
+
+<nav class="sticky" aria-label="Quick contact">
+ <a class="btn p" href="tel:01509557461">Call now</a>
+ <a class="btn o" href="mailto:admin@marpave.co.uk?subject=Landscaping%20quote">Get a quote</a>
+</nav>
+<script id="ix-script">
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('ix-on');window.__ix=1;
+  function ready(f){d.readyState!=='loading'?f():d.addEventListener('DOMContentLoaded',f)}
+  ready(function(){
+    // accent colour from the main call button
+    var tel=d.querySelector('a[href^="tel:"]');
+    if(tel){var bg=getComputedStyle(tel).backgroundColor;if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent')root.style.setProperty('--ix-accent',bg)}
+    var bar=d.createElement('div');bar.className='ix-bar';d.body.appendChild(bar);
+    // hero: the block holding the h1
+    var h1=d.querySelector('h1'),hero=null;
+    if(h1){
+      hero=h1.closest('section,.hero,[class*="hero"]')||h1.parentElement;
+      // split headline words for a staggered entrance
+      var walk=function(n){
+        Array.prototype.slice.call(n.childNodes).forEach(function(c){
+          if(c.nodeType===3&&c.textContent.trim()){
+            var f=d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(p){
+              if(!p)return; if(/^\s+$/.test(p)){f.appendChild(d.createTextNode(p));return}
+              var s=d.createElement('span');s.className='ix-w';s.textContent=p;f.appendChild(s)});
+            n.replaceChild(f,c);
+          } else if(c.nodeType===1&&!/^(BR|SVG)$/i.test(c.tagName)) walk(c);
+        });
+      };
+      walk(h1);
+      h1.querySelectorAll('.ix-w').forEach(function(w,i){w.style.setProperty('--d',(0.08+i*0.06).toFixed(2)+'s')});
+      // scroll cue under the hero buttons
+      var btnRow=hero.querySelector('[class*="cta"],[class*="actions"],[class*="buttons"]');
+      if(btnRow&&!hero.querySelector('.ix-cue')){var cue=d.createElement('a');cue.className='ix-cue';cue.href='#ix-next';cue.innerHTML='<i></i>Scroll';btnRow.parentNode.appendChild(cue)}
+    }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ix-go')})});
+    // mark next section for the cue
+    var secs=Array.prototype.slice.call(d.querySelectorAll('main section, body > section, section'));
+    var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
+    if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
+    // parallax art inside the hero
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    art.forEach(function(a){a.classList.add('ix-par')});
+    // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
+    var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
+    var seen=[];
+    secs.concat(Array.prototype.slice.call(d.querySelectorAll('footer'))).forEach(function(s){
+      if(hero&&(s===hero||hero.contains(s)||s.contains(h1)))return;
+      s.querySelectorAll(sel).forEach(function(el){
+        if(el.closest('[class*="sticky"]')||el.closest('.ix-r'))return;
+        if(seen.indexOf(el)>-1)return; seen.push(el);
+        el.classList.add('ix-r');
+        var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+        el.style.setProperty('--d',Math.min(sib*0.08,0.4).toFixed(2)+'s');
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window)){seen.forEach(function(e){e.classList.add('ix-in')})}
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ix-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      seen.forEach(function(e){io.observe(e)});
+    }
+    // safety: never leave content hidden
+    setTimeout(function(){seen.forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight)e.classList.add('ix-in')})},2500);
+    // scroll-driven: progress bar + hero parallax
+    var tick=false;
+    function frame(){
+      tick=false;
+      var y=scrollY,max=Math.max(1,d.documentElement.scrollHeight-innerHeight);
+      bar.style.transform='scaleX('+(y/max).toFixed(4)+')';
+      if(!reduce&&y<innerHeight*1.4){art.forEach(function(a,i){a.style.transform='translate3d(0,'+(y*(0.12+i*0.05)).toFixed(1)+'px,0) rotate('+(y*0.004).toFixed(2)+'deg)'})}
+    }
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  });
+})();
+</script>
+</body>
+</html>
