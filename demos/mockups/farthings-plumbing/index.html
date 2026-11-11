@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Farthings Plumbing &amp; Heating | Glenfield, Leicester</title>
+<meta name="description" content="Concept homepage for Farthings Plumbing & Heating Ltd, a family firm serving Leicestershire since 1964.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14312f;--teal:#1f4e4a;--copper:#b8673a;--copper-d:#9a522a;--cream:#f6efe4;--paper:#fffaf2;--line:#e2d6c3;--muted:#5b6b67}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;padding-bottom:72px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.12;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.yrb{display:block;background:var(--ink);color:#e9dcc6;text-align:center;font-size:13px;padding:7px 12px;text-decoration:none}
+.yrb:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:var(--paper)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo b{font-family:Fraunces,serif;font-size:21px;line-height:1}
+.logo small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hcall{display:none;font-weight:600;text-decoration:none;color:var(--teal)}
+.hero{background:var(--cream);position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:28px;padding-top:40px;padding-bottom:44px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper-d);font-weight:600}
+.hero h1{font-size:clamp(34px,8.6vw,58px);margin:10px 0 16px;color:var(--teal)}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero p.lead{font-size:17px;max-width:34em;color:#2d4441}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:4px;font-weight:600;text-decoration:none;font-size:16px;border:2px solid var(--teal)}
+.btn.p{background:var(--teal);color:#fff}
+.btn.o{color:var(--teal);background:transparent}
+.btn.p:hover{background:var(--ink)}
+.seal{justify-self:center;width:min(280px,78vw)}
+.rating{display:flex;align-items:baseline;gap:10px;margin-top:22px;font-size:14px;color:var(--muted)}
+.rating strong{font-family:Fraunces,serif;font-size:30px;color:var(--teal)}
+section{padding:56px 0}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sh span{font-family:Fraunces,serif;color:var(--copper);font-size:15px}
+.sh h2{font-size:clamp(26px,6vw,38px)}
+.svc{display:grid;gap:0;border-top:1px solid var(--line)}
+.svc div{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:12px}
+.svc svg{width:34px;height:34px;stroke:var(--copper);fill:none;stroke-width:1.6}
+.svc h3{font-size:20px;margin-bottom:4px}
+.svc p{color:var(--muted);font-size:15px}
+.why{background:var(--teal);color:#f3ebdd}
+.why .sh h2{color:#fff}
+.why .sh span{color:#e3a77f}
+.facts{display:grid;gap:18px}
+.fact{border-left:3px solid var(--copper);padding:4px 0 4px 16px}
+.fact b{display:block;font-family:Fraunces,serif;font-size:24px;color:#fff;font-weight:500}
+.fact p{font-size:15px;color:#cfdcd8}
+.quotes{display:grid;gap:16px;margin-top:36px}
+blockquote{background:rgba(255,255,255,.06);padding:18px 20px;border-radius:4px;font-family:Fraunces,serif;font-size:18px;line-height:1.4}
+blockquote cite{display:block;margin-top:10px;font-family:"Work Sans",sans-serif;font-style:normal;font-size:13px;color:#b9cbc6}
+.note{font-size:12px;color:#a9bdb8;margin-top:14px}
+.areas{display:grid;gap:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{list-style:none;border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:40px;font-size:15px}
+.map{background:var(--cream);border-radius:6px;padding:16px}
+.contact{background:var(--cream)}
+.cgrid{display:grid;gap:22px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card a{font-weight:600;color:var(--teal);word-break:break-word}
+.card p{margin-bottom:6px}
+footer{background:var(--ink);color:#bfcfcb;font-size:14px;padding:30px 0}
+footer p+p{margin-top:8px}
+footer a{color:#e9dcc6}
+.sticky{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,250,242,.97);border-top:1px solid var(--line);z-index:20}
+.sticky .btn{padding:12px 10px;font-size:15px}
+@media(min-width:760px){
+ body{padding-bottom:0}
+ .sticky{display:none}
+ .hcall{display:inline}
+ .hero .wrap{grid-template-columns:1.25fr .75fr;align-items:center;padding-top:64px;padding-bottom:70px}
+ .svc{grid-template-columns:1fr 1fr;column-gap:40px}
+ .facts{grid-template-columns:1fr 1fr}
+ .quotes{grid-template-columns:repeat(3,1fr)}
+ .areas{grid-template-columns:1fr 1fr;align-items:center}
+ .cgrid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+<style id="ix-style">
+/* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
+html{scroll-behavior:smooth}
+.ix-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ix-accent,#e8572a);z-index:999;pointer-events:none}
+.ix-on .ix-r{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1);transition-delay:var(--d,0s)}
+.ix-on .ix-r.ix-in{opacity:1;transform:none}
+.ix-on .ix-w{display:inline-block;opacity:0;transform:translate3d(0,.5em,0) rotate(2deg);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.1,1);transition-delay:var(--d,0s)}
+.ix-on.ix-go .ix-w{opacity:1;transform:none}
+.ix-par{will-change:transform}
+.ix-hero-x{min-height:calc(100svh - 120px);display:grid;align-content:center}
+.ix-cue{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.85rem;opacity:.7;text-decoration:none;color:inherit}
+.ix-cue i{width:20px;height:32px;border:2px solid currentColor;border-radius:12px;position:relative}
+.ix-cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:ixcue 1.6s infinite}
+@media(max-width:760px){.ix-cue{display:none}}
+@keyframes ixcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.ix-on a[href^="tel:"],.ix-on a[href^="mailto:"]{transition:transform .25s ease,box-shadow .25s ease}
+.ix-on a[href^="tel:"]:active,.ix-on a[href^="mailto:"]:active{transform:scale(.97)}
+@media (hover:hover){.ix-on a.btn:hover,.ix-on [class*="btn"]:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
+</style>
+<script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style id="hero-photo">
+@media(min-width:761px){footer{padding-bottom:calc(10vh + 24px)}}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:-2;background:rgb(16,38,36)}
+.hero-media .ix-hero-img{position:absolute;top:-10%;left:-6%;width:112%;max-width:none;height:120%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(16,38,36,.5) 0%,rgba(16,38,36,.12) 30%,rgba(16,38,36,.4) 66%,rgba(16,38,36,.9) 100%),linear-gradient(90deg,rgba(16,38,36,.82) 0%,rgba(16,38,36,.55) 42%,rgba(16,38,36,0) 78%)}
+@media(max-width:760px){.hero-shade{background:linear-gradient(180deg,rgba(16,38,36,.5) 0%,rgba(16,38,36,.35) 28%,rgba(16,38,36,.82) 58%,rgba(16,38,36,.96) 100%)}}
+.rc-card blockquote{background:none;padding:0;border:0;border-radius:0;margin:0}
+
+.hero{display:flex;min-height:calc(88svh - 64px);background:var(--ink)}
+.hero>.wrap{flex:1;display:flex!important;align-items:center;padding-top:48px!important;padding-bottom:64px!important}
+.hero>.wrap{width:100%}
+.hero>.wrap>div{max-width:680px}
+.hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{color:#f0b68e}
+.hero p.lead{color:#eef3f1;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hero .eyebrow{color:#f0b68e}
+.hero .btn.p{background:var(--copper);border-color:var(--copper)}
+.hero .btn.p:hover{background:var(--copper-d);border-color:var(--copper-d)}
+.hero .btn.o{color:#fff;border-color:rgba(255,255,255,.85);background:rgba(16,38,36,.3)}
+.hero .rating{color:#d7e3e0}
+.hero .rating strong{color:#fff}
+.rc-head h2{font-size:clamp(26px,6vw,38px)}
+.rc-card blockquote{font-family:Fraunces,Georgia,serif;font-size:18px;line-height:1.45}
+@media(max-width:759px){.hero>.wrap{align-items:flex-end;padding-top:24px!important;padding-bottom:36px!important}}
+</style>
+</head>
+<body>
+<a class="yrb" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
+<header><div class="wrap bar">
+ <a class="logo" href="#top" aria-label="Farthings Plumbing and Heating">
+  <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#b8673a" stroke-width="1.5"/><path d="M20 9c-5 7-8 11-8 15a8 8 0 0 0 16 0c0-4-3-8-8-15z" fill="#1f4e4a"/></svg>
+  <span><b>Farthings</b><small>Plumbing &amp; Heating</small></span>
+ </a>
+ <a class="hcall" href="tel:01162321031">0116 232 1031</a>
+</div></header>
+
+<main id="top">
+<div class="hero">
+<div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1200" alt="A grey marble-effect wet room with a walk-in shower and towel radiator, from Farthings' own work gallery" fetchpriority="high" decoding="async" style="object-position:50% 50%"></div>
+<div class="hero-shade" aria-hidden="true"></div>
+<div class="wrap">
+ <div>
+  <div class="eyebrow">Glenfield, Leicester &middot; Family run since 1964</div>
+  <h1>Warm homes and working bathrooms, <em>from one Leicestershire family.</em></h1>
+  <p class="lead">Boilers, central heating, bathrooms and kitchens, fitted and looked after by Farthings Plumbing &amp; Heating. Gas Safe registered and Worcester Bosch accredited installers, with free quotations.</p>
+  <div class="btns">
+   <a class="btn p" href="tel:01162321031">Call 0116 232 1031</a>
+   <a class="btn o" href="mailto:farthingdb@btinternet.com?subject=Quote%20request">Ask for a free quote</a>
+  </div>
+  <div class="rating"><strong>4.6</strong><span>from 192 reviews on Which? Trusted Traders</span></div>
+ </div>
+</div></div>
+
+<section id="services"><div class="wrap">
+ <div class="sh"><span>01</span><h2>What we do</h2></div>
+ <div class="svc">
+  <div><svg viewBox="0 0 34 34"><rect x="7" y="4" width="20" height="26" rx="3"/><circle cx="17" cy="20" r="4"/><path d="M12 9h10"/></svg><span><h3>Boilers &amp; central heating</h3><p>New boiler installations, central heating systems and free quotations on both.</p></span></div>
+  <div><svg viewBox="0 0 34 34"><path d="M17 4v4M8 12h18l-2 6H10z"/><path d="M12 22l-2 8M22 22l2 8"/></svg><span><h3>Servicing &amp; fault-finding</h3><p>Boiler servicing, maintenance contracts and tracking down faults.</p></span></div>
+  <div><svg viewBox="0 0 34 34"><path d="M4 18h26v4a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z"/><path d="M8 18V8a3 3 0 0 1 6 0"/></svg><span><h3>Bathrooms</h3><p>Bathroom fitting with the tiling, plastering and carpentry handled too.</p></span></div>
+  <div><svg viewBox="0 0 34 34"><rect x="4" y="12" width="26" height="18" rx="2"/><path d="M4 18h26M12 6v6M22 6v6"/></svg><span><h3>Kitchens</h3><p>Kitchen fitting, alongside our plumbing and gas work.</p></span></div>
+  <div><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="6"/><path d="M17 3v5M17 26v5M3 17h5M26 17h5M7 7l3 3M24 24l3 3M7 27l3-3M24 10l3-3"/></svg><span><h3>Solar &amp; energy efficient heating</h3><p>Solar heating and other energy efficient systems, quoted free.</p></span></div>
+  <div><svg viewBox="0 0 34 34"><path d="M17 30c-6 0-9-4-9-9 0-6 6-9 7-16 3 4 4 7 3 10 2-1 3-3 3-5 3 3 5 7 5 11 0 5-3 9-9 9z"/></svg><span><h3>Gas &amp; fires</h3><p>Gas work and fires, carried out by Gas Safe registered engineers.</p></span></div>
+ </div>
+</div></section>
+
+<section class="why" id="why"><div class="wrap">
+ <div class="sh"><span>02</span><h2>Why Leicestershire calls Farthings</h2></div>
+ <div class="facts">
+  <div class="fact"><b>Serving Leicestershire since 1964</b><p>The Farthing family has looked after homes in the county for six decades.</p></div>
+  <div class="fact"><b>Gas Safe &amp; Worcester Bosch</b><p>Gas Safe registered and Worcester Bosch accredited installers.</p></div>
+  <div class="fact"><b>4.6 from 192 reviews</b><p>Endorsed by Which? Trusted Traders, with 97% of reviewers recommending Farthings.</p></div>
+  <div class="fact"><b>Free quotations</b><p>On bathrooms, boilers, central heating, solar heating and energy efficient systems.</p></div>
+ </div>
+</div></section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#b8673a;--rc-card:#fff;--rc-ink:#14312f;--rc-soft:#5b6b67">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>4.6 / 5</b> from 192 reviews on Which? Trusted Traders, with 97% recommending Farthings</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track rc-items" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Fantastic service all round from Darryl's quote to completion. James, our fitter was first class, he arrived at eight every day and always told us what was happening on the day. ...&rdquo;</blockquote>
+        <figcaption><b>Lorna, Leicester</b><span>Which? Trusted Traders &middot; Jul 2022</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Excellent service in every way and did exactly as they promised. Very efficient tradespeople who took out our bath and fitted a walk-in shower. Highly recommend them.&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Mar 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;My boiler failed Friday lunchtime. Farthings attended and diagnosed a terminal fault. They then sourced a new boiler 25 miles away and had it running by Saturday lunchtime. Outstanding service!&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Feb 2023</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;My combi boiler fitted by Ryan from Farthings is brilliant. The workman ship is first class, would recommend to anyone.&rdquo;</blockquote>
+        <figcaption><b>Gillian, Leicestershire</b><span>Which? Trusted Traders &middot; Feb 2020</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;... His workmanship is of the highest standard with great attention to detail. ... We would definitely use Farthings again and are happy to recommend them.&rdquo;</blockquote>
+        <figcaption><b>Robert, Leicestershire</b><span>Which? Trusted Traders &middot; Oct 2021</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;... Their service was excellent - friendly, helpful and efficient. ... Can't recommend them enough, a first class company.&rdquo;</blockquote>
+        <figcaption><b>Customer, Leicestershire</b><span>Which? Trusted Traders &middot; Oct 2023</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;First class job. Brilliant workmanship of a very high standard. Would highly recommend.&rdquo;</blockquote>
+        <figcaption><b>Geoff, Leicestershire</b><span>Which? Trusted Traders &middot; Sep 2019</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section id="areas"><div class="wrap areas">
+ <div>
+  <div class="sh"><span>03</span><h2>Where we work</h2></div>
+  <p style="margin-bottom:18px;color:var(--muted)">From our base on Station Road in Glenfield, we cover Leicester and across Leicestershire.</p>
+  <ul class="chips"><li>Glenfield</li><li>Leicester</li><li>Leicestershire</li></ul>
+ </div>
+ <div class="map"><svg viewBox="0 0 320 200" width="100%" role="img" aria-label="Simple map showing Glenfield to the north west of Leicester">
+  <path d="M40 60 Q90 20 170 30 T290 70 Q310 130 250 170 T90 180 Q20 140 40 60z" fill="#fffaf2" stroke="#e2d6c3" stroke-width="2"/>
+  <path d="M60 150 C120 120 170 120 270 60" stroke="#1f4e4a" stroke-width="2" fill="none" stroke-dasharray="5 5" opacity=".5"/>
+  <circle cx="180" cy="112" r="34" fill="#1f4e4a" opacity=".1"/>
+  <circle cx="180" cy="112" r="6" fill="#1f4e4a"/><text x="192" y="126" font-size="14" font-family="Work Sans,sans-serif" fill="#14312f">Leicester</text>
+  <circle cx="128" cy="86" r="7" fill="#b8673a"/><text x="70" y="74" font-size="14" font-family="Work Sans,sans-serif" font-weight="600" fill="#9a522a">Glenfield</text>
+ </svg></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <div class="sh"><span>04</span><h2>Get in touch</h2></div>
+ <div class="cgrid">
+  <div class="card"><h3>Call us</h3><p>Office: <a href="tel:01162321031">0116 232 1031</a></p><p>Mobile: <a href="tel:07855751958">07855 751958</a></p></div>
+  <div class="card"><h3>Email for a quote</h3><p><a href="mailto:farthingdb@btinternet.com?subject=Quote%20request">farthingdb@btinternet.com</a></p><p style="color:var(--muted);font-size:15px">Tell us what you need and we'll arrange a free quotation.</p></div>
+  <div class="card"><h3>Find us</h3><p>Unit A, Sandown Court<br>Station Road, Glenfield<br>Leicester LE3 8BT</p></div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <p>&copy; Farthings Plumbing &amp; Heating Limited &middot; Glenfield, Leicester</p>
+ <p>This is a concept homepage made by <a href="https://yrbnova.com">YRB Nova</a> and isn't the official Farthings Plumbing &amp; Heating website.</p>
+</div></footer>
+
+<nav class="sticky" aria-label="Quick contact">
+ <a class="btn p" href="tel:01162321031">Call now</a>
+ <a class="btn o" href="mailto:farthingdb@btinternet.com?subject=Quote%20request">Free quote</a>
+</nav>
+<script id="ix-script">
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('ix-on');window.__ix=1;
+  function ready(f){d.readyState!=='loading'?f():d.addEventListener('DOMContentLoaded',f)}
+  ready(function(){
+    // accent colour from the main call button
+    var tel=d.querySelector('a[href^="tel:"]');
+    if(tel){var bg=getComputedStyle(tel).backgroundColor;if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent')root.style.setProperty('--ix-accent',bg)}
+    var bar=d.createElement('div');bar.className='ix-bar';d.body.appendChild(bar);
+    // hero: the block holding the h1
+    var h1=d.querySelector('h1'),hero=null;
+    if(h1){
+      hero=h1.closest('section,.hero,[class*="hero"]')||h1.parentElement;
+      // split headline words for a staggered entrance
+      var walk=function(n){
+        Array.prototype.slice.call(n.childNodes).forEach(function(c){
+          if(c.nodeType===3&&c.textContent.trim()){
+            var f=d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(p){
+              if(!p)return; if(/^\s+$/.test(p)){f.appendChild(d.createTextNode(p));return}
+              var s=d.createElement('span');s.className='ix-w';s.textContent=p;f.appendChild(s)});
+            n.replaceChild(f,c);
+          } else if(c.nodeType===1&&!/^(BR|SVG)$/i.test(c.tagName)) walk(c);
+        });
+      };
+      walk(h1);
+      h1.querySelectorAll('.ix-w').forEach(function(w,i){w.style.setProperty('--d',(0.08+i*0.06).toFixed(2)+'s')});
+      // scroll cue under the hero buttons
+      var btnRow=hero.querySelector('[class*="cta"],[class*="actions"],[class*="buttons"]');
+      if(btnRow&&!hero.querySelector('.ix-cue')){var cue=d.createElement('a');cue.className='ix-cue';cue.href='#ix-next';cue.innerHTML='<i></i>Scroll';btnRow.parentNode.appendChild(cue)}
+    }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ix-go')})});
+    // mark next section for the cue
+    var secs=Array.prototype.slice.call(d.querySelectorAll('main section, body > section, section'));
+    var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
+    if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
+    // parallax art inside the hero
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    art.forEach(function(a){a.classList.add('ix-par')});
+    // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
+    var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
+    var seen=[];
+    secs.concat(Array.prototype.slice.call(d.querySelectorAll('footer'))).forEach(function(s){
+      if(hero&&(s===hero||hero.contains(s)||s.contains(h1)))return;
+      s.querySelectorAll(sel).forEach(function(el){
+        if(el.closest('[class*="sticky"]')||el.closest('.ix-r'))return;
+        if(seen.indexOf(el)>-1)return; seen.push(el);
+        el.classList.add('ix-r');
+        var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+        el.style.setProperty('--d',Math.min(sib*0.08,0.4).toFixed(2)+'s');
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window)){seen.forEach(function(e){e.classList.add('ix-in')})}
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ix-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      seen.forEach(function(e){io.observe(e)});
+    }
+    // safety: never leave content hidden
+    setTimeout(function(){seen.forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight)e.classList.add('ix-in')})},2500);
+    // scroll-driven: progress bar + hero parallax
+    var tick=false;
+    function frame(){
+      tick=false;
+      var y=scrollY,max=Math.max(1,d.documentElement.scrollHeight-innerHeight);
+      bar.style.transform='scaleX('+(y/max).toFixed(4)+')';
+      if(!reduce&&y<innerHeight*1.4){art.forEach(function(a,i){a.style.transform='translate3d(0,'+(y*(0.12+i*0.05)).toFixed(1)+'px,0) rotate('+(y*0.004).toFixed(2)+'deg)'})}
+    }
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
+  });
+})();
+</script>
+</body>
+</html>
