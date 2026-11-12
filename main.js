@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         set(k, v) { try { localStorage.setItem(k, v); } catch (_) {} }
     };
     const path = location.pathname.toLowerCase();
-    const isTransactionalPage = /(checkout|payment-|admin|pdf)/.test(path);
+    const isTransactionalPage = /(checkout|payment-|admin|pdf)/.test(path) || document.body.hasAttribute('data-no-offers');
     const rootPrefix = path.includes('/blog/') ? '../' : '';
     let offersPromise = null;
     const getOffers = () => offersPromise || (offersPromise = fetch('/offers.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).catch(() => null));

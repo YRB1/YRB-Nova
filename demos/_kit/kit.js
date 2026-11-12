@@ -625,7 +625,7 @@
 /* Demo disclosure: a visible top ribbon so nobody mistakes a demo brand, its people or its reviews for a real practice. */
 (function () {
     function addRibbon() {
-        if (document.querySelector('.k-demo-ribbon')) return;
+        if (document.querySelector('.k-demo-ribbon') || document.body.hasAttribute('data-no-demo-ribbon')) return;
         var bar = document.createElement('div');
         bar.className = 'k-demo-ribbon';
         bar.setAttribute('role', 'note');
