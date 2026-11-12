@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] What should be on a tradesperson's homepage? A checklist
 - [ ] How to get your business on Google Maps (Google Business Profile, step by step)
 - [ ] Taking deposits online: how to cut no-shows for appointment businesses
 - [ ] Missed calls are missed jobs: how an AI receptionist works for a one-person business
@@ -31,6 +30,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-12: What Should Be on a Tradesperson's Homepage? A Checklist (tradesperson-homepage-checklist)
 - [x] 2026-11-11: How to Take Photos of Your Work That Sell (Phone-Only Guide) (how-to-take-photos-of-your-work)
 - [x] 2026-11-10: Do I Need a Booking System on My Website? Salons and Barbers (booking-system-for-small-business-website)
 - [x] 2026-11-09: Website vs Instagram: Which Does a Small Business Actually Need? (website-vs-instagram)
