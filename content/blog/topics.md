@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] How to get your business on Google Maps (Google Business Profile, step by step)
 - [ ] Taking deposits online: how to cut no-shows for appointment businesses
 - [ ] Missed calls are missed jobs: how an AI receptionist works for a one-person business
 - [ ] Why your website is slow on phones, and the five usual culprits
@@ -30,6 +29,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-13: How to Get Your Business on Google Maps: Step by Step (UK) (google-business-profile-setup)
 - [x] 2026-11-12: What Should Be on a Tradesperson's Homepage? A Checklist (tradesperson-homepage-checklist)
 - [x] 2026-11-11: How to Take Photos of Your Work That Sell (Phone-Only Guide) (how-to-take-photos-of-your-work)
 - [x] 2026-11-10: Do I Need a Booking System on My Website? Salons and Barbers (booking-system-for-small-business-website)
