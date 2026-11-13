@@ -187,7 +187,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .slide .go{display:inline-block;margin-top:16px;color:var(--brass2);font-size:14px}
 .work-bar{margin:46px 5vw 0;height:1px;background:var(--line);position:relative}
 .work-bar i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(0)}
-@media(max-width:900px){.work{height:auto}.work-pin{position:static;height:auto;padding:120px 0}.rail{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-right:5vw;transform:none!important}.slide{scroll-snap-align:start;grid-template-columns:110px 1fr;padding:24px}.slide img{width:110px}.work-bar{display:none}}
+@media(max-width:900px){.work{height:auto}.work-pin{position:static;height:auto;padding:120px 0}.rail{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-right:5vw;transform:none!important}.slide{scroll-snap-align:start}.work-bar{display:none}}
 @media(prefers-reduced-motion:reduce){.work{height:auto}.work-pin{position:static;height:auto;padding:120px 0}.rail{width:auto;overflow-x:auto}}
 
 /* timeline */
@@ -294,9 +294,39 @@ footer a:hover{color:var(--text)}
 .compare thead .us{color:var(--brass2)}
 .compare .y{color:#9ad6ac}.compare .n{color:#e58b84}
 .compare tr:last-child th,.compare tr:last-child td{border-bottom:0}
-@media(max-width:900px){.compare{overflow-x:auto}.compare table{min-width:720px}}
-.slide{width:min(620px,84vw);grid-template-columns:200px 1fr}
-.slide img{width:200px}
+@media(max-width:900px){
+  .compare{border:0;border-radius:0;overflow:visible}
+  .compare thead{display:none}
+  .compare table,.compare tbody,.compare tr,.compare th,.compare td{display:block;width:100%}
+  .compare tr{border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:14px;display:grid!important;grid-template-columns:1fr 1fr;gap:10px 14px;background:var(--bg2)}
+  .compare tbody th{grid-column:1/-1;padding:0 0 6px;border:0;font-size:24px}
+  .compare td{padding:0;border:0;font-size:14px}
+  .compare td::before{content:attr(data-label);display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+  .compare td.us{grid-column:1/-1;order:-1;background:rgba(200,164,108,.1);border:1px solid rgba(200,164,108,.3);border-radius:14px;padding:12px 14px;font-size:16px;color:var(--brass2)}
+  .compare td.us::before{color:var(--brass)}
+  .compare tbody th{order:-2}
+}
+@media(min-width:600px) and (max-width:900px){.compare tbody{display:grid!important;grid-template-columns:1fr 1fr;gap:14px}.compare tr{margin:0}}
+@media(max-width:700px){
+  section{padding:92px 0}
+  .statement{padding:100px 0}
+  .final{padding:120px 0}
+  .head{margin-bottom:44px}
+  .work-pin{padding:92px 0!important}
+  .timeline{gap:26px;padding-top:30px}
+  .guar{gap:22px}
+  .seal{width:104px;height:104px}
+  .plan .price{font-size:68px}
+}
+@media(min-width:901px){.slide{width:min(620px,84vw);grid-template-columns:200px 1fr}.slide img{width:200px}}
+@media(max-width:900px){
+  .rail{gap:16px;padding-left:5vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .rail::-webkit-scrollbar{display:none}
+  .slide{width:min(78vw,360px);grid-template-columns:1fr;gap:20px;padding:16px 16px 24px;align-items:start}
+  .slide img{width:100%;aspect-ratio:4/5;object-position:top;border-radius:16px}
+  .slide>div{padding:0 6px}
+  .slide h3{font-size:26px}
+}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
 </style>
 </head>
@@ -452,12 +482,12 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
     <div class="compare rv"><table>
       <thead><tr><th></th><th>Voicemail</th><th>Answering service</th><th>Extra receptionist</th><th class="us">Patient Capture</th></tr></thead>
       <tbody>
-        <tr><th>Answers at 9pm on a Sunday</th><td class="n">No</td><td>Usually</td><td class="n">No</td><td class="us y">Every time</td></tr>
-        <tr><th>Knows your treatments &amp; prices</th><td class="n">No</td><td class="n">Takes a message</td><td class="y">Yes</td><td class="us y">Yes, approved by you</td></tr>
-        <tr><th>Takes the booking request on the call</th><td class="n">No</td><td class="n">Rarely</td><td class="y">In hours</td><td class="us y">24/7</td></tr>
-        <tr><th>Handles several calls at once</th><td class="n">No</td><td>Sometimes</td><td class="n">One line</td><td class="us y">Yes</td></tr>
-        <tr><th>Includes a website built to book</th><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="us y">Yes</td></tr>
-        <tr><th>Monthly cost</th><td>Free, but costs patients</td><td>Per-minute fees</td><td>A full salary</td><td class="us">£399</td></tr>
+        <tr><th>Answers at 9pm on a Sunday</th><td data-label="Voicemail" class="n">No</td><td data-label="Answering service">Usually</td><td data-label="Extra receptionist" class="n">No</td><td data-label="Patient Capture" class="us y">Every time</td></tr>
+        <tr><th>Knows your treatments &amp; prices</th><td data-label="Voicemail" class="n">No</td><td data-label="Answering service" class="n">Takes a message</td><td data-label="Extra receptionist" class="y">Yes</td><td data-label="Patient Capture" class="us y">Yes, approved by you</td></tr>
+        <tr><th>Takes the booking request on the call</th><td data-label="Voicemail" class="n">No</td><td data-label="Answering service" class="n">Rarely</td><td data-label="Extra receptionist" class="y">In hours</td><td data-label="Patient Capture" class="us y">24/7</td></tr>
+        <tr><th>Handles several calls at once</th><td data-label="Voicemail" class="n">No</td><td data-label="Answering service">Sometimes</td><td data-label="Extra receptionist" class="n">One line</td><td data-label="Patient Capture" class="us y">Yes</td></tr>
+        <tr><th>Includes a website built to book</th><td data-label="Voicemail" class="n">No</td><td data-label="Answering service" class="n">No</td><td data-label="Extra receptionist" class="n">No</td><td data-label="Patient Capture" class="us y">Yes</td></tr>
+        <tr><th>Monthly cost</th><td data-label="Voicemail">Free, but costs patients</td><td data-label="Answering service">Per-minute fees</td><td data-label="Extra receptionist">A full salary</td><td data-label="Patient Capture" class="us">£399</td></tr>
       </tbody></table></div>
   </div>
 </section>
