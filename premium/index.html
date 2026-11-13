@@ -243,6 +243,61 @@ footer{border-top:1px solid var(--line);padding:44px 0;font-size:14px;color:var(
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{color:var(--text)}
+
+/* call card in hero */
+.callcard{position:absolute;right:6vw;top:50%;transform:translateY(-50%);width:320px;border-radius:26px;padding:22px;background:rgba(18,18,22,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(239,233,223,.12);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);z-index:3}
+.callcard .top{display:flex;align-items:center;gap:14px}
+.callcard .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2a2620,#4a3f2f);display:grid;place-items:center;font-family:var(--serif);font-size:20px;color:var(--brass2);position:relative}
+.callcard .av::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--brass);opacity:0;animation:halo 1.4s infinite}
+.callcard[data-state="ring"] .av::after{opacity:1}
+@keyframes halo{from{transform:scale(.85);opacity:.9}to{transform:scale(1.35);opacity:0}}
+.callcard .who b{display:block;font-weight:500;font-size:15px}
+.callcard .who span{font-size:13px;color:var(--muted)}
+.callcard .state{margin-top:18px;padding:12px 14px;border-radius:14px;font-size:13.5px;display:flex;align-items:center;gap:10px;transition:background .5s,color .5s}
+.callcard .state i{width:8px;height:8px;border-radius:50%;flex:none}
+.callcard[data-state="ring"] .state{background:rgba(200,164,108,.12);color:var(--brass2)}
+.callcard[data-state="ring"] .state i{background:var(--brass2);animation:ping 1s infinite}
+.callcard[data-state="miss"] .state{background:rgba(212,87,78,.12);color:#e58b84}
+.callcard[data-state="miss"] .state i{background:#d4574e}
+.callcard[data-state="ok"] .state{background:rgba(111,191,138,.12);color:#9ad6ac}
+.callcard[data-state="ok"] .state i{background:#6fbf8a}
+.callcard .lines{margin-top:14px;display:grid;gap:8px;font-size:13px;color:var(--muted);min-height:58px}
+.callcard .lines div{display:flex;justify-content:space-between}
+.callcard .lines b{color:var(--text);font-weight:500}
+@media(max-width:1100px){.callcard{display:none}}
+@media(min-width:1101px){.scene .inner{padding-right:380px}.scene h1{font-size:clamp(54px,7.2vw,124px)}}
+/* scrubbed statement */
+.statement{padding:180px 0}
+.statement p{font-family:var(--serif);font-size:clamp(34px,4.6vw,68px);line-height:1.12;max-width:1100px;letter-spacing:-.01em}
+.statement p span{color:rgba(239,233,223,.14);transition:color .25s}
+.statement p span.lit{color:var(--text)}
+.statement p span.gold.lit{color:var(--brass2);font-style:italic}
+/* transcript in phone */
+.tx{position:absolute;inset:0;background:#0f0f12;padding:56px 16px 18px;display:flex;flex-direction:column;gap:10px;opacity:0;transition:opacity .8s var(--ease);font-size:12.5px;line-height:1.45}
+.tx.on{opacity:1}
+.tx .hdr{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tx .hdr b{color:#9ad6ac;font-weight:500}
+.tx .b{max-width:86%;padding:10px 12px;border-radius:14px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease)}
+.tx .b.in{opacity:1;transform:none}
+.tx .ai{background:#1d1c19;border:1px solid rgba(200,164,108,.25);align-self:flex-start}
+.tx .ai::before{content:"Receptionist";display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:3px}
+.tx .me{background:#24242a;align-self:flex-end}
+.tx .done{align-self:center;margin-top:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9ad6ac;border:1px solid rgba(111,191,138,.35);border-radius:999px;padding:8px 14px}
+/* compare */
+.compare{border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:15px}
+.compare th,.compare td{padding:22px 24px;text-align:left;border-bottom:1px solid var(--line)}
+.compare thead th{font-weight:500;color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.compare tbody th{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--text)}
+.compare td{color:var(--muted)}
+.compare .us{background:rgba(200,164,108,.08)}
+.compare thead .us{color:var(--brass2)}
+.compare .y{color:#9ad6ac}.compare .n{color:#e58b84}
+.compare tr:last-child th,.compare tr:last-child td{border-bottom:0}
+@media(max-width:900px){.compare{overflow-x:auto}.compare table{min-width:720px}}
+.slide{width:min(620px,84vw);grid-template-columns:200px 1fr}
+.slide img{width:200px}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
 </style>
 </head>
 <body>
@@ -288,12 +343,22 @@ footer a:hover{color:var(--text)}
       </div>
     </div>
 
+    <div class="callcard" id="callcard" data-state="ring" aria-hidden="true">
+      <div class="top"><div class="av">S</div><div class="who"><b>Sarah M.</b><span>Mobile · 07700 900341</span></div></div>
+      <div class="state"><i></i><span id="ccState">Incoming call · ringing</span></div>
+      <div class="lines" id="ccLines"><div><span>Enquiry</span><b>Implant consultation</b></div><div><span>Value</span><b>£2,000+</b></div></div>
+    </div>
     <div class="chapters" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span></div>
     <div class="cue" aria-hidden="true">Scroll</div>
   </div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+
+<section class="statement" aria-label="Our promise">
+  <div class="wrap"><p id="scrub" data-gold="choose,someone,else.,every,time,">Every missed call is a patient who chose someone else. We make sure your clinic answers every time, at any hour, in your name.</p></div>
+</section>
 
 <section id="leak">
   <div class="wrap leak-grid">
@@ -315,7 +380,13 @@ footer a:hover{color:var(--text)}
     <div class="head rv"><p class="eyebrow">The Patient Capture System</p><h2>Three parts. <em>One job:</em> booked consultations.</h2></div>
     <div class="sys">
       <div class="sys-phone"><div class="phone"><div class="screens">
-        <img src="assets/brightwell-1.webp" alt="" class="on"><img src="assets/call.webp" alt=""><img src="assets/capture.webp" alt="">
+        <img src="assets/brightwell-1.webp" alt="" class="on"><div class="tx" id="tx"><div class="hdr"><span>Live call · 19:42</span><b>● Answered</b></div>
+          <div class="b ai">Good evening, Brightwell Dental. How can I help?</div>
+          <div class="b me">Hi, I'm looking into dental implants. Are you open?</div>
+          <div class="b ai">The team's finished for today, but I can book you a free implant consultation. Is Thursday at 10am good?</div>
+          <div class="b me">Thursday's perfect.</div>
+          <div class="b ai">Lovely, Sarah. You're booked in. I'll text you the details now.</div>
+          <div class="done">Consultation requested · sent to team</div></div><img src="assets/capture.webp" alt="">
       </div></div></div>
       <div class="steps-txt">
         <div data-step="0"><p class="k">I.</p><h3>A website built to book</h3><p>Fast, mobile-first and designed around one action on every screen. Treatment pages with clear prices, written to rank in your area.</p></div>
@@ -371,6 +442,23 @@ footer a:hover{color:var(--text)}
       <div class="rv"><p class="when">Day 14</p><h3>Go live</h3><p>Calls forward when you choose: after hours, when the line's busy, or all day. You keep your number.</p></div>
       <div class="rv"><p class="when">Every month</p><h3>Report &amp; refine</h3><p>A clear report of calls caught and requests sent, and we tune the script and site from real calls.</p></div>
     </div>
+  </div>
+</section>
+
+
+<section id="compare">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">The alternatives</p><h2>Why not just <em>hire someone?</em></h2></div>
+    <div class="compare rv"><table>
+      <thead><tr><th></th><th>Voicemail</th><th>Answering service</th><th>Extra receptionist</th><th class="us">Patient Capture</th></tr></thead>
+      <tbody>
+        <tr><th>Answers at 9pm on a Sunday</th><td class="n">No</td><td>Usually</td><td class="n">No</td><td class="us y">Every time</td></tr>
+        <tr><th>Knows your treatments &amp; prices</th><td class="n">No</td><td class="n">Takes a message</td><td class="y">Yes</td><td class="us y">Yes, approved by you</td></tr>
+        <tr><th>Takes the booking request on the call</th><td class="n">No</td><td class="n">Rarely</td><td class="y">In hours</td><td class="us y">24/7</td></tr>
+        <tr><th>Handles several calls at once</th><td class="n">No</td><td>Sometimes</td><td class="n">One line</td><td class="us y">Yes</td></tr>
+        <tr><th>Includes a website built to book</th><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="us y">Yes</td></tr>
+        <tr><th>Monthly cost</th><td>Free, but costs patients</td><td>Per-minute fees</td><td>A full salary</td><td class="us">£399</td></tr>
+      </tbody></table></div>
   </div>
 </section>
 
@@ -432,6 +520,7 @@ footer a:hover{color:var(--text)}
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
   'use strict';
@@ -487,12 +576,35 @@ footer a:hover{color:var(--text)}
     $$('.rv').forEach(function(el){io.observe(el)});
     var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
       var i=+e.target.dataset.step; $$('[data-step]').forEach(function(d){d.classList.toggle('on',d===e.target)});
-      $$('.screens img').forEach(function(im,k){im.classList.toggle('on',k===i)});
+      $$('.screens img').forEach(function(im,k){var idx=k<1?0:k+1;im.classList.toggle('on',idx===i)});playTx(i===1);
     }})},{rootMargin:'-45% 0px -45% 0px'});
     $$('[data-step]').forEach(function(el){so.observe(el)});
   } else $$('.rv').forEach(function(el){el.classList.add('on')});
   if(!mo){$$('.scene').forEach(function(s){s.classList.add('on')})}
 
+
+  // Smooth scroll
+  var lenis=null;
+  if(mo&&window.Lenis){lenis=new Lenis({lerp:.09,smoothWheel:true});root.classList.add('lenis');
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf)}requestAnimationFrame(raf);
+    $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:a.getAttribute('href')==='#top'?0:-20,duration:1.4})}})});}
+  // Scrubbed statement
+  var scrub=$('#scrub'), golds=(scrub.dataset.gold||'').split(',');
+  scrub.innerHTML=scrub.textContent.split(' ').map(function(w){return '<span'+(golds.indexOf(w)>-1?' class="gold"':'')+'>'+w+'</span>'}).join(' ');
+  var sw=$$('span',scrub);
+  // Transcript playback
+  var tx=$('#tx'), txTimer=null;
+  function playTx(on){tx.classList.toggle('on',on);var bs=$$('.b,.done',tx);clearTimeout(txTimer);
+    if(!on){bs.forEach(function(b){b.classList.remove('in')});return;}
+    var i=0;(function next(){if(i<bs.length){bs[i].classList.add('in');i++;txTimer=setTimeout(next,i===bs.length-1?900:1100)}})();}
+  // Hero call card states
+  var cc=$('#callcard'), ccS=$('#ccState'), ccL=$('#ccLines'), ccCur='';
+  var CC={ring:['Incoming call · ringing','<div><span>Enquiry</span><b>Implant consultation</b></div><div><span>Value</span><b>£2,000+</b></div>'],
+          miss:['Missed · went to voicemail','<div><span>Message left</span><b>No</b></div><div><span>Next step</span><b>Calls another clinic</b></div>'],
+          ok:['Answered by your receptionist','<div><span>Consultation</span><b>Thu 10:00 requested</b></div><div><span>Sent to team</span><b>19:44</b></div>']};
+  function setCC(k){if(k===ccCur)return;ccCur=k;cc.dataset.state=k;ccS.textContent=CC[k][0];ccL.innerHTML=CC[k][1];}
+
+  if(!mo){sw.forEach(function(w){w.classList.add('lit')});setCC('ok');$$('.b,.done',tx).forEach(function(b){b.classList.add('in')});}
   // Nav hide on scroll down
   var nav=$('#nav'), lastY=0;
 
@@ -530,6 +642,9 @@ footer a:hover{color:var(--text)}
         s.style.pointerEvents=o>.6?'auto':'none';
       });
       bars.forEach(function(b,i){var w=WIN[i];b.style.transform='scaleX('+clamp((p-Math.max(0,w[0]))/((i<2?w[3]:1)-Math.max(0,w[0])),0,1)+')'});
+      setCC(p<.3?'ring':(p<.66?'miss':'ok'));
+      var sr=scrub.getBoundingClientRect(), sp=clamp((vh*.85-sr.top)/(sr.height+vh*.35),0,1), lit=Math.floor(sp*sw.length*1.15);
+      for(var q=0;q<sw.length;q++) sw[q].classList.toggle('lit',q<lit);
       media.style.transform='scale('+(1.06+p*.12)+') translate('+(hx*-14)+'px,'+(hy*-10)+'px)';
       // marquee driven by scroll velocity
       mpos-= (0.6+Math.abs(vel)*.35)*(dt/16); var half=track.scrollWidth/2; if(-mpos>half) mpos+=half;
