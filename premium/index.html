@@ -328,17 +328,77 @@ footer a:hover{color:var(--text)}
   .slide h3{font-size:26px}
 }
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+
+/* progress + active nav */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:transparent;pointer-events:none}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--brass),var(--brass2));transform-origin:left;transform:scaleX(0)}
+.links a.act{color:var(--text)}
+.links a.act::after{transform:scaleX(1)}
+/* mobile hero call pill */
+.callpill{position:absolute;left:5vw;right:5vw;bottom:86px;display:none;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:rgba(18,18,22,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(239,233,223,.12);font-size:13px;z-index:3}
+.callpill .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2a2620,#4a3f2f);display:grid;place-items:center;font-family:var(--serif);color:var(--brass2);flex:none}
+.callpill b{display:block;font-weight:500}
+.callpill span{color:var(--muted)}
+.callpill i{margin-left:auto;width:9px;height:9px;border-radius:50%;flex:none;background:var(--brass2);animation:ping 1s infinite}
+.callpill[data-state="miss"] i{background:#d4574e;animation:none}
+.callpill[data-state="ok"] i{background:#6fbf8a;animation:none}
+@media(max-width:1100px){.callpill{display:flex}}
+/* sticky mobile cta */
+.mcta{position:fixed;left:12px;right:12px;bottom:12px;z-index:65;display:none;gap:10px;padding:10px;border-radius:999px;background:rgba(18,18,22,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);transform:translateY(140%);transition:transform .6s var(--ease);padding-bottom:calc(10px + env(safe-area-inset-bottom,0px)/2)}
+.mcta.show{transform:none}
+.mcta .btn{flex:1;justify-content:center;padding:14px 16px;font-size:14px}
+.mcta .btn-line{flex:0 0 auto}
+@media(max-width:900px){.mcta{display:flex}footer{padding-bottom:110px}}
+/* who it's for */
+.who-list{border-top:1px solid var(--line)}
+.who-row{display:grid;grid-template-columns:80px 1.2fr 1fr auto;gap:30px;align-items:center;padding:34px 10px;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease)}
+.who-row::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(200,164,108,.1),transparent 70%);opacity:0;transition:opacity .5s}
+.who-row:hover::before{opacity:1}
+.who-row:hover{padding-left:24px}
+.who-row .n{font-size:13px;color:var(--dim);letter-spacing:.1em}
+.who-row h3{font-size:clamp(32px,4vw,56px)}
+.who-row:hover h3 em{color:var(--brass2)}
+.who-row p{color:var(--muted);font-size:15.5px}
+.who-row .val{font-family:var(--serif);font-size:26px;color:var(--brass2);white-space:nowrap;text-align:right}
+.who-row .val small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:900px){.who-row{grid-template-columns:1fr auto;gap:8px 16px;padding:26px 4px}.who-row .n{display:none}.who-row p{grid-column:1/-1;grid-row:2}.who-row:hover{padding-left:4px}}
+/* audit */
+.audit{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.audit ol{list-style:none;counter-reset:a;display:grid;gap:22px;margin-top:36px}
+.audit li{counter-increment:a;display:grid;grid-template-columns:44px 1fr;gap:16px;color:var(--muted)}
+.audit li::before{content:counter(a,decimal-leading-zero);font-family:var(--serif);font-size:26px;color:var(--brass2);line-height:1.1}
+.audit li b{color:var(--text);font-weight:500;display:block}
+.form{border:1px solid var(--line);border-radius:30px;padding:44px;background:var(--bg2);display:grid;gap:16px}
+.form h3{font-size:34px;margin-bottom:6px}
+.field{display:grid;gap:8px}
+.field label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(239,233,223,.2);color:var(--text);font:inherit;font-size:17px;padding:10px 0;outline:none;border-radius:0;transition:border-color .3s}
+.field select{appearance:none;-webkit-appearance:none;background:linear-gradient(45deg,transparent 50%,var(--brass) 50%) right 6px center/7px 7px no-repeat,linear-gradient(-45deg,transparent 50%,var(--brass) 50%) right 0 center/7px 7px no-repeat}
+.field select option{background:var(--bg2);color:var(--text)}
+.field input:focus,.field select:focus{border-color:var(--brass2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form .btn{justify-content:center;margin-top:10px}
+.form .note{font-size:12.5px;color:var(--dim)}
+.form .ok{display:none;text-align:center;padding:30px 0}
+.form.sent>*:not(.ok){display:none}
+.form.sent .ok{display:block}
+.form .err{color:#e58b84;font-size:14px;display:none}
+@media(max-width:900px){.audit{grid-template-columns:1fr;gap:40px}.form{padding:30px}.row2{grid-template-columns:1fr}}
+/* big footer wordmark */
+.mark{font-family:var(--serif);font-size:clamp(48px,12.6vw,210px);line-height:.85;letter-spacing:-.03em;color:var(--text);padding:80px 0 30px;white-space:nowrap;overflow:hidden}
+.mark em{color:var(--brass2)}
 </style>
 </head>
 <body>
 
 <div class="loader" aria-hidden="true"><span><i>YRB Nova</i> <i class="it">Group</i></span></div>
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
 <div class="cursor" aria-hidden="true"></div><div class="cursor-label" aria-hidden="true">View</div>
 
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/logo-mark.webp" alt="">YRB NOVA <i>Group</i></a>
-    <div class="links"><a href="#leak">The problem</a><a href="#system">The system</a><a href="#numbers">The numbers</a><a href="#work">Work</a><a href="#pricing">Pricing</a></div>
+    <div class="links"><a href="#leak">The problem</a><a href="#system">The system</a><a href="#numbers">The numbers</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#audit">Free audit</a></div>
     <a class="btn btn-solid" href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener" data-mag>Book a call <span class="arr">→</span></a>
   </div>
 </nav>
@@ -378,6 +438,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
       <div class="state"><i></i><span id="ccState">Incoming call · ringing</span></div>
       <div class="lines" id="ccLines"><div><span>Enquiry</span><b>Implant consultation</b></div><div><span>Value</span><b>£2,000+</b></div></div>
     </div>
+    <div class="callpill" id="callpill" data-state="ring" aria-hidden="true"><div class="av">S</div><div><b>Sarah M. · Implant enquiry</b><span id="cpS">Incoming call · ringing</span></div><i></i></div>
     <div class="chapters" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span></div>
     <div class="cue" aria-hidden="true">Scroll</div>
   </div>
@@ -476,6 +537,18 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 </section>
 
 
+<section id="who">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Who it's for</p><h2>Built for clinics where <em>one patient</em> is worth thousands.</h2></div>
+    <div class="who-list">
+      <div class="who-row rv"><span class="n">01</span><h3>Private <em>dental</em></h3><p>Implants, Invisalign, veneers and new-patient exams. The calls that turn into long treatment plans.</p><div class="val">£2,000+<small>per implant case</small></div></div>
+      <div class="who-row rv"><span class="n">02</span><h3>Medical <em>aesthetics</em></h3><p>Injectables, skin and laser. Clients who research in the evening and book with whoever answers.</p><div class="val">£300+<small>per treatment</small></div></div>
+      <div class="who-row rv"><span class="n">03</span><h3>Physio &amp; <em>wellness</em></h3><p>Courses of treatment where one booked assessment becomes six or eight sessions.</p><div class="val">£300+<small>per course</small></div></div>
+      <div class="who-row rv"><span class="n">04</span><h3>Multi-site <em>groups</em></h3><p>One brand and one booking flow across every location, with reporting for the whole group.</p><div class="val">Bespoke<small>per group</small></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="compare">
   <div class="wrap">
     <div class="head rv"><p class="eyebrow">The alternatives</p><h2>Why not just <em>hire someone?</em></h2></div>
@@ -520,6 +593,35 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
   </div>
 </section>
 
+<section id="audit" style="background:var(--bg2)">
+  <div class="wrap audit">
+    <div class="rv">
+      <p class="eyebrow">Free after-hours audit</p>
+      <h2 style="margin:22px 0 26px">Find out what your patients hear <em>after 6pm.</em></h2>
+      <p class="lead">No pitch deck, no obligation. We'll test your clinic the way a new patient would and show you exactly where bookings slip away.</p>
+      <ol>
+        <li><span><b>We call your clinic after hours</b>Evenings and the weekend, like a real new-patient enquiry.</span></li>
+        <li><span><b>We test your website on a phone</b>How many taps it takes to request a consultation.</span></li>
+        <li><span><b>You get a one-page report</b>What a patient experiences, and what it's likely costing you each month.</span></li>
+      </ol>
+    </div>
+    <form class="form rv" id="auditForm" action="https://formspree.io/f/mldaypqv" method="POST">
+      <h3>Request your audit</h3>
+      <input type="hidden" name="_subject" value="New after-hours audit request (YRB Nova Group)">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="row2"><div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
+      <div class="field"><label for="f-clinic">Clinic</label><input id="f-clinic" name="clinic" required autocomplete="organization"></div></div>
+      <div class="row2"><div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label for="f-phone">Clinic phone</label><input id="f-phone" type="tel" name="phone" required autocomplete="tel"></div></div>
+      <div class="field"><label for="f-sites">Locations</label><select id="f-sites" name="locations"><option>1 clinic</option><option>2–5 clinics</option><option>6+ clinics</option></select></div>
+      <button class="btn btn-solid" type="submit" data-mag>Send my audit request <span class="arr">→</span></button>
+      <p class="err" id="formErr">That didn't send. Email yrbnova@gmail.com and we'll pick it up.</p>
+      <p class="note">Report within 48 hours of the test calls. We'll only use your details to send it. <a href="https://yrbnova.com/privacy-policy.html">Privacy</a></p>
+      <div class="ok"><h3>Request received.</h3><p style="color:var(--muted);margin-top:10px">We'll test your clinic this week and email your report within 48 hours.</p></div>
+    </form>
+  </div>
+</section>
+
 <section class="faq">
   <div class="wrap" style="max-width:960px">
     <div class="head rv"><p class="eyebrow">Questions clinics ask</p><h2>Before you <em>book a call.</em></h2></div>
@@ -543,6 +645,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 </section>
 </main>
 
+<div class="wrap mark" aria-hidden="true">YRB Nova <em>Group</em></div>
 <footer>
   <div class="wrap">
     <span>© <span id="yr">2026</span> YRB Nova · Leicestershire, UK · <a href="mailto:yrbnova@gmail.com">yrbnova@gmail.com</a> · <a href="tel:+447555985320">07555 985320</a></span>
@@ -550,6 +653,7 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
   </div>
 </footer>
 
+<div class="mcta" id="mcta"><a class="btn btn-solid" href="https://cal.com/yrb-nova-a1ionp/15min" target="_blank" rel="noopener">Book a 15-min call</a><a class="btn btn-line" href="#audit">Free audit</a></div>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -632,7 +736,13 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
   var CC={ring:['Incoming call · ringing','<div><span>Enquiry</span><b>Implant consultation</b></div><div><span>Value</span><b>£2,000+</b></div>'],
           miss:['Missed · went to voicemail','<div><span>Message left</span><b>No</b></div><div><span>Next step</span><b>Calls another clinic</b></div>'],
           ok:['Answered by your receptionist','<div><span>Consultation</span><b>Thu 10:00 requested</b></div><div><span>Sent to team</span><b>19:44</b></div>']};
-  function setCC(k){if(k===ccCur)return;ccCur=k;cc.dataset.state=k;ccS.textContent=CC[k][0];ccL.innerHTML=CC[k][1];}
+  var cp=$('#callpill'), cpS=$('#cpS');
+  function setCC(k){if(k===ccCur)return;ccCur=k;cc.dataset.state=k;ccS.textContent=CC[k][0];ccL.innerHTML=CC[k][1];cp.dataset.state=k;cpS.textContent=CC[k][0];}
+  // Audit form via Formspree
+  var form=$('#auditForm');
+  form.addEventListener('submit',function(e){e.preventDefault();var btn=$('button',form);btn.disabled=true;
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;form.classList.add('sent')}).catch(function(){$('#formErr').style.display='block';btn.disabled=false});});
+  var prog=$('#prog'), mcta=$('#mcta'), navLinks=$$('.links a'), secs=navLinks.map(function(a){return $(a.getAttribute('href'))});
 
   if(!mo){sw.forEach(function(w){w.classList.add('lit')});setCC('ok');$$('.b,.done',tx).forEach(function(b){b.classList.add('in')});}
   // Nav hide on scroll down
@@ -663,6 +773,9 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
     vel+=((y-prevY)-vel)*.12; prevY=y;
     // nav
     nav.classList.toggle('solid',y>vh*.5); nav.classList.toggle('hide',y>lastY+4&&y>vh*2.5&&y<document.body.scrollHeight-vh*1.5); if(Math.abs(y-lastY)>4)lastY=y;
+    var docH=document.documentElement.scrollHeight-vh; prog.style.transform='scaleX('+(docH>0?y/docH:0)+')';
+    mcta.classList.toggle('show',y>hero.offsetHeight-vh*.3&&y<docH-vh*.6);
+    var act=-1; secs.forEach(function(sec,i){if(sec&&sec.getBoundingClientRect().top<vh*.4)act=i}); navLinks.forEach(function(a,i){a.classList.toggle('act',i===act)});
     if(mo){
       // hero scenes
       var p=clamp((y-hero.offsetTop)/(hero.offsetHeight-vh),0,1);
