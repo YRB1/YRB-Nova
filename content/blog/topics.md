@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] Missed calls are missed jobs: how an AI receptionist works for a one-person business
 - [ ] Why your website is slow on phones, and the five usual culprits
 - [ ] How to write a services page that gets enquiries (with a concept-site walkthrough)
 - [ ] Do I need a privacy policy and cookie banner on my small business website? (UK)
@@ -28,6 +27,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-16: AI Receptionist for a One-Person Business: How It Works (UK) (ai-receptionist-for-one-person-business)
 - [x] 2026-11-14: How to Take Deposits Online and Cut No-Shows (UK Guide) (taking-deposits-to-stop-no-shows)
 - [x] 2026-11-13: How to Get Your Business on Google Maps: Step by Step (UK) (google-business-profile-setup)
 - [x] 2026-11-12: What Should Be on a Tradesperson's Homepage? A Checklist (tradesperson-homepage-checklist)
