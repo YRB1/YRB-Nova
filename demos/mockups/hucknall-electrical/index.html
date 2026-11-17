@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hucknall Electrical | Electricians in Hucknall &amp; Nottingham</title>
+<meta name="description" content="Concept homepage for Hucknall Electrical Ltd, NICEIC registered electricians in Hucknall, Nottingham, trading since 2006.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f1e8;--paper2:#ece6d8;--ink:#1a1a1a;--soft:#6b6459;--red:#c8102e;--red-d:#a50d25;--yel:#ffd500;--line:#d9d1bf;--ix-accent:#c8102e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;padding-bottom:76px}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;line-height:1;letter-spacing:-.005em;text-transform:uppercase}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.yrb{display:block;background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:7px 12px;text-decoration:none}
+.yrb:hover{text-decoration:underline}
+.top{background:var(--paper);border-bottom:1px solid var(--line);position:relative;z-index:5}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.mark{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;font-size:23px;letter-spacing:.01em;color:var(--red)}
+.mark .bolt{margin:0 3px;transform:translateY(3px)}
+.toptel{text-decoration:none;text-align:right;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:20px;line-height:1.1;white-space:nowrap}
+.toptel small{display:block;font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:12px;color:var(--soft)}
+@media(max-width:400px){.mark{font-size:20px}.toptel small{display:none}.toptel{font-size:17px}}
+
+.hero{position:relative;overflow:hidden;isolation:isolate;display:flex;min-height:calc(88svh - 64px);color:#fff}
+.hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-top:56px;padding-bottom:40px;width:100%}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:-2;background:#14110d}
+.hero-media .ix-hero-img{position:absolute;top:-10%;left:-6%;width:112%;max-width:none;height:120%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(20,17,13,.45) 0%,rgba(20,17,13,.3) 30%,rgba(20,17,13,.82) 62%,rgba(20,17,13,.96) 100%)}
+.kicker{display:inline-block;align-self:flex-start;background:var(--yel);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:3px}
+.hero h1{font-size:clamp(52px,15vw,112px);margin:18px 0 18px;max-width:9.5em;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:var(--yel);display:block}
+.lead{font-size:18px;max-width:34em;color:#ece6da;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;justify-content:center;align-items:center;padding:15px 22px;border-radius:4px;font-weight:700;text-decoration:none;font-size:17px;transition:background .2s,transform .2s}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:var(--red-d)}
+.btn.ghost{border:2px solid rgba(255,255,255,.85);color:#fff;background:rgba(20,17,13,.3)}
+.btn.ghost:hover{background:#fff;color:var(--ink)}
+.btn.ghost.dark{border-color:var(--ink);color:var(--ink);background:#fff}
+
+.proof{background:var(--ink);color:#fff}
+.proof .wrap{display:grid;grid-template-columns:1fr 1fr;padding:0}
+.proof div div{padding:18px 20px;border-right:1px solid #3a352d;border-bottom:1px solid #3a352d}
+.proof div div:nth-child(2n){border-right:0}
+.proof b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:34px;line-height:1;color:var(--yel)}
+.proof span{font-size:14px;color:#c9c1b2}
+
+section{padding:68px 0}
+.sh{margin-bottom:30px;max-width:40em}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:3px;background:var(--red)}
+h2{font-size:clamp(36px,9vw,60px)}
+.sub{color:var(--soft);margin-top:12px}
+
+.cards{display:grid;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:24px 22px 22px;position:relative}
+.card .no{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:15px;color:var(--red);display:block;margin-bottom:14px;border-bottom:2px solid var(--yel);padding-bottom:6px;width:max-content}
+.card h3{font-size:28px;margin-bottom:8px}
+.card p{color:var(--soft);font-size:16px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips li{border:1px solid var(--ink);border-radius:30px;padding:6px 14px;font-size:15px;font-weight:600}
+
+.jobs{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:0 20px 8px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.strip figure{flex:none;scroll-snap-align:start;background:#fff;padding:8px 8px 10px;border-radius:4px;box-shadow:0 10px 24px -18px rgba(0,0,0,.5)}
+.strip img{height:260px;width:auto;border-radius:2px;object-fit:cover}
+.strip figcaption{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:17px;margin-top:8px}
+@media(min-width:1200px){.strip{padding-left:calc((100vw - 1160px)/2 + 20px);scroll-padding-left:calc((100vw - 1160px)/2 + 20px)}}
+
+.rc-head h2{margin:0}
+.rc-card{border:1px solid var(--line);box-shadow:0 18px 40px -28px rgba(0,0,0,.4)}
+.rc-stars{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:20px;letter-spacing:0}
+.rc-card blockquote{background:none;padding:0;border:0;font-size:1.02rem;color:var(--ink)}
+.rc-nav button:hover{color:#fff}
+
+.about{background:#fff;border-top:1px solid var(--line)}
+.two{display:grid;gap:34px}
+.about p{color:#3b362f;max-width:36em}
+.about p+p{margin-top:14px}
+.about h2{margin-bottom:20px}
+.areas{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px;align-self:start}
+.areas h3{font-size:26px;margin-bottom:14px}
+.areas ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.areas li{padding-left:18px;position:relative;font-weight:600}
+.areas li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;background:var(--red);border-radius:50%}
+@media(max-width:420px){.areas ul{grid-template-columns:1fr}}
+.areas .pc{margin-top:16px;font-size:14px;color:var(--soft);letter-spacing:.04em}
+
+.contact{background:var(--red);color:#fff}
+.contact .eyebrow{color:var(--yel)}
+.contact .eyebrow::before{background:var(--yel)}
+.contact h2{margin-bottom:28px;max-width:12em}
+.cgrid{display:grid;gap:12px}
+.cbig{display:block;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:18px 20px;text-decoration:none}
+.cbig:hover{background:rgba(0,0,0,.3)}
+.cbig small{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+.cbig strong{font-family:"Barlow Condensed",sans-serif;font-size:28px;font-weight:700;word-break:break-word}
+.addr{margin-top:22px;opacity:.9}
+
+footer{background:var(--ink);color:#bdb5a6;padding:28px 0;font-size:14px}
+footer p+p{margin-top:8px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(245,241,232,.97);border-top:1px solid var(--line)}
+.sticky .btn{padding:13px 8px;font-size:16px}
+
+@media(min-width:760px){
+ body{padding-bottom:0}.sticky{display:none}
+ .hero>.wrap{justify-content:center;padding-top:90px;padding-bottom:90px}
+ .hero-shade{background:linear-gradient(90deg,rgba(20,17,13,.9) 0%,rgba(20,17,13,.7) 45%,rgba(20,17,13,.15) 85%),linear-gradient(180deg,rgba(20,17,13,0) 60%,rgba(20,17,13,.6) 100%)}
+ .proof .wrap{grid-template-columns:repeat(4,1fr);padding:0 20px}
+ .proof div div{border-bottom:0;border-right:1px solid #3a352d!important}
+ .proof div div:last-child{border-right:0!important}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .two{grid-template-columns:1.3fr 1fr;align-items:start}
+ .cgrid{grid-template-columns:1fr 1fr 1.4fr}
+ .strip img{height:320px}
+ section{padding:90px 0}
+}
+@media(min-width:1040px){.cards{grid-template-columns:repeat(4,1fr)}}
+</style>
+<style id="ix-style">
+/* Immersive layer: scroll reveals, parallax art, progress bar. Native scrolling, no scroll hijack. */
+html{scroll-behavior:smooth}
+.ix-bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ix-accent,#e8572a);z-index:999;pointer-events:none}
+.ix-on .ix-r{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1);transition-delay:var(--d,0s)}
+.ix-on .ix-r.ix-in{opacity:1;transform:none}
+.ix-on .ix-w{display:inline-block;opacity:0;transform:translate3d(0,.5em,0) rotate(2deg);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.1,1);transition-delay:var(--d,0s)}
+.ix-on.ix-go .ix-w{opacity:1;transform:none}
+.ix-par{will-change:transform}
+.ix-hero-x{min-height:calc(100svh - 120px);display:grid;align-content:center}
+.ix-cue{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.85rem;opacity:.7;text-decoration:none;color:inherit}
+.ix-cue i{width:20px;height:32px;border:2px solid currentColor;border-radius:12px;position:relative}
+.ix-cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:ixcue 1.6s infinite}
+@media(max-width:760px){.ix-cue{display:none}}
+@keyframes ixcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.ix-on a[href^="tel:"],.ix-on a[href^="mailto:"]{transition:transform .25s ease,box-shadow .25s ease}
+.ix-on a[href^="tel:"]:active,.ix-on a[href^="mailto:"]:active{transform:scale(.97)}
+@media (hover:hover){.ix-on a.btn:hover,.ix-on [class*="btn"]:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ix-on .ix-r,.ix-on .ix-w{opacity:1!important;transform:none!important;transition:none!important}.ix-par{transform:none!important}.ix-cue i::after{animation:none}}
+</style>
+<script>(function(r){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('ix-on');setTimeout(function(){if(!window.__ix)r.classList.remove('ix-on')},3000)})(document.documentElement)</script>
+<style id="rc-style">
+.rc{padding:72px 0;background:transparent;color:var(--rc-ink)}
+.rc-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.rc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 20px;margin-bottom:24px}
+.rc-head h2{margin:0;grid-column:1}
+.rc-sum{margin:0;grid-column:1;color:var(--rc-soft)}.rc-sum b{color:var(--rc-ink)}
+.rc-nav{grid-column:2;grid-row:1/3;display:flex;gap:10px}
+.rc-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.rc-nav button:hover{background:var(--rc-accent);border-color:var(--rc-accent);color:#fff}
+.rc-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}
+.rc-track::-webkit-scrollbar{display:none}
+.rc-card{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--rc-card);border-radius:20px;padding:26px;box-shadow:0 18px 40px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px}
+.rc-stars{color:var(--rc-accent);letter-spacing:2px}
+.rc-card blockquote{margin:0;font-size:1.05rem;line-height:1.55;flex:1}
+.rc-card figcaption{display:flex;flex-direction:column;font-size:.9rem}.rc-card figcaption span{color:var(--rc-soft)}
+.rc-dots{display:flex;justify-content:center;gap:8px}
+.rc-dots i{width:8px;height:8px;border-radius:4px;background:currentColor;opacity:.25;transition:width .3s,opacity .3s}
+.rc-dots i.on{width:22px;opacity:.9;background:var(--rc-accent)}
+@media(max-width:560px){.rc-nav{display:none}.rc-head{grid-template-columns:1fr}}
+</style>
+<style>.rc-card{border:1px solid var(--line)}.rc-card blockquote{background:none;padding:0;border:0;font-size:1.02rem;color:var(--ink)}.rc-stars{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:20px;letter-spacing:0}.rc-nav button:hover{color:#fff}</style>
+</head>
+<body>
+<a class="yrb" href="https://yrbnova.com">Concept by YRB Nova - see your website before you pay</a>
+<header class="top"><div class="wrap">
+ <a class="mark" href="#top" aria-label="Hucknall Electrical home"><span class="w1">Hucknall</span><svg class="bolt" width="18" height="30" viewBox="0 0 18 30" aria-hidden="true"><path d="M11 0H3L1 16h6L4 30 17 11h-7z" fill="#ffd500" stroke="#1a1a1a" stroke-width="1.2" stroke-linejoin="round"/></svg><span class="w2">Electrical</span></a>
+ <a class="toptel" href="tel:01159565550"><small>Call the office</small>0115 956 5550</a>
+</div></header>
+
+<main id="top">
+<div class="hero">
+ <div class="hero-media"><img class="ix-hero-img" src="hero.webp" srcset="hero-sm.webp 800w, hero.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Rows of circuit breakers in a consumer unit (stock photo)" fetchpriority="high" decoding="async" style="object-position:55% 50%"></div>
+ <div class="hero-shade" aria-hidden="true"></div>
+ <div class="wrap">
+  <p class="kicker">Electricians in Hucknall &amp; Nottingham &middot; since 2006</p>
+  <h1>From a plug <em>to a rewire.</em></h1>
+  <p class="lead">Alan Richardson and the Hucknall Electrical team look after homes and businesses across Nottingham: fault finding, fuse boards, lighting, alarms and full rewires. NICEIC registered and fully insured.</p>
+  <div class="cta">
+   <a class="btn red" href="tel:07947589929">Call 07947 589929</a>
+   <a class="btn ghost" href="mailto:info@hucknallelectrical.co.uk?subject=Quote%20request">Ask for a free quote</a>
+  </div>
+ </div>
+</div>
+
+<div class="proof"><div class="wrap">
+ <div><b>10/10</b><span>on Checkatrade</span></div>
+ <div><b>157</b><span>Checkatrade reviews</span></div>
+ <div><b>2006</b><span>trading since</span></div>
+ <div><b>NICEIC</b><span>Part P &middot; City &amp; Guilds</span></div>
+</div></div>
+
+<section class="svc" id="services"><div class="wrap">
+ <div class="sh"><p class="eyebrow">What we do</p><h2>Domestic and commercial electrics, sorted properly.</h2></div>
+ <div class="cards">
+  <article class="card"><span class="no">01</span><h3>Rewires</h3><p>Full or partial rewiring for any home or commercial property, finished to Part P regulations.</p></article>
+  <article class="card"><span class="no">02</span><h3>Lighting</h3><p>Downlights, spotlights, LED upgrades and outdoor lighting, sourced, fitted and maintained.</p></article>
+  <article class="card"><span class="no">03</span><h3>Security &amp; emergency lighting</h3><p>Motion sensor security lights mapped to your property, plus emergency lighting that stays on when the mains fails.</p></article>
+  <article class="card"><span class="no">04</span><h3>Alarms &amp; access</h3><p>Fire, smoke and burglar alarms, door access control and intercoms, designed around your building.</p></article>
+ </div>
+ <ul class="chips" aria-label="Other services">
+  <li>Consumer unit upgrades</li><li>Fault finding</li><li>Inspection &amp; testing (EICR)</li><li>PAT testing</li><li>Electric showers</li><li>Smoke alarms</li><li>LED lighting</li>
+ </ul>
+</div></section>
+
+<section class="jobs" id="work"><div class="wrap">
+ <div class="sh"><p class="eyebrow">Recent jobs</p><h2>Straight from the van.</h2><p class="sub">Photos from real Hucknall Electrical jobs. Swipe for more.</p></div>
+</div>
+ <div class="strip" tabindex="0" aria-label="Photos of recent jobs">
+  <figure><img src="job-new-fuseboard.webp" width="600" height="450" alt="Newly fitted fuse board" loading="lazy"><figcaption>New fuse board</figcaption></figure>
+  <figure><img src="job-fuseboard-swap.webp" width="338" height="450" alt="Fuse board swap" loading="lazy"><figcaption>Fuse board swap</figcaption></figure>
+  <figure><img src="job-outdoor-light.webp" width="294" height="450" alt="New outdoor wall light on brickwork" loading="lazy"><figcaption>New outdoor light</figcaption></figure>
+  <figure><img src="job-new-fuseboard-2.webp" width="600" height="450" alt="Another new fuse board installation" loading="lazy"><figcaption>New fuse board</figcaption></figure>
+  <figure><img src="job-socket.webp" width="338" height="450" alt="Upgraded double socket" loading="lazy"><figcaption>Socket upgrade</figcaption></figure>
+  <figure><img src="job-rewire.webp" width="338" height="450" alt="Old wiring found during a rewire" loading="lazy"><figcaption>Rewire</figcaption></figure>
+ </div>
+</section>
+
+<section class="rc" id="reviews" aria-roledescription="carousel" aria-label="Customer reviews" style="--rc-accent:#c8102e;--rc-card:#ffffff;--rc-ink:#1a1a1a;--rc-soft:#6b6459">
+  <div class="rc-wrap">
+    <div class="rc-head">
+      <h2>What customers say</h2>
+      <p class="rc-sum"><b>10/10</b> on Checkatrade from 157 reviews</p>
+      <div class="rc-nav"><button class="rc-prev" type="button" aria-label="Previous review">&#8592;</button><button class="rc-next" type="button" aria-label="Next review">&#8594;</button></div>
+    </div>
+    <div class="rc-track rc-items" tabindex="0">
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="10 out of 10">10/10</div>
+        <blockquote>&ldquo;Called back in 30 seconds with a solution. Amazing!&rdquo;</blockquote>
+        <figcaption><b>Liam P, NG9</b><span>Checkatrade &middot; Nov 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="10 out of 10">10/10</div>
+        <blockquote>&ldquo;I needed a callout as a fuse was tripping and I couldn&rsquo;t identify the cause. They arrived within an hour, quickly identified the fault and resolved it. To do this, some fitted appliances needed to be moved, and they did this with no trouble, as well as moving them very neatly back into place. No mess at all, and they explained the problem and steps being taken at all points.&rdquo;</blockquote>
+        <figcaption><b>Verified reviewer</b><span>Checkatrade &middot; Identify and resolve fault</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="10 out of 10">10/10</div>
+        <blockquote>&ldquo;Superb work, punctual, personable and professional.&rdquo;</blockquote>
+        <figcaption><b>Verified reviewer, DE7</b><span>Checkatrade &middot; May 2026</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="10 out of 10">10/10</div>
+        <blockquote>&ldquo;Quick response to a Friday night call out. Alan resolved an issue with an RCCB that kept tripping and leaving us without socket power. Very professional and answered all my extra questions. I will recommend and will use again for any future electrical work.&rdquo;</blockquote>
+        <figcaption><b>Verified reviewer</b><span>Checkatrade &middot; Fixing issue with tripped RCCB</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="9.5 out of 10">9.5/10</div>
+        <blockquote>&ldquo;Alan and his team were brilliant replacing my 20 year old fuse board and adding a new external fuse board. Alan provided quick responses to emails and gave a competitive quote for the work. All told, the work took about 3 hours to complete and has been done to a very high standard. I&rsquo;ll certainly recommend Alan for any electrical work.&rdquo;</blockquote>
+        <figcaption><b>Verified reviewer</b><span>Checkatrade &middot; Fuse board replacement</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;We have used hucknall electrical for the past 5 years and are very happy with the level of service given. We have had a shower fitted and various other maintenance work the company is reliable and totally trustworthy.&rdquo;</blockquote>
+        <figcaption><b>Mrs Glover</b><span>Customer testimonial</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <blockquote>&ldquo;Hucknall electrical will always be our first choice, All the work has been carried out efficiently and without problems and very tidy too.&rdquo;</blockquote>
+        <figcaption><b>Mr Goodall</b><span>Customer testimonial</span></figcaption>
+      </figure>
+      <figure class="rc-card" aria-roledescription="slide">
+        <div class="rc-stars" aria-label="10 out of 10">10/10</div>
+        <blockquote>&ldquo;Under cabinet lighting, spotlighting, feature lights, switches, sockets and a new fuse board all fitted. Brilliant work, quick and very friendly.&rdquo;</blockquote>
+        <figcaption><b>Verified reviewer</b><span>Checkatrade &middot; New kitchen electrics</span></figcaption>
+      </figure>
+    </div>
+    <div class="rc-dots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="about"><div class="wrap two">
+ <div>
+  <p class="eyebrow">About</p>
+  <h2>Run by Alan since 2006.</h2>
+  <p>Hucknall Electrical was set up in 2006 by Alan Richardson, who has more than 20 years in the trade. The team is City &amp; Guilds qualified, work is backed by NICEIC and by our own guarantees, and every quote is free with no obligation.</p>
+  <p>Landlord? We carry out EICRs and the repairs needed to pass them.</p>
+ </div>
+ <div class="areas">
+  <h3>Where we work</h3>
+  <ul>
+   <li>Hucknall</li><li>Nottingham</li><li>Kirkby-in-Ashfield</li><li>Sutton-in-Ashfield</li><li>Mansfield</li><li>Across Nottinghamshire</li>
+  </ul>
+  <p class="pc">NG5 &middot; NG6 &middot; NG15 &middot; NG16 &middot; NG17</p>
+ </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <p class="eyebrow">Get in touch</p>
+ <h2>Tripping fuse? New kitchen? Call us.</h2>
+ <div class="cgrid">
+  <a class="cbig" href="tel:07947589929"><small>Mobile</small><strong>07947 589929</strong></a>
+  <a class="cbig" href="tel:01159565550"><small>Office</small><strong>0115 956 5550</strong></a>
+  <a class="cbig" href="mailto:info@hucknallelectrical.co.uk?subject=Quote%20request"><small>Email</small><strong>info@hucknallelectrical.co.uk</strong></a>
+ </div>
+ <p class="addr">216 Papplewick Lane, Hucknall, Nottingham NG15 8EH</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <p>&copy; Hucknall Electrical Ltd &middot; Company no. 12516919 &middot; Registered in England and Wales</p>
+ <p>This is a concept homepage made by <a href="https://yrbnova.com">YRB Nova</a> and isn&rsquo;t the official Hucknall Electrical website. Hero image is a stock photo; job photos are from hucknallelectrical.co.uk.</p>
+</div></footer>
+
+<nav class="sticky" aria-label="Quick contact">
+ <a class="btn red" href="tel:07947589929">Call now</a>
+ <a class="btn ghost dark" href="mailto:info@hucknallelectrical.co.uk?subject=Quote%20request">Free quote</a>
+</nav>
+<script id="ix-script">
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('ix-on');window.__ix=1;
+  function ready(f){d.readyState!=='loading'?f():d.addEventListener('DOMContentLoaded',f)}
+  ready(function(){
+    // accent colour from the main call button
+    var tel=d.querySelector('a[href^="tel:"]');
+    if(tel){var bg=getComputedStyle(tel).backgroundColor;if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent')root.style.setProperty('--ix-accent',bg)}
+    var bar=d.createElement('div');bar.className='ix-bar';d.body.appendChild(bar);
+    // hero: the block holding the h1
+    var h1=d.querySelector('h1'),hero=null;
+    if(h1){
+      hero=h1.closest('section,.hero,[class*="hero"]')||h1.parentElement;
+      // split headline words for a staggered entrance
+      var walk=function(n){
+        Array.prototype.slice.call(n.childNodes).forEach(function(c){
+          if(c.nodeType===3&&c.textContent.trim()){
+            var f=d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(p){
+              if(!p)return; if(/^\s+$/.test(p)){f.appendChild(d.createTextNode(p));return}
+              var s=d.createElement('span');s.className='ix-w';s.textContent=p;f.appendChild(s)});
+            n.replaceChild(f,c);
+          } else if(c.nodeType===1&&!/^(BR|SVG)$/i.test(c.tagName)) walk(c);
+        });
+      };
+      walk(h1);
+      h1.querySelectorAll('.ix-w').forEach(function(w,i){w.style.setProperty('--d',(0.08+i*0.06).toFixed(2)+'s')});
+      // scroll cue under the hero buttons
+      var btnRow=hero.querySelector('[class*="cta"],[class*="actions"],[class*="buttons"]');
+      if(btnRow&&!hero.querySelector('.ix-cue')){var cue=d.createElement('a');cue.className='ix-cue';cue.href='#ix-next';cue.innerHTML='<i></i>Scroll';btnRow.parentNode.appendChild(cue)}
+    }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ix-go')})});
+    // mark next section for the cue
+    var secs=Array.prototype.slice.call(d.querySelectorAll('main section, body > section, section'));
+    var next=secs.filter(function(s){return hero&&!s.contains(h1)&&(hero.compareDocumentPosition(s)&4)})[0];
+    if(next&&!next.id)next.id='ix-next'; else if(next&&next.id){var c2=d.querySelector('.ix-cue');if(c2)c2.href='#'+next.id}
+    // parallax art inside the hero
+    var art=hero?Array.prototype.slice.call(hero.querySelectorAll('svg,.ix-hero-img')).filter(function(s){return s.getBoundingClientRect().width>120}):[];
+    art.forEach(function(a){a.classList.add('ix-par')});
+    // reveal targets: section headings, paragraphs, cards and grid children (outside the hero)
+    var sel='h2,h3,p,ul,ol,dl,table,blockquote,figure,form,[class*="card"],[class*="grid"]>*,[class*="item"],[class*="step"],[class*="stat"]';
+    var seen=[];
+    secs.concat(Array.prototype.slice.call(d.querySelectorAll('footer'))).forEach(function(s){
+      if(hero&&(s===hero||hero.contains(s)||s.contains(h1)))return;
+      s.querySelectorAll(sel).forEach(function(el){
+        if(el.closest('[class*="sticky"]')||el.closest('.ix-r'))return;
+        if(seen.indexOf(el)>-1)return; seen.push(el);
+        el.classList.add('ix-r');
+        var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+        el.style.setProperty('--d',Math.min(sib*0.08,0.4).toFixed(2)+'s');
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window)){seen.forEach(function(e){e.classList.add('ix-in')})}
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ix-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      seen.forEach(function(e){io.observe(e)});
+    }
+    // safety: never leave content hidden
+    setTimeout(function(){seen.forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight)e.classList.add('ix-in')})},2500);
+    // scroll-driven: progress bar + hero parallax
+    var tick=false;
+    function frame(){
+      tick=false;
+      var y=scrollY,max=Math.max(1,d.documentElement.scrollHeight-innerHeight);
+      bar.style.transform='scaleX('+(y/max).toFixed(4)+')';
+      if(!reduce&&y<innerHeight*1.4){art.forEach(function(a,i){a.style.transform='translate3d(0,'+(y*(0.12+i*0.05)).toFixed(1)+'px,0) rotate('+(y*0.004).toFixed(2)+'deg)'})}
+    }
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  });
+})();
+</script>
+<script id="rc-script">
+(function(){
+  document.querySelectorAll('.rc').forEach(function(rc){
+    var t=rc.querySelector('.rc-track'),cards=t.querySelectorAll('.rc-card'),dots=rc.querySelector('.rc-dots');
+    if(!cards.length)return;
+    cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+    var di=dots.querySelectorAll('i'),cur=0,paused=false;
+    function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:t.clientWidth}
+    function go(i){cur=(i+cards.length)%cards.length;t.scrollTo({left:cards[cur].offsetLeft-cards[0].offsetLeft,behavior:'smooth'})}
+    function sync(){cur=Math.round(t.scrollLeft/step());di.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+    t.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+    var p=rc.querySelector('.rc-prev'),n=rc.querySelector('.rc-next');
+    if(p)p.onclick=function(){paused=true;go(cur-1)};
+    if(n)n.onclick=function(){paused=true;go(cur+1)};
+    ['pointerdown','touchstart','focusin','mouseenter'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&cards.length>1)setInterval(function(){if(!paused&&!document.hidden&&t.getBoundingClientRect().top<innerHeight)go(cur+1)},6000);
+    sync();
+  });
+})();
+</script>
+</body>
+</html>
