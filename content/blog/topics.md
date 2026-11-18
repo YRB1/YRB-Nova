@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] How to write a services page that gets enquiries (with a concept-site walkthrough)
 - [ ] Do I need a privacy policy and cookie banner on my small business website? (UK)
 - [ ] Reviews on your website: how to show them honestly and why it matters
 - [ ] Local SEO for Leicester businesses: the basics that actually move the needle
@@ -26,6 +25,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-18: How to Write a Services Page That Gets Enquiries (UK Guide) (how-to-write-a-services-page)
 - [x] 2026-11-17: Why Is My Website Slow on Phones? The 5 Usual Culprits (why-is-my-website-slow-on-phones)
 - [x] 2026-11-16: AI Receptionist for a One-Person Business: How It Works (UK) (ai-receptionist-for-one-person-business)
 - [x] 2026-11-14: How to Take Deposits Online and Cut No-Shows (UK Guide) (taking-deposits-to-stop-no-shows)
