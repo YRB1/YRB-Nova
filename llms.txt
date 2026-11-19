@@ -30,6 +30,7 @@
 ## Blog
 
 <!-- AUTO-POSTS:START -->
+- [Do I Need a Privacy Policy and Cookie Banner? (UK Guide)](https://yrbnova.com/blog/privacy-policy-and-cookie-banner-uk.html): Got a contact form or booking page? Here's what UK law expects from a small business website on privacy policies and cookie banners, including the 2026 changes.
 - [How to Write a Services Page That Gets Enquiries (UK Guide)](https://yrbnova.com/blog/how-to-write-a-services-page.html): Most services pages list what you do and stop there. Here's how to write one that answers the real questions and gets people to call, with examples.
 - [Why Is My Website Slow on Phones? The 5 Usual Culprits](https://yrbnova.com/blog/why-is-my-website-slow-on-phones.html): Your site loads fine on the office wifi and crawls on a phone. Here are the five usual reasons, how to test it for free, and what to fix first.
 - [AI Receptionist for a One-Person Business: How It Works (UK)](https://yrbnova.com/blog/ai-receptionist-for-one-person-business.html): Missed calls while you're on a job? Here's how an AI receptionist answers, books and passes on urgent calls, what it costs, and when it isn't worth it.
