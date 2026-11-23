@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] What a website for a mobile car valeting business needs (OTR Detailing breakdown)
 - [ ] What a website for a hair stylist needs (Styled By KY breakdown)
 - [ ] How to show up in ChatGPT and AI search results as a local business
 - [ ] Template website vs custom website: honest pros and cons
@@ -22,6 +21,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] What happens after your website goes live (the bit nobody tells you)
 
 ## Done
+- [x] 2026-11-23: What a Mobile Car Valeting Website Needs (Real UK Example) (mobile-car-valeting-website)
 - [x] 2026-11-21: Local SEO for Leicester Businesses: The Basics That Work (local-seo-leicester)
 - [x] 2026-11-20: How to Show Reviews on Your Website Honestly (UK Guide) (how-to-show-reviews-on-your-website)
 - [x] 2026-11-19: Do I Need a Privacy Policy and Cookie Banner? (UK Guide) (privacy-policy-and-cookie-banner-uk)
