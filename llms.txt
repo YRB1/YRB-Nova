@@ -30,6 +30,7 @@
 ## Blog
 
 <!-- AUTO-POSTS:START -->
+- [What a Hair Stylist Website Needs (Real UK Example)](https://yrbnova.com/blog/hair-stylist-website.html): A page-by-page look at what a hair stylist website needs, using the real site we built for Styled By KY in Derby. Prices, booking, deposits and rules.
 - [What a Mobile Car Valeting Website Needs (Real UK Example)](https://yrbnova.com/blog/mobile-car-valeting-website.html): A page-by-page breakdown of a mobile car valeting website, using the real site we built for OTR Detailing in Coventry. Prices, photos, areas and booking.
 - [Local SEO for Leicester Businesses: The Basics That Work](https://yrbnova.com/blog/local-seo-leicester.html): Plain-English local SEO for Leicester and Leicestershire businesses: what Google looks at, area pages, matching details, local links and a checklist.
 - [How to Show Reviews on Your Website Honestly (UK Guide)](https://yrbnova.com/blog/how-to-show-reviews-on-your-website.html): Reviews only work if people believe them. How to show real reviews on your small business website, what the UK fake review rules mean, and where to put them.
