@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] How to show up in ChatGPT and AI search results as a local business
 - [ ] Template website vs custom website: honest pros and cons
 - [ ] Domain names, hosting and email explained in plain English
 - [ ] How to brief a web designer (so you get what you actually want)
@@ -18,8 +17,19 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] Website mistakes we see in every free audit
 - [ ] How long does it take to build a small business website?
 - [ ] What happens after your website goes live (the bit nobody tells you)
+- [ ] Roofer website must-haves (with our Summit and Slate concept site)
+- [ ] Physio and sports massage clinic websites: booking, fees and trust
+- [ ] Dentist website checklist: fees pages, treatments and new patients
+- [ ] Vet practice websites: emergencies, fees and registering new pets
+- [ ] Gym and personal trainer websites: memberships, classes and sign-ups
+- [ ] How to write an FAQ page that answers what customers actually ask
+- [ ] What is a Google Business Profile post and is it worth doing?
+- [ ] Contact form vs WhatsApp button vs phone: which gets more enquiries?
+- [ ] How to write an About page for a one-person business
+- [ ] Location pages for businesses that cover several towns (without spam)
 
 ## Done
+- [x] 2026-11-25: How to Show Up in ChatGPT and AI Search as a Local Business (chatgpt-ai-search-local-business)
 - [x] 2026-11-24: What a Hair Stylist Website Needs (Real UK Example) (hair-stylist-website)
 - [x] 2026-11-23: What a Mobile Car Valeting Website Needs (Real UK Example) (mobile-car-valeting-website)
 - [x] 2026-11-21: Local SEO for Leicester Businesses: The Basics That Work (local-seo-leicester)
