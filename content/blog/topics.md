@@ -3,7 +3,6 @@
 Take the first unticked topic. Topics can be reworded to target the phrase people actually search. Add new ideas at the bottom when the list gets short (aim to keep 20+ queued).
 
 ## Queue
-- [ ] Template website vs custom website: honest pros and cons
 - [ ] Domain names, hosting and email explained in plain English
 - [ ] How to brief a web designer (so you get what you actually want)
 - [ ] The five pages every small business website needs (and the ones it doesn't)
@@ -29,6 +28,7 @@ Take the first unticked topic. Topics can be reworded to target the phrase peopl
 - [ ] Location pages for businesses that cover several towns (without spam)
 
 ## Done
+- [x] 2026-11-26: Template vs Custom Website: Honest Pros and Cons (UK) (template-vs-custom-website)
 - [x] 2026-11-25: How to Show Up in ChatGPT and AI Search as a Local Business (chatgpt-ai-search-local-business)
 - [x] 2026-11-24: What a Hair Stylist Website Needs (Real UK Example) (hair-stylist-website)
 - [x] 2026-11-23: What a Mobile Car Valeting Website Needs (Real UK Example) (mobile-car-valeting-website)

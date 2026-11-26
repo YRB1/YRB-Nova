@@ -30,6 +30,7 @@
 ## Blog
 
 <!-- AUTO-POSTS:START -->
+- [Template vs Custom Website: Honest Pros and Cons (UK)](https://yrbnova.com/blog/template-vs-custom-website.html): Template website or custom build? The real pros and cons for UK small businesses, what each costs over time, and how to pick, from a studio that uses both.
 - [How to Show Up in ChatGPT and AI Search as a Local Business](https://yrbnova.com/blog/chatgpt-ai-search-local-business.html): Want ChatGPT and Google's AI answers to mention your business? What Google and OpenAI actually say, what to fix on your site, and what to ignore.
 - [What a Hair Stylist Website Needs (Real UK Example)](https://yrbnova.com/blog/hair-stylist-website.html): A page-by-page look at what a hair stylist website needs, using the real site we built for Styled By KY in Derby. Prices, booking, deposits and rules.
 - [What a Mobile Car Valeting Website Needs (Real UK Example)](https://yrbnova.com/blog/mobile-car-valeting-website.html): A page-by-page breakdown of a mobile car valeting website, using the real site we built for OTR Detailing in Coventry. Prices, photos, areas and booking.
